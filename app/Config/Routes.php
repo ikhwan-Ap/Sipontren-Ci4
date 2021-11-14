@@ -59,6 +59,14 @@ $routes->delete('/program/(:num)', 'Program::delete/$1');
 $routes->get('/program/edit/(:any)', 'Program::edit/$1');
 $routes->put('/program/(:any)', 'Program::update/$1');
 
+// gedung
+$routes->get('/gedung', 'Gedung::index');
+$routes->get('/gedung/add', 'Gedung::create');
+$routes->post('/gedung', 'gedung::save');
+$routes->delete('/gedung/(:num)', 'Gedung::delete/$1');
+$routes->get('/gedung/edit/(:any)', 'Gedung::edit/$1');
+$routes->put('/gedung/(:any)', 'Gedung::update/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
