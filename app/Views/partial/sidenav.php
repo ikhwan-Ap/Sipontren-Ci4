@@ -15,7 +15,9 @@
             <li class="nav-item dropdown <?= ($title == "Admin") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i> <span>Master Data</span></a>
                 <ul class="dropdown-menu">
-                    <li class="<?= ($title == "Admin") ? 'active' : ''; ?>"><a class="nav-link" href="/admin">Admin</a></li>
+                    <?php if (session()->get('role') == 1) : ?>
+                        <li class="<?= ($title == "Admin") ? 'active' : ''; ?>"><a class="nav-link" href="/admin">Admin</a></li>
+                    <?php endif; ?>
                     <li><a class="nav-link" href="">Santri</a></li>
                     <li><a class="nav-link" href="">Level Diniyah</a></li>
                     <li><a class="nav-link" href="">Program</a></li>

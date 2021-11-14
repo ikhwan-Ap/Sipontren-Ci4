@@ -34,12 +34,17 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 $routes->get('/login/admin', 'Login::admin');
 
-// dashboard
+// dashboard admin / super admin
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
 
 // admin
 $routes->get('/admin', 'Admin::index');
-$routes->get('/admin/add', 'Admin::add');
+$routes->get('/admin/add', 'Admin::create');
+$routes->post('/admin', 'Admin::save');
+$routes->delete('/admin/(:num)', 'Admin::delete/$1');
+$routes->get('/admin/edit/(:any)', 'Admin::edit/$1');
+$routes->put('/admin/(:any)', 'Admin::update/$1');
+$routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 
 /*
  * --------------------------------------------------------------------

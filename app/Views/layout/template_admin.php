@@ -54,13 +54,15 @@
     <script src="<?= base_url() ?>/js/stisla.js"></script>
 
     <!-- JS Libraies -->
+    <script src="<?= base_url() ?>/js/prism.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url() ?>/js/scripts.js"></script>
     <script src="<?= base_url() ?>/js/custom.js"></script>
-    <script src="<?= base_url() ?>/js/datatables-simple-demo.js"></script>
 
     <!-- Page Specific JS File -->
+    <script src="<?= base_url() ?>/js/bootstrap-modal.js"></script>
+
 </body>
 
 </html>
