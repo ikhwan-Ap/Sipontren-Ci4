@@ -51,6 +51,14 @@ $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 
 $routes->get('/asatidz', 'asatidz::index');
 
+// program
+$routes->get('/program', 'Program::index');
+$routes->get('/program/add', 'Program::create');
+$routes->post('/program', 'Program::save');
+$routes->delete('/program/(:num)', 'Program::delete/$1');
+$routes->get('/program/edit/(:any)', 'Program::edit/$1');
+$routes->put('/program/(:any)', 'Program::update/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
