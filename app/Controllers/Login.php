@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AdminModel;
+use App\Models\AsatidzModel;
 
 class Login extends BaseController
 {
@@ -106,5 +107,73 @@ class Login extends BaseController
                       </div>
                     </div>');
         return redirect()->to('login/admin')->withInput();
+    }
+
+    public function asatidz()
+    {
+        if (session('username')) {
+            return redirect()->to('dashboard');
+        }
+        return view(
+            'login/asatidz',
+            [
+                'validation' => \Config\Services::validation(),
+            ]
+        );
+    }
+    public function loginasatidz()
+    {
+        if (!$this->validate(
+            [
+                'username' => [
+                    'required',
+                    'errors' => [
+                        'required' => 'username harus di isi'
+
+                    ]
+                ],
+
+                'password' => [
+                    'required',
+                    'errors' => [
+                        'required' => 'password harus di isi'
+                    ]
+                ]
+            ]
+        )) {
+            return redirect()->to('login/asatidz')->withInput();
+        }
+        $asatidzModel = new AsatidzModel();
+        $username = $this->request->getVar('username');
+        $password = $this->request->getVar('password');
+        $dataAsatidz = $asatidzModel->getLogin($username);
+        if (!empty($dataAsatidz)) {
+            if (password_verify($password, $dataAsatidz['password'])) {
+                session()->set([
+                    'username' => $dataAsatidz['username'],
+                    'nama_lengkap' => $dataAsatidz['nama_lengkap'],
+                ]);
+            } else {
+                session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Cek username atau password!
+                      </div>
+                    </div>');
+                return redirect()->to('login/asatidz')->withInput();
+            }
+        } else {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Cek username atau password!
+                      </div>
+                    </div>');
+            return redirect()->to('login/asatidz')->withInput();
+        }
     }
 }

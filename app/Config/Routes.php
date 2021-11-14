@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Login::index');
 $routes->get('/login/admin', 'Login::admin');
+$routes->get('/login/asatidz', 'Login::asatidz');
 
 // dashboard admin / super admin
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
@@ -45,6 +46,10 @@ $routes->delete('/admin/(:num)', 'Admin::delete/$1');
 $routes->get('/admin/edit/(:any)', 'Admin::edit/$1');
 $routes->put('/admin/(:any)', 'Admin::update/$1');
 $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
+
+// asatidz
+
+$routes->get('/asatidz', 'asatidz::index');
 
 /*
  * --------------------------------------------------------------------
