@@ -59,6 +59,14 @@ $routes->delete('/program/(:num)', 'Program::delete/$1');
 $routes->get('/program/edit/(:any)', 'Program::edit/$1');
 $routes->put('/program/(:any)', 'Program::update/$1');
 
+// kelas
+$routes->get('/kelas', 'Kelas::index');
+$routes->get('/kelas/add', 'Kelas::create');
+$routes->post('/kelas', 'Kelas::save');
+$routes->delete('/kelas/(:num)', 'Kelas::delete/$1');
+$routes->get('/kelas/edit/(:any)', 'Kelas::edit/$1');
+$routes->put('/kelas/(:any)', 'Kelas::update/$1');
+
 // gedung
 $routes->get('/gedung', 'Gedung::index');
 $routes->get('/gedung/add', 'Gedung::create');
