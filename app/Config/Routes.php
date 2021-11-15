@@ -59,6 +59,14 @@ $routes->delete('/program/(:num)', 'Program::delete/$1');
 $routes->get('/program/edit/(:any)', 'Program::edit/$1');
 $routes->put('/program/(:any)', 'Program::update/$1');
 
+// kamar
+$routes->get('/kamar', 'Kamar::index');
+$routes->get('/kamar/add', 'Kamar::create');
+$routes->post('/kamar', 'Kamar::save');
+$routes->delete('/kamar/(:num)', 'Kamar::delete/$1');
+$routes->get('/kamar/edit/(:any)', 'Kamar::edit/$1');
+$routes->put('/kamar/(:any)', 'Kamar::update/$1');
+
 // kelas
 $routes->get('/kelas', 'Kelas::index');
 $routes->get('/kelas/add', 'Kelas::create');

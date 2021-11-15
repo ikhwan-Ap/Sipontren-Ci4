@@ -12,7 +12,7 @@
                 <a href="/dashboard" class="nav-link"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
             </li>
 
-            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Data Program" || $title == "Data Kelas" || $title == "Data Gedung") ? 'active' : ''; ?>">
+            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Data Program" || $title == "Data Kamar" || $title == "Data Kelas" || $title == "Data Gedung") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i> <span>Master Data</span></a>
                 <ul class="dropdown-menu">
                     <?php if (session()->get('role') == 1) : ?>
@@ -22,7 +22,7 @@
                     <li><a class="nav-link" href="">Level Diniyah</a></li>
                     <li class="<?= ($title == "Data Program") ? 'active' : ''; ?>"><a class="nav-link" href="/program">Program</a></li>
                     <li><a class="nav-link" href="">Asatidz</a></li>
-                    <li><a class="nav-link" href="">Kamar</a></li>
+                    <li class="<?= ($title == "Data Kamar") ? 'active' : ''; ?>"><a class="nav-link" href="/kamar">Kamar</a></li>
                     <li class="<?= ($title == "Data Kelas") ? 'active' : ''; ?>"><a class="nav-link" href="/kelas">Kelas</a></li>
                     <li class="<?= ($title == "Data Gedung") ? 'active' : ''; ?>"><a class="nav-link" href="/gedung">Gedung</a></li>
                     <li><a class="nav-link" href="">Alumni</a></li>
