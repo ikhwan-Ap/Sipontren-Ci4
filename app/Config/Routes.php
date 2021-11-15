@@ -51,6 +51,14 @@ $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 
 $routes->get('/asatidz', 'asatidz::index');
 
+// diniyah
+$routes->get('/diniyah', 'Diniyah::index');
+$routes->get('/diniyah/add', 'Diniyah::create');
+$routes->post('/diniyah', 'Diniyah::save');
+$routes->delete('/diniyah/(:num)', 'Diniyah::delete/$1');
+$routes->get('/diniyah/edit/(:any)', 'Diniyah::edit/$1');
+$routes->put('/diniyah/(:any)', 'Diniyah::update/$1');
+
 // program
 $routes->get('/program', 'Program::index');
 $routes->get('/program/add', 'Program::create');
