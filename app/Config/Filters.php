@@ -64,7 +64,11 @@ class Filters extends BaseConfig
         'isLoggedIn' => [
             'before' => [
                 'admin',
-                'admin/*'
+                'admin/*',
+                'program',
+                'program/*',
+                'gedung',
+                'gedung/*',
             ]
         ]
     ];
