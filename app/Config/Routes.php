@@ -23,6 +23,7 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -37,6 +38,7 @@ $routes->get('/login/asatidz', 'Login::asatidz');
 
 // dashboard admin / super admin
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
+$routes->get('/dashboard/asatidz', 'Dashboard::asatidz', ['filter' => 'isLoggedIn']);
 
 // admin
 $routes->get('/admin', 'Admin::index');
@@ -49,7 +51,10 @@ $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 
 // asatidz
 
-$routes->get('/asatidz', 'asatidz::index');
+$routes->get('/asatidz', 'Asatidz::index');
+$routes->get('/asatidz/profil/(:num)', 'Asatidz::profil/$1');
+$routes->get('/asatidz/layout', 'Asatidz::template');
+
 
 /*
  * --------------------------------------------------------------------

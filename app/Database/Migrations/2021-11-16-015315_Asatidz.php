@@ -4,6 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
+
 class Asatidz extends Migration
 {
     public function up()
@@ -43,6 +44,14 @@ class Asatidz extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'email'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'no_hp'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
             'program'       => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
@@ -51,9 +60,43 @@ class Asatidz extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'jadwal'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'kelas'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'total_santri'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'pertemuan'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'pendidikan'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'foto'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null' => TRUE
+            ],
             'alamat'       => [
                 'type'       => 'TEXT',
             ],
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => TRUE
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => TRUE
+            ]
+
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('asatidz');

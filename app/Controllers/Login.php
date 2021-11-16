@@ -112,7 +112,7 @@ class Login extends BaseController
     public function asatidz()
     {
         if (session('username')) {
-            return redirect()->to('dashboard');
+            return redirect()->to('dashboard/asatidz');
         }
         return view(
             'login/asatidz',
@@ -153,6 +153,7 @@ class Login extends BaseController
                     'username' => $dataAsatidz['username'],
                     'nama_lengkap' => $dataAsatidz['nama_lengkap'],
                 ]);
+                return redirect()->to('dashboard/asatidz');
             } else {
                 session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
                       <div class="alert-body">
