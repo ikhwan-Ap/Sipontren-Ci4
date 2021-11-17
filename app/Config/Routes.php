@@ -36,6 +36,11 @@ $routes->get('/', 'Login::index');
 $routes->get('/login/admin', 'Login::admin');
 $routes->get('/login/asatidz', 'Login::asatidz');
 
+// register
+$routes->get('/register', 'Register::index');
+$routes->post('/register', 'Register::create');
+
+
 // dashboard admin / super admin
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
 $routes->get('/dashboard/asatidz', 'Dashboard::asatidz', ['filter' => 'isLoggedIn']);

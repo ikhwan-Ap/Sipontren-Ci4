@@ -12,12 +12,13 @@
                 <a href="/dashboard" class="nav-link"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
             </li>
 
-            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Data Diniyah" || $title == "Data Program" || $title == "Data Kamar" || $title == "Data Kelas" || $title == "Data Gedung") ? 'active' : ''; ?>">
+            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Pendaftaran Santri Baru" || $title == "Data Diniyah" || $title == "Data Program" || $title == "Data Kamar" || $title == "Data Kelas" || $title == "Data Gedung") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i> <span>Master Data</span></a>
                 <ul class="dropdown-menu">
                     <?php if (session()->get('role') == 1) : ?>
                         <li class="<?= ($title == "Admin") ? 'active' : ''; ?>"><a class="nav-link" href="/admin">Admin</a></li>
                     <?php endif; ?>
+                    <li class="<?= ($title == "Pendaftaran Santri Baru") ? 'active' : ''; ?>"><a class="nav-link" href="/pendaftaran">Pendaftaran Santri Baru</a></li>
                     <li><a class="nav-link" href="">Santri</a></li>
                     <li><a class="nav-link" href="">Asatidz</a></li>
                     <li><a class="nav-link" href="">Alumni</a></li>

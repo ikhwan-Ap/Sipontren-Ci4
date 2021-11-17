@@ -9,7 +9,9 @@ class Login extends BaseController
 {
     public function index()
     {
-        return view('login/user');
+        return view('login/user', [
+            'title' => 'Login Santri'
+        ]);
     }
 
     public function login()
@@ -29,6 +31,7 @@ class Login extends BaseController
         }
 
         return view('login/admin', [
+            'title' => 'Login Admin',
             'validation' => \Config\Services::validation(),
         ]);
     }
