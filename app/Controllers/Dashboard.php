@@ -32,4 +32,12 @@ class Dashboard extends BaseController
         ];
         return view('dashboard/asatidz', $data);
     }
+    public function santri()
+    {
+        $data = [
+            'title' => 'Dashboard',
+            // 'totalAdmin' => $this->asatidzModel->where('id=id')->countAllResults(),
+        ];
+        return view('dashboard/santri', $data);
+    }
 }

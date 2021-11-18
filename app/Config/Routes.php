@@ -39,6 +39,7 @@ $routes->get('/login/asatidz', 'Login::asatidz');
 // dashboard admin / super admin
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
 $routes->get('/dashboard/asatidz', 'Dashboard::asatidz', ['filter' => 'isLoggedIn']);
+$routes->get('/dashboard/santri', 'Dashboard::santri', ['filter' => 'isLoggedIn']);
 
 // admin
 $routes->get('/admin', 'Admin::index');
@@ -55,6 +56,8 @@ $routes->get('/asatidz', 'Asatidz::index');
 $routes->get('/asatidz/profil/(:num)', 'Asatidz::profil/$1');
 $routes->get('/asatidz/layout', 'Asatidz::template');
 
+// santri
+$routes->get('/santri', 'Santri::index');
 
 // diniyah
 $routes->get('/diniyah', 'Diniyah::index');

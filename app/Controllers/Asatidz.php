@@ -12,6 +12,7 @@ class Asatidz extends BaseController
         if (session()->get('username')) {
             return redirect()->to('dashboard/asatidz');
         }
+        $fotoasatidz = $this->asatidzModel->where('username', session()->get('foto'))->first();
     }
 
     public function index()
@@ -102,7 +103,8 @@ class Asatidz extends BaseController
                 ],
             ]
         )) {
-            return redirect()->to('/asatidz/profil')->withInput();
+
+            return redirect()->to('/asatidz/profil/' . $this->request->getVar('username'))->withInput();
         }
 
         // $fileFoto = $this->request->getFile('foto');
@@ -119,6 +121,7 @@ class Asatidz extends BaseController
         $this->asatidzModel->save(
 
             [
+                'id' => $this->request->getVar('id'),
                 'nama_lengkap' => $this->request->getVar('nama_lengkap'),
                 'no_hp' => $this->request->getVar('no_hp'),
                 'tempat_lahir' => $this->request->getVar('tempat_lahir'),

@@ -28,10 +28,10 @@
             <div class="navbar-bg"></div>
 
             <!-- Topnav -->
-            <?= $this->include('partial/topnavasatidz'); ?>
+            <?= $this->include('partial/topnavsantri'); ?>
 
             <!-- Sidenav -->
-            <?= $this->include('partial/sidenavastatidz'); ?>
+            <?= $this->include('partial/sidenavsantri'); ?>
 
             <!-- Main Content -->
             <div class="main-content">

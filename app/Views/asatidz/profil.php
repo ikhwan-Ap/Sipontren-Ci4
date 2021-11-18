@@ -5,16 +5,14 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
     </div>
-
     <?= session()->getFlashdata('message'); ?>
-
     <div class="section-body">
         <div class="card">
             <div class="card-body">
                 <form action="/asatidz/editprofil" method="POST">
                     <?= csrf_field(); ?>
+                    <input type="hidden" name="id" value="<?= $asatidz['id']; ?>">
                     <div class="section-body">
-
                         <div class="row">
                             <div class="col-12 col-md-6 col-lg-6">
                                 <div class="card">
@@ -29,7 +27,7 @@
                                                     <div class="col-sm-9">
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input" id="foto" name="foto" onchange="previewImg()">
-                                                            <label class="custom-file-label" for="foto"></label>
+                                                            <label class="custom-file-label" for="foto"><?= $asatidz['foto']; ?></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -38,9 +36,7 @@
                                         <div class="form-group">
                                             <label>Nama</label>
                                             <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" value="<?= (old('nama_lengkap')) ? old('nama_lengkap') : $asatidz['nama_lengkap']; ?>">
-
                                         </div>
-
                                         <div class=" form-group">
                                             <label>Phone Number</label>
                                             <div class="input-group">
@@ -149,10 +145,9 @@
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
         </div>
-    </div>
     </div>
 </section>
 <?= $this->endSection(); ?>

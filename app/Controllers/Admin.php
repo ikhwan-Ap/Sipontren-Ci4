@@ -103,7 +103,6 @@ class Admin extends BaseController
 
     public function delete($id)
     {
-        $this->model->delete($id);
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                       <div class="alert-body">
                         <button class="close" data-dismiss="alert">
