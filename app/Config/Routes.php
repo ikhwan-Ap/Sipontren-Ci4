@@ -39,7 +39,10 @@ $routes->get('/login/asatidz', 'Login::asatidz');
 // register
 $routes->get('/register', 'Register::index');
 $routes->post('/register', 'Register::create');
+$routes->get('/register/santri', 'Register::santri', ['filter' => 'isRegister']);
 
+// pendaftaran santri baru
+$routes->delete('/pendaftaran/(:num)', 'Pendaftaran::delete/$1');
 
 // dashboard admin / super admin
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
@@ -63,6 +66,7 @@ $routes->get('/asatidz/layout', 'Asatidz::template');
 
 // santri
 $routes->get('/santri', 'Santri::index');
+$routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
 
 // diniyah
 $routes->get('/diniyah', 'Diniyah::index');

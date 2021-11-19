@@ -120,6 +120,7 @@ class Login extends BaseController
         return view(
             'login/asatidz',
             [
+                'title' => 'Login Asatidz',
                 'validation' => \Config\Services::validation(),
             ]
         );

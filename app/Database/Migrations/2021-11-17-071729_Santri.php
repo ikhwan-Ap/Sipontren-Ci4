@@ -134,8 +134,13 @@ class Santri extends Migration
             ],
             'created_at'       => [
                 'type'       => 'timestamp',
+                'null' => true,
             ],
             'updated_at'       => [
+                'type'       => 'timestamp',
+                'null' => true,
+            ],
+            'deleted_at'       => [
                 'type'       => 'timestamp',
                 'null' => true,
             ],
