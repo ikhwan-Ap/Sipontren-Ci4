@@ -15,4 +15,9 @@ class OrangtuaModel extends Model
         'penghasilan_ortu_perbulan',
         'pekerjaan_ortu',
     ];
+
+    public function getID()
+    {
+        return $this->db->insertID();
+    }
 }

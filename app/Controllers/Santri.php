@@ -8,21 +8,26 @@ class Santri extends BaseController
 {
     public function __construct()
     {
+<<<<<<< HEAD
         $this->santriModel = new SantriModel();
+=======
+        $this->santri = new SantriModel();
+    }
+>>>>>>> 67bdac01758eccc20981040c60c1fe6293cd0eb9
 
         // $fotosantri = $this->santriModel->where('username', session()->get('foto'))->first();
     }
     public function index()
     {
-
         $data = [
-            'title' => 'santri',
-
-            // 'admin' => $this->model->where('role', 2)->findAll(),
+            'title' => 'Data Santri',
+            'santri' => $this->santri->getSantriActive(),
+            'santriNon' => $this->santri->getSantriNonActive(),
         ];
 
         return view('santri/index', $data);
     }
+<<<<<<< HEAD
     public function profil()
     {
         $data = [
@@ -149,5 +154,16 @@ class Santri extends BaseController
             'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
         ];
         return view('santri/biodata', $data);
+=======
+
+    public function detail($id)
+    {
+        $data = [
+            'title' => 'Detail Data Santri',
+            'santri' => $this->santri->where('id_santri', $id)->first()
+        ];
+
+        return view('santri/detail', $data);
+>>>>>>> 67bdac01758eccc20981040c60c1fe6293cd0eb9
     }
 }
