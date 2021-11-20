@@ -4,23 +4,6 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-<<<<<<< HEAD
-class AsatidzModel extends Model
-{
-    protected $table            = 'asatidz';
-    protected $primaryKey       = 'id';
-    protected $allowedFields    = [
-        'username', 'email', 'password', 'alamat', 'jenis_kelamin',
-        'nik_ktp', 'no_kk', 'nama_lengkap', 'tempat_lahir', 'program',
-        'jadwal', 'kelas', 'pendidikan', 'foto'
-    ];
-
-
-
-    public function getLogin($username)
-    {
-        return $this->db->table($this->table)->getWhere(['username' => $username])->getRowArray();
-=======
 class SantriModel extends Model
 {
     protected $table            = 'santri';
@@ -42,6 +25,9 @@ class SantriModel extends Model
         $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
         $query = $builder->get();
         return $query->getResultArray();
->>>>>>> f83aa9a14818611b92c5a4de1fe22322018ae33c
+    }
+    public function getLogin($nis)
+    {
+        return $this->db->table($this->table)->getWhere(['nis' => $nis])->getRowArray();
     }
 }

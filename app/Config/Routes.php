@@ -35,6 +35,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 $routes->get('/login/admin', 'Login::admin');
 $routes->get('/login/asatidz', 'Login::asatidz');
+$routes->get('/login/santri', 'Login::santri');
+
 
 // register
 $routes->get('/register', 'Register::index');
@@ -45,6 +47,7 @@ $routes->post('/register', 'Register::create');
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
 $routes->get('/dashboard/asatidz', 'Dashboard::asatidz', ['filter' => 'isLoggedIn']);
 $routes->get('/dashboard/santri', 'Dashboard::santri', ['filter' => 'isLoggedIn']);
+$routes->get('/dashboard/coba', 'Santri::coba');
 
 // admin
 $routes->get('/admin', 'Admin::index');
@@ -63,6 +66,8 @@ $routes->get('/asatidz/layout', 'Asatidz::template');
 
 // santri
 $routes->get('/santri', 'Santri::index');
+$routes->get('/santri/profil/(:num)', 'Santri::profil/$1');
+$routes->get('/santri/biodata', 'Santri::biodata');
 
 // diniyah
 $routes->get('/diniyah', 'Diniyah::index');

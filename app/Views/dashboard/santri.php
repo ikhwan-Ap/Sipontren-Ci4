@@ -9,9 +9,9 @@
         <div class="row mt-sm-4">
             <div class="col-12 col-md-12 col-lg-5">
                 <div class="card">
-                    <!-- <div class="card-header">
-                       // <h4 class="section-title-">session_</h4>
-                    </div> -->
+                    <div class="card-header">
+                        <h4 class="section-title-"><?= session()->get('nama_lengkap'); ?></h4>
+                    </div>
                     <div class="card profile-widget">
                         <div class="profile-widget-header">
                             <!--  -->
@@ -30,36 +30,38 @@
                             <h4>Profile</h4>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="form-group col-md-6 col-12">
-                                    <label>Nama Lengkap</label>
-                                    <input type="text" class="form-control"">
+                            <?php foreach ($santri as $s) : ?>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Nama Lengkap</label>
+                                        <p class="form-control"><?= $s['nama_lengkap']; ?></p>
                                         <div class=" invalid-feedback">
-                                    Please fill in the first name
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6 col-12">
-                                <label>Program</label>
-                                <input type="text" class="form-control" ">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-11">
+                                            <label>Status</label>
+                                            <p class="btn btn-success"><?= $s['status']; ?></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class=" row">
-                                <div class="form-group col-md-7 col-12">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" ">
-                                      
+                                    <div class="form-group col-md-7 col-12">
+                                        <label>NIS</label>
+                                        <p class="form-control"><?= $s['nis']; ?></p>
                                     </div>
                                     <div class=" form-group col-md-5 col-12">
-                                    <label>No Hp</label>
-                                    <input type="text" class="form-control"">
+                                        <label>No Hp</label>
+                                        <p class="form-control"><?= $s['no_hp_santri']; ?></p>
                                     </div>
                                 </div>
                                 <div class=" row">
                                     <div class="form-group col-md-5 col-12">
-                                        <a href="/asatidz/profil" class="btn btn-success">Detail</a>
+                                        <a href="/santri/profil" class="btn btn-success">Detail</a>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endforeach;  ?>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -136,16 +138,17 @@
                                     <tr>
                                         <?php
                                         $i = 1;
+                                        foreach ($santri as $s) :
                                         ?>
-                                        <td>
-                                            <?= $i++; ?>
-                                        </td>
-                                        <td>a</td>
-                                        <td>b</td>
-                                        <td>c</td>
-                                        <td>d</td>
-                                        <td><a href="#" class="btn btn-success">Detail</a></td>
-                                    </tr>
+                                            <td>
+                                                <?= $i++; ?>
+                                            </td>
+                                            <td><?= $s['nama_lengkap']; ?></td>
+                                            <td>b</td>
+                                            <td>c</td>
+                                            <td>d</td>
+                                            <td><a href="#" class="btn btn-success">Detail</a></td>
+                                        <?php endforeach;  ?>
                                     </tr>
                                 </tbody>
                             </table>
@@ -155,6 +158,7 @@
             </div>
         </div>
     </div>
+
 
 </section>
 <?= $this->endSection(); ?>
