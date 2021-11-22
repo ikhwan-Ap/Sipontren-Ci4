@@ -58,6 +58,10 @@ $routes->get('/admin/edit/(:any)', 'Admin::edit/$1');
 $routes->put('/admin/(:any)', 'Admin::update/$1');
 $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 
+// pendaftaran baru
+$routes->get('/pendaftaran', 'Pendaftaran::index');
+
+
 // asatidz
 
 $routes->get('/asatidz', 'Asatidz::index');
@@ -66,7 +70,15 @@ $routes->get('/asatidz/layout', 'Asatidz::template');
 
 // santri
 $routes->get('/santri', 'Santri::index');
+$routes->get('/santri/add', 'Santri::create');
+$routes->post('/santri', 'Santri::save');
+$routes->get('/santri/edit/(:any)', 'Santri::edit/$1');
+$routes->put('/santri/(:num)', 'Santri::update/$1');
 $routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
+
+// alumni
+$routes->get('/alumni', 'Alumni::index');
+
 
 // diniyah
 $routes->get('/diniyah', 'Diniyah::index');

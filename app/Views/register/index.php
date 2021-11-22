@@ -36,11 +36,20 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="nama_lengkap">Nama Lengkap</label>
-                                <input id="nama_lengkap" type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>">
-                                <div class="invalid-feedback">
-                                    <?= $validation->getError('nama_lengkap'); ?>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="nama_lengkap">Nama Lengkap</label>
+                                    <input id="nama_lengkap" type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('nama_lengkap'); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" name="email" value="<?= old('email'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('email'); ?>
+                                    </div>
                                 </div>
                             </div>
 

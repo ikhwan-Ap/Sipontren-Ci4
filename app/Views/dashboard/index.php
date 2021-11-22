@@ -48,22 +48,22 @@
                             <h4>Total Asatidz</h4>
                         </div>
                         <div class="card-body">
-                            29
+                            <?= $totalAsatidz; ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-info">
-                        <i class="fas fa-user-graduate"></i>
+                    <div class="card-icon bg-light">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Total Alumni </h4>
+                            <h4>Total Program</h4>
                         </div>
                         <div class="card-body">
-                            47
+                            <?= $totalProgram; ?>
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,8 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-secondary">
-                        <i class="fas fa-user-shield"></i>
+                    <div class="card-icon bg-success">
+                        <i class="fas fa-users"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -87,8 +87,8 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-user"></i>
+                    <div class="card-icon bg-dark">
+                        <i class="fas fa-user-alt-slash"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -102,15 +102,15 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-warning">
-                        <i class="fas fa-user-tie"></i>
+                    <div class="card-icon bg-secondary">
+                        <i class="fas fa-user-alt"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Total Asatidz</h4>
+                            <h4>Total Santri Baru</h4>
                         </div>
                         <div class="card-body">
-                            29
+                            <?= $totalSantriBaru; ?>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                             <h4>Total Alumni </h4>
                         </div>
                         <div class="card-body">
-                            47
+                            <?= $totalSantriAlumni; ?>
                         </div>
                     </div>
                 </div>

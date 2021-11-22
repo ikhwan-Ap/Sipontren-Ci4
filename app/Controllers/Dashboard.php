@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AdminModel;
 use App\Models\AsatidzModel;
+use App\Models\ProgramModel;
 use App\Models\SantriModel;
 
 class Dashboard extends BaseController
@@ -13,6 +14,7 @@ class Dashboard extends BaseController
         $this->adminModel = new AdminModel();
         $this->asatidzModel = new AsatidzModel();
         $this->santriModel = new SantriModel();
+        $this->programModel = new ProgramModel();
     }
 
     public function index()
@@ -20,7 +22,9 @@ class Dashboard extends BaseController
         $data = [
             'title' => 'Dashboard',
             'totalAdmin' => $this->adminModel->where('role', 2)->countAllResults(),
+            'totalAsatidz' => $this->asatidzModel->countAllResults(),
             'totalSantri' => $this->santriModel->countAllResults(),
+            'totalProgram' => $this->santriModel->countAllResults(),
             'totalSantriBaru' => $this->santriModel->where('status', 'Baru')->countAllResults(),
             'totalSantriAktif' => $this->santriModel->where('status', 'Aktif')->countAllResults(),
             'totalSantriNonAktif' => $this->santriModel->where('status', 'Non Aktif')->countAllResults(),

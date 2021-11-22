@@ -10,7 +10,7 @@ class SantriModel extends Model
     protected $primaryKey       = 'id_santri';
     protected $returnType       = 'array';
     protected $allowedFields    = [
-        'nis', 'password', 'nama_lengkap', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir',
+        'nis', 'nik_ktp', 'no_kk', 'password', 'email', 'nama_lengkap', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir',
         'alamat', 'desa_kelurahan', 'kecamatan', 'kabupaten', 'provinsi',
         'no_hp_santri', 'id_kamar', 'id_diniyah', 'id_program', 'catatan_medis',
         'pendidikan_terakhir', 'pengalaman_mondok', 'pendidikan_sekarang', 'gol_darah',
@@ -19,9 +19,13 @@ class SantriModel extends Model
     protected $useTimestamps = true;
     protected $useSoftDeletes = true;
 
-    public function getSantriNew()
+    public function getSantriNew($id = false)
     {
-        return $this->db->table('santri')->select('*')->where('status', 'Baru')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+        if ($id == false) {
+            return $this->db->table('santri')->select('*')->where('status', 'Baru')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+        }
+
+        return $this->db->table('santri')->select('*')->where(['id_santri' => $id, 'status' => 'Baru'])->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getRowArray();
     }
 
     public function getSantriNonActive()
@@ -32,5 +36,18 @@ class SantriModel extends Model
     public function getSantriActive()
     {
         return $this->db->table('santri')->select('*')->where('status', 'Aktif')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+    }
+
+    public function getSantriAlumni()
+    {
+        return $this->db->table('santri')->select('*')->where('status', 'Alumni')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+    }
+
+    public function getSantri($id = false)
+    {
+        if ($id == false) {
+            return $this->db->table('santri')->select('*')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+        }
+        return $this->db->table('santri')->select('*')->where('id_santri', $id)->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getRowArray();
     }
 }

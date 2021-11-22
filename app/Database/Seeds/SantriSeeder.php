@@ -11,7 +11,10 @@ class SantriSeeder extends Seeder
         $data = [
             [
                 'nis' => '10010001',
+                'nik_ktp' => '10010001020101',
+                'no_kk' => '10010001020101',
                 'password' => password_hash('santri123', PASSWORD_DEFAULT),
+                'email' => 'anggie@gmail.com',
                 'nama_lengkap' => 'Anggie Febriansyah',
                 'jenis_kelamin' => 'Laki-laki',
                 'tempat_lahir' => 'Kebumen',
@@ -41,7 +44,10 @@ class SantriSeeder extends Seeder
             ],
             [
                 'nis' => '10010002',
+                'nik_ktp' => '10010001020102',
+                'no_kk' => '10010001020102',
                 'password' => password_hash('santri123', PASSWORD_DEFAULT),
+                'email' => 'farhan@gmail.com',
                 'nama_lengkap' => 'Farhan Ramdhani Ashari',
                 'jenis_kelamin' => 'Laki-laki',
                 'tempat_lahir' => 'Purwokerto',

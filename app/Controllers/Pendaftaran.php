@@ -41,11 +41,21 @@ class Pendaftaran extends BaseController
 
   public function accept($id)
   {
-    $data = [
-      'status' => 'Non Aktif',
-    ];
-    $this->db->table('santri')->where('id_santri', $id)->update($data);
+    $this->santri->save([
+      'id_santri' => $id,
+      'status' => 'Aktif'
+    ]);
 
     return redirect()->to('/pendaftaran');
+  }
+
+  public function detail($id)
+  {
+    $data = [
+      'title' => 'Detail Santri Baru',
+      'santri' => $this->santri->getSantriNew($id),
+    ];
+
+    return view('pendaftaran/detail', $data);
   }
 }

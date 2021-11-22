@@ -41,7 +41,7 @@
                                             Hapus
                                         </button>
                                         <a href="/admin/edit/<?= $a['username']; ?>" class="btn btn-warning">Edit</a>
-                                        <a href="/admin/detail/<?= $a['id']; ?>" class="btn btn-secondary">Detail</a>
+                                        <a href="/admin/detail/<?= $a['id']; ?>" class="btn btn-info" target="_blank">Detail</a>
                                     </td>
                                 </tr>
 
