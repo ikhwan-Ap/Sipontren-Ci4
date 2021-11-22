@@ -10,17 +10,13 @@ class Santri extends BaseController
     public function __construct()
     {
         $this->santriModel = new SantriModel();
-<<<<<<< HEAD
-=======
-=======
+
         $this->santri = new SantriModel();
         $this->ortu = new OrangtuaModel();
     }
->>>>>>> 67bdac01758eccc20981040c60c1fe6293cd0eb9
->>>>>>> b95c9318b84202f0f94bc19480d2cc509ba1aec4
 
-        // $fotosantri = $this->santriModel->where('username', session()->get('foto'))->first();
-    }
+    // $fotosantri = $this->santriModel->where('username', session()->get('foto'))->first();
+
     public function index()
     {
         $data = [
@@ -119,14 +115,6 @@ class Santri extends BaseController
         return view('santri/detail', $data);
     }
 
-    public function coba()
-    {
-        $data = [
-            'title' => 'dashboard',
-        ];
-        return view('dashboard/santri', $data);
-    }
-
     public function biodata()
     {
         $data = [
@@ -134,9 +122,7 @@ class Santri extends BaseController
             'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
         ];
         return view('santri/biodata', $data);
-<<<<<<< HEAD
-=======
-=======
+    }
 
     public function create()
     {
@@ -630,17 +616,5 @@ class Santri extends BaseController
                     </div>');
 
         return redirect()->to('/santri');
-    }
-
-    public function detail($id)
-    {
-        $data = [
-            'title' => 'Detail Data Santri',
-            'santri' => $this->santri->where('id_santri', $id)->first()
-        ];
-
-        return view('santri/detail', $data);
->>>>>>> 67bdac01758eccc20981040c60c1fe6293cd0eb9
->>>>>>> b95c9318b84202f0f94bc19480d2cc509ba1aec4
     }
 }
