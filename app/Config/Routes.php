@@ -61,6 +61,10 @@ $routes->get('/admin/edit/(:any)', 'Admin::edit/$1');
 $routes->put('/admin/(:any)', 'Admin::update/$1');
 $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 
+// pendaftaran baru
+$routes->get('/pendaftaran', 'Pendaftaran::index');
+
+
 // asatidz
 
 $routes->get('/asatidz', 'Asatidz::index');
@@ -70,9 +74,24 @@ $routes->delete('/asatidz/(:num)', 'Asatidz::delete/$1');
 
 // santri
 $routes->get('/santri', 'Santri::index');
+<<<<<<< HEAD
 $routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
 $routes->get('/santri/profil/(:num)', 'Santri::profil/$1');
 $routes->get('/santri/biodata', 'Santri::biodata');
+=======
+
+$routes->get('/santri/add', 'Santri::create');
+$routes->post('/santri', 'Santri::save');
+$routes->get('/santri/edit/(:any)', 'Santri::edit/$1');
+$routes->put('/santri/(:num)', 'Santri::update/$1');
+$routes->get('/santri/profil/(:num)', 'Santri::profil/$1');
+$routes->get('/santri/biodata', 'Santri::biodata');
+$routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
+
+// alumni
+$routes->get('/alumni', 'Alumni::index');
+
+>>>>>>> b95c9318b84202f0f94bc19480d2cc509ba1aec4
 
 // diniyah
 $routes->get('/diniyah', 'Diniyah::index');

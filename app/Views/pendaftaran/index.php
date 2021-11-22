@@ -41,9 +41,10 @@
                                     <td><?= $s['pekerjaan_ortu']; ?></td>
                                     <td>
                                         <a type="button" class="badge badge-danger text-white" data-toggle="modal" data-target="#exampleModal<?= $s['id_santri']; ?>">
-                                            Hapus <span>&times;</span>
+                                            Hapus <span><i class="fas fa-times"></i></span>
                                         </a>
-                                        <a href="/pendaftaran/accept/<?= $s['id_santri']; ?>" class="badge badge-success">Terima <span>&times;</span></a>
+                                        <a href="/pendaftaran/accept/<?= $s['id_santri']; ?>" class="badge badge-success">Terima <span><i class="fas fa-check"></i></span></a>
+                                        <a href="/pendaftaran/detail/<?= $s['id_santri']; ?>" class="badge badge-info" target="_blank">Detail <span><i class="fas fa-info-circle"></i></span></a>
                                     </td>
                                 </tr>
 

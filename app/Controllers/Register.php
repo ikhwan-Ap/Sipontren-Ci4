@@ -45,6 +45,13 @@ class Register extends BaseController
                     'required' => 'Nama Lengkap harus diisi!',
                 ]
             ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi!',
+                    'valid_email' => 'Email tidak valid!',
+                ]
+            ],
             'jenis_kelamin' => [
                 'rules' => 'required',
                 'errors' => [
@@ -196,6 +203,7 @@ class Register extends BaseController
             'nik_ktp' => $this->request->getVar('nik_ktp'),
             'no_kk' => $this->request->getVar('no_kk'),
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
+            'email' => $this->request->getVar('email'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),

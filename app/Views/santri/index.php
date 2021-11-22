@@ -46,8 +46,8 @@
                                     </td>
                                     <td>
                                         <a href="" class="btn btn-danger">Hapus</a>
-                                        <a href="" class="btn btn-warning">Edit</a>
-                                        <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-info">Detail</a>
+                                        <a href="/santri/edit/<?= $s['id_santri']; ?>" class="btn btn-warning">Edit</a>
+                                        <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-info" target="_blank">Detail</a>
                                     </td>
                                 </tr>
 
@@ -90,7 +90,7 @@
                                     <td>
                                         <a href="" class="btn btn-danger">Hapus</a>
                                         <a href="" class="btn btn-warning">Edit</a>
-                                        <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-info">Detail</a>
+                                        <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-info" target="_blank">Detail</a>
                                     </td>
                                 </tr>
 
