@@ -11,6 +11,7 @@ class Dashboard extends BaseController
 {
     public function __construct()
     {
+        $this->santriModel = new SantriModel();
         $this->adminModel = new AdminModel();
         $this->asatidzModel = new AsatidzModel();
         $this->santriModel = new SantriModel();
@@ -48,6 +49,8 @@ class Dashboard extends BaseController
         $data = [
             'title' => 'Dashboard',
             // 'totalAdmin' => $this->asatidzModel->where('id=id')->countAllResults(),
+            'santri' => $this->santriModel->where('nis', session()->get('nis'))->findAll(),
+
         ];
         return view('dashboard/santri', $data);
     }

@@ -35,7 +35,19 @@ class SantriModel extends Model
 
     public function getSantriActive()
     {
+<<<<<<< HEAD
+        $builder = $this->db->table('santri');
+        $builder->select('*');
+        $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getLogin($nis)
+    {
+        return $this->db->table($this->table)->getWhere(['nis' => $nis])->getRowArray();
+=======
         return $this->db->table('santri')->select('*')->where('status', 'Aktif')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+>>>>>>> 67bdac01758eccc20981040c60c1fe6293cd0eb9
     }
 
     public function getSantriAlumni()

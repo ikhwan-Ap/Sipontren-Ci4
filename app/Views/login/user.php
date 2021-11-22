@@ -8,42 +8,43 @@
                 <img src="/img/logo-sipontren.jpeg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
                 <h4 class="text-dark font-weight-normal"><span class="font-weight-bold">Login</span></h4>
                 <p class="text-muted">Selamat datang diwebsite Pondok Pesantren Darussalam Dukuhwaluh Purwokerto.</p>
-                <form method="POST" action="#" class="needs-validation" novalidate="">
-                    <div class="form-group">
-                        <label for="nis">NIS</label>
-                        <input id="nis" type="text" class="form-control" name="nis" tabindex="1" required autofocus>
-                        <div class="invalid-feedback">
-                            NIS harus diisi!
+
+                <?= session()->getFlashdata('message'); ?>
+
+                <div class="card-body">
+                    <form method="POST" action="/login/loginsantri">
+                        <?= csrf_field(); ?>
+                        <div class=" form-group">
+                            <label for="nis">NIS</label>
+                            <input id="nis" type="text" class="form-control <?= ($validation->hasError('nis')) ? 'is-invalid' : ''; ?>" name="nis" tabindex="1" autofocus>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('nis'); ?>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="d-block">
-                            <label for="password" class="control-label">Password</label>
+                        <div class="form-group">
+                            <div class="d-block">
+                                <label for="password" class="control-label">Password</label>
+                            </div>
+                            <input id="password" type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" name="password" tabindex="1" autofocus>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('password'); ?>
+                            </div>
                         </div>
-                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                        <div class="invalid-feedback">
-                            Password harus diisi!
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass">
+                                <label class="custom-control-label" for="showpass">Show Password</label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass">
-                            <label class="custom-control-label" for="showpass">Show Password</label>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-success btn-lg btn-icon icon-right" tabindex="4">
+                                Login
+                            </button>
                         </div>
+                    </form>
+                    <div class="text-center mt-5 text-small">
+                        Copyright &copy; <?= date('Y'); ?> | SIPONTREN`
                     </div>
-
-                    <div class="form-group text-right">
-                        <button type="submit" class="btn btn-success btn-lg btn-icon icon-right" tabindex="4">
-                            Login
-                        </button>
-                    </div>
-
-                </form>
-
-                <div class="text-center mt-5 text-small">
-                    Copyright &copy; <?= date('Y'); ?> | SIPONTREN`
                 </div>
             </div>
         </div>
@@ -60,4 +61,15 @@
         </div>
     </div>
 </section>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 <?= $this->endSection(); ?>
