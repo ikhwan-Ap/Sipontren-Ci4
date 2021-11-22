@@ -66,15 +66,13 @@ $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 $routes->get('/asatidz', 'Asatidz::index');
 $routes->get('/asatidz/profil/(:num)', 'Asatidz::profil/$1');
 $routes->get('/asatidz/layout', 'Asatidz::template');
+$routes->delete('/asatidz/(:num)', 'Asatidz::delete/$1');
 
 // santri
 $routes->get('/santri', 'Santri::index');
-<<<<<<< HEAD
+$routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
 $routes->get('/santri/profil/(:num)', 'Santri::profil/$1');
 $routes->get('/santri/biodata', 'Santri::biodata');
-=======
-$routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
->>>>>>> 67bdac01758eccc20981040c60c1fe6293cd0eb9
 
 // diniyah
 $routes->get('/diniyah', 'Diniyah::index');

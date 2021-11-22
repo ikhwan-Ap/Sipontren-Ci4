@@ -134,14 +134,9 @@
                         <h4>Biodata Orang tua</h4>
                     </div>
                     <div class="card-body">
-                        <div class="section-title mt-0">Default</div>
                         <div class="form-group">
-                            <label>Default Select</label>
-                            <select class="form-control">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                            </select>
+                            <label>Nama Lengkap</label>
+                            <input type="text" class="form-control" value="<?= $santri['nama_ayah']; ?>">
                         </div>
                         <div class="section-title">Select 2</div>
                         <div class="form-group">

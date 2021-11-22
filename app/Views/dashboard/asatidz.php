@@ -34,27 +34,55 @@
                                 <div class="row">
                                     <div class="form-group col-md-6 col-12">
                                         <label>Nama Lengkap</label>
-                                        <input type="text" class="form-control" value="<?= $a['nama_lengkap']; ?>">
+                                        <p class="form-control"><?= $a['nama_lengkap']; ?></p>
                                         <div class="invalid-feedback">
                                             Please fill in the first name
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
                                         <label>Program</label>
-                                        <input type="text" class="form-control" value="<?= $a['program']; ?>">
+                                        <p class="form-control"><?= $a['program']; ?></p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-md-7 col-12">
+                                    <div class="form-group col-md-6 col-12">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" value="<?= $a['email']; ?>">
-                                        <div class="invalid-feedback">
-                                            Please fill in the email
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <p class="form-control"><?= $a['email']; ?></p>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-5 col-12">
+                                    <div class="form-group col-md-6 col-12">
                                         <label>No Hp</label>
-                                        <input type="text" class="form-control" value="<?= $a['no_hp']; ?>">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-phone"></i>
+                                            </div>
+                                            <p class="form-control"><?= $a['no_hp']; ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Tempat Lahir</label>
+                                        <p class="form-control"><?= $a['tempat_lahir']; ?></p>
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Tanggal Lahir</label>
+                                        <p class="form-control"><?= $a['tanggal_lahir']; ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Riwayat Pendidikan</label>
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-graduation-cap"></i>
+                                            </div>
+                                            <p class="form-control"><?= $a['pendidikan']; ?></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">

@@ -38,17 +38,6 @@
                                             <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" value="<?= (old('nama_lengkap')) ? old('nama_lengkap') : $santri['nama_lengkap']; ?>">
                                         </div>
                                         <div class=" form-group">
-                                            <label>Phone Number</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fas fa-phone"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="number" id="no_hp_santri" name="no_hp_santri" class="form-control phone-number" value="<?= (old('no_hp_santri')) ? old('no_hp_santri') : $santri['no_hp_santri']; ?>">
-                                            </div>
-                                        </div>
-                                        <div class=" form-group">
                                             <label>Tanggal Lahir</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -93,14 +82,6 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label>NIS</label>
-                                            <input type="number" id="nis" name="nis" class="form-control datemask" value="<?= (old('nis')) ? old('nis') : $santri['nis']; ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Kamar</label>
-                                            <input type="number" id="id_kamar" name="id_kamar" class="form-control datemask" value="<?= (old('id_kamar')) ? old('id_kamar') : $santri['id_kamar']; ?>">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Riwayat Pendidikan</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -114,25 +95,6 @@
                                                 <div class="bar"></div>
                                                 <div class="label"></div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Program</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fas fa-book"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text" id="id_program" name="id_program" class="form-control pwstrength" data-indicator="pwindicator" value="<?= (old('id_program')) ? old('id_program') : $santri['id_program']; ?>">
-                                            </div>
-                                            <div id="pwindicator" class="pwindicator">
-                                                <div class="bar"></div>
-                                                <div class="label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Gender</label>
-                                            <input type="text" id="jenis_kelaming" name="jenis_kelamin" class="form-control" value="<?= (old('jenis_kelamin')) ? old('jenis_kelamin') : $santri['jenis_kelamin']; ?>">
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-10">

@@ -93,14 +93,6 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label>NIK KTP</label>
-                                            <input type="number" id="nik_ktp" name="nik_ktp" class="form-control datemask" value="<?= (old('nik_ktp')) ? old('nik_ktp') : $asatidz['nik_ktp']; ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>NO KK</label>
-                                            <input type="number" id="no_kk" name="no_kk" class="form-control datemask" value="<?= (old('no_kk')) ? old('no_kk') : $asatidz['no_kk']; ?>">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Riwayat Pendidikan</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -114,25 +106,6 @@
                                                 <div class="bar"></div>
                                                 <div class="label"></div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Program</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fas fa-book"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text" id="program" name="program" class="form-control pwstrength" data-indicator="pwindicator" value="<?= (old('program')) ? old('program') : $asatidz['program']; ?>">
-                                            </div>
-                                            <div id="pwindicator" class="pwindicator">
-                                                <div class="bar"></div>
-                                                <div class="label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Gender</label>
-                                            <input type="text" id="jenis_kelaming" name="jenis_kelamin" class="form-control" value="<?= (old('jenis_kelamin')) ? old('jenis_kelamin') : $asatidz['jenis_kelamin']; ?>">
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-10">

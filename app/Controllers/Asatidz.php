@@ -17,15 +17,12 @@ class Asatidz extends BaseController
 
     public function index()
     {
-
         $data = [
-            'title' => 'Asatidz',
-            'asatidz' => $this->asatidzModel->where('username', session()->get('username'))->first(),
-
-            // 'admin' => $this->model->where('role', 2)->findAll(),
+            'title' => 'Data Asatidz',
+            'asatidz' => $this->asatidzModel->findAll(),
         ];
 
-        return view('asatids/index', $data);
+        return view('asatidz/index', $data);
     }
 
     public function profil()
@@ -71,34 +68,10 @@ class Asatidz extends BaseController
                         'alamat harus di isi!!',
                     ]
                 ],
-                'nik_ktp' => [
-                    'rules' => 'trim|required',
-                    'errors' => [
-                        'Nomor Nik  harus di isi!!',
-                    ]
-                ],
-                'no_kk' => [
-                    'rules' => 'trim|required',
-                    'errors' => [
-                        'Nomor KK harus di isi!!',
-                    ]
-                ],
                 'pendidikan' => [
                     'rules' => 'trim|required',
                     'errors' => [
                         'Riwayat Pendidikan harus di isi!!',
-                    ]
-                ],
-                'program' => [
-                    'rules' => 'trim|required',
-                    'errors' => [
-                        'Program  harus di isi!!',
-                    ]
-                ],
-                'jenis_kelamin' => [
-                    'rules' => 'trim|required',
-                    'errors' => [
-                        'Gender harus di isi!!',
                     ]
                 ],
             ]
@@ -126,11 +99,7 @@ class Asatidz extends BaseController
                 'no_hp' => $this->request->getVar('no_hp'),
                 'tempat_lahir' => $this->request->getVar('tempat_lahir'),
                 'alamat' => $this->request->getVar('alamat'),
-                'nik_ktp' => $this->request->getVar('nik_ktp'),
-                'no_kk' => $this->request->getVar('no_kk'),
                 'pendidikan' => $this->request->getVar('pendidikan'),
-                'program' => $this->request->getVar('program'),
-                'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
                 // 'foto' => $namaFoto,
             ]
         );
@@ -139,8 +108,17 @@ class Asatidz extends BaseController
 
         return redirect()->to('/asatidz/profil');
     }
-    public function template()
+    public function delete($id)
     {
-        return view('layout/template');
+        $this->asatidzModel->delete($id);
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Data diniyah berhasil dihapus!
+                      </div>
+                    </div>');
+        return redirect()->to('/asatidz');
     }
 }

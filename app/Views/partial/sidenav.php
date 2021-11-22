@@ -20,8 +20,8 @@
                     <?php endif; ?>
                     <li class="<?= ($title == "Pendaftaran Santri Baru") ? 'active' : ''; ?>"><a class="nav-link" href="/pendaftaran">Pendaftaran Santri Baru</a></li>
                     <li class="<?= ($title == "Data Santri") ? 'active' : ''; ?>"><a class="nav-link" href="/santri">Santri</a></li>
-                    <li><a class="nav-link" href="">Asatidz</a></li>
-                    <li><a class="nav-link" href="">Alumni</a></li>
+                    <li class="<?= ($title == "Data Asatidz") ? 'active' : ''; ?>"><a class="nav-link" href="/asatidz">Asatidz</a></li>
+                    <li class="<?= ($title == "Data Alumni") ? 'active' : ''; ?>"><a class="nav-link" href="/alumni">Alumni</a></li>
                     <li class="<?= ($title == "Data Diniyah") ? 'active' : ''; ?>"><a class="nav-link" href="/diniyah">Diniyah</a></li>
                     <li class="<?= ($title == "Data Program") ? 'active' : ''; ?>"><a class="nav-link" href="/program">Program</a></li>
                     <li class="<?= ($title == "Data Kelas") ? 'active' : ''; ?>"><a class="nav-link" href="/kelas">Kelas</a></li>
