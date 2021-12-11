@@ -71,15 +71,14 @@ $routes->get('/asatidz', 'Asatidz::index');
 $routes->get('/asatidz/profil/(:num)', 'Asatidz::profil/$1');
 $routes->get('/asatidz/layout', 'Asatidz::template');
 $routes->delete('/asatidz/(:num)', 'Asatidz::delete/$1');
+$routes->get('/asatidz/add', 'Asatidz::create');
+$routes->post('/asatidz', 'Asatidz::save');
+$routes->get('/asatidz/detail/(:num)', 'Asatidz::detail/$1');
+$routes->get('/asatidz/edit/(:any)', 'Asatidz::edit/$1');
+$routes->put('/asatidz/(:num)', 'Asatidz::update/$1');
 
 // santri
 $routes->get('/santri', 'Santri::index');
-<<<<<<< HEAD
-$routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
-$routes->get('/santri/profil/(:num)', 'Santri::profil/$1');
-$routes->get('/santri/biodata', 'Santri::biodata');
-=======
-
 $routes->get('/santri/add', 'Santri::create');
 $routes->post('/santri', 'Santri::save');
 $routes->get('/santri/edit/(:any)', 'Santri::edit/$1');
@@ -91,7 +90,6 @@ $routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
 // alumni
 $routes->get('/alumni', 'Alumni::index');
 
->>>>>>> b95c9318b84202f0f94bc19480d2cc509ba1aec4
 
 // diniyah
 $routes->get('/diniyah', 'Diniyah::index');
@@ -133,6 +131,46 @@ $routes->delete('/gedung/(:num)', 'Gedung::delete/$1');
 $routes->get('/gedung/edit/(:any)', 'Gedung::edit/$1');
 $routes->put('/gedung/(:any)', 'Gedung::update/$1');
 
+//Pembayaran
+$routes->get('/pembayaran', 'Pembayaran::index');
+$routes->get('/pembayaran/pendaftaran', 'Pembayaran::pendaftaran');
+$routes->get('/daftar_ulang', 'Pembayaran::daftar_ulang');
+$routes->get('/lainnya', 'Pembayaran::lainnya');
+$routes->get('/tagihan', 'Pembayaran::tagihan');
+$routes->get('/pemasukan', 'Pembayaran::pemasukan');
+$routes->get('/pengeluaran', 'Pembayaran::pengeluaran');
+//
+$routes->get('/pembayaran/bayar/(:any)', 'Pembayaran::bayar/$1');
+$routes->put('/pembayaran/(:num)', 'Pembayaran::update/$1');
+//
+//
+$routes->get('/pemabayaran/edit/(:any)', 'Pembayaran::edit/$1');
+$routes->put('/pembayaran/(:num)', 'Pembayaran::editdata/$1');
+//
+$routes->get('/pembayaran/add', 'Pembayaran::add');
+$routes->post('/pembayaran', 'Pembayaran::save');
+//
+$routes->get('/pembayaran/pendaftaran_add', 'Pembayaran::pendaftaran_add');
+$routes->post('/pendaftaran', 'Pembayaran::save_pendaftaran');
+//
+$routes->get('/pembayaran/daftar_ulang_add', 'Pembayaran::daftar_ulang_add');
+$routes->post('/daftar_ulang', 'Pembayaran::save_daftar_ulang');
+//
+$routes->get('/pembayaran/lainnya_add', 'Pembayaran::lainnya_add');
+$routes->post('/lainnya', 'Pembayaran::save_lainnya');
+//
+$routes->get('/pengeluaran_add', 'Pembayaran::pengeluaran_add');
+$routes->post('/pengeluaran', 'Pembayaran::save_pengeluaran');
+//
+$routes->get('/pembayaran/tagihan_add', 'Pembayaran::tagihan_add');
+$routes->post('/tagihan', 'Pembayaran::save_tagihan');
+//
+$routes->delete('/pembayaran/(:num)', 'Pembayaran::delete/$1');
+$routes->delete('/pembayaran/pendaftaran(:num)', 'Pembayaran::delete_pendaftaran/$1');
+$routes->delete('/pembayaran/daftar(:num)', 'Pembayaran::delete_daftar/$1');
+$routes->delete('/pembayaran/lainnya(:num)', 'Pembayaran::delete_lainnya/$1');
+$routes->delete('/pembayaran/tagihan(:num)', 'Pembayaran::delete_tagihan/$1');
+$routes->delete('pengeluaran/(:num)', 'Pembayaran::delete_pengeluaran/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

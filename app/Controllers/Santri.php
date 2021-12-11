@@ -10,7 +10,6 @@ class Santri extends BaseController
     public function __construct()
     {
         $this->santriModel = new SantriModel();
-
         $this->santri = new SantriModel();
         $this->ortu = new OrangtuaModel();
     }
@@ -119,7 +118,8 @@ class Santri extends BaseController
     {
         $data = [
             'title' => 'biodata santri',
-            'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
+            // 'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
+            'santri' => $this->db->table('santri')->select('*')->where('nis', session()->get('nis'))->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getRowArray(),
         ];
         return view('santri/biodata', $data);
     }

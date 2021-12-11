@@ -16,7 +16,7 @@ class AsatidzSeeder extends Seeder
                 'password' => password_hash('user123', PASSWORD_DEFAULT),
                 'nama_lengkap' => 'Ikhwan',
                 'tempat_lahir' => 'Banyumas',
-                'tanggal_lahir' => '19-9-1999',
+                'tanggal_lahir' => '10-9-1999',
                 'program' => 'Shorof',
                 'jenis_kelamin' => 'Laki-laki',
                 'alamat' => 'Purwojati',

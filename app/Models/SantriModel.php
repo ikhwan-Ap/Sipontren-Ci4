@@ -58,4 +58,16 @@ class SantriModel extends Model
         }
         return $this->db->table('santri')->select('*')->where('id_santri', $id)->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getRowArray();
     }
+
+    public function search_santri($title)
+    {
+        $builder = $this->db->table('santri');
+        $builder->select('*');
+        $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
+        $builder->like('nis', $title);
+        $builder->orderBy('nis', 'ASC');
+        $builder->limit(10);
+        $query = $builder->get();
+        return $query->getResult();
+    }
 }

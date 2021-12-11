@@ -11,7 +11,7 @@ class AsatidzModel extends Model
     protected $allowedFields    = [
         'username', 'email', 'password', 'alamat', 'jenis_kelamin',
         'nik_ktp', 'no_kk', 'nama_lengkap', 'tempat_lahir', 'program',
-        'jadwal', 'kelas', 'pendidikan', 'foto'
+        'jadwal', 'kelas', 'pendidikan', 'foto', 'pertemuan', 'no_hp', 'total_santri', 'tanggal_lahir'
     ];
 
 

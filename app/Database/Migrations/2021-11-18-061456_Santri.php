@@ -20,6 +20,18 @@ class Santri extends Migration
                 'constraint' => '100',
                 'null' => true,
             ],
+            'nik_ktp'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'email'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'no_kk'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
             'password'       => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',

@@ -104,7 +104,7 @@ class Asatidz extends BaseController
             ]
         );
 
-        session()->setFlashdata('message', '<div class="alert alert-success">Data <strong>barang</strong> berhasil diubah!</div>');
+        session()->setFlashdata('message', '<div class="alert alert-success">Data <strong>Profil</strong> berhasil diubah!</div>');
 
         return redirect()->to('/asatidz/profil');
     }
@@ -116,9 +116,348 @@ class Asatidz extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data diniyah berhasil dihapus!
+                        Data asatidz berhasil dihapus!
                       </div>
                     </div>');
+        return redirect()->to('/asatidz');
+    }
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Data Asatidz',
+            'validation' => \Config\Services::validation(),
+        ];
+
+        return view('asatidz/add', $data);
+    }
+
+    public function save()
+    {
+        if (!$this->validate([
+
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Username harus diisi!',
+                ]
+            ],
+            'nik_ktp' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'NIK KTP harus diisi!',
+                    'numeric' => 'NIK KTP harus angka!'
+                ]
+            ],
+            'no_kk' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'No KK harus diisi!',
+                    'numeric' => 'No KK harus angka!'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|matches[password_conf]|min_length[5]',
+                'errors' => [
+                    'required' => 'Password harus diisi!',
+                    'matches' => 'Password tidak sama dengan Konfirmasi Password!',
+                    'min_length' => 'Password kurang dari 5 karakter!',
+                ]
+            ],
+            'password_conf' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'Konfirmasi Password harus diisi!',
+                    'matches' => 'Konfirmasi Password tidak sama dengan Password!'
+                ]
+            ],
+            'nama_lengkap' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap harus diisi!',
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi!',
+                    'valid_email' => 'Email tidak valid!',
+                ]
+            ],
+            'jenis_kelamin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jenis Kelamin harus diisi!',
+                ]
+            ],
+            'tempat_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tempat Lahir harus diisi!',
+                ]
+            ],
+            'tanggal_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Lahir harus diisi!',
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Alamat harus diisi!',
+                ]
+            ],
+            'no_hp' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nomer Hp  harus diisi!',
+                ]
+            ],
+            'jadwal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'jadwal harus diisi!',
+                ]
+            ],
+            'kelas' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'kelas harus diisi!',
+                ]
+            ],
+            'total_santri' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'total santri harus diisi!',
+                ]
+            ],
+            'pertemuan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'pertemuan harus diisi!',
+                ]
+            ],
+            'pendidikan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'pendidikan harus diisi!',
+                ]
+            ],
+            'program' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'program harus diisi!',
+                ]
+            ],
+            'foto' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'foto harus diisi!',
+                ]
+            ],
+
+        ])) {
+            return redirect()->to('/asatidz/add')->withInput();
+        }
+
+        $this->asatidzModel->save([
+            'username' => $this->request->getVar('username'),
+            'nik_ktp' => $this->request->getVar('nik_ktp'),
+            'no_kk' => $this->request->getVar('no_kk'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'nama_lengkap' => $this->request->getVar('nama_lengkap'),
+            'email' => $this->request->getVar('email'),
+            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
+            'alamat' => $this->request->getVar('alamat'),
+            'no_hp' => $this->request->getVar('no_hp'),
+            'jadwal' => $this->request->getVar('jadwal'),
+            'kelas' => $this->request->getVar('kelas'),
+            'total_santri' => $this->request->getVar('total_santri'),
+            'pertemuan' => $this->request->getVar('pertemuan'),
+            'foto' => $this->request->getVar('foto'),
+            'pendidikan' => $this->request->getVar('pendidikan'),
+            'program' => $this->request->getVar('program'),
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Pendaftaran berhasil ditambahkan!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/asatidz');
+    }
+
+    public function detail($id)
+    {
+        $data = [
+            'title' => 'Detail Data Asatidz',
+            'asatidz' => $this->asatidzModel->where('id', $id)->first(),
+        ];
+
+        return view('asatidz/detail', $data);
+    }
+
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Edit Data Asatidz',
+            'validation' => \Config\Services::validation(),
+            'asatidz' => $this->asatidzModel->where('id', $id)->first(),
+        ];
+
+        return view('asatidz/edit', $data);
+    }
+
+    public function update($id)
+    {
+        if (!$this->validate([
+            'nik_ktp' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'NIK KTP harus diisi!',
+                    'numeric' => 'NIK KTP harus angka!'
+                ]
+            ],
+            'no_kk' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'No KK harus diisi!',
+                    'numeric' => 'No KK harus angka!'
+                ]
+            ],
+            'nama_lengkap' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap harus diisi!',
+                ]
+            ],
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Username harus diisi!',
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi!',
+                    'valid_email' => 'Email tidak valid!',
+                ]
+            ],
+            'jenis_kelamin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jenis Kelamin harus diisi!',
+                ]
+            ],
+            'tempat_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tempat Lahir harus diisi!',
+                ]
+            ],
+            'tanggal_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Lahir harus diisi!',
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Alamat harus diisi!',
+                ]
+            ],
+            'program' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'program harus diisi!',
+                ]
+            ],
+            'no_hp' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'No HP harus diisi!',
+                    'numeric' => 'No HP harus angka!',
+                ]
+            ],
+            'jadwal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jadawl harus diisi!',
+                ]
+            ],
+            'pendidikan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pendidikan harus diisi!',
+                ]
+            ],
+            'kelas' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kelas  harus diisi!',
+                ]
+            ],
+            'pertemuan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'pertemuan harus diisi!',
+                ]
+            ],
+            'total_santri' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Total santri harus diisi!',
+                ]
+            ],
+            'foto' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Foto harus diisi!',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/asatidz/edit/' . $this->request->getVar('id'))->withInput();
+        }
+
+        $this->asatidzModel->save([
+            'id' => $id,
+            'nik_ktp' => $this->request->getVar('nik_ktp'),
+            'no_kk' => $this->request->getVar('no_kk'),
+            'username' => $this->request->getVar('username'),
+            'nama_lengkap' => $this->request->getVar('nama_lengkap'),
+            'email' => $this->request->getVar('email'),
+            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
+            'alamat' => $this->request->getVar('alamat'),
+            'program' => $this->request->getVar('program'),
+            'jadwal' => $this->request->getVar('jadwal'),
+            'kelas' => $this->request->getVar('kelas'),
+            'total_santri' => $this->request->getVar('total_santri'),
+            'no_hp' => $this->request->getVar('no_hp'),
+            'pertemuan' => $this->request->getVar('pertemuan'),
+            'pendidikan' => $this->request->getVar('pendidikan'),
+            'foto' => $this->request->getVar('foto'),
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Data asatidz berhasil diubah!
+                      </div>
+                    </div>');
+
         return redirect()->to('/asatidz');
     }
 }

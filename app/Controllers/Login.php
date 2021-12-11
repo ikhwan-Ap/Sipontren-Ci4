@@ -197,20 +197,7 @@ class Login extends BaseController
                     </div>');
         return redirect()->to('login/asatidz')->withInput();
     }
-    // public function santri()
-    // {
-    //     if (session('nis')) {
-    //         return redirect()->to('dashboard/santri');
-    //     }
-    //     return view(
-    //         'login/user',
-    //         [
-    //             'title' => 'Login Santri',
-    //             'validation' => \Config\Services::validation(),
-    //         ]
-    //     );
-    // }
-    //data..
+
     public function loginsantri()
     {
         if (!$this->validate(

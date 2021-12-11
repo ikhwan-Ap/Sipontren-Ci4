@@ -22,8 +22,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>NIS</th>
-                                <th>Nama Santri</th>
+                                <th>NIK KTP</th>
+                                <th>Nama Asatidz</th>
                                 <th>Alamat</th>
                                 <th>Jenis Kelamin</th>
                                 <th>No. HP</th>
@@ -43,8 +43,9 @@
                                     <td>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $a['id']; ?>">
                                             Hapus
-                                        </button> <a href="" class="btn btn-warning">Edit</a>
-                                        <a href="/asatidz/detail/<?= $a['id']; ?>" class="btn btn-info">Detail</a>
+                                        </button>
+                                        <a href="/asatidz/edit/<?= $a['id']; ?>" class="btn btn-warning">Edit</a>
+                                        <a href="/asatidz/detail/<?= $a['id']; ?>" class="btn btn-info" target="_blank">Detail</a>
                                     </td>
                                 </tr>
 
