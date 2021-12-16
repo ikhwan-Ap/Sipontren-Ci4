@@ -188,6 +188,20 @@ $routes->delete('/pembayaran/daftar_ulang(:num)', 'Pembayaran::delete_daftar/$1'
 $routes->delete('/pembayaran/lainnya(:num)', 'Pembayaran::delete_lainnya/$1');
 $routes->delete('/pembayaran/tagihan(:num)', 'Pembayaran::delete_tagihan/$1');
 $routes->delete('pengeluaran/(:num)', 'Pembayaran::delete_pengeluaran/$1');
+
+// perizinan
+$routes->get('/perizinan', 'Perizinan::index');
+$routes->get('/perizinan/add', 'Perizinan::create');
+$routes->post('/perizinan', 'Perizinan::save');
+$routes->get('/perizinan/terima/(:any)', 'Perizinan::terima/$1');
+$routes->get('/perizinan/kembali/(:any)', 'Perizinan::kembali/$1');
+$routes->get('/perizinan/ditolak/(:any)', 'Perizinan::ditolak/$1');
+$routes->delete('/perizinan/(:num)', 'Perizinan::delete/$1');
+
+
+
+// $routes->get('/perizinan/(:any)', 'Perizinan::persetujuan/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -56,6 +56,13 @@
                 </ul>
             </li>
 
+            <li class="nav-item dropdown <?= ($title == "Admin") ? 'active' : ''; ?>">
+                <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-envelope"></i> <span>Perizinan</span></a>
+                <ul class="dropdown-menu">
+                    <li class="<?= ($title == "Perijinan") ? 'active' : ''; ?>"><a class="nav-link" href="/perizinan">Surat Izin Keluar</a></li>
+                </ul>
+            </li>
+
         </ul>
 
     </aside>
