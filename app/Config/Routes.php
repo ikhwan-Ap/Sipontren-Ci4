@@ -142,7 +142,24 @@ $routes->get('/pengeluaran', 'Pembayaran::pengeluaran');
 //
 $routes->get('/pembayaran/bayar/(:any)', 'Pembayaran::bayar/$1');
 $routes->put('/pembayaran/(:num)', 'Pembayaran::update/$1');
-//
+$routes->get('/pembayaran/bayar_daftar_ulang/(:any)', 'Pembayaran::bayar_daftar_ulang/$1');
+$routes->put('/daftar_ulang/(:num)', 'Pembayaran::update_daftar_ulang/$1');
+$routes->get('/pembayaran/bayar_pendaftaran/(:any)', 'Pembayaran::bayar_pendaftaran/$1');
+$routes->put('/pembayaran/pendaftaran/(:num)', 'Pembayaran::update_pendaftaran/$1');
+$routes->get('/pembayaran/bayar_lainnya/(:any)', 'Pembayaran::bayar_lainnya/$1');
+$routes->put('/lainnya/(:num)', 'Pembayaran::update_lainnya/$1');
+//Filter Data
+$routes->post('/pembayaran/filter', 'Pembayaran::filter');
+$routes->post('/pembayaran/filter_daftar_ulang', 'Pembayaran::filter_daftar_ulang');
+$routes->post('/pembayaran/filter_pendaftaran', 'Pembayaran::filter_pendaftaran');
+$routes->post('/pembayaran/filter_lainnya', 'Pembayaran::filter_lainnya');
+$routes->post('/pemasukan/filter', 'Pemabayaran::filter_pemasukan');
+$routes->post('/pengeluaran/filter', 'Pemabayaran::filter_pengeluaran');
+$routes->post('/laporanmasuk/filter', 'Pemabayaran::filter_laporanmasuk');
+//laporan/print masuk dan keluar
+$routes->get('/laporan/masuk', 'Pembayaran::laporan_masuk');
+$routes->get('/laporan/keluar', 'Pembayaran::laporan_keluar');
+
 //
 $routes->get('/pemabayaran/edit/(:any)', 'Pembayaran::edit/$1');
 $routes->put('/pembayaran/(:num)', 'Pembayaran::editdata/$1');
@@ -167,7 +184,7 @@ $routes->post('/tagihan', 'Pembayaran::save_tagihan');
 //
 $routes->delete('/pembayaran/(:num)', 'Pembayaran::delete/$1');
 $routes->delete('/pembayaran/pendaftaran(:num)', 'Pembayaran::delete_pendaftaran/$1');
-$routes->delete('/pembayaran/daftar(:num)', 'Pembayaran::delete_daftar/$1');
+$routes->delete('/pembayaran/daftar_ulang(:num)', 'Pembayaran::delete_daftar/$1');
 $routes->delete('/pembayaran/lainnya(:num)', 'Pembayaran::delete_lainnya/$1');
 $routes->delete('/pembayaran/tagihan(:num)', 'Pembayaran::delete_tagihan/$1');
 $routes->delete('pengeluaran/(:num)', 'Pembayaran::delete_pengeluaran/$1');

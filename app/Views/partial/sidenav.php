@@ -43,14 +43,16 @@
                     <li class="<?= ($title == "Tagihan Baru") ? 'active' : ''; ?>"><a class="nav-link" href="/tagihan">Tagihan Baru</a></li>
                 </ul>
             </li>
-            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Pemasukan" || $title == "Pengeluaran") ? 'active' : ''; ?>">
-                <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-money-check"></i> <span>Laporan</span></a>
+            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Pemasukan" || $title == "Pengeluaran" || $title == "Print Pemasukan" || $title == "Print Pengeluaran") ? 'active' : ''; ?>">
+                <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file-alt"></i> <span>Laporan</span></a>
                 <ul class="dropdown-menu">
                     <?php if (session()->get('role') == 1) : ?>
                         <li class="<?= ($title == "Admin") ? 'active' : ''; ?>"><a class="nav-link" href="/admin">Admin</a></li>
                     <?php endif; ?>
                     <li class="<?= ($title == "Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/pemasukan">Pemasukan</a></li>
                     <li class="<?= ($title == "Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pengeluaran">Pengeluaran</a></li>
+                    <li class="<?= ($title == "Print Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/masuk">Print Pemasukan</a></li>
+                    <li class="<?= ($title == "Print Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pengeluaran">Print Pengeluaran</a></li>
                 </ul>
             </li>
 

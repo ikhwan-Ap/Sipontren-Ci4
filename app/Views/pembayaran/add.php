@@ -13,10 +13,13 @@
         </div>
     </div>
 
+
     <?= session()->getFlashdata('message'); ?>
 
     <div class="card col-lg-8">
+
         <form action="/pembayaran" method="POST">
+
             <div class="card-header">
                 <h4 class="text-dark">Form Pembayaran SPP</h4>
             </div>
@@ -56,9 +59,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Tambah Data</button>
                     <a href="/pembayaran" class="btn btn-light ml-2">Batal</a>

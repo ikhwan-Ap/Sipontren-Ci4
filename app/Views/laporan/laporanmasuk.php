@@ -4,9 +4,6 @@
 <section class="section">
     <div class="section-header">
         <h1><?= $title; ?></h1>
-        <div class="section-header-button">
-            <a href="/pembayaran/lainnya_add" class="btn btn-primary">Tambah Data Pembayaran santri </a>
-        </div>
     </div>
 
     <?= session()->getFlashdata('message'); ?>
@@ -16,10 +13,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Data Pembayaran Lain</h4>
+                        <h4>Print Data Pemasukan</h4>
                     </div>
 
-                    <form action="<?= base_url(); ?>/pembayaran/filter_lainnya" method="POST" class="inline">
+                    <form action="<?= base_url(); ?>/pembayaran/filter_laporanmasuk" method="POST" class="inline">
                         <?= csrf_field(); ?>
                         <div class="row">
                             <div class="form-group">
@@ -36,11 +33,12 @@
                             </div>
                             <div class="form-group">
                                 <div class="col">
-                                    <label for="tgl_akhir">Pilih Status</label>
-                                    <select name="status_pembayaran" id="status_pembayaran" class="form-control">
-                                        <option value="" hidden></option>
-                                        <option value="Lunas">Lunas</option>
-                                        <option value="Belum Lunas">Belum Lunas</option>
+                                    <label for="tgl_akhir">Pilih Jenis Pembayaran</label>
+                                    <select name="nama_pembayaran" id="nama_pembayaran" class="form-control">
+                                        <?php foreach ($tagihan as $t) : ?>
+                                            <option value="" hidden></option>
+                                            <option value="<?= $t['nama_pembayaran']; ?>"><?= $t['nama_pembayaran']; ?></option>
+                                        <?php endforeach;  ?>
                                     </select>
                                 </div>
                             </div>
@@ -48,6 +46,18 @@
                                 <div class="col">
                                     <label for="">Pilih</label>
                                     <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                    <div class="card-icon bg-warning">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="card-header-primary">
+                                        <h3>Total Pemasukan
+                                            <?= $Lunas; ?>
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -59,42 +69,27 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>nis</th>
-                                        <th>nama santri</th>
-                                        <th>Pembayaran</th>
+                                        <th>NIS</th>
+                                        <th>Nama Santri</th>
+                                        <th>Nama Pembayaran</th>
                                         <th>Jumlah Pembayaran</th>
-                                        <th>tggl bayar</th>
-                                        <th>status</th>
+                                        <th>Tanggal Pembayaran</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
-                                    $hariIni = new DateTime();
-                                    foreach ($Lunas as $k) :
+                                    foreach ($pendapatan as $k) :
+
                                     ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $k['nis']; ?></td>
                                             <td><?= $k['nama_lengkap']; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
-                                            <td><?= $k['jumlah_pembayaran']; ?></td>
-                                            <td> <?= $k['waktu']; ?></td>
-                                            <td><?= $k['status_pembayaran']; ?></td>
-
-
-                                            <td>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_keuangan']; ?>">
-                                                    Hapus
-                                                </button>
-                                                <a href="/pembayaran/edit/<?= $k['id_keuangan']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="/asatidz/detail/<?= $k['id_keuangan']; ?>" class="btn btn-info" target="_blank">Detail</a>
-                                                <?php if ($k['status_pembayaran'] == 'Lunas') {
-                                                    echo '';
-                                                } else { ?>
-                                                    <a href="/pembayaran/bayar_lainnya/<?= $k['id_keuangan']; ?>" class="btn btn-success">Bayar</a>
-                                                <?php } ?>
-                                            </td>
+                                            <td><?= $k['jumlah_bayar']; ?></td>
+                                            <td><?= date('d-M-Y', strtotime($k["waktu"]));; ?></td>
+                                            <td><a href="/pembayaran/detail/<?= $k['id_keuangan']; ?>" class="btn btn-info" target="_blank">Detail</a></td>
                                         </tr>
 
                                         <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $k['id_keuangan']; ?>">
@@ -110,7 +105,7 @@
                                                         <p>Apakah data ini akan dihapus?</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <form action="/pembayaran/lainnya<?= $k['id_keuangan']; ?>" method="POST">
+                                                        <form action="/pembayaran/pendaftaran<?= $k['id_keuangan']; ?>" method="POST">
                                                             <?= csrf_field(); ?>
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <button type="submit" class="btn btn-danger">Ya</button>

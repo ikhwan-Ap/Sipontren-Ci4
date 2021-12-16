@@ -15,35 +15,67 @@
                     <div class="card-header">
                         <h4>Data Pemasukan</h4>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-warning">
-                                    <i class="fas fa-user"></i>
+
+                    <form action="<?= base_url(); ?>/pembayaran/filter_pemasukan" method="POST" class="inline">
+                        <?= csrf_field(); ?>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_mulai">Tanggal Awal</label>
+                                    <input type="date" name="tgl_mulai" class="form-control">
                                 </div>
-                                <div class="card-header-primary">
-                                    <h3>Total Pemasukan
-                                        <?= $Lunas; ?>
-                                    </h3>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_akhir">Tanggal Akhir</label>
+                                    <input type="date" name="tgl_selesai" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_akhir">Pilih Jenis Pembayaran</label>
+                                    <select name="nama_pembayaran" id="nama_pembayaran" class="form-control">
+                                        <?php foreach ($tagihan as $t) : ?>
+                                            <option value="" hidden></option>
+                                            <option value="<?= $t['nama_pembayaran']; ?>"><?= $t['nama_pembayaran']; ?></option>
+                                        <?php endforeach;  ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="">Pilih</label>
+                                    <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                    <div class="card-icon bg-primary">
+                                        <i class="fas fa-money-check"></i>
+                                    </div>
+                                    <div class="card-header-primary">
+                                        <h3>Anggaran Tersedia
+                                            <?php
+                                            $sisa = $Total - $pengeluaran;
+                                            ?>
+                                            <?= $sisa; ?>
+                                        </h3>
+                                    </div>
+                                    <div class="card-icon bg-warning">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="card-header-primary">
+                                        <?php foreach ($Lunas as $l) : ?>
+                                            <h3>
+                                                <?= $l['jumlah_bayar']; ?>
+                                            </h3>
+                                        <?php endforeach;  ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-primary">
-                                    <i class="fas fa-money-check"></i>
-                                </div>
-                                <div class="card-header-primary">
-                                    <h3>Anggaran Tersedia
-                                        <?php
-                                        $sisa = $Lunas - $pengeluaran;
-                                        ?>
-                                        <?= $sisa; ?>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped" id="table-2">
@@ -51,7 +83,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nama Pembayaran</th>
-                                        <th>Jumlah Pendapatan</th>
+                                        <th>Jumlah Pemasukan</th>
                                         <th>Bulan</th>
                                     </tr>
                                 </thead>
@@ -64,7 +96,7 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
                                             <td><?= $k['jumlah_bayar']; ?></td>
-                                            <td><?= date('m', strtotime($k["waktu"]));; ?></td>
+                                            <td><?= date('d-M-Y', strtotime($k["waktu"]));; ?></td>
                                         </tr>
 
                                         <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $k['id_keuangan']; ?>">

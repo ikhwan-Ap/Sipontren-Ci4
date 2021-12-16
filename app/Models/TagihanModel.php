@@ -19,4 +19,12 @@ class TagihanModel extends Model
             ->whereNotIn('nama_pembayaran', $tagihan)
             ->get()->getResultArray();
     }
+
+    public function getTagihan()
+    {
+        return $this->db
+            ->table('tagihan')
+            ->select('*')
+            ->get()->getResultArray();
+    }
 }

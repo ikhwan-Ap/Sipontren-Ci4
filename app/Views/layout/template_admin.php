@@ -25,6 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 
+
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="<?= base_url() ?>/js/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="<?= base_url() ?>/js/summernote/dist/summernote-bs4.css">

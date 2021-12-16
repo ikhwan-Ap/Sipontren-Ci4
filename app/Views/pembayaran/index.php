@@ -1,3 +1,7 @@
+<?php
+
+use App\Controllers\Pembayaran;
+?>
 <?= $this->extend('layout/template_admin'); ?>
 
 <?= $this->section('content'); ?>
@@ -18,7 +22,40 @@
                     <div class="card-header">
                         <h4>Data Pembayaran</h4>
                     </div>
-                    <div class="card-body">
+                    <form action="<?= base_url(); ?>/pembayaran/filter" method="POST" class="inline">
+                        <?= csrf_field(); ?>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_mulai">Tanggal Awal</label>
+                                    <input type="date" name="tgl_mulai" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_akhir">Tanggal Akhir</label>
+                                    <input type="date" name="tgl_selesai" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_akhir">Pilih Status</label>
+                                    <select name="status_pembayaran" id="status_pembayaran" class="form-control">
+                                        <option value="" hidden></option>
+                                        <option value="Lunas">Lunas</option>
+                                        <option value="Belum Lunas">Belum Lunas</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="">Pilih</label>
+                                    <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class=" card-body">
                         <div class="table-responsive">
                             <table class="table table-striped" id="table-2">
                                 <thead>

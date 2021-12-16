@@ -9,6 +9,7 @@ use App\Models\SantriModel;
 use App\Models\PengeluaranModel;
 
 use CodeIgniter\Database\MySQLi\Result;
+use DeepCopy\Filter\Filter;
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -24,22 +25,95 @@ class Pembayaran extends BaseController
 
     public function index()
     {
-        // $filter = $this->input->post('filter'),
         $data = [
 
             'title' => 'Pembayaran SPP',
             'Lunas' => $this->model->getSudahLunas(),
             'BelumLunas' => $this->model->getBelumLunas(),
         ];
+        return view('pembayaran/index', $data);
+    }
+
+    public function filter()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $status_pembayaran = $this->request->getVar('status_pembayaran');
+        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas') {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran SPP',
+                'Lunas' => $this->model->getSudahLunasFilter($tanggal),
+            ];
+        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas') {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran SPP',
+                'Lunas' => $this->model->getLunasFilter($tanggal),
+            ];
+        } else {
+            $data = [
+                'title' => 'Pembayaran SPP',
+                'Lunas' => $this->model->getSudahLunas(),
+                'BelumLunas' => $this->model->getBelumLunas(),
+            ];
+        }
+
 
         return view('pembayaran/index', $data);
     }
+
     public function daftar_ulang()
     {
         $data = [
             'title' => 'Pembayaran Daftar Ulang',
             'Lunas' => $this->model->getDaftarUlang(),
         ];
+        return view('pembayaran/daftar', $data);
+    }
+    public function filter_daftar_ulang()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $status_pembayaran = $this->request->getVar('status_pembayaran');
+        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas') {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran Daftar Ulang',
+                'Lunas' => $this->model->getDaftarUlangLunas($tanggal),
+            ];
+        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas') {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran Daftar Ulang',
+                'Lunas' => $this->model->getDaftarUlangBelumLunas($tanggal),
+            ];
+        } else {
+            $data = [
+                'title' => 'Pembayaran Daftar Ulang',
+                'Lunas' => $this->model->getDaftarUlang(),
+            ];
+        }
+
+
         return view('pembayaran/daftar', $data);
     }
 
@@ -51,6 +125,42 @@ class Pembayaran extends BaseController
         ];
         return view('pembayaran/pendaftaran', $data);
     }
+    public function filter_pendaftaran()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $status_pembayaran = $this->request->getVar('status_pembayaran');
+        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas') {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran Pendaftaran',
+                'Lunas' => $this->model->getPendaftaranLunas($tanggal),
+            ];
+        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas') {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran Pendaftaran',
+                'Lunas' => $this->model->getPendaftaranBelumLunas($tanggal),
+            ];
+        } else {
+            $data = [
+                'title' => 'Pembayaran Pendaftaran',
+                'Lunas' => $this->model->getPendaftaran(),
+            ];
+        }
+
+
+        return view('pembayaran/pendaftaran', $data);
+    }
 
     public function lainnya()
     {
@@ -58,6 +168,45 @@ class Pembayaran extends BaseController
             'title' => 'Pembayaran Lainnya',
             'Lunas' => $this->model->getLainnya(),
         ];
+        return view('pembayaran/lainnya', $data);
+    }
+    public function filter_lainnya()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $nama_pembayaran = $this->request->getVar('nama_pembayaran');
+        $status_pembayaran = $this->request->getVar('status_pembayaran');
+        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas' || $nama_pembayaran != null) {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran,
+                'nama_pembayaran' => $nama_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran Lainnya',
+                'Lunas' => $this->model->getLainnyaLunas($tanggal),
+            ];
+        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas' || $nama_pembayaran != null) {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'status_pembayaran' => $status_pembayaran,
+                'nama_pembayaran' => $nama_pembayaran
+            ];
+            $data = [
+                'title' => 'Pembayaran Lainnya',
+                'Lunas' => $this->model->getLainnyaBelumLunas($tanggal),
+            ];
+        } else {
+            $data = [
+                'title' => 'Pembayaran Lainnya',
+                'Lunas' => $this->model->getLainnya(),
+            ];
+        }
+
+
         return view('pembayaran/lainnya', $data);
     }
     public function tagihan()
@@ -75,13 +224,97 @@ class Pembayaran extends BaseController
 
         $data = [
             'title' => 'Pemasukan',
+            'tagihan' => $this->tagihan->getTagihan(),
             'pendapatan' => $this->model->pendapatan(),
             'pengeluaran' => $this->pengeluaran->pengeluaran(),
+            'Total' => $this->model->total_pemasukan(),
             'Lunas' => $this->model->total_pemasukan(),
         ];
 
         return view('laporan/pemasukan', $data);
     }
+    public function filter_pemasukan()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $nama_pembayaran = $this->request->getVar('nama_pembayaran');
+        if ($tgl_mulai != null || $tgl_selesai != null || $nama_pembayaran != null) {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'nama_pembayaran' => $nama_pembayaran
+            ];
+            $data = [
+                'title' => 'Pemasukan',
+                'Total' => $this->model->total_pemasukan(),
+                'pengeluaran' => $this->pengeluaran->pengeluaran(),
+                'Lunas' => $this->model->getPemasukan($tanggal),
+                'tagihan' => $this->tagihan->getTagihan(),
+                'pendapatan' => $this->model->getPemasukan($tanggal),
+            ];
+        } else {
+            $data = [
+                'title' => 'Pemasukan',
+                'tagihan' => $this->tagihan->getTagihan(),
+                'pendapatan' => $this->model->pendapatan(),
+                'pengeluaran' => $this->pengeluaran->pengeluaran(),
+                'Total' => $this->model->total_pemasukan(),
+                'Lunas' => $this->model->total_pemasukan(),
+            ];
+        }
+
+
+        return view('laporan/pemasukan', $data);
+    }
+    public function laporan_masuk()
+    {
+
+
+        $data = [
+            'title' => 'Print Pemasukan',
+            'tagihan' => $this->tagihan->getTagihan(),
+            'pendapatan' => $this->model->pemasukan(),
+            'pengeluaran' => $this->pengeluaran->pengeluaran(),
+            'Lunas' => $this->model->total_pemasukan(),
+        ];
+
+        return view('laporan/laporanmasuk', $data);
+    }
+
+    public function filter_laporanmasuk()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $nama_pembayaran = $this->request->getVar('nama_pembayaran');
+        if ($tgl_mulai != null || $tgl_selesai != null || $nama_pembayaran != null) {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'nama_pembayaran' => $nama_pembayaran
+            ];
+            $data = [
+                'title' => 'Print Pemasukan',
+                'tagihan' => $this->tagihan->getTagihan(),
+                'pendapatan' => $this->model->laporanmasuk($tanggal),
+                'pengeluaran' => $this->pengeluaran->pengeluaran(),
+                'Lunas' => $this->model->total_pemasukan(),
+            ];
+        } else {
+            $data = [
+                'title' => 'Print Pemasukan',
+                'tagihan' => $this->tagihan->getTagihan(),
+                'pendapatan' => $this->model->pemasukan(),
+                'pengeluaran' => $this->pengeluaran->pengeluaran(),
+                'Lunas' => $this->model->total_pemasukan(),
+            ];
+        }
+
+
+        return view('laporan/laporanmasuk', $data);
+    }
+
     public function pengeluaran()
     {
         $data = [
@@ -89,6 +322,34 @@ class Pembayaran extends BaseController
             'data' => $this->pengeluaran->findAll(),
             'pengeluaran' => $this->pengeluaran->total_pengeluaran(),
         ];
+        return view('laporan/pengeluaran', $data);
+    }
+    public function filter_pengeluaran()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $nama_pengeluaran = $this->request->getVar('nama_pengeluaran');
+        if ($tgl_mulai != null || $tgl_selesai != null || $nama_pengeluaran != null) {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'nama_pengeluaran' => $nama_pengeluaran
+            ];
+            $data = [
+                'title' => 'Pengeluaran',
+                'data' => $this->pengeluaran->getPengeluaran($tanggal),
+                'pengeluaran' => $this->pengeluaran->getPengeluaran($tanggal),
+            ];
+        } else {
+            $data = [
+                'title' => 'Pengeluaran',
+                'data' => $this->pengeluaran->findAll(),
+                'pengeluaran' => $this->pengeluaran->total_pengeluaran(),
+            ];
+        }
+
+
         return view('laporan/pengeluaran', $data);
     }
     public function add()
@@ -132,21 +393,24 @@ class Pembayaran extends BaseController
         ])) {
             return redirect()->to('/pembayaran/add')->withInput();
         }
+        /* $tanggal = date_format(date_create($waktu), "Y-m");  */
+
         $waktu = $this->request->getVar('waktu');
         $id_santri = $this->request->getVar('id_santri');
         $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
-        AND waktu ='$waktu'");
-        $cek_nik = $sql->getRowArray();
-        if ($cek_nik > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Data Telah tersedia
-            </div>
-          </div>');
+        $sql = $this->db->query("SELECT id_tagihan,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+
+        //array MONTH(waktu)='$bln' AND YEAR(waktu)='$thn'
+        if ($sql  > 0) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                  <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                  </button>
+                  Data Dengan Bulan Tersebut tersedia
+                </div>
+              </div>');
             return redirect()->to('/pembayaran/add')->withInput();
         } else {
             $this->model->save([
@@ -155,13 +419,14 @@ class Pembayaran extends BaseController
                 'waktu' => $waktu,
                 'id_santri' => $id_santri,
                 'status_pembayaran' => 'Belum Lunas',
+
             ]);
             session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                               <div class="alert-body">
                                 <button class="close" data-dismiss="alert">
                                   <span>×</span>
                                 </button>
-                                Data Pembayaran berhasil ditambahkan!
+                                Data SPP berhasil ditambahkan!
                               </div>
                             </div>');
             return redirect()->to('/pembayaran');
@@ -208,12 +473,13 @@ class Pembayaran extends BaseController
         ])) {
             return redirect()->to('/pembayaran/pendaftaran_add')->withInput();
         }
+        $waktu = $this->request->getVar('waktu');
         $id_santri = $this->request->getVar('id_santri');
         $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'");
-        $cek_nik = $sql->getRowArray();
-        if ($cek_nik > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+        if ($sql > 0) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
               <button class="close" data-dismiss="alert">
                 <span>×</span>
@@ -226,7 +492,7 @@ class Pembayaran extends BaseController
             $this->model->save([
                 // 'id_tagihan' => $this->request->getVar('id_tagihan'),
                 'id_tagihan' => $id_tagihan,
-                'waktu' => $this->request->getVar('waktu'),
+                'waktu' => $waktu,
                 'id_santri' => $id_santri,
                 'status_pembayaran' => 'Belum Lunas',
             ]);
@@ -235,7 +501,7 @@ class Pembayaran extends BaseController
                                 <button class="close" data-dismiss="alert">
                                   <span>×</span>
                                 </button>
-                                Data Pembayaran berhasil ditambahkan!
+                                Data Pembayaran Pendaftaran berhasil ditambahkan!
                               </div>
                             </div>');
             return redirect()->to('/pembayaran/pendaftaran');
@@ -283,12 +549,13 @@ class Pembayaran extends BaseController
         ])) {
             return redirect()->to('/pembayaran/daftar_ulang_add')->withInput();
         }
+        $waktu = $this->request->getVar('waktu');
         $id_santri = $this->request->getVar('id_santri');
         $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'");
-        $cek_nik = $sql->getRowArray();
-        if ($cek_nik > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+        if ($sql > 0) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
               <button class="close" data-dismiss="alert">
                 <span>×</span>
@@ -301,7 +568,7 @@ class Pembayaran extends BaseController
             $this->model->save([
                 // 'id_tagihan' => $this->request->getVar('id_tagihan'),
                 'id_tagihan' => $id_tagihan,
-                'waktu' => $this->request->getVar('waktu'),
+                'waktu' => $waktu,
                 'id_santri' => $id_santri,
                 'status_pembayaran' => 'Belum Lunas',
             ]);
@@ -310,10 +577,10 @@ class Pembayaran extends BaseController
                                 <button class="close" data-dismiss="alert">
                                   <span>×</span>
                                 </button>
-                                Data Pembayaran berhasil ditambahkan!
+                                Data Pembayaran Daftar Ulang berhasil ditambahkan!
                               </div>
                             </div>');
-            return redirect()->to('/pembayaran/daftar');
+            return redirect()->to('/pembayaran/daftar_ulang');
         }
     }
     public function lainnya_add()
@@ -357,17 +624,18 @@ class Pembayaran extends BaseController
         ])) {
             return redirect()->to('/pembayaran/lainnya_add')->withInput();
         }
+        $waktu = $this->request->getVar('waktu');
         $id_santri = $this->request->getVar('id_santri');
         $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'");
-        $cek_nik = $sql->getRowArray();
-        if ($cek_nik > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+        if ($sql > 0) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
               <button class="close" data-dismiss="alert">
                 <span>×</span>
               </button>
-              Data Telah tersedia
+              Data Dengan Bulan Tersebut tersedia
             </div>
           </div>');
             return redirect()->to('/pembayaran/lainnya_add')->withInput();
@@ -375,7 +643,7 @@ class Pembayaran extends BaseController
             $this->model->save([
                 // 'id_tagihan' => $this->request->getVar('id_tagihan'),
                 'id_tagihan' => $id_tagihan,
-                'waktu' => $this->request->getVar('waktu'),
+                'waktu' => $waktu,
                 'id_santri' => $id_santri,
                 'status_pembayaran' => 'Belum Lunas',
             ]);
@@ -405,9 +673,10 @@ class Pembayaran extends BaseController
         // $getSantriBayar = $this->;
         if (!$this->validate([
             'nama_pembayaran' => [
-                'rules' => 'required',
+                'rules' => 'required|is_unique[tagihan.nama_pembayaran]',
                 'errors' => [
                     'required' => 'Nama Pembayaran Harus diisi!',
+                    'is_unique' => 'Pembayaran tersebut telah terdaftar!',
                 ]
             ],
             'jumlah_pembayaran' => [
@@ -428,7 +697,7 @@ class Pembayaran extends BaseController
                                 <button class="close" data-dismiss="alert">
                                   <span>×</span>
                                 </button>
-                                Data Pembayaran berhasil ditambahkan!
+                                Data Tagihan berhasil ditambahkan!
                               </div>
                             </div>');
         return redirect()->to('/pembayaran/tagihan');
@@ -477,7 +746,7 @@ class Pembayaran extends BaseController
         $cek_pengeluaran = $pengeluaran->getRow()->jumlah_pengeluaran;
         $anggaran = $cek - $cek_pengeluaran;
         if ($jumlah_pengeluaran > $anggaran) {
-            session()->setFlashdata('message', '<div class="alert alert-warning alert-dismissible show fade">
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
               <button class="close" data-dismiss="alert">
                 <span>×</span>
@@ -497,7 +766,7 @@ class Pembayaran extends BaseController
                                         <button class="close" data-dismiss="alert">
                                           <span>×</span>
                                         </button>
-                                        Data berhasil ditambahkan!
+                                        Data Pengeluaran Berhasil ditambahkan!
                                       </div>
                                     </div>');
             return redirect()->to('/pengeluaran');
@@ -609,11 +878,154 @@ class Pembayaran extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Pembayaran Berhasil!!
+                        Pembayaran SPP Berhasil!!
                       </div>
                     </div>');
 
         return redirect()->to('/pembayaran');
+    }
+    public function bayar_daftar_ulang($id)
+    {
+        $data = [
+            'title' => 'Pembayaran Daftar Ulang',
+            'BelumLunas' => $this->model->getKeuangan($id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('pembayaran/bayar_daftar_ulang', $data);
+    }
+    public function update_daftar_ulang($id)
+    {
+        if (!$this->validate([
+            'jumlah_bayar' => [
+                'rules' => 'required|matches[jumlah_pembayaran]',
+                'errors' => [
+                    'required' => 'Pembayaran anda harus sesuai!',
+                    'matches' => 'Jumlah bayar tidak sama dengan tagihan!',
+                ]
+            ],
+            'jumlah_pembayaran' => [
+                'rules' => 'required|matches[jumlah_bayar]',
+                'errors' => [
+                    'required' => 'Pembayaran anda harus sesuai!',
+                    'matches' => 'Jumlah pembayaran  tidak sama dengan tagihan!',
+                ]
+            ]
+        ])) {
+            return redirect()->to('/pembayaran/bayar_daftar_ulang/' . $this->request->getVar('id_keuangan'))->withInput();
+        }
+
+        $this->model->save([
+            'id_keuangan' => $id,
+            'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
+            'status_pembayaran' => 'Lunas',
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Pembayaran Daftar Ulang Berhasil!!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/daftar_ulang');
+    }
+
+    public function bayar_pendaftaran($id)
+    {
+        $data = [
+            'title' => 'Pembayaran Pendaftaran',
+            'BelumLunas' => $this->model->getKeuangan($id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('pembayaran/bayar_pendaftaran', $data);
+    }
+    public function update_pendaftaran($id)
+    {
+        if (!$this->validate([
+            'jumlah_bayar' => [
+                'rules' => 'required|matches[jumlah_pembayaran]',
+                'errors' => [
+                    'required' => 'Pembayaran anda harus sesuai!',
+                    'matches' => 'Jumlah bayar tidak sama dengan tagihan!',
+                ]
+            ],
+            'jumlah_pembayaran' => [
+                'rules' => 'required|matches[jumlah_bayar]',
+                'errors' => [
+                    'required' => 'Pembayaran anda harus sesuai!',
+                    'matches' => 'Jumlah pembayaran  tidak sama dengan tagihan!',
+                ]
+            ]
+        ])) {
+            return redirect()->to('/pembayaran/bayar_pendaftaran/' . $this->request->getVar('id_keuangan'))->withInput();
+        }
+
+        $this->model->save([
+            'id_keuangan' => $id,
+            'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
+            'status_pembayaran' => 'Lunas',
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Pembayaran Pendaftaran Berhasil!!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/pembayaran/pendaftaran');
+    }
+
+    public function bayar_lainnya($id)
+    {
+        $data = [
+            'title' => 'Pembayaran Lain',
+            'BelumLunas' => $this->model->getKeuangan($id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('pembayaran/bayar_lainnya', $data);
+    }
+    public function update_lainnya($id)
+    {
+        if (!$this->validate([
+            'jumlah_bayar' => [
+                'rules' => 'required|matches[jumlah_pembayaran]',
+                'errors' => [
+                    'required' => 'Pembayaran anda harus sesuai!',
+                    'matches' => 'Jumlah bayar tidak sama dengan tagihan!',
+                ]
+            ],
+            'jumlah_pembayaran' => [
+                'rules' => 'required|matches[jumlah_bayar]',
+                'errors' => [
+                    'required' => 'Pembayaran anda harus sesuai!',
+                    'matches' => 'Jumlah pembayaran  tidak sama dengan tagihan!',
+                ]
+            ]
+        ])) {
+            return redirect()->to('/pembayaran/bayar_lainnya/' . $this->request->getVar('id_keuangan'))->withInput();
+        }
+
+        $this->model->save([
+            'id_keuangan' => $id,
+            'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
+            'status_pembayaran' => 'Lunas',
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Pembayaran Berhasil!!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/lainnya');
     }
 
     public function delete($id)
@@ -624,7 +1036,7 @@ class Pembayaran extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data Pembayaran berhasil dihapus!
+                        Data SPP berhasil dihapus!
                       </div>
                     </div>');
         return redirect()->to('/pembayaran');
@@ -637,7 +1049,7 @@ class Pembayaran extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data Pembayaran berhasil dihapus!
+                        Data Pendaftaran berhasil dihapus!
                       </div>
                     </div>');
         return redirect()->to('/pembayaran/pendaftaran');
@@ -650,10 +1062,10 @@ class Pembayaran extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data Pembayaran berhasil dihapus!
+                        Data Daftar Ulang berhasil dihapus!
                       </div>
                     </div>');
-        return redirect()->to('/pembayaran/daftar');
+        return redirect()->to('/pembayaran/daftar_ulang');
     }
     public function delete_lainnya($id)
     {
@@ -676,7 +1088,7 @@ class Pembayaran extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data Pembayaran berhasil dihapus!
+                        Data Tagihan berhasil dihapus!
                       </div>
                     </div>');
         return redirect()->to('/pembayaran/tagihan');
@@ -689,7 +1101,7 @@ class Pembayaran extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data Pembayaran berhasil dihapus!
+                        Data Pengeluaran berhasil dihapus!
                       </div>
                     </div>');
         return redirect()->to('/pengeluaran');

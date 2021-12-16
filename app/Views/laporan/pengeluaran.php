@@ -18,22 +18,56 @@
                     <div class="card-header">
                         <h4>Data Pengeluaran</h4>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-danger">
-                                    <i class="fas fa-user"></i>
+                    <form action="<?= base_url(); ?>/pembayaran/filter_pengeluaran" method="POST" class="inline">
+                        <?= csrf_field(); ?>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_mulai">Tanggal Awal</label>
+                                    <input type="date" name="tgl_mulai" class="form-control">
                                 </div>
-                                <div class="card-header-primary">
-                                    <h3>Total Pengeluaran
-                                        <?php foreach ($pengeluaran as $p) :  ?>
-                                            <?= $p['jumlah_pengeluaran']; ?>
-                                    </h3>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_akhir">Tanggal Akhir</label>
+                                    <input type="date" name="tgl_selesai" class="form-control">
                                 </div>
-                            <?php endforeach;  ?>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="tgl_akhir">Pilih Jenis Pembayaran</label>
+                                    <select name="nama_pengeluaran" id="nama_pengeluaran" class="form-control">
+                                        <?php foreach ($data as $p) : ?>
+                                            <option value="" hidden></option>
+                                            <option value="<?= $p['nama_pengeluaran']; ?>"><?= $p['nama_pengeluaran']; ?></option>
+                                        <?php endforeach;  ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="">Pilih</label>
+                                    <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                    <div class="card-icon bg-danger">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="card-header-primary">
+                                        <h3>Total Pengeluaran
+                                            <?php foreach ($pengeluaran as $p) :  ?>
+                                                <?= $p['jumlah_pengeluaran']; ?>
+                                        </h3>
+                                    </div>
+                                <?php endforeach;  ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped" id="table-2">
@@ -55,7 +89,7 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $k['nama_pengeluaran']; ?></td>
                                             <td><?= $k['jumlah_pengeluaran']; ?></td>
-                                            <td><?= date('m', strtotime($k["waktu_pengeluaran"]));; ?></td>
+                                            <td><?= date('d-M-Y', strtotime($k["waktu_pengeluaran"]));; ?></td>
 
                                             <td>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_pengeluaran']; ?>">

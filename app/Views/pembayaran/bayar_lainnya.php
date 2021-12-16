@@ -4,20 +4,20 @@
 <section class="section">
     <div class="section-header">
         <div class="section-header-button">
-            <a href="/pembayaran" class="btn btn-light mr-3"><i class="fas fa-arrow-left"></i></a>
+            <a href="/lainnya" class="btn btn-light mr-3"><i class="fas fa-arrow-left"></i></a>
         </div>
         <h1><?= $title; ?></h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="/pembayaran">Pembayaran</a></div>
-            <div class="breadcrumb-item">Pembayaran</div>
+            <div class="breadcrumb-item"><a href="/lainnya">Pembayaran Lain</a></div>
+            <div class="breadcrumb-item">Pembayaran Lain</div>
         </div>
     </div>
 
     <?= session()->getFlashdata('message'); ?>
 
     <div class="card col-lg-8">
-        <form action="/pembayaran/<?= $BelumLunas['id_keuangan']; ?>" method="POST">
+        <form action="/lainnya/<?= $BelumLunas['id_keuangan']; ?>" method="POST">
             <div class="card-header">
                 <h4 class="text-dark">Pembayaran Santri</h4>
             </div>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Bayar</button>
-                    <a href="/pembayaran" class="btn btn-light ml-2">Batal</a>
+                    <a href="/lainnya" class="btn btn-light ml-2">Batal</a>
                 </div>
         </form>
     </div>
