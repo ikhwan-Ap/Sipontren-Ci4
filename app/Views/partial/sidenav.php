@@ -30,36 +30,34 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Pembayaran SPP" || $title == "Tagihan Baru" || $title == "Pembayaran Pendaftaran" || $title == "Pembayaran Daftar Ulang" || $title == "Pembayaran Lainnya") ? 'active' : ''; ?>">
+            <li class="nav-item dropdown <?= ($title == "Pembayaran SPP" ||  $title == "Pengeluaran Baru"  ||  $title == "Tagihan Baru" || $title == "Pembayaran Pendaftaran" || $title == "Pembayaran Daftar Ulang" || $title == "Pembayaran Lainnya") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-money-check"></i> <span>Keuangan</span></a>
                 <ul class="dropdown-menu">
-                    <?php if (session()->get('role') == 1) : ?>
-                        <li class="<?= ($title == "Admin") ? 'active' : ''; ?>"><a class="nav-link" href="/admin">Admin</a></li>
-                    <?php endif; ?>
                     <li class="<?= ($title == "Pembayaran SPP") ? 'active' : ''; ?>"><a class="nav-link" href="/pembayaran">Pembayaran SPP</a></li>
+                    <li class="<?= ($title == "Pembayaran SPP") ? 'active' : ''; ?>"><a class="nav-link" href="/pembayaran">Data SPP</a></li>
                     <li class="<?= ($title == "Pembayaran Pendaftaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pembayaran/pendaftaran">Pembayaran Pendaftaran</a></li>
                     <li class="<?= ($title == "Pembayaran Daftar Ulang") ? 'active' : ''; ?>"><a class="nav-link" href="/daftar_ulang">Pembayaran Daftar Ulang</a></li>
                     <li class="<?= ($title == "Pembayaran Lainnya") ? 'active' : ''; ?>"><a class="nav-link" href="/lainnya">Pembayaran Lainnya</a></li>
-                    <li class="<?= ($title == "Tagihan Baru") ? 'active' : ''; ?>"><a class="nav-link" href="/tagihan">Tagihan Baru</a></li>
+                    <?php if (session()->get('role') == 1) : ?>
+                        <li class="<?= ($title == "Tagihan Baru") ? 'active' : ''; ?>"><a class="nav-link" href="/tagihan">Tagihan Baru</a></li>
+                        <li class="<?= ($title == "Pengeluaran Baru") ? 'active' : ''; ?>"><a class="nav-link" href="/pengeluaran_baru">Pengeluaran Baru</a></li>
+                    <?php endif; ?>
                 </ul>
             </li>
-            <li class="nav-item dropdown <?= ($title == "Admin" || $title == "Pemasukan" || $title == "Pengeluaran" || $title == "Print Pemasukan" || $title == "Print Pengeluaran") ? 'active' : ''; ?>">
+            <li class="nav-item dropdown <?= ($title == "Pemasukan" ||  $title == "Print Pengeluaran" || $title == "Pengeluaran" ||  $title == "Print Pemasukan" || $title == "Print Pengeluaran") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file-alt"></i> <span>Laporan</span></a>
                 <ul class="dropdown-menu">
-                    <?php if (session()->get('role') == 1) : ?>
-                        <li class="<?= ($title == "Admin") ? 'active' : ''; ?>"><a class="nav-link" href="/admin">Admin</a></li>
-                    <?php endif; ?>
                     <li class="<?= ($title == "Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/pemasukan">Pemasukan</a></li>
                     <li class="<?= ($title == "Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pengeluaran">Pengeluaran</a></li>
                     <li class="<?= ($title == "Print Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/masuk">Print Pemasukan</a></li>
-                    <li class="<?= ($title == "Print Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pengeluaran">Print Pengeluaran</a></li>
+                    <li class="<?= ($title == "Print Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/masuk">Print Pengeluaran</a></li>
                 </ul>
             </li>
 
-            <li class="nav-item dropdown <?= ($title == "Admin") ? 'active' : ''; ?>">
+            <li class="nav-item dropdown <?= ($title == "Perizinan") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-envelope"></i> <span>Perizinan</span></a>
                 <ul class="dropdown-menu">
-                    <li class="<?= ($title == "Perijinan") ? 'active' : ''; ?>"><a class="nav-link" href="/perizinan">Surat Izin Keluar</a></li>
+                    <li class="<?= ($title == "Perizinan") ? 'active' : ''; ?>"><a class="nav-link" href="/perizinan">Surat Izin Keluar</a></li>
                 </ul>
             </li>
 

@@ -24,7 +24,7 @@
                 <?= csrf_field(); ?>
                 <div class="form-group">
                     <label for="nis">NIS</label>
-                    <input id="nis" type=" number" class="form-control <?= ($validation->hasError('nis')) ? 'is-invalid' : ''; ?>" name="nis" value="<?= old('nis'); ?>" readonly>
+                    <input id="nis" type=" number" class="form-control <?= ($validation->hasError('nis')) ? 'is-invalid' : ''; ?>" name="nis" value="<?= old('nis'); ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nis'); ?>
                     </div>

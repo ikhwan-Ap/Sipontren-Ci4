@@ -1,6 +1,7 @@
 <?= $this->extend('layout/template_admin'); ?>
 
 <?= $this->section('content'); ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <section class="section">
     <div class="section-header">
         <h1><?= $title; ?></h1>
@@ -16,19 +17,19 @@
                         <h4>Print Data Pemasukan</h4>
                     </div>
 
-                    <form action="<?= base_url(); ?>/pembayaran/filter_laporanmasuk" method="POST" class="inline">
+                    <form action="<?php base_url(); ?>/laporanmasuk/filter" id="formlaporan" method="POST" class="inline">
                         <?= csrf_field(); ?>
                         <div class="row">
                             <div class="form-group">
                                 <div class="col">
                                     <label for="tgl_mulai">Tanggal Awal</label>
-                                    <input type="date" name="tgl_mulai" class="form-control">
+                                    <input type="date" name="tgl_mulai" id="tgl_mulai" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col">
                                     <label for="tgl_akhir">Tanggal Akhir</label>
-                                    <input type="date" name="tgl_selesai" class="form-control">
+                                    <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -48,15 +49,29 @@
                                     <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col">
+                                    <label for="">Pilih</label>
+                                    <?php
+                                    if ($tanggal != null) {
+                                        echo '<a href="/laporan/print/' . $tanggal['tgl_mulai'] . '/' . $tanggal['tgl_selesai'] . '/' . $tanggal['nama_pembayaran'] . '"target="_blank" class="form-control btn btn-primary">Print</a>';
+                                    } else {
+                                        echo '<a href="/laporan/print" target ="_blank" class="form-control btn btn-primary">Print</a>';
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div class="card card-statistic-1">
                                     <div class="card-icon bg-warning">
                                         <i class="fas fa-user"></i>
                                     </div>
                                     <div class="card-header-primary">
-                                        <h3>Total Pemasukan
-                                            <?= $Lunas; ?>
-                                        </h3>
+                                        <?php foreach ($Lunas as $l) :  ?>
+                                            <h3>Total Pemasukan
+                                                <?= $l['jumlah_bayar']; ?>
+                                            </h3>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>
@@ -72,9 +87,8 @@
                                         <th>NIS</th>
                                         <th>Nama Santri</th>
                                         <th>Nama Pembayaran</th>
-                                        <th>Jumlah Pembayaran</th>
                                         <th>Tanggal Pembayaran</th>
-                                        <th>Action</th>
+                                        <th>Jumlah Pembayaran</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -87,35 +101,9 @@
                                             <td><?= $k['nis']; ?></td>
                                             <td><?= $k['nama_lengkap']; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
-                                            <td><?= $k['jumlah_bayar']; ?></td>
                                             <td><?= date('d-M-Y', strtotime($k["waktu"]));; ?></td>
-                                            <td><a href="/pembayaran/detail/<?= $k['id_keuangan']; ?>" class="btn btn-info" target="_blank">Detail</a></td>
+                                            <td><?= $k['jumlah_bayar']; ?></td>
                                         </tr>
-
-                                        <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $k['id_keuangan']; ?>">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Peringatan</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">×</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>Apakah data ini akan dihapus?</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form action="/pembayaran/pendaftaran<?= $k['id_keuangan']; ?>" method="POST">
-                                                            <?= csrf_field(); ?>
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                            <button type="submit" class="btn btn-danger">Ya</button>
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -126,4 +114,52 @@
         </div>
     </div>
 </section>
+<script>
+    $('input[type=date]').change(function() {
+        var tgl_mulai = $('#tgl_mulai').val();
+        var tgl_selesai = $('#tgl_selesai').val();
+        var nama_pembayaran = $('#nama_pembayaran').val();
+        if (tgl_mulai !== null && tgl_selesai !== null && nama_pembayaran !== null) {
+            $('#link-print').attr('href', '/laporan/print/' + tgl_mulai + '/' + tgl_selesai + '/' + nama_pembayaran);
+            $('#link-print').show();
+        }
+    });
+    $('#nama_pembayaran').change(function() {
+        var tgl_mulai = $('#tgl_mulai').val();
+        var tgl_selesai = $('#tgl_selesai').val();
+        var nama_pembayaran = $('#nama_pembayaran').val();
+        if (tgl_mulai !== null && tgl_selesai !== null && nama_pembayaran !== null) {
+            $('#link-print').attr('href', '/laporan/print/' + tgl_mulai + '/' + tgl_selesai + '/' + nama_pembayaran);
+            $('#link-print').show();
+        }
+    });
+</script>
+<script>
+    // $('input[type=date]').change(function() {
+    // var tgl_mulai = $('#tgl_mulai').val();
+    // var tgl_selesai = $('#tgl_selesai').val();
+    // var nama_pembayaran = $('#nama_pembayaran').val();
+    // if (tgl_mulai != null || tgl_selesai != null || nama_pembayaran != null) {
+    // $('#link-print').attr('href', '/laporan/print?tgl_mulai=' + tgl_mulai + '&tgl_selesai=' + tgl_selesai + '&nama_pembayaran' + nama_pembayaran);
+    // }
+    // });
+    // $('#tgl_selesai').change(function() {
+    // var tgl_mulai = $('#tgl_mulai').val();
+    // var tgl_selesai = $('#tgl_selesai').val();
+    // $('#link-print').attr('/pembayaran/print?tgl_mulai=' + tgl_mulai + '&tgl_selesai=' + tgl_selesai);
+    // });
+</script>
+<!-- <script>
+    $(document).ready(function() {
+        $('#tgl_mulai').change(function(e) {
+            e.preventDefault();
+            var tgl_selesai = $('#tgl_selesai').val();
+            var nama_pembayaran = $('#nama_pembayaran').val();
+
+            var url = "<site url>" = tanggal;
+            $('#table-2').load(url);
+        });
+    });
+</script> -->
+
 <?= $this->endSection(); ?>

@@ -89,8 +89,6 @@ use App\Controllers\Pembayaran;
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_keuangan']; ?>">
                                                     Hapus
                                                 </button>
-                                                <a href="/pembayaran/edit/<?= $k['id_keuangan']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="/pembayaran/detail/<?= $k['id_keuangan']; ?>" class="btn btn-info" target="_blank">Detail</a>
                                                 <?php if ($k['status_pembayaran'] == 'Lunas') {
                                                     echo '';
                                                 } else { ?>
