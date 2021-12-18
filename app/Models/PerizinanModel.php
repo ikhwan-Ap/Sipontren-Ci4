@@ -8,7 +8,7 @@ class PerizinanModel extends Model
 {
     protected $table            = 'perizinan';
     protected $primaryKey       = 'id_izin';
-    protected $allowedFields    = ['id_santri', 'keterangan', 'tanggal_terima', 'tanggal_kembali', 'status_izin'];
+    protected $allowedFields    = ['id_santri', 'keterangan', 'tanggal_terima', 'tanggal_kembali', 'status_izin', 'tanggal_izin'];
 
     public function getIzin($id = false)
     {
@@ -17,5 +17,16 @@ class PerizinanModel extends Model
         }
 
         return $this->db->table('perizinan')->select('*')->where('id_izin', $id)->join('santri', 'santri.id_santri = perizinan.id_santri')->get()->getRowArray();
+    }
+    public function getSantri()
+    {
+
+        $id_santri = $this->getVar('id_santri');
+        return $this->db->table('perizinan')
+            ->select('*')
+            ->where('id_santri', $id_santri)
+            ->join('santri', 'santri.id_santri = perizinan.id_santri')
+
+            ->get()->getResultArray();
     }
 }

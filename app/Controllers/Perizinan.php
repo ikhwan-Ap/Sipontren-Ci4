@@ -56,6 +56,18 @@ class Perizinan extends BaseController
                     'required' => 'Keterangan harus diisi!',
                 ]
             ],
+            'tanggal_izin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Izin harus diisi!',
+                ]
+            ],
+            'tanggal_kembali' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Kembali harus diisi!',
+                ]
+            ],
         ])) {
             return redirect()->to('/perizinan/add')->withInput();
         }
@@ -63,6 +75,8 @@ class Perizinan extends BaseController
         $this->perizinan->save([
             'id_santri' => $this->request->getVar('id_santri'),
             'keterangan' => $this->request->getVar('keterangan'),
+            'tanggal_izin' => $this->request->getVar('tanggal_izin'),
+            'tanggal_kembali' => $this->request->getVar('tanggal_kembali'),
             'tanggal_terima' => time(),
             'status_izin' => 'Menunggu',
         ]);
@@ -90,10 +104,13 @@ class Perizinan extends BaseController
         return view('perizinan/persetujuan', $data);
     }
 
-    public function terima($id_izin)
+    public function terima($id_santri)
     {
         $this->perizinan->save([
-            'id_izin' => $id_izin,
+            'id_santri' => $id_santri,
+            'keterangan' => $this->request->getVar('keterangan'),
+            'tanggal_izin' => $this->request->getVar('tanggal_izin'),
+            'tanggal_kembali' => $this->request->getVar('tanggal_kembali'),
             'tanggal_terima' => time(),
             'status_izin' => 'Diterima',
         ]);
