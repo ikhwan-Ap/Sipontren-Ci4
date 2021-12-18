@@ -10,7 +10,7 @@ class KeuanganModel extends Model
     protected $primaryKey       = 'id_keuangan';
     protected $returnType       = 'array';
     protected $allowedFields    = [
-        'id_santri',  'id_tagihan', 'status_pembayaran', 'waktu', 'jumlah_bayar'
+        'id_santri',  'id_tagihan', 'status_pembayaran', 'waktu', 'jumlah_bayar', 'bulan'
     ];
     public function getSudahLunas()
     {
@@ -19,6 +19,7 @@ class KeuanganModel extends Model
         $builder->where('nama_pembayaran', 'uang syahriyah');
         $builder->join('santri', 'santri.id_santri = keuangan.id_santri');
         $builder->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan');
+        $builder->orderBy('waktu', 'desc');
         $query = $builder->get();
         return $query->getResultArray();
     }
@@ -85,6 +86,16 @@ class KeuanganModel extends Model
             ->get()->getResultArray();
     }
     public function total_pemasukan()
+    {
+        return $this->db
+            ->table('keuangan')
+            ->select('*')
+            ->select('keuangan.id_keuangan')
+            ->selectSum('keuangan.jumlah_bayar')
+            ->orderBy('keuangan.jumlah_bayar')
+            ->get()->getResultArray();
+    }
+    public function jumlah_pemasukan()
     {
         $sql = "SELECT sum(jumlah_bayar) as jumlah_bayar FROM keuangan";
         $result = $this->db->query($sql);
@@ -228,19 +239,34 @@ class KeuanganModel extends Model
         return $this->db
             ->table('keuangan')
             ->select('*')
-            ->select('keuangan.id_tagihan')
             ->select('tagihan.nama_pembayaran')
             ->selectSum('keuangan.jumlah_bayar')
             ->where('status_pembayaran',  'Lunas')
             ->where('nama_pembayaran', $nama_pembayaran,)
             ->where("waktu BETWEEN '$tgl_mulai' AND '$tgl_selesai'")
             ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')
-            ->groupBy('keuangan.id_tagihan')
             ->groupBy('keuangan.waktu')
-            ->groupBy('tagihan.nama_pembayaran')
-            ->groupBy('keuangan.jumlah_bayar')
             ->get()->getResultArray();
     }
+    public function Pemasukan_total($tanggal)
+    {
+        $tgl_mulai = $tanggal['tgl_mulai'];
+        $tgl_selesai = $tanggal['tgl_selesai'];
+        $nama_pembayaran = $tanggal['nama_pembayaran'];
+        return $this->db
+            ->table('keuangan')
+            ->select('*')
+            ->select('tagihan.nama_pembayaran')
+            ->selectSum('keuangan.jumlah_bayar')
+            ->where('status_pembayaran',  'Lunas')
+            ->where('nama_pembayaran', $nama_pembayaran,)
+            ->where("waktu BETWEEN '$tgl_mulai' AND '$tgl_selesai'")
+            ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')
+            ->orderBy('keuangan.waktu')
+            ->get()->getResultArray();
+    }
+
+
 
     public function pemasukan()
     {
@@ -270,10 +296,24 @@ class KeuanganModel extends Model
             ->where("waktu BETWEEN '$tgl_mulai' AND '$tgl_selesai'")
             ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')
             ->join('santri', 'santri.id_santri = keuangan.id_santri')
-            ->groupBy('keuangan.id_tagihan')
             ->groupBy('keuangan.waktu')
-            ->groupBy('keuangan.id_santri')
-            ->groupBy('keuangan.jumlah_bayar')
+            ->get()->getResultArray();
+    }
+    public function total_laporanmasuk($tanggal)
+    {
+        $tgl_mulai = $tanggal['tgl_mulai'];
+        $tgl_selesai = $tanggal['tgl_selesai'];
+        $nama_pembayaran = $tanggal['nama_pembayaran'];
+        return $this->db
+            ->table('keuangan')
+            ->select('*')
+            ->selectSum('keuangan.jumlah_bayar')
+            ->where('status_pembayaran',  'Lunas')
+            ->where('nama_pembayaran', $nama_pembayaran,)
+            ->where("waktu BETWEEN '$tgl_mulai' AND '$tgl_selesai'")
+            ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')
+            ->join('santri', 'santri.id_santri = keuangan.id_santri')
+            ->orderBy('keuangan.waktu')
             ->get()->getResultArray();
     }
 }

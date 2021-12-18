@@ -35,9 +35,9 @@
                             </div>
                             <div class="form-group">
                                 <div class="col">
-                                    <label for="tgl_akhir">Pilih Jenis Pembayaran</label>
+                                    <label for="tgl_akhir">Pilih Jenis Pengeluaran</label>
                                     <select name="nama_pengeluaran" id="nama_pengeluaran" class="form-control">
-                                        <?php foreach ($data as $p) : ?>
+                                        <?php foreach ($keluar as $p) : ?>
                                             <option value="" hidden></option>
                                             <option value="<?= $p['nama_pengeluaran']; ?>"><?= $p['nama_pengeluaran']; ?></option>
                                         <?php endforeach;  ?>
@@ -53,7 +53,6 @@
                             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div class="card card-statistic-1">
                                     <div class="card-icon bg-danger">
-                                        <i class="fas fa-user"></i>
                                     </div>
                                     <div class="card-header-primary">
                                         <h3>Total Pengeluaran

@@ -35,7 +35,7 @@
                 <input id="id_santri" type="hidden" name="id_santri">
                 <div class="form-group">
                     <label>NAMA SANTRI</label>
-                    <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>" readonly>
+                    <input id="nama_lengkap" type="text" class="form-control <?= ($validation->hasError('id_santri')) ? 'is-invalid' : ''; ?>" name="nama_lengkap" value="<?= old('id_santri'); ?>" readonly>
                     <div class="invalid-feedback">
                         <?= $validation->getError('id_santri'); ?>
                     </div>
@@ -44,7 +44,7 @@
                     <label for="id_tagihan"> Pembayaran</label>
                     <select class="form-control <?= ($validation->hasError('id_tagihan')) ? 'is-invalid' : ''; ?>" name="id_tagihan" id="id_tagihan">
                         <option value="" hidden></option>
-                        <option value="5">Uang Syahriyah</option>
+                        <option value="5">uang syahriyah</option>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('id_tagihan'); ?>
@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="form-group col-6">
                         <label for="waktu">Tanggal Pembayaran</label>
-                        <input id="waktu" type="date" class="form-control <?= ($validation->hasError('waktu')) ? 'is-invalid' : ''; ?>" name="waktu" value="<?= old('waktu'); ?>">
+                        <input id="waktu" type="date" class="form-control <?= ($validation->hasError('waktu')) ? 'is-invalid' : ''; ?>" name="waktu[]" value="<?= date('Y-m-d'); ?>">
                         <div class="invalid-feedback">
                             <?= $validation->getError('waktu'); ?>
                         </div>
@@ -69,19 +69,6 @@
 
 </section>
 
-<script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        var y = document.getElementById("password_conf");
-        if (x.type === "password" || y.type === "password") {
-            x.type = "text";
-            y.type = "text";
-        } else {
-            x.type = "password";
-            y.type = "password";
-        }
-    }
-</script>
 <script>
     $(document).ready(function() {
         $('#nis').autocomplete({

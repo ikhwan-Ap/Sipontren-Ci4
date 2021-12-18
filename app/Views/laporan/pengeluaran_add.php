@@ -16,8 +16,7 @@
     <?= session()->getFlashdata('message'); ?>
     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
-            <div class="card-icon bg-danger">
-
+            <div class="card-icon bg-info">
             </div>
             <div class="card-header-primary">
                 <h3>Anggaran Tersedia
@@ -37,10 +36,15 @@
             <div class="card-body">
                 <?= csrf_field(); ?>
                 <div class="form-group">
-                    <label for="nama_pengeluaran">Nama Pengeluaran</label>
-                    <input id="nama_pengeluaran" type="text" class="form-control <?= ($validation->hasError('nama_pengeluaran')) ? 'is-invalid' : ''; ?>" name="nama_pengeluaran" value="<?= old('nama_pengeluaran'); ?>">
+                    <label for="id_keluar">Pengeluaran</label>
+                    <select class="form-control <?= ($validation->hasError('id_keluar')) ? 'is-invalid' : ''; ?>" name="id_keluar" id="id_keluar">
+                        <option value="" hidden></option>
+                        <?php foreach ($pengeluaran_baru as $t) : ?>
+                            <option value="<?= $t['id_keluar']; ?>"><?= $t['nama_pengeluaran']; ?></option>
+                        <?php endforeach;  ?>
+                    </select>
                     <div class="invalid-feedback">
-                        <?= $validation->getError('nama_pengeluaran'); ?>
+                        <?= $validation->getError('id_keluar'); ?>
                     </div>
                 </div>
                 <div class="form-group">

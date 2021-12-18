@@ -8,7 +8,7 @@ class PengeluaranModel extends Model
 {
     protected $table = 'pengeluaran';
     protected $primaryKey = 'id_pengeluaran';
-    protected $allowedFields = ['nama_pengeluaran', 'jumlah_pengeluaran', 'waktu_pengeluaran'];
+    protected $allowedFields = ['id_keluar', 'jumlah_pengeluaran', 'waktu_pengeluaran'];
 
     public function total_pengeluaran()
     {
@@ -34,12 +34,40 @@ class PengeluaranModel extends Model
         return $this->db
             ->table('pengeluaran')
             ->select('*')
-            ->select('pengeluaran.nama_pengeluaran')
+            ->select('pengeluaran.id_keluar')
+            ->select('data_pengeluaran.nama_pengeluaran')
             ->selectSum('pengeluaran.jumlah_pengeluaran')
             ->where('nama_pengeluaran', $nama_pengeluaran,)
             ->where("waktu_pengeluaran BETWEEN '$tgl_mulai' AND '$tgl_selesai'")
-            ->orderBy('pengeluaran.nama_pengeluaran')
+            ->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar')
+            ->groupBy('pengeluaran.waktu_pengeluaran')
+            ->orderBy('data_pengeluaran.nama_pengeluaran')
+            ->get()->getResultArray();
+    }
+    public function pengeluaran_total($tanggal)
+    {
+        $tgl_mulai = $tanggal['tgl_mulai'];
+        $tgl_selesai = $tanggal['tgl_selesai'];
+        $nama_pengeluaran = $tanggal['nama_pengeluaran'];
+        return $this->db
+            ->table('pengeluaran')
+            ->select('*')
+            ->select('pengeluaran.id_keluar')
+            ->select('data_pengeluaran.nama_pengeluaran')
+            ->selectSum('pengeluaran.jumlah_pengeluaran')
+            ->where('nama_pengeluaran', $nama_pengeluaran,)
+            ->where("waktu_pengeluaran BETWEEN '$tgl_mulai' AND '$tgl_selesai'")
+            ->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar')
+            ->orderBy('data_pengeluaran.nama_pengeluaran')
             ->orderBy('pengeluaran.jumlah_pengeluaran')
+            ->get()->getResultArray();
+    }
+    public function getPengeluaran_baru()
+    {
+        return $this->db
+            ->table('pengeluaran')
+            ->select('*')
+            ->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar')
             ->get()->getResultArray();
     }
 }

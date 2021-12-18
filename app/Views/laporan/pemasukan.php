@@ -58,7 +58,7 @@
                                             <?php
                                             $sisa = $Total - $pengeluaran;
                                             ?>
-                                            <?= $sisa; ?>
+                                            Rp.<?= $sisa; ?>
                                         </h3>
                                     </div>
                                     <div class="card-icon bg-warning">
@@ -67,6 +67,7 @@
                                     <div class="card-header-primary">
                                         <?php foreach ($Lunas as $l) : ?>
                                             <h3>
+                                                Pemasukan
                                                 <?= $l['jumlah_bayar']; ?>
                                             </h3>
                                         <?php endforeach;  ?>
