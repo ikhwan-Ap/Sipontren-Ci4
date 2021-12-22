@@ -4,12 +4,14 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KelasModel;
+use App\Models\TagihanModel;
 
 class Kelas extends BaseController
 {
     public function __construct()
     {
         $this->model = new KelasModel();
+        $this->tagihan = new TagihanModel();
     }
 
     public function index()
@@ -25,6 +27,7 @@ class Kelas extends BaseController
     public function create()
     {
         $data = [
+
             'title' => 'Tambah Data Kelas',
             'validation' => \Config\Services::validation(),
         ];
@@ -96,6 +99,12 @@ class Kelas extends BaseController
                     'required' => 'Nama kelas harus diisi!',
                 ]
             ],
+            'nama_pembayaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Pembayaran harus diisi!',
+                ]
+            ],
         ])) {
             return redirect()->to('/kelas/edit/' . $this->request->getVar('nama_kelas'))->withInput();
         }
@@ -103,6 +112,7 @@ class Kelas extends BaseController
         $this->model->save([
             'id_kelas' => $id,
             'nama_kelas' => $this->request->getVar('nama_kelas'),
+            'id_tagihan' => $this->request->getVar('id_tagihan')
         ]);
 
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">

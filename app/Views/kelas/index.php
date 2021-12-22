@@ -24,7 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name Kelas</th>
+                                        <th>Nama Kelas</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

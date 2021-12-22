@@ -30,11 +30,11 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown <?= ($title == "Pembayaran SPP" ||  $title == "Pengeluaran Baru"  ||  $title == "Tagihan Baru" || $title == "Pembayaran Pendaftaran" || $title == "Pembayaran Daftar Ulang" || $title == "Pembayaran Lainnya") ? 'active' : ''; ?>">
+            <li class="nav-item dropdown <?= ($title == "Pembayaran SPP" ||  $title == "Pengeluaran Baru"  || $title == "Status Pembayaran"  ||  $title == "Tagihan Baru" || $title == "Pembayaran Pendaftaran" || $title == "Pembayaran Daftar Ulang" || $title == "Pembayaran Lainnya") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-money-check"></i> <span>Keuangan</span></a>
                 <ul class="dropdown-menu">
                     <li class="<?= ($title == "Pembayaran SPP") ? 'active' : ''; ?>"><a class="nav-link" href="/pembayaran">Pembayaran SPP</a></li>
-                    <li class="<?= ($title == "Pembayaran SPP") ? 'active' : ''; ?>"><a class="nav-link" href="/pembayaran">Data SPP</a></li>
+                    <li class="<?= ($title == "Status Pembayaran") ? 'active' : ''; ?>"><a class="nav-link" href="/status_pembayaran">Status Pembayaran</a></li>
                     <li class="<?= ($title == "Pembayaran Pendaftaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pembayaran/pendaftaran">Pembayaran Pendaftaran</a></li>
                     <li class="<?= ($title == "Pembayaran Daftar Ulang") ? 'active' : ''; ?>"><a class="nav-link" href="/daftar_ulang">Pembayaran Daftar Ulang</a></li>
                     <li class="<?= ($title == "Pembayaran Lainnya") ? 'active' : ''; ?>"><a class="nav-link" href="/lainnya">Pembayaran Lainnya</a></li>

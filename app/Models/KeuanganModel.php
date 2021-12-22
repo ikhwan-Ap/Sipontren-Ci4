@@ -316,4 +316,84 @@ class KeuanganModel extends Model
             ->orderBy('keuangan.waktu')
             ->get()->getResultArray();
     }
+
+    public function keuangan($id_santri)
+    {
+        return $this->db->query("SELECT 
+    SUM(IF(month = 'Jan', total, 0)) AS 'Jan',
+    SUM(IF(month = 'Feb', total, 0)) AS 'Feb',
+    SUM(IF(month = 'Mar', total, 0)) AS 'Mar',
+    SUM(IF(month = 'Apr', total, 0)) AS 'Apr',
+    SUM(IF(month = 'May', total, 0)) AS 'May',
+    SUM(IF(month = 'Jun', total, 0)) AS 'Jun',
+    SUM(IF(month = 'Jul', total, 0)) AS 'Jul', 
+    SUM(IF(month = 'Aug', total, 0)) AS 'Aug',
+    SUM(IF(month = 'Sep', total, 0)) AS 'Sep',
+    SUM(IF(month = 'Oct', total, 0)) AS 'Oct',
+    SUM(IF(month = 'Nov', total, 0)) AS 'Nov',
+    SUM(IF(month = 'Dec', total, 0)) AS 'Dec',
+    SUM(total) AS total_yearly
+    FROM (
+    SELECT DATE_FORMAT(keuangan.waktu, '%b') AS month, SUM(keuangan.jumlah_bayar) as total
+    FROM keuangan INNER JOIN santri ON santri.id_santri = keuangan.id_santri
+    WHERE keuangan.id_santri = '" . $id_santri . "' AND keuangan.waktu <= NOW() and keuangan.waktu >= Date_add(Now(),interval - 12 month)
+    GROUP BY DATE_FORMAT(keuangan.waktu, '%m-%Y')) as sub")->getResultArray();
+    }
+
+    public function keuangan_spp($id_santri = false)
+    {
+        if ($id_santri == false) {
+            return $this->db->query("SELECT 
+        SUM(IF(month = 'Jan', total, 0)) AS 'Jan',
+        SUM(IF(month = 'Feb', total, 0)) AS 'Feb',
+        SUM(IF(month = 'Mar', total, 0)) AS 'Mar',
+        SUM(IF(month = 'Apr', total, 0)) AS 'Apr',
+        SUM(IF(month = 'May', total, 0)) AS 'May',
+        SUM(IF(month = 'Jun', total, 0)) AS 'Jun',
+        SUM(IF(month = 'Jul', total, 0)) AS 'Jul', 
+        SUM(IF(month = 'Aug', total, 0)) AS 'Aug',
+        SUM(IF(month = 'Sep', total, 0)) AS 'Sep',
+        SUM(IF(month = 'Oct', total, 0)) AS 'Oct',
+        SUM(IF(month = 'Nov', total, 0)) AS 'Nov',
+        SUM(IF(month = 'Dec', total, 0)) AS 'Dec',
+        SUM(total) AS total_yearly
+        FROM (
+        SELECT DATE_FORMAT(keuangan.waktu, '%b') AS month, SUM(keuangan.jumlah_bayar) as total
+        FROM keuangan INNER JOIN santri ON santri.id_santri = keuangan.id_santri 
+        WHERE keuangan.waktu <= NOW() and keuangan.waktu >= Date_add(Now(),interval - 12 month)
+        GROUP BY DATE_FORMAT(keuangan.waktu, '%m-%Y')) as sub")->getResultArray(); // kie langka where breati yangambil kabeh data  ksysnmr sing perlu diilangna id santrei tok wan,, iya kayane kie dim 
+        }
+        return $this->db->query("SELECT 
+    SUM(IF(month = 'Jan', total, 0)) AS 'Jan',
+    SUM(IF(month = 'Feb', total, 0)) AS 'Feb',
+    SUM(IF(month = 'Mar', total, 0)) AS 'Mar', 
+    SUM(IF(month = 'Apr', total, 0)) AS 'Apr',
+    SUM(IF(month = 'May', total, 0)) AS 'May',
+    SUM(IF(month = 'Jun', total, 0)) AS 'Jun',
+    SUM(IF(month = 'Jul', total, 0)) AS 'Jul', 
+    SUM(IF(month = 'Aug', total, 0)) AS 'Aug',
+    SUM(IF(month = 'Sep', total, 0)) AS 'Sep',
+    SUM(IF(month = 'Oct', total, 0)) AS 'Oct',
+    SUM(IF(month = 'Nov', total, 0)) AS 'Nov',
+    SUM(IF(month = 'Dec', total, 0)) AS 'Dec',
+    SUM(total) AS total_yearly
+    FROM (
+    SELECT DATE_FORMAT(keuangan.waktu, '%b') AS month, SUM(keuangan.jumlah_bayar) as total
+    FROM keuangan INNER JOIN santri ON santri.id_santri = keuangan.id_santri
+    WHERE keuangan.id_santri = '" . $id_santri . "' AND keuangan.waktu <= NOW() and keuangan.waktu >= Date_add(Now(),interval - 12 month)
+    GROUP BY DATE_FORMAT(keuangan.waktu, '%m-%Y')) as sub")->getRowArray();
+    }
+
+    public function keuangan_pendaftaran()
+    {
+
+        return $this->db->table('keuangan')
+            ->select('santri.nama_lengkap', 'nama_lengkap')
+            ->select('santri.id_santri', 'id_santri')
+            ->select('santri.nis', 'nis')
+            ->selectSum('keuangan.jumlah_bayar')
+            ->join('santri', 'santri.id_santri = keuangan.id_santri')
+            ->groupBy('keuangan.waktu', 'sub')
+            ->get()->getResultArray();
+    }
 }

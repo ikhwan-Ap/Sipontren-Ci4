@@ -12,7 +12,7 @@ class SantriModel extends Model
     protected $allowedFields    = [
         'nis', 'nik_ktp', 'no_kk', 'password', 'email', 'nama_lengkap', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir',
         'alamat', 'desa_kelurahan', 'kecamatan', 'kabupaten', 'provinsi',
-        'no_hp_santri', 'id_kamar', 'id_diniyah', 'id_program', 'catatan_medis',
+        'no_hp_santri', 'id_kamar', 'id_diniyah', 'id_program', 'id_kelas', 'id_tagihan', 'catatan_medis',
         'pendidikan_terakhir', 'pengalaman_mondok', 'pendidikan_sekarang', 'gol_darah',
         'nama_almet', 'kelas_semester', 'nisn_nim', 'id_orangtua', 'status', 'created_at', 'updated_at', 'deleted_at'
     ];
@@ -69,5 +69,54 @@ class SantriModel extends Model
         $builder->limit(10);
         $query = $builder->get();
         return $query->getResult();
+    }
+    public function tagihan($id_santri)
+    {
+
+        $builder = $this->db->table('santri');
+        $builder->selectSum('tagihan.jumlah_pembayaran', 'tagihan');
+        $builder->where('santri.id_santri', $id_santri);
+        $builder->where('tagihan.nama_pembayaran', 'uang syahriyah');
+        $builder->join('kelas', 'kelas.id_kelas = santri.id_kelas');
+        $builder->join('tagihan', 'tagihan.id_kelas = santri.id_kelas');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function tagihan_spp($id_santri = false)
+    {
+        if ($id_santri == false) {
+
+            $builder = $this->db->table('santri');
+            $builder->selectSum('tagihan.jumlah_pembayaran', 'tagihan');
+            $builder->where('tagihan.nama_pembayaran', 'uang syahriyah');
+            $builder->join('kelas', 'kelas.id_kelas = santri.id_kelas');
+            $builder->join('tagihan', 'tagihan.id_kelas = santri.id_kelas');
+            $query = $builder->get();
+            return $query->getResultArray();
+        }
+
+        $builder = $this->db->table('santri');
+        $builder->selectSum('tagihan.jumlah_pembayaran', 'tagihan');
+        $builder->where('santri.id_santri', $id_santri);
+        $builder->where('tagihan.nama_pembayaran', 'uang syahriyah');
+        $builder->join('kelas', 'kelas.id_kelas = santri.id_kelas');
+        $builder->join('tagihan', 'tagihan.id_kelas = santri.id_kelas');
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
+    public function tagihan_pendaftaran()
+    {
+
+        $builder = $this->db->table('santri');
+        $builder->select('santri.nama_lengkap');
+        $builder->select('santri.id_santri');
+        $builder->select('santri.nis', 'nis');
+        $builder->select('kelas.nama_kelas', 'nama_kelas');
+        $builder->selectSum('tagihan.jumlah_pembayaran', 'tagihan');
+        $builder->where('tagihan.nama_pembayaran', 'uang pendaftaran');
+        $builder->join('kelas', 'kelas.id_kelas = santri.id_kelas');
+        $builder->join('tagihan', 'tagihan.id_kelas = santri.id_kelas');
+        $query = $builder->get();
+        return $query->getResultArray();
     }
 }

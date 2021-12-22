@@ -61,9 +61,8 @@
                                         <th>#</th>
                                         <th>nis</th>
                                         <th>nama santri</th>
-                                        <th>Pembayaran</th>
+                                        <th>Kelas</th>
                                         <th>Jumlah Pembayaran</th>
-                                        <th>tggl bayar</th>
                                         <th>status</th>
                                         <th>Action</th>
                                     </tr>
@@ -71,56 +70,31 @@
                                 <tbody>
                                     <?php $i = 1;
                                     $hariIni = new DateTime();
-                                    foreach ($Lunas as $k) :
+                                    foreach ($hasil as $k) :
                                     ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $k['nis']; ?></td>
                                             <td><?= $k['nama_lengkap']; ?></td>
-                                            <td><?= $k['nama_pembayaran']; ?></td>
-                                            <td><?= $k['jumlah_pembayaran']; ?></td>
-                                            <td> <?= $k['waktu']; ?></td>
-                                            <td><?= $k['status_pembayaran']; ?></td>
-
-
+                                            <td><?= $k['nama_kelas']; ?></td>
+                                            <td><?= $k['tagihan']; ?></td>
+                                            <td><?= $k['status']; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_keuangan']; ?>">
-                                                    Hapus
-                                                </button>
-                                                <a href="/pembayaran/edit/<?= $k['id_keuangan']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="/pembayaran/detail/<?= $k['id_keuangan']; ?>" class="btn btn-info" target="_blank">Detail</a>
-                                                <?php if ($k['status_pembayaran'] == 'Lunas') {
+                                                <?php if ($k['status'] == 'Lunas') {
                                                     echo '';
-                                                } else { ?>
-                                                    <a href="/pembayaran/bayar_pendaftaran/<?= $k['id_keuangan']; ?>" class="btn btn-success">Bayar</a>
-                                                <?php } ?>
+                                                } elseif ($k['status'] == 'Belum Lunas') { ?>
+                                                    <!-- <a href="/spp/bayar/<?= $k['id_santri']; ?>" class="btn btn-primary">Bayar</a> -->
+                                                    <form action="/spp/bayar/<?= $k['id_santri']; ?>" method="GET">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="id_santri" value="<?= $k['id_santri']; ?>">
+                                                        <button type="submit" class="btn btn-primary">Bayar</button>
+                                                    </form>
+                                                <?php } else {
+                                                    echo '';
+                                                } ?>
                                             </td>
                                         </tr>
 
-                                        <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $k['id_keuangan']; ?>">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Peringatan</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">×</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>Apakah data ini akan dihapus?</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form action="/pembayaran/pendaftaran<?= $k['id_keuangan']; ?>" method="POST">
-                                                            <?= csrf_field(); ?>
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                            <button type="submit" class="btn btn-danger">Ya</button>
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>

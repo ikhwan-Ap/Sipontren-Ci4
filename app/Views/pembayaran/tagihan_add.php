@@ -36,6 +36,18 @@
                         <?= $validation->getError('jumlah_pembayaran'); ?>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="id_kelas">Kelas</label>
+                    <select class="form-control <?= ($validation->hasError('id_kelas')) ? 'is-invalid' : ''; ?>" name="id_kelas" id="id_kelas">
+                        <option value="" hidden></option>
+                        <?php foreach ($kelas as $data) : ?>
+                            <option value="<?= $data['id_kelas']; ?>"><?= $data['nama_kelas']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('id_kelas'); ?>
+                    </div>
+                </div>
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Tambah Data</button>
                     <a href="/tagihan" class="btn btn-light ml-2">Batal</a>

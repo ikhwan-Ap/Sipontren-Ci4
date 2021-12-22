@@ -24,18 +24,20 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Nama Kelas</th>
                                         <th>Nama Pembayaran</th>
-                                        <th>Jumlah Pembayaran</th>
+                                        <th>Total</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
                                     $hariIni = new DateTime();
-                                    foreach ($Lunas as $k) :
+                                    foreach ($tagihan as $k) :
                                     ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
+                                            <td><?= $k['nama_kelas']; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
                                             <td><?= $k['jumlah_pembayaran']; ?></td>
 

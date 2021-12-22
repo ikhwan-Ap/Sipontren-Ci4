@@ -133,7 +133,6 @@ $routes->put('/gedung/(:any)', 'Gedung::update/$1');
 
 //Pembayaran
 $routes->get('/pembayaran', 'Pembayaran::index');
-$routes->get('/pembayaran/pendaftaran', 'Pembayaran::pendaftaran');
 $routes->get('/daftar_ulang', 'Pembayaran::daftar_ulang');
 $routes->get('/lainnya', 'Pembayaran::lainnya');
 $routes->get('/tagihan', 'Pembayaran::tagihan');
@@ -144,14 +143,11 @@ $routes->get('/pengeluaran', 'Pembayaran::pengeluaran');
 $routes->put('/pembayaran/(:any)', 'Pembayaran::bayar/$1');
 $routes->get('/pembayaran/bayar_daftar_ulang/(:any)', 'Pembayaran::bayar_daftar_ulang/$1');
 $routes->put('/daftar_ulang/(:num)', 'Pembayaran::update_daftar_ulang/$1');
-$routes->get('/pembayaran/bayar_pendaftaran/(:any)', 'Pembayaran::bayar_pendaftaran/$1');
-$routes->put('/pembayaran/pendaftaran/(:num)', 'Pembayaran::update_pendaftaran/$1');
 $routes->get('/pembayaran/bayar_lainnya/(:any)', 'Pembayaran::bayar_lainnya/$1');
 $routes->put('/lainnya/(:num)', 'Pembayaran::update_lainnya/$1');
 //Filter Data
 $routes->post('/pembayaran/filter', 'Pembayaran::filter');
 $routes->post('/pembayaran/filter_daftar_ulang', 'Pembayaran::filter_daftar_ulang');
-$routes->post('/pembayaran/filter_pendaftaran', 'Pembayaran::filter_pendaftaran');
 $routes->post('/pembayaran/filter_lainnya', 'Pembayaran::filter_lainnya');
 $routes->post('/pemasukan/filter', 'Pemabayaran::filter_pemasukan');
 $routes->post('/pengeluaran/filter', 'Pemabayaran::filter_pengeluaran');
@@ -170,8 +166,7 @@ $routes->post('/pembayaran', 'Pembayaran::save');
 $routes->get('/laporan/pengeluaranbaru_add', 'Pembayaran::pengeluaranbaru_add');
 $routes->post('/pengeluaran_baru', 'Pembayaran::save_pengeluaranbaru');
 //
-$routes->get('/pembayaran/pendaftaran_add', 'Pembayaran::pendaftaran_add');
-$routes->post('/pendaftaran', 'Pembayaran::save_pendaftaran');
+
 //
 $routes->get('/pembayaran/daftar_ulang_add', 'Pembayaran::daftar_ulang_add');
 $routes->post('/daftar_ulang', 'Pembayaran::save_daftar_ulang');
@@ -186,7 +181,6 @@ $routes->get('/pembayaran/tagihan_add', 'Pembayaran::tagihan_add');
 $routes->post('/tagihan', 'Pembayaran::save_tagihan');
 //
 $routes->delete('/pembayaran/(:num)', 'Pembayaran::delete/$1');
-$routes->delete('/pembayaran/pendaftaran(:num)', 'Pembayaran::delete_pendaftaran/$1');
 $routes->delete('/pembayaran/daftar_ulang(:num)', 'Pembayaran::delete_daftar/$1');
 $routes->delete('/pembayaran/lainnya(:num)', 'Pembayaran::delete_lainnya/$1');
 $routes->delete('/pembayaran/tagihan(:num)', 'Pembayaran::delete_tagihan/$1');
@@ -207,8 +201,25 @@ $routes->get('/laporan/print', 'Pembayaran::print');
 $routes->get('/laporan/print/(:any)', 'Pembayaran::print_filter');
 
 
+
+//COBA_KELAS_TAGIHAN BEDA
+$routes->get('/status_pembayaran', 'status_pembayaran::index');
+$routes->post('/status_pembayaran', 'status_pembayaran::hasil');
+$routes->get('/spp/bayar/(:any)', 'status_pembayaran::spp/$1');
+$routes->put('/spp(:any)', 'status_pembayaran::bayar_spp/$1');
+// $routes->put('/spp/bayar/(:num)', 'status_pembayaran::spp/$1');
 // $routes->get('/perizinan/(:any)', 'Perizinan::persetujuan/$1');
 
+//Pembayaran Pendaftaran
+$routes->get('/pembayaran/pendaftaran', 'Pendaftaran::pendaftaran');
+$routes->get('/pembayaran/pendaftaran_add', 'Pembayaran::pendaftaran_add');
+$routes->post('/pendaftaran', 'Pembayaran::save_pendaftaran');
+$routes->delete('/pembayaran/pendaftaran(:num)', 'Pembayaran::delete_pendaftaran/$1');
+$routes->post('/pembayaran/filter_pendaftaran', 'Pembayaran::filter_pendaftaran');
+$routes->get('/pembayaran/bayar_pendaftaran/(:any)', 'Pembayaran::bayar_pendaftaran/$1');
+
+
+$routes->put('/pembayaran/pendaftaran/(:num)', 'Pembayaran::update_pendaftaran/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -8,6 +8,7 @@ use App\Models\TagihanModel;
 use App\Models\SantriModel;
 use App\Models\PengeluaranModel;
 use App\Models\Data_pengeluaran;
+use App\Models\KelasModel;
 use CodeIgniter\Database\MySQLi\Result;
 use DeepCopy\Filter\Filter;
 use function PHPUnit\Framework\returnSelf;
@@ -22,6 +23,7 @@ class Pembayaran extends BaseController
         $this->santri = new SantriModel();
         $this->pengeluaran = new PengeluaranModel();
         $this->data = new Data_pengeluaran();
+        $this->kelas = new KelasModel();
     }
 
     public function index()
@@ -118,50 +120,6 @@ class Pembayaran extends BaseController
         return view('pembayaran/daftar', $data);
     }
 
-    public function pendaftaran()
-    {
-        $data = [
-            'title' => 'Pembayaran Pendaftaran',
-            'Lunas' => $this->model->getPendaftaran(),
-        ];
-        return view('pembayaran/pendaftaran', $data);
-    }
-    public function filter_pendaftaran()
-    {
-        $filter = $this->request->getVar('filter');
-        $tgl_mulai = $this->request->getVar('tgl_mulai');
-        $tgl_selesai = $this->request->getVar('tgl_selesai');
-        $status_pembayaran = $this->request->getVar('status_pembayaran');
-        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas') {
-            $tanggal = [
-                'tgl_mulai' => $tgl_mulai,
-                'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran
-            ];
-            $data = [
-                'title' => 'Pembayaran Pendaftaran',
-                'Lunas' => $this->model->getPendaftaranLunas($tanggal),
-            ];
-        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas') {
-            $tanggal = [
-                'tgl_mulai' => $tgl_mulai,
-                'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran
-            ];
-            $data = [
-                'title' => 'Pembayaran Pendaftaran',
-                'Lunas' => $this->model->getPendaftaranBelumLunas($tanggal),
-            ];
-        } else {
-            $data = [
-                'title' => 'Pembayaran Pendaftaran',
-                'Lunas' => $this->model->getPendaftaran(),
-            ];
-        }
-
-
-        return view('pembayaran/pendaftaran', $data);
-    }
 
     public function lainnya()
     {
@@ -214,7 +172,7 @@ class Pembayaran extends BaseController
     {
         $data = [
             'title' => 'Tagihan Baru',
-            'Lunas' => $this->tagihan->findAll(),
+            'tagihan' => $this->tagihan->getTagihan(),
         ];
         return view('pembayaran/tagihan', $data);
     }
@@ -672,10 +630,11 @@ class Pembayaran extends BaseController
             '12' => 'Desember',
         ];
 
+
         for ($i = 0; $i < 12; $i++) {
             $jatuhtempo = date("Y-m-d", strtotime("+$i month"));
             $bulan = $bulanindo[date('m', strtotime($jatuhtempo))] . "  " . date('Y', strtotime($jatuhtempo));
-            $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$jatuhtempo'),MONTH('$jatuhtempo') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan' AND YEAR(waktu) = YEAR('$jatuhtempo') AND MONTH(waktu) = MONTH('$jatuhtempo')")->getRowArray();
+            $sql = $this->db->query("SELECT id_santri,id_tagihan,YEAR('$jatuhtempo'),MONTH('$jatuhtempo') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan' AND YEAR(waktu) = YEAR('$jatuhtempo') AND MONTH(waktu) = MONTH('$jatuhtempo')")->getRowArray();
         }
 
         //array MONTH(waktu)='$bln' AND YEAR(waktu)='$thn'
@@ -707,8 +666,8 @@ class Pembayaran extends BaseController
 
                 $this->model->save(
                     [
-                        'id_santri'        =>    $id_santri,
-                        'id_tagihan'        =>    $id_tagihan,
+                        'id_santri'        => $id_santri,
+                        'id_tagihan'        => $id_tagihan,
                         'waktu'        =>    $jatuhtempo,
                         'bulan'        =>    $bulan,
                         'status_pembayaran' => 'Belum Lunas',
@@ -851,6 +810,7 @@ class Pembayaran extends BaseController
         $id_tagihan = $this->request->getVar('id_tagihan');
         $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
         AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+
         if ($sql > 0) {
             session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
@@ -960,6 +920,7 @@ class Pembayaran extends BaseController
     {
         $data = [
             'title' => 'Tambah Data Pembayaran Baru',
+            'kelas' => $this->kelas->findAll(),
             'validation' => \Config\Services::validation(),
         ];
         return view('pembayaran/tagihan_add', $data);
@@ -971,10 +932,15 @@ class Pembayaran extends BaseController
         // $getSantriBayar = $this->;
         if (!$this->validate([
             'nama_pembayaran' => [
-                'rules' => 'required|is_unique[tagihan.nama_pembayaran]',
+                'rules' => 'required|',
                 'errors' => [
                     'required' => 'Nama Pembayaran Harus diisi!',
-                    'is_unique' => 'Pembayaran tersebut telah terdaftar!',
+                ]
+            ],
+            'id_kelas' => [
+                'rules' => 'required|',
+                'errors' => [
+                    'required' => 'Nama Kelas Harus diisi!',
                 ]
             ],
             'jumlah_pembayaran' => [
@@ -982,15 +948,34 @@ class Pembayaran extends BaseController
                 'errors' => [
                     'required' => 'Jumlah Pembayaran Harus di Isi',
                 ]
-            ]
+            ],
+
         ])) {
             return redirect()->to('/pembayaran/tagihan_add')->withInput();
         }
-        $this->tagihan->save([
-            'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
-            'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran'),
-        ]);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+
+        $nama_pembayaran = $this->request->getVar('nama_pembayaran');
+        $jumlah_pembayaran = $this->request->getVar('jumlah_pembayaran');
+        $id_kelas = $this->request->getVar('id_kelas');
+        $sql = $this->db->query("SELECT id_kelas,nama_pembayaran FROM tagihan WHERE id_kelas='$id_kelas'
+        AND nama_pembayaran")->getRowArray();
+        if ($sql > 0) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+              <button class="close" data-dismiss="alert">
+                <span>×</span>
+              </button>
+              Data Tersebut telah tersedia
+            </div>
+          </div>');
+            return redirect()->to('/pembayaran/tagihan_add')->withInput();
+        } else {
+            $this->tagihan->save([
+                'nama_pembayaran' => $nama_pembayaran,
+                'jumlah_pembayaran' => $jumlah_pembayaran,
+                'id_kelas' => $id_kelas
+            ]);
+            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                               <div class="alert-body">
                                 <button class="close" data-dismiss="alert">
                                   <span>×</span>
@@ -998,7 +983,8 @@ class Pembayaran extends BaseController
                                 Data Tagihan berhasil ditambahkan!
                               </div>
                             </div>');
-        return redirect()->to('/pembayaran/tagihan');
+            return redirect()->to('/pembayaran/tagihan');
+        }
     }
     public function pengeluaranbaru_add()
     {

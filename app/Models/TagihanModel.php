@@ -8,7 +8,7 @@ class TagihanModel extends Model
 {
     protected $table = 'tagihan';
     protected $primaryKey = 'id_tagihan';
-    protected $allowedFields = ['nama_pembayaran', 'jumlah_pembayaran'];
+    protected $allowedFields = ['nama_pembayaran', 'jumlah_pembayaran', 'id_kelas'];
 
     public function getLainnya()
     {
@@ -25,6 +25,7 @@ class TagihanModel extends Model
         return $this->db
             ->table('tagihan')
             ->select('*')
+            ->join('kelas', 'kelas.id_kelas = tagihan.id_kelas')
             ->get()->getResultArray();
     }
 }

@@ -65,7 +65,8 @@ use App\Controllers\Pembayaran;
                                         <th>nama santri</th>
                                         <th>Pembayaran</th>
                                         <th>Jumlah Pembayaran</th>
-                                        <th>tggl bayar</th>
+                                        <th>Waktu Input</th>
+                                        <th>Bulan Pembayaran</th>
                                         <th>status</th>
                                         <th>Action</th>
                                     </tr>
@@ -82,6 +83,7 @@ use App\Controllers\Pembayaran;
                                             <td><?= $k['nama_pembayaran']; ?></td>
                                             <td><?= $k['jumlah_pembayaran']; ?></td>
                                             <td> <?= date('d-M-Y', strtotime($k['waktu'])) ?></td>
+                                            <td> <?= $k['bulan']; ?></td>
                                             <td><?= $k['status_pembayaran']; ?></td>
 
 
