@@ -24,7 +24,8 @@
                                 <th>#</th>
                                 <th>NIS</th>
                                 <th>Nama Santri</th>
-                                <th>Tanggal</th>
+                                <th>Tanggal Izin</th>
+                                <th>Tanggal Kembali</th>
                                 <th>Keterangan</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -37,7 +38,8 @@
                                     <td><?= $i++; ?></td>
                                     <td><?= $z['nis']; ?></td>
                                     <td><?= $z['nama_lengkap']; ?></td>
-                                    <td><?= date('Y-m-d', $z['tanggal_terima']); ?></td>
+                                    <td><?= date('d-m-Y', strtotime($z['tanggal_izin'])); ?></td>
+                                    <td><?= date('d-m-Y', strtotime($z['tanggal_kembali'])); ?></td>
                                     <td><?= $z['keterangan']; ?></td>
                                     <td>
                                         <?php if ($z['status_izin'] == 'Menunggu') : ?>
@@ -55,7 +57,7 @@
                                         <!-- <a href="" class="btn btn-danger">Hapus</a> -->
                                         <?php if (session()->get('role') == 1) : ?>
                                             <?php if ($z['status_izin'] == 'Menunggu') : ?>
-                                                <a href="/perizinan/terima/<?= $z['id_izin']; ?>" class="btn btn-primary">Terima</a>
+                                                <a href="/perizinan/terima/<?= $z['id_santri']; ?>" class="btn btn-primary">Terima</a>
                                                 <a href="/perizinan/ditolak/<?= $z['id_izin']; ?>" class="btn btn-danger">Tolak</a>
                                             <?php elseif ($z['status_izin'] == 'Diterima') : ?>
                                                 <a href="/perizinan/kembali/<?= $z['id_izin']; ?>" class="btn btn-primary">Kembali</a>

@@ -23,25 +23,31 @@
             <div class="card-body">
                 <?= csrf_field(); ?>
                 <div class="form-group">
-                    <label for="nis">NIS</label>
-                    <input id="nis" type=" number" class="form-control <?= ($validation->hasError('nis')) ? 'is-invalid' : ''; ?>" name="nis" value="<?= old('nis'); ?>">
+                    <label for="id_santri">ID Santri</label>
+                    <textarea class="form-control <?= ($validation->hasError('id_santri')) ? 'is-invalid' : ''; ?>" name="id_santri" id="id_santri" rows="3"></textarea>
                     <div class="invalid-feedback">
-                        <?= $validation->getError('nis'); ?>
+                        <?= $validation->getError('id_santri'); ?>
                     </div>
                 </div>
-                <input id="id_santri" type="hidden" name="id_santri">
-                <div class="form-group">
-                    <label>NAMA SANTRI</label>
-                    <input id="nama_lengkap" type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>" readonly>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('nama_lengkap'); ?>
-                    </div>
-                </div>
-                <div class="form-group">
+                <div clas <div class="form-group">
                     <label for="keterangan">Keterangan</label>
                     <textarea class="form-control <?= ($validation->hasError('keterangan')) ? 'is-invalid' : ''; ?>" name="keterangan" id="keterangan" rows="3"></textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('keterangan'); ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal_izin">tanggal_izin</label>
+                    <textarea class="form-control <?= ($validation->hasError('tanggal_izin')) ? 'is-invalid' : ''; ?>" name="tanggal_izin" id="tanggal_izin" rows="3"></textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('tanggal_izin'); ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal_kembali">tanggal_kembali</label>
+                    <textarea class="form-control <?= ($validation->hasError('tanggal_kembali')) ? 'is-invalid' : ''; ?>" name="tanggal_kembali" id="tanggal_kembali" rows="3"></textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('tanggal_kembali'); ?>
                     </div>
                 </div>
 
@@ -54,17 +60,4 @@
     </div>
 
 </section>
-<script>
-    $(document).ready(function() {
-        $('#nis').autocomplete({
-            source: "<?php echo site_url('pembayaran/get_autofill/?')  ?>",
-            select: function(event, ui) {
-                $('[name="nis"]').val(ui.item.label);
-                $('[name="nama_lengkap"]').val(ui.item.nama_lengkap);
-                $('[name="id_santri"]').val(ui.item.id_santri);
-
-            }
-        })
-    });
-</script>
 <?= $this->endSection(); ?>

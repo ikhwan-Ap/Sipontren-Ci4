@@ -191,7 +191,7 @@ $routes->delete('pengeluaran/(:num)', 'Pembayaran::delete_pengeluaran/$1');
 $routes->get('/perizinan', 'Perizinan::index');
 $routes->get('/perizinan/add', 'Perizinan::create');
 $routes->post('/perizinan', 'Perizinan::save');
-$routes->get('/perizinan/terima/(:any)', 'Perizinan::terima/$1');
+$routes->post('/perizinan/terima/(:any)', 'Perizinan::terima/$1');
 $routes->get('/perizinan/kembali/(:any)', 'Perizinan::kembali/$1');
 $routes->get('/perizinan/ditolak/(:any)', 'Perizinan::ditolak/$1');
 $routes->delete('/perizinan/(:num)', 'Perizinan::delete/$1');

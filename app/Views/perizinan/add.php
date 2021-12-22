@@ -44,6 +44,24 @@
                         <?= $validation->getError('keterangan'); ?>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="tanggal_izin">Tanggal Izin</label>
+                        <input id="tanggal_izin" type="date" class="form-control <?= ($validation->hasError('tanggal_izin')) ? 'is-invalid' : ''; ?>" name="tanggal_izin" value="<?= old('tanggal_izin'); ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('tanggal_izin'); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="tanggal_kembali">tanggal_kembali Kembali</label>
+                        <input id="tanggal_kembali" type="date" class="form-control <?= ($validation->hasError('tanggal_kembali')) ? 'is-invalid' : ''; ?>" name="tanggal_kembali" value="<?= old('tanggal_kembali'); ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('tanggal_kembali'); ?>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Tambah Data</button>
