@@ -5,7 +5,7 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/pendaftaran/pendaftaran_add" class="btn btn-primary">Tambah Data Pendaftaran</a>
+            <a href="/daftar_ulang_add" class="btn btn-primary">Tambah Data Daftar Ulang</a>
         </div>
     </div>
 
@@ -16,10 +16,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Pembayaran Pendaftaran</h4>
+                        <h4>Pembayaran Daftar Ulang</h4>
                     </div>
-
-                    <form action="<?= base_url(); ?>/pendaftaran/pendaftaran" method="POST" class="inline">
+                    <form action="<?= base_url(); ?>/daftar_ulang" method="POST" class="inline">
                         <?= csrf_field(); ?>
                         <div class="row">
                             <div class="form-group">
@@ -92,7 +91,7 @@
                                                         echo '';
                                                     } elseif ($k['status'] == 'Belum Lunas') { ?>
                                                         <!-- <a href="/spp/bayar/<?= $k['id_keuangan']; ?>" class="btn btn-primary">Bayar</a> -->
-                                                        <form action="/pendaftaran/bayar_pendaftaran/<?= $k['id_keuangan']; ?>" method="GET">
+                                                        <form action="/daftar_ulang/bayar_daftar_ulang/<?= $k['id_keuangan']; ?>" method="GET">
                                                             <?= csrf_field(); ?>
                                                             <input type="hidden" name="id_keuangan" value="<?= $k['id_keuangan']; ?>">
                                                             <button type="submit" class="btn btn-primary">Bayar</button>

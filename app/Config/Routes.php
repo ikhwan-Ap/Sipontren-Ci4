@@ -133,22 +133,18 @@ $routes->put('/gedung/(:any)', 'Gedung::update/$1');
 
 //Pembayaran
 $routes->get('/pembayaran', 'Pembayaran::index');
-$routes->get('/daftar_ulang', 'Pembayaran::daftar_ulang');
 $routes->get('/lainnya', 'Pembayaran::lainnya');
-$routes->get('/tagihan', 'Pembayaran::tagihan');
 $routes->get('/pengeluaran_baru', 'Pembayaran::pengeluaran_baru');
 $routes->get('/pemasukan', 'Pembayaran::pemasukan');
 $routes->get('/pengeluaran', 'Pembayaran::pengeluaran');
 //
 $routes->put('/pembayaran/(:any)', 'Pembayaran::bayar/$1');
-$routes->get('/pembayaran/bayar_daftar_ulang/(:any)', 'Pembayaran::bayar_daftar_ulang/$1');
-$routes->put('/daftar_ulang/(:num)', 'Pembayaran::update_daftar_ulang/$1');
 $routes->get('/pembayaran/bayar_lainnya/(:any)', 'Pembayaran::bayar_lainnya/$1');
 $routes->put('/lainnya/(:num)', 'Pembayaran::update_lainnya/$1');
 //Filter Data
 $routes->post('/pembayaran/filter', 'Pembayaran::filter');
-$routes->post('/pembayaran/filter_daftar_ulang', 'Pembayaran::filter_daftar_ulang');
-$routes->post('/pembayaran/filter_lainnya', 'Pembayaran::filter_lainnya');
+$routes->post('/pembayaran/lainnya', 'Pembayaran::filter_lainnya');
+$routes->post('/lainnya', 'Pembayaran::filter_rutin');
 $routes->post('/pemasukan/filter', 'Pemabayaran::filter_pemasukan');
 $routes->post('/pengeluaran/filter', 'Pemabayaran::filter_pengeluaran');
 $routes->post('/laporanmasuk/filter', 'Pembayaran::filter_laporanmasuk');
@@ -160,30 +156,30 @@ $routes->get('/laporan/keluar', 'Pembayaran::laporan_keluar');
 $routes->get('/pemabayaran/edit/(:any)', 'Pembayaran::edit/$1');
 $routes->put('/pembayaran/(:num)', 'Pembayaran::editdata/$1');
 //
-$routes->get('/pembayaran/add', 'Pembayaran::add');
-$routes->post('/pembayaran', 'Pembayaran::save');
+
 //
 $routes->get('/laporan/pengeluaranbaru_add', 'Pembayaran::pengeluaranbaru_add');
 $routes->post('/pengeluaran_baru', 'Pembayaran::save_pengeluaranbaru');
 //
 
 //
-$routes->get('/pembayaran/daftar_ulang_add', 'Pembayaran::daftar_ulang_add');
-$routes->post('/daftar_ulang', 'Pembayaran::save_daftar_ulang');
 //
 $routes->get('/pembayaran/lainnya_add', 'Pembayaran::lainnya_add');
-$routes->post('/lainnya', 'Pembayaran::save_lainnya');
+$routes->post('/pembayaran/lainnya_add', 'Pembayaran::save_lainnya');
+$routes->get('/lain', 'Pembayaran::index');
+$routes->get('/pembayaran/lain', 'Pembayaran::lain_add');
+$routes->post('/pembayaran/lain', 'Pembayaran::save_lain');
+$routes->get('/pembayaran/add', 'Pembayaran::add');
+$routes->post('/pembayaran', 'Pembayaran::save');
+$routes->get('/bayar/lain/(:any)', 'Pembayaran::bayar_lain/$1');
+$routes->put('/lain/(:num)', 'Pembayaran::update_lain/$1');
 //
 $routes->get('/pengeluaran_add', 'Pembayaran::pengeluaran_add');
 $routes->post('/pengeluaran', 'Pembayaran::save_pengeluaran');
 //
-$routes->get('/pembayaran/tagihan_add', 'Pembayaran::tagihan_add');
-$routes->post('/tagihan', 'Pembayaran::save_tagihan');
 //
 $routes->delete('/pembayaran/(:num)', 'Pembayaran::delete/$1');
-$routes->delete('/pembayaran/daftar_ulang(:num)', 'Pembayaran::delete_daftar/$1');
 $routes->delete('/pembayaran/lainnya(:num)', 'Pembayaran::delete_lainnya/$1');
-$routes->delete('/pembayaran/tagihan(:num)', 'Pembayaran::delete_tagihan/$1');
 $routes->delete('/pembayaran/pengeluaran_baru(:num)', 'Pembayaran::delete_pengeluaranbaru/$1');
 $routes->delete('pengeluaran/(:num)', 'Pembayaran::delete_pengeluaran/$1');
 
@@ -204,22 +200,45 @@ $routes->get('/laporan/print/(:any)', 'Pembayaran::print_filter');
 
 //COBA_KELAS_TAGIHAN BEDA
 $routes->get('/status_pembayaran', 'status_pembayaran::index');
+$routes->get('/status_pembayaran/filter', 'status_pembayaran::filter');
 $routes->post('/status_pembayaran', 'status_pembayaran::hasil');
 $routes->get('/spp/bayar/(:any)', 'status_pembayaran::spp/$1');
 $routes->put('/spp(:any)', 'status_pembayaran::bayar_spp/$1');
+$routes->post('/status_pembayaran/filter', 'status_pembayaran::filter_spp');
+$routes->post('/status_pembayaran/filter_tanggalspp', 'status_pembayaran::filter_tanggalspp');
+$routes->get('/spp/bayar_kekurangan/(:any)', 'status_pembayaran::bayar_kekurangan/$1');
+$routes->put('/status_pembayaran/(:num)', 'status_pembayaran::update_kekurangan/$1');
 // $routes->put('/spp/bayar/(:num)', 'status_pembayaran::spp/$1');
 // $routes->get('/perizinan/(:any)', 'Perizinan::persetujuan/$1');
 
 //Pembayaran Pendaftaran
-$routes->get('/pembayaran/pendaftaran', 'Pendaftaran::pendaftaran');
-$routes->get('/pembayaran/pendaftaran_add', 'Pembayaran::pendaftaran_add');
-$routes->post('/pendaftaran', 'Pembayaran::save_pendaftaran');
-$routes->delete('/pembayaran/pendaftaran(:num)', 'Pembayaran::delete_pendaftaran/$1');
-$routes->post('/pembayaran/filter_pendaftaran', 'Pembayaran::filter_pendaftaran');
-$routes->get('/pembayaran/bayar_pendaftaran/(:any)', 'Pembayaran::bayar_pendaftaran/$1');
+$routes->get('/pendaftaran/pendaftaran', 'Pendaftaran::pendaftaran');
+$routes->get('/pendaftaran/pendaftaran_add', 'Pendaftaran::pendaftaran_add');
+$routes->post('/pendaftaran', 'Pendaftaran::save_pendaftaran');
+$routes->delete('/pendaftaran/pendaftaran(:num)', 'Pendaftaran::delete_pendaftaran/$1');
+$routes->post('/pendaftaran/pendaftaran', 'Pendaftaran::filter_pendaftaran');
+$routes->get('/pendaftaran/bayar_pendaftaran/(:any)', 'Pendaftaran::bayar_pendaftaran/$1');
+$routes->put('/pendaftaran/pendaftaran/(:num)', 'Pendaftaran::update_pendaftaran/$1');
 
+//TAGIHAN
+$routes->get('/tagihan_kelas', 'Tagihan::index');
+$routes->get('/tagihan/tagihan_spp', 'Tagihan::tagihan_spp');
+$routes->post('/tagihan_kelas', 'Tagihan::save_spp');
+$routes->get('/tagihan/tagihan_rutin', 'Tagihan::tagihan_rutin');
+$routes->post('/tagihan_rutin', 'Tagihan::save_rutin');
+$routes->get('/tagihan', 'Tagihan::tagihan');
+$routes->get('/pembayaran/tagihan_add', 'Tagihan::tagihan_add');
+$routes->post('/tagihan', 'Tagihan::save_tagihan');
+$routes->delete('/pembayaran/tagihan(:num)', 'Tagihan::delete_tagihan/$1');
 
-$routes->put('/pembayaran/pendaftaran/(:num)', 'Pembayaran::update_pendaftaran/$1');
+//DAFTAR ULANG
+$routes->get('/daftar_ulang', 'Daftar_ulang::index');
+$routes->get('/bayar_daftar_ulang/(:any)', 'Daftar_ulang::bayar_daftar_ulang/$1');
+$routes->put('/daftar_ulang/(:num)', 'Daftar_ulang::update_daftar_ulang/$1');
+$routes->post('/daftar_ulang', 'Daftar_ulang::filter_daftar_ulang');
+$routes->get('/daftar_ulang_add', 'Daftar_ulang::daftar_ulang_add');
+$routes->post('/daftar_ulang_add', 'Daftar_ulang::save_daftar_ulang');
+$routes->delete('/daftar_ulang(:num)', 'Daftar_ulang::delete_daftar/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -101,7 +101,7 @@
                                             <td><?= $k['nis']; ?></td>
                                             <td><?= $k['nama_lengkap']; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
-                                            <td><?= date('d-M-Y', strtotime($k["waktu"]));; ?></td>
+                                            <td><?= date('d-m-Y', strtotime($k["waktu"]));; ?></td>
                                             <td><?= $k['jumlah_bayar']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -4,35 +4,63 @@
 <section class="section">
     <div class="section-header">
         <h1><?= $title; ?></h1>
-        <div class="section-header-button">
-            <a href="/pembayaran/add" class="btn btn-primary">Tambah Data </a>
-        </div>
-        <div class="section-header-button">
-            <a href="/status_cek" class="btn btn-primary">Cek Santri</a>
+    </div>
+    <div class="col">
+        <div class="row">
+            <form action="<?= base_url(); ?>/status_pembayaran" method="POST" class="inline">
+                <?= csrf_field(); ?>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="nis">NIS</label>
+                            <input id="nis" type=" number" class="form-control" name="nis" value="<?= old('nis'); ?>">
+                        </div>
+                    </div>
+                    <input id="id_santri" type="hidden" name="id_santri">
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="tahun">Pilih Bulan</label>
+                            <input type="month" name="tahun" class="form-control" id="tahun">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="">Pilih</label>
+                            <button type="submit" name="hasil" value="Hasil" class="form-control btn btn-info">Cek Data</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form action="<?= base_url(); ?>/status_pembayaran/filter" method="POST" class="inline">
+                <?= csrf_field(); ?>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="tgl_akhir">Pilih Kelas</label>
+                            <select name="id_kelas" id="id_kelas" class="form-control">
+                                <option value="" hidden></option>
+                                <?php foreach ($filter as $s) :  ?>
+                                    <option value="<?= $s['id_kelas']; ?>"><?= $s['nama_kelas']; ?></option>
+                                <?php endforeach;  ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="bulan">Pilih Bulan</label>
+                            <input type="month" name="bulan" class="form-control" id="bulan">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label for="">Pilih</label>
+                            <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Kelas</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <form action="<?= base_url(); ?>/status_pembayaran" method="POST" class="inline">
-        <?= csrf_field(); ?>
-        <div class="row">
-            <div class="form-group">
-                <div class="col">
-                    <label for="tgl_mulai">Pilih Santri</label>
-                    <select name="id_santri" id="id_santri" class="form-control">
-                        <option value="" hidden></option>
-                        <?php foreach ($santri as $s) :  ?>
-                            <option value="<?= $s['id_santri']; ?>"><?= $s['nama_lengkap']; ?></option>
-                        <?php endforeach;  ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col">
-                    <label for="">Pilih</label>
-                    <button type="submit" name="hasil" value="Hasil" class="form-control btn btn-info">Cek Data</button>
-                </div>
-            </div>
-        </div>
-    </form>
     <?= session()->getFlashdata('message'); ?>
     <div class="section-body">
         <div class="row">
@@ -47,9 +75,11 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Jumlah Pembayaran</th>
-                                        <th>Bulan Pembayaran</th>
+                                        <th>Tagihan</th>
+                                        <th>nama</th>
+                                        <th>Tanggal Pembayaran</th>
                                         <th>Pembayaran</th>
+                                        <th>Periode Pembayaran</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -62,8 +92,10 @@
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $p['tagihan']; ?></td>
+                                            <td><?= $p['nama_lengkap']; ?></td>
                                             <td><?= $p['bulan']; ?></td>
                                             <td><?= $p['pembayaran']; ?></td>
+                                            <td><?= $p['periode']; ?></td>
                                             <td>
                                                 <?php if ($p['status'] == 'Lunas') : ?>
                                                     <a href="" class="badge badge-success"><?= $p['status']; ?></a>
@@ -72,18 +104,25 @@
                                             </td>
                                         <?php endif; ?>
                                         <td>
-                                            <?php if ($p['status'] == 'Lunas') {
-                                                echo '';
-                                            } elseif ($p['status'] == 'Belum Lunas') { ?>
-                                                <!-- <a href="/spp/bayar/<?= $p['id_santri']; ?>" class="btn btn-primary">Bayar</a> -->
+                                            <?php if ($p['pembayaran'] != null) {
+                                                if ($p['status'] == 'Lunas') {
+                                                    echo '';
+                                                } elseif ($p['status'] == 'Belum Lunas') { ?>
+                                                    <form action="/spp/bayar_kekurangan/<?= $p['id_keuangan']; ?>" method="GET">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="id_keuangan" value="<?= $p['id_keuangan']; ?>">
+                                                        <button type="submit" class="btn btn-primary">Bayar Kekurangan</button>
+                                                    </form>
+                                                <?php }
+                                                ?>
+                                            <?php
+                                            } else { ?>
                                                 <form action="/spp/bayar/<?= $p['id_santri']; ?>" method="GET">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="id_santri" value="<?= $p['id_santri']; ?>">
                                                     <button type="submit" class="btn btn-primary">Bayar</button>
                                                 </form>
-                                            <?php } else {
-                                                echo '';
-                                            } ?>
+                                            <?php  } ?>
                                         </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -96,4 +135,17 @@
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function() {
+        $('#nis').autocomplete({
+            source: "<?php echo site_url('pembayaran/get_autofill/?')  ?>",
+            select: function(event, ui) {
+                $('[name="nis"]').val(ui.item.label);
+                $('[name="nama_lengkap"]').val(ui.item.nama_lengkap);
+                $('[name="id_santri"]').val(ui.item.id_santri);
+
+            }
+        })
+    });
+</script>
 <?= $this->endSection(); ?>

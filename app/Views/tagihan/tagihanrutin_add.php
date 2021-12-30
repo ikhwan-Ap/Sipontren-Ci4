@@ -8,7 +8,7 @@
         <h1><?= $title; ?></h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="/pembayaran/tagihan">Pembayaran Pendaftaran</a></div>
+            <div class="breadcrumb-item"><a href="/tagihan">Pembayaran Pendaftaran</a></div>
             <div class="breadcrumb-item">Tambah Data Pendaftaran</div>
         </div>
     </div>
@@ -16,7 +16,7 @@
     <?= session()->getFlashdata('message'); ?>
 
     <div class="card col-lg-8">
-        <form action="/tagihan" method="POST">
+        <form action="/tagihan_rutin" method="POST">
             <div class="card-header">
                 <h4 class="text-dark">Form Pembayaran Pendaftaran</h4>
             </div>
@@ -24,28 +24,16 @@
                 <?= csrf_field(); ?>
                 <div class="form-group">
                     <label for="nama_pembayaran">Nama Pembayaran Baru</label>
-                    <input id="nama_pembayaran" type=" number" class="form-control <?= ($validation->hasError('nama_pembayaran')) ? 'is-invalid' : ''; ?>" name="nama_pembayaran" value="<?= old('nama_pembayaran'); ?>">
+                    <input id="nama_pembayaran" type="text" class="form-control <?= ($validation->hasError('nama_pembayaran')) ? 'is-invalid' : ''; ?>" name="nama_pembayaran" value="<?= old('nama_pembayaran'); ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nama_pembayaran'); ?>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="jumlah_pembayaran">Jumlah Pembayaran/Tagihan Baru</label>
+                    <label for="jumlah_pembayaran">Jumlah Pembayaran</label>
                     <input id="jumlah_pembayaran" type="number" class="form-control <?= ($validation->hasError('jumlah_pembayaran')) ? 'is-invalid' : ''; ?>" name="jumlah_pembayaran" value="<?= old('jumlah_pembayaran'); ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('jumlah_pembayaran'); ?>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="id_kelas">Kelas</label>
-                    <select class="form-control <?= ($validation->hasError('id_kelas')) ? 'is-invalid' : ''; ?>" name="id_kelas" id="id_kelas">
-                        <option value="" hidden></option>
-                        <?php foreach ($kelas as $data) : ?>
-                            <option value="<?= $data['id_kelas']; ?>"><?= $data['nama_kelas']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('id_kelas'); ?>
                     </div>
                 </div>
                 <div class="card-footer text-right">
@@ -58,17 +46,4 @@
 
 </section>
 
-<script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        var y = document.getElementById("password_conf");
-        if (x.type === "password" || y.type === "password") {
-            x.type = "text";
-            y.type = "text";
-        } else {
-            x.type = "password";
-            y.type = "password";
-        }
-    }
-</script>
 <?= $this->endSection(); ?>

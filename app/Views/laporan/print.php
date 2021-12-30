@@ -43,7 +43,7 @@
                 <tr>
                     <td width="5%"><?= $i++; ?></td>
                     <td width="45%"><?= $k['nama_pembayaran']; ?></td>
-                    <td><?= date('d-M-Y', strtotime($k["waktu"]));; ?></td>
+                    <td><?= date('d-m-Y', strtotime($k["waktu"]));; ?></td>
                     <td><?= $k['jumlah_bayar']; ?></td>
                 </tr>
 

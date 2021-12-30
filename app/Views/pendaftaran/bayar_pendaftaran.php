@@ -4,20 +4,20 @@
 <section class="section">
     <div class="section-header">
         <div class="section-header-button">
-            <a href="/lainnya" class="btn btn-light mr-3"><i class="fas fa-arrow-left"></i></a>
+            <a href="/pendaftaran/pendaftaran" class="btn btn-light mr-3"><i class="fas fa-arrow-left"></i></a>
         </div>
         <h1><?= $title; ?></h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="/lainnya">Pembayaran</a></div>
-            <div class="breadcrumb-item">Pembayaran</div>
+            <div class="breadcrumb-item"><a href="/pendaftaran/pendaftaran">Pembayaran Pendaftaran</a></div>
+            <div class="breadcrumb-item">Pembayaran Pendaftaran</div>
         </div>
     </div>
 
     <?= session()->getFlashdata('message'); ?>
 
     <div class="card col-lg-8">
-        <form action="/lainnya/<?= $BelumLunas['id_keuangan']; ?>" method="POST">
+        <form action="/pendaftaran/pendaftaran/<?= $BelumLunas['id_keuangan']; ?>" method="POST">
             <div class="card-header">
                 <h4 class="text-dark">Pembayaran Santri</h4>
             </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group col-md-6 col-12">
                         <label for="jumlah_pembayaran">Tagihan</label>
-                        <input id="jumlah_pembayaran" type="text" class="form-control" name="jumlah_pembayaran" value="<?= $BelumLunas['jumlah_pembayaran']; ?>" readonly>
+                        <input id="jumlah_pembayaran" type="text" class="form-control" name="jumlah_pembayaran" value="<?= $BelumLunas['jumlah_tagihan']; ?>" readonly>
                         <div class="invalid-feedback">
                             <?= $validation->getError('jumlah_pembayaran'); ?>
                         </div>
@@ -75,11 +75,24 @@
                 </div>
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Bayar</button>
-                    <a href="/lainnya" class="btn btn-light ml-2">Batal</a>
+                    <a href="/pendaftaran/pendaftaran" class="btn btn-light ml-2">Batal</a>
                 </div>
         </form>
     </div>
 
 
 </section>
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        var y = document.getElementById("password_conf");
+        if (x.type === "password" || y.type === "password") {
+            x.type = "text";
+            y.type = "text";
+        } else {
+            x.type = "password";
+            y.type = "password";
+        }
+    }
+</script>
 <?= $this->endSection(); ?>

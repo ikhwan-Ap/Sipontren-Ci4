@@ -1,14 +1,3 @@
-<style>
-    .ui-autocomplete {
-        position: absolute;
-        cursor: default;
-        z-index: 1500 !important;
-    }
-
-    .ui-front {
-        z-index: 1500 !important;
-    }
-</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +9,6 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
@@ -31,7 +19,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/js/summernote/dist/summernote-bs4.css">
     <link rel="stylesheet" href="<?= base_url() ?>/js/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/js/datatables.net-select-bs4/css/select.bootstrap4.min.css">
-
+    <link rel="stylesheet" href="<?= base_url() ?>/css/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
 
 
 
@@ -77,12 +65,23 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 
     <script src="<?= base_url() ?>/js/stisla.js"></script>
+    <style>
+        .ui-autocomplete {
+            position: absolute;
+            cursor: default;
+            z-index: 1500 !important;
+        }
 
+        .ui-front {
+            z-index: 1500 !important;
+        }
+    </style>
     <!-- JS Libraies -->
     <script src="<?= base_url() ?>/js/prism.js"></script>
     <script src="<?= base_url() ?>/js/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>/js/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url() ?>/js/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
+    <script src="<?= base_url() ?>/js/timepicker/bootstrap-timepicker.min.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url() ?>/js/scripts.js"></script>

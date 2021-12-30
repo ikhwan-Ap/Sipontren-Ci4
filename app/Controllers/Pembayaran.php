@@ -29,152 +29,200 @@ class Pembayaran extends BaseController
     public function index()
     {
         $data = [
-
-            'title' => 'Pembayaran SPP',
-            'Lunas' => $this->model->getSudahLunas(),
-            'BelumLunas' => $this->model->getBelumLunas(),
+            'title' => 'Pembayaran Lain',
+            'hasil' => $this->model->keuangan_lain(),
+            'santri' => $this->santri->findAll(),
         ];
         return view('pembayaran/index', $data);
-    }
-
-    public function filter()
-    {
-        $filter = $this->request->getVar('filter');
-        $tgl_mulai = $this->request->getVar('tgl_mulai');
-        $tgl_selesai = $this->request->getVar('tgl_selesai');
-        $status_pembayaran = $this->request->getVar('status_pembayaran');
-        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas') {
-            $tanggal = [
-                'tgl_mulai' => $tgl_mulai,
-                'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran
-            ];
-            $data = [
-                'title' => 'Pembayaran SPP',
-                'Lunas' => $this->model->getSudahLunasFilter($tanggal),
-            ];
-        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas') {
-            $tanggal = [
-                'tgl_mulai' => $tgl_mulai,
-                'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran
-            ];
-            $data = [
-                'title' => 'Pembayaran SPP',
-                'Lunas' => $this->model->getLunasFilter($tanggal),
-            ];
-        } else {
-            $data = [
-                'title' => 'Pembayaran SPP',
-                'Lunas' => $this->model->getSudahLunas(),
-                'BelumLunas' => $this->model->getBelumLunas(),
-            ];
-        }
-
-
-        return view('pembayaran/index', $data);
-    }
-
-    public function daftar_ulang()
-    {
-        $data = [
-            'title' => 'Pembayaran Daftar Ulang',
-            'Lunas' => $this->model->getDaftarUlang(),
-        ];
-        return view('pembayaran/daftar', $data);
-    }
-    public function filter_daftar_ulang()
-    {
-        $filter = $this->request->getVar('filter');
-        $tgl_mulai = $this->request->getVar('tgl_mulai');
-        $tgl_selesai = $this->request->getVar('tgl_selesai');
-        $status_pembayaran = $this->request->getVar('status_pembayaran');
-        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas') {
-            $tanggal = [
-                'tgl_mulai' => $tgl_mulai,
-                'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran
-            ];
-            $data = [
-                'title' => 'Pembayaran Daftar Ulang',
-                'Lunas' => $this->model->getDaftarUlangLunas($tanggal),
-            ];
-        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas') {
-            $tanggal = [
-                'tgl_mulai' => $tgl_mulai,
-                'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran
-            ];
-            $data = [
-                'title' => 'Pembayaran Daftar Ulang',
-                'Lunas' => $this->model->getDaftarUlangBelumLunas($tanggal),
-            ];
-        } else {
-            $data = [
-                'title' => 'Pembayaran Daftar Ulang',
-                'Lunas' => $this->model->getDaftarUlang(),
-            ];
-        }
-
-
-        return view('pembayaran/daftar', $data);
-    }
-
-
-    public function lainnya()
-    {
-        $data = [
-            'title' => 'Pembayaran Lainnya',
-            'Lunas' => $this->model->getLainnya(),
-        ];
-        return view('pembayaran/lainnya', $data);
     }
     public function filter_lainnya()
     {
         $filter = $this->request->getVar('filter');
         $tgl_mulai = $this->request->getVar('tgl_mulai');
         $tgl_selesai = $this->request->getVar('tgl_selesai');
-        $nama_pembayaran = $this->request->getVar('nama_pembayaran');
-        $status_pembayaran = $this->request->getVar('status_pembayaran');
-        if ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Lunas' || $nama_pembayaran != null) {
+        $status = $this->request->getVar('status');
+        $hasil = array();
+        if ($tgl_mulai != null && $tgl_selesai != null && $status == 'Lunas') {
+
             $tanggal = [
                 'tgl_mulai' => $tgl_mulai,
                 'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran,
-                'nama_pembayaran' => $nama_pembayaran
+                'status' => $status
             ];
-            $data = [
-                'title' => 'Pembayaran Lainnya',
-                'Lunas' => $this->model->getLainnyaLunas($tanggal),
-            ];
-        } elseif ($tgl_mulai != null || $tgl_selesai != null || $status_pembayaran == 'Belum Lunas' || $nama_pembayaran != null) {
+            $keuangan = $this->model->status_lain($tanggal);
+            if ($keuangan != null) {
+                foreach ($keuangan as $uang) {
+                    $id_keuangan = $uang['id_keuangan'];
+                    $nama_lengkap = $uang['nama_lengkap'];
+                    $id_santri = $uang['id_santri'];
+                    $nis = $uang['nis'];
+                    $waktu = $uang['waktu'];
+                    $jumlah_bayar = $uang['jumlah_bayar'];
+                    $nama_pembayaran = $uang['nama_pembayaran'];
+                    $periode = $uang['periode'];
+                    $jumlah_tagihan = $uang['jumlah_tagihan'];
+                    if ($jumlah_bayar >= $jumlah_tagihan) {
+                        $status = 'Lunas';
+                        $hasil[] = [
+                            'periode' => $periode,
+                            'id_keuangan' => $id_keuangan,
+                            'nama_lengkap' => $nama_lengkap,
+                            'id_santri' => $id_santri,
+                            'nis' => $nis,
+                            'waktu' => $waktu,
+                            'periode' => $periode,
+                            'jumlah_bayar' => $jumlah_bayar,
+                            'nama_pembayaran' => $nama_pembayaran,
+                            'jumlah_tagihan' => $jumlah_tagihan,
+                            'status' => $status
+                        ];
+                        $data = [
+                            'title' => 'Pembayaran Lain',
+                            'hasil' => $hasil,
+                        ];
+                    } else {
+                        $status = 'Belum Lunas';
+                        $data = [
+                            'title' => 'Pembayaran Lain',
+                            'hasil' => $this->model->salah(),
+                        ];
+                    }
+                }
+            } else {
+                $data = [
+                    'title' => 'Pembayaran Lain',
+                    'hasil' => $this->model->salah(),
+                ];
+            }
+            $hasil = array();
+        } elseif ($tgl_mulai != null && $tgl_selesai != null && $status == 'Belum Lunas') {
             $tanggal = [
                 'tgl_mulai' => $tgl_mulai,
                 'tgl_selesai' => $tgl_selesai,
-                'status_pembayaran' => $status_pembayaran,
-                'nama_pembayaran' => $nama_pembayaran
+                'status' => $status
             ];
-            $data = [
-                'title' => 'Pembayaran Lainnya',
-                'Lunas' => $this->model->getLainnyaBelumLunas($tanggal),
-            ];
+            $keuangan = $this->model->status_lainBelum($tanggal);
+            if ($keuangan != null) {
+                foreach ($keuangan as $uang) {
+                    $id_keuangan = $uang['id_keuangan'];
+                    $nama_lengkap = $uang['nama_lengkap'];
+                    $periode = $uang['periode'];
+                    $nama_pembayaran = $uang['nama_pembayaran'];
+                    $id_santri = $uang['id_santri'];
+                    $nis = $uang['nis'];
+                    $waktu = $uang['waktu'];
+                    $jumlah_bayar = $uang['jumlah_bayar'];
+                    $jumlah_tagihan = $uang['jumlah_tagihan'];
+                    if ($jumlah_tagihan == $jumlah_bayar) {
+                        $status = 'Lunas';
+                        $data = [
+                            'title' => 'Pembayaran Lain',
+                            'hasil' => $this->model->salah(),
+                        ];
+                    } else {
+                        $status = 'Belum Lunas';
+                        $hasil[] = [
+                            'id_keuangan' => $id_keuangan,
+                            'nama_lengkap' => $nama_lengkap,
+                            'id_santri' => $id_santri,
+                            'nis' => $nis,
+                            'waktu' => $waktu,
+                            'nama_pembayaran' => $nama_pembayaran,
+                            'jumlah_bayar' => $jumlah_bayar,
+                            'jumlah_tagihan' => $jumlah_tagihan,
+                            'status' => $status,
+                            'periode' => $periode
+                        ];
+                    }
+                    $data = [
+                        'title' => 'Pembayaran Lain',
+                        'hasil' => $hasil
+                    ];
+                }
+            } else {
+                $data = [
+                    'title' => 'Pembayaran Lain',
+                    'hasil' => $this->model->salah(),
+                ];
+            }
         } else {
             $data = [
-                'title' => 'Pembayaran Lainnya',
-                'Lunas' => $this->model->getLainnya(),
+                'title' => 'Pembayaran Lain',
+                'hasil' => $this->model->keuangan_lain(),
             ];
         }
 
-
-        return view('pembayaran/lainnya', $data);
+        return view('pembayaran/index', $data);
     }
-    public function tagihan()
+
+
+    public function lainnya()
     {
         $data = [
-            'title' => 'Tagihan Baru',
-            'tagihan' => $this->tagihan->getTagihan(),
+            'title' => 'Pembayaran Rutin',
+            'hasil' => $this->model->getLainnya(),
+            'tagihan' => $this->tagihan->getLainnya(),
         ];
-        return view('pembayaran/tagihan', $data);
+        return view('pembayaran/lainnya', $data);
+    }
+
+    public function filter_rutin()
+    {
+        $filter = $this->request->getVar('filter');
+        $bulan = $this->request->getVar('bulan');
+        $id_tagihan = $this->request->getVar('id_tagihan');
+        $tagihan = $this->tagihan->tagihan_rutin($id_tagihan);
+        $hasil = array();
+        if ($bulan != null && $id_tagihan != null) {
+            if ($tagihan != null) {
+                foreach ($tagihan as $tagih) {
+                    $id_santri = $tagih['id_santri'];
+                    $id_keuangan = $tagih['id_keuangan'];
+                    $id_tagihan = $tagih['id_tagihan'];
+                    $nis = $tagih['nis'];
+                    $nama_lengkap = $tagih['nama_lengkap'];
+                    $nama_pembayaran = $tagih['nama_pembayaran'];
+                    $pembayaran = $this->model->filter_rutin($id_santri, $bulan, $id_tagihan);
+                    if ($tagihan[0]['tagihan'] == $pembayaran[0]['jumlah_bayar']) {
+                        $status = 'Lunas';
+                        $pembayaran[0]['jumlah_bayar'];
+                    } else {
+                        $status = 'Belum Lunas';
+                        $pembayaran[0]['jumlah_bayar'];
+                    }
+                    $hasil[] = [
+                        'id_santri' => $id_santri,
+                        'nama_lengkap' => $nama_lengkap,
+                        'nis' => $nis,
+                        'id_keuangan' => $id_keuangan,
+                        'jumlah_tagihan' => $tagihan[0]['tagihan'],
+                        'jumlah_bayar' => $pembayaran[0]['jumlah_bayar'],
+                        'nama_pembayaran' => $nama_pembayaran,
+                        'status' => $status,
+                        'waktu' => $bulan,
+                    ];
+                }
+                $data = [
+                    'title' => 'Pembayaran Rutin',
+                    'hasil' => $hasil,
+                    'tagihan' => $this->tagihan->getLainnya(),
+                ];
+            } else {
+                $data = [
+                    'title' => 'Pembayaran Rutin',
+                    'hasil' => $this->model->salah(),
+                    'tagihan' => $this->tagihan->getLainnya(),
+                ];
+            }
+            $hasil = array();
+        } else {
+            $data = [
+                'title' => 'Pembayaran Rutin',
+                'hasil' => $this->model->getLainnya(),
+                'tagihan' => $this->tagihan->getLainnya(),
+            ];
+        }
+        return view('pembayaran/lainnya', $data);
     }
     public function pengeluaran_baru()
     {
@@ -682,170 +730,19 @@ class Pembayaran extends BaseController
                                 <button class="close" data-dismiss="alert">
                                   <span>×</span>
                                 </button>
-                                Data SPP berhasil ditambahkan!
+                                Data Lain berhasil ditambahkan!
                               </div>
                             </div>');
             return redirect()->to('/pembayaran');
         }
     }
-    public function pendaftaran_add()
-    {
-        $data = [
-            'tagihan' => $this->tagihan->findAll(),
-            'santri' => $this->santri->findAll(),
-            'title' => 'Tambah Data Pendaftaran',
-            'validation' => \Config\Services::validation(),
-        ];
-        return view('pembayaran/pendaftaran_add', $data);
-    }
-    public function save_pendaftaran()
-    {
-        // $getSantriBayar = $this->;
-        if (!$this->validate([
-            'nis' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'nis  harus diisi!',
-                ]
-            ],
-            'id_santri' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Lengkap harus diisi!',
-                ]
-            ],
-            'id_tagihan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Pembayaran harus diisi!',
-                ]
-            ],
-            'waktu' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tanggal Bayar  harus diisi!',
-                ]
-            ],
-        ])) {
-            return redirect()->to('/pembayaran/pendaftaran_add')->withInput();
-        }
-        $waktu = $this->request->getVar('waktu');
-        $id_santri = $this->request->getVar('id_santri');
-        $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
-        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
-        if ($sql > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Data Telah tersedia
-            </div>
-          </div>');
-            return redirect()->to('/pembayaran/pendaftaran_add')->withInput();
-        } else {
-            $this->model->save([
-                // 'id_tagihan' => $this->request->getVar('id_tagihan'),
-                'id_tagihan' => $id_tagihan,
-                'waktu' => $waktu,
-                'id_santri' => $id_santri,
-                'status_pembayaran' => 'Belum Lunas',
-            ]);
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                              <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                  <span>×</span>
-                                </button>
-                                Data Pembayaran Pendaftaran berhasil ditambahkan!
-                              </div>
-                            </div>');
-            return redirect()->to('/pembayaran/pendaftaran');
-        }
-    }
-    public function daftar_ulang_add()
-    {
-        $data = [
-            'tagihan' => $this->tagihan->findAll(),
 
-            'santri' => $this->santri->findAll(),
-            'title' => 'Tambah Data Daftar Ulang',
-            'validation' => \Config\Services::validation(),
-        ];
-        return view('pembayaran/daftar_ulang_add', $data);
-    }
-    public function save_daftar_ulang()
-    {
-        // $getSantriBayar = $this->;
-        if (!$this->validate([
-            'nis' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'nis  harus diisi!',
-                ]
-            ],
-            'id_santri' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Lengkap harus diisi!',
-                ]
-            ],
-            'id_tagihan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Pembayaran harus diisi!',
-                ]
-            ],
-            'waktu' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tanggal Bayar  harus diisi!',
-                ]
-            ],
-        ])) {
-            return redirect()->to('/pembayaran/daftar_ulang_add')->withInput();
-        }
-        $waktu = $this->request->getVar('waktu');
-        $id_santri = $this->request->getVar('id_santri');
-        $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
-        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
-
-        if ($sql > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Data Telah tersedia
-            </div>
-          </div>');
-            return redirect()->to('/pembayaran/daftar_ulang_add')->withInput();
-        } else {
-            $this->model->save([
-                // 'id_tagihan' => $this->request->getVar('id_tagihan'),
-                'id_tagihan' => $id_tagihan,
-                'waktu' => $waktu,
-                'id_santri' => $id_santri,
-                'status_pembayaran' => 'Belum Lunas',
-            ]);
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                              <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                  <span>×</span>
-                                </button>
-                                Data Pembayaran Daftar Ulang berhasil ditambahkan!
-                              </div>
-                            </div>');
-            return redirect()->to('/pembayaran/daftar_ulang');
-        }
-    }
     public function lainnya_add()
     {
         $data = [
             'tagihan' => $this->tagihan->getLainnya(),
             'santri' => $this->santri->findAll(),
-            'title' => 'Tambah Data Pendaftaran',
+            'title' => 'Tambah Data Lainnya',
             'validation' => \Config\Services::validation(),
         ];
         return view('pembayaran/lainnya_add', $data);
@@ -884,15 +781,15 @@ class Pembayaran extends BaseController
         $waktu = $this->request->getVar('waktu');
         $id_santri = $this->request->getVar('id_santri');
         $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
-        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan 
+        WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'")->getRowArray();
         if ($sql > 0) {
             session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
               <button class="close" data-dismiss="alert">
                 <span>×</span>
               </button>
-              Data Dengan Bulan Tersebut tersedia
+              Data Santri Telah Tersebut tersedia
             </div>
           </div>');
             return redirect()->to('/pembayaran/lainnya_add')->withInput();
@@ -902,7 +799,7 @@ class Pembayaran extends BaseController
                 'id_tagihan' => $id_tagihan,
                 'waktu' => $waktu,
                 'id_santri' => $id_santri,
-                'status_pembayaran' => 'Belum Lunas',
+                'periode' => date("Y-m-d h:i"),
             ]);
             session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                               <div class="alert-body">
@@ -912,78 +809,98 @@ class Pembayaran extends BaseController
                                 Data Pembayaran berhasil ditambahkan!
                               </div>
                             </div>');
-            return redirect()->to('/pembayaran/lainnya');
+            return redirect()->to('/lainnya');
         }
     }
-
-    public function tagihan_add()
+    public function lain_add()
     {
         $data = [
-            'title' => 'Tambah Data Pembayaran Baru',
-            'kelas' => $this->kelas->findAll(),
+            'title' => 'Pembayaran Lain',
+            'tagihan' => $this->tagihan->Lain(),
+            'santri' => $this->santri->findAll(),
             'validation' => \Config\Services::validation(),
         ];
-        return view('pembayaran/tagihan_add', $data);
+        return view('pembayaran/lain_add', $data);
     }
 
-
-    public function save_tagihan()
+    public function save_lain()
     {
         // $getSantriBayar = $this->;
         if (!$this->validate([
-            'nama_pembayaran' => [
-                'rules' => 'required|',
-                'errors' => [
-                    'required' => 'Nama Pembayaran Harus diisi!',
-                ]
-            ],
-            'id_kelas' => [
-                'rules' => 'required|',
-                'errors' => [
-                    'required' => 'Nama Kelas Harus diisi!',
-                ]
-            ],
-            'jumlah_pembayaran' => [
+            'nis' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Jumlah Pembayaran Harus di Isi',
+                    'required' => 'nis  harus diisi!',
                 ]
             ],
-
+            'id_santri' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap harus diisi!',
+                ]
+            ],
+            'id_tagihan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pembayaran harus diisi!',
+                ]
+            ],
+            'jumlah_bayar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jumlah yang di bayarkan harus diisi!',
+                ]
+            ],
+            'jumlah_tagihan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'jumlah tagihan harus diisi!',
+                ]
+            ],
+            'waktu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Bayar  harus diisi!',
+                ]
+            ],
         ])) {
-            return redirect()->to('/pembayaran/tagihan_add')->withInput();
+            return redirect()->to('/pembayaran/lain_add')->withInput();
         }
-
-        $nama_pembayaran = $this->request->getVar('nama_pembayaran');
-        $jumlah_pembayaran = $this->request->getVar('jumlah_pembayaran');
-        $id_kelas = $this->request->getVar('id_kelas');
-        $sql = $this->db->query("SELECT id_kelas,nama_pembayaran FROM tagihan WHERE id_kelas='$id_kelas'
-        AND nama_pembayaran")->getRowArray();
+        $waktu = $this->request->getVar('waktu');
+        $id_santri = $this->request->getVar('id_santri');
+        $id_tagihan = $this->request->getVar('id_tagihan');
+        $sql = $this->db->query("SELECT id_tagihan,id_santri FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+       ")->getRowArray();
         if ($sql > 0) {
             session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Data Tersebut telah tersedia
-            </div>
-          </div>');
-            return redirect()->to('/pembayaran/tagihan_add')->withInput();
+          <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+              <span>×</span>
+            </button>
+            Data Telah tersedia
+          </div>
+        </div>');
+            return redirect()->to('/pembayaran/lain_add')->withInput();
         } else {
-            $this->tagihan->save([
-                'nama_pembayaran' => $nama_pembayaran,
-                'jumlah_pembayaran' => $jumlah_pembayaran,
-                'id_kelas' => $id_kelas
+            $this->model->save([
+                // 'id_tagihan' => $this->request->getVar('id_tagihan'),
+                'id_tagihan' => $id_tagihan,
+                'waktu' => $waktu,
+                'id_santri' => $id_santri,
+                'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
+                'jumlah_tagihan' => $this->request->getVar('jumlah_tagihan'),
+                'periode' => date("Y-m-d h:i"),
+
             ]);
             session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                              <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                  <span>×</span>
-                                </button>
-                                Data Tagihan berhasil ditambahkan!
-                              </div>
-                            </div>');
-            return redirect()->to('/pembayaran/tagihan');
+                            <div class="alert-body">
+                              <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                              </button>
+                              Data Pembayaran berhasil ditambahkan!
+                            </div>
+                          </div>');
+            return redirect()->to('/lain');
         }
     }
     public function pengeluaranbaru_add()
@@ -1157,144 +1074,63 @@ class Pembayaran extends BaseController
         return redirect()->to('/pembayaran');
     }
 
-    public function bayar($id)
-    {
-        $this->model->save([
-            'id_keuangan' => $id,
-            'jumlah_bayar' => 350000,
-            'status_pembayaran' => 'Lunas',
-            ''
-        ]);
-
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Pembayaran SPP Berhasil!!
-                      </div>
-                    </div>');
-
-        return redirect()->to('/pembayaran');
-    }
-
-
-    public function update($id)
-    {
-        $this->model->save([
-            'id_keuangan' => $id,
-            'jumlah_bayar' => 350000,
-            'status_pembayaran' => 'Lunas',
-            ''
-        ]);
-
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Pembayaran SPP Berhasil!!
-                      </div>
-                    </div>');
-
-        return redirect()->to('/pembayaran');
-    }
-    public function bayar_daftar_ulang($id)
+    public function bayar_lain($id)
     {
         $data = [
-            'title' => 'Pembayaran Daftar Ulang',
+            'title' => 'Pembayaran Lain',
             'BelumLunas' => $this->model->getKeuangan($id),
             'validation' => \Config\Services::validation(),
         ];
-        return view('pembayaran/bayar_daftar_ulang', $data);
+        return view('pembayaran/bayar_lain', $data);
     }
-    public function update_daftar_ulang($id)
+    public function update_lain($id)
     {
+        $id_keuangan = $this->request->getVar('id_keuangan');
         if (!$this->validate([
             'jumlah_bayar' => [
-                'rules' => 'required|matches[jumlah_pembayaran]',
+                'rules' => 'required|',
                 'errors' => [
                     'required' => 'Pembayaran anda harus sesuai!',
-                    'matches' => 'Jumlah bayar tidak sama dengan tagihan!',
                 ]
             ],
-            'jumlah_pembayaran' => [
-                'rules' => 'required|matches[jumlah_bayar]',
-                'errors' => [
-                    'required' => 'Pembayaran anda harus sesuai!',
-                    'matches' => 'Jumlah pembayaran  tidak sama dengan tagihan!',
-                ]
-            ]
         ])) {
-            return redirect()->to('/pembayaran/bayar_daftar_ulang/' . $this->request->getVar('id_keuangan'))->withInput();
+            return redirect()->to('/pembayaran/bayar_lain/' . $id_keuangan)->withInput();
         }
-
-        $this->model->save([
-            'id_keuangan' => $id,
-            'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
-            'status_pembayaran' => 'Lunas',
-        ]);
-
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Pembayaran Daftar Ulang Berhasil!!
-                      </div>
-                    </div>');
-
-        return redirect()->to('/daftar_ulang');
-    }
-
-    public function bayar_pendaftaran($id)
-    {
-        $data = [
-            'title' => 'Pembayaran Pendaftaran',
-            'BelumLunas' => $this->model->getKeuangan($id),
-            'validation' => \Config\Services::validation(),
-        ];
-        return view('pembayaran/bayar_pendaftaran', $data);
-    }
-    public function update_pendaftaran($id)
-    {
-        if (!$this->validate([
-            'jumlah_bayar' => [
-                'rules' => 'required|matches[jumlah_pembayaran]',
-                'errors' => [
-                    'required' => 'Pembayaran anda harus sesuai!',
-                    'matches' => 'Jumlah bayar tidak sama dengan tagihan!',
-                ]
-            ],
-            'jumlah_pembayaran' => [
-                'rules' => 'required|matches[jumlah_bayar]',
-                'errors' => [
-                    'required' => 'Pembayaran anda harus sesuai!',
-                    'matches' => 'Jumlah pembayaran  tidak sama dengan tagihan!',
-                ]
-            ]
-        ])) {
-            return redirect()->to('/pembayaran/bayar_pendaftaran/' . $this->request->getVar('id_keuangan'))->withInput();
+        $keuangan = $this->model->bayar_daftar_ulang($id_keuangan);
+        foreach ($keuangan as $bayar) {
+            $tagihan = $bayar['jumlah_bayar'];
+            $pembayaran = $bayar['jumlah_tagihan'];
         }
-
-        $this->model->save([
-            'id_keuangan' => $id,
-            'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
-            'status_pembayaran' => 'Lunas',
-        ]);
-
+        $jumlah_bayar = $this->request->getVar('jumlah_bayar');
+        $total = $tagihan + $jumlah_bayar;
+        if ($total > $pembayaran) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+      <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+          <span>×</span>
+        </button>
+        Pembayaran Melebihi Jumlah Tagihan
+      </div>
+    </div>');
+            return redirect()->to('/pembayaran/bayar_lain/' . $id_keuangan)->withInput();
+        } else {
+            $this->model->save([
+                'id_keuangan' => $id_keuangan,
+                'jumlah_bayar' => $total,
+                'periode' => date("Y-m-d h:i"),
+            ]);
+        }
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Pembayaran Pendaftaran Berhasil!!
-                      </div>
-                    </div>');
+                    <div class="alert-body">
+                      <button class="close" data-dismiss="alert">
+                        <span>×</span>
+                      </button>
+                      Pembayaran Berhasil!!
+                    </div>
+                  </div>');
 
-        return redirect()->to('/pembayaran/pendaftaran');
+        return redirect()->to('/lain');
     }
-
     public function bayar_lainnya($id)
     {
         $data = [
@@ -1306,43 +1142,52 @@ class Pembayaran extends BaseController
     }
     public function update_lainnya($id)
     {
+        $id_keuangan = $this->request->getVar('id_keuangan');
         if (!$this->validate([
             'jumlah_bayar' => [
-                'rules' => 'required|matches[jumlah_pembayaran]',
+                'rules' => 'required|',
                 'errors' => [
                     'required' => 'Pembayaran anda harus sesuai!',
-                    'matches' => 'Jumlah bayar tidak sama dengan tagihan!',
                 ]
             ],
-            'jumlah_pembayaran' => [
-                'rules' => 'required|matches[jumlah_bayar]',
-                'errors' => [
-                    'required' => 'Pembayaran anda harus sesuai!',
-                    'matches' => 'Jumlah pembayaran  tidak sama dengan tagihan!',
-                ]
-            ]
         ])) {
-            return redirect()->to('/pembayaran/bayar_lainnya/' . $this->request->getVar('id_keuangan'))->withInput();
+            return redirect()->to('/pembayaran/bayar_lainnya/' . $id_keuangan)->withInput();
         }
-
-        $this->model->save([
-            'id_keuangan' => $id,
-            'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
-            'status_pembayaran' => 'Lunas',
-        ]);
-
+        $keuangan = $this->model->bayar_daftar_ulang($id_keuangan);
+        foreach ($keuangan as $bayar) {
+            $tagihan = $bayar['jumlah_bayar'];
+            $pembayaran = $bayar['jumlah_tagihan'];
+        }
+        $jumlah_bayar = $this->request->getVar('jumlah_bayar');
+        $total = $tagihan + $jumlah_bayar;
+        if ($total > $pembayaran) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                    </button>
+                    Pembayaran Melebihi Jumlah Tagihan
+                </div>
+                </div>');
+            return redirect()->to('/pembayaran/bayar_lainnya/' . $id_keuangan)->withInput();
+        } else {
+            $this->model->save([
+                'id_keuangan' => $id_keuangan,
+                'jumlah_bayar' => $total,
+                'periode' => date("Y-m-d h:i"),
+            ]);
+        }
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Pembayaran Berhasil!!
-                      </div>
-                    </div>');
+                <div class="alert-body">
+                  <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                  </button>
+                  Pembayaran Berhasil!!
+                </div>
+              </div>');
 
         return redirect()->to('/lainnya');
     }
-
     public function delete($id)
     {
         $this->model->delete($id);
@@ -1351,37 +1196,12 @@ class Pembayaran extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data SPP berhasil dihapus!
+                        Data Lain berhasil dihapus!
                       </div>
                     </div>');
         return redirect()->to('/pembayaran');
     }
-    public function delete_pendaftaran($id)
-    {
-        $this->model->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data Pendaftaran berhasil dihapus!
-                      </div>
-                    </div>');
-        return redirect()->to('/pembayaran/pendaftaran');
-    }
-    public function delete_daftar($id)
-    {
-        $this->model->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data Daftar Ulang berhasil dihapus!
-                      </div>
-                    </div>');
-        return redirect()->to('/pembayaran/daftar_ulang');
-    }
+
     public function delete_lainnya($id)
     {
         $this->model->delete($id);
@@ -1394,19 +1214,6 @@ class Pembayaran extends BaseController
                       </div>
                     </div>');
         return redirect()->to('/pembayaran/lainnya');
-    }
-    public function delete_tagihan($id)
-    {
-        $this->tagihan->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data Tagihan berhasil dihapus!
-                      </div>
-                    </div>');
-        return redirect()->to('/pembayaran/tagihan');
     }
     public function delete_pengeluaranbaru($id)
     {

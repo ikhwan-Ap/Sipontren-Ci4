@@ -5,7 +5,7 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/pembayaran/tagihan_add" class="btn btn-primary">Tambah Pembayaran Baru</a>
+            <a href="/tagihan/tagihan_spp" class="btn btn-primary">Tambah Pembayaran Syahriyah</a>
         </div>
     </div>
 
@@ -24,9 +24,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nama Kelas</th>
                                         <th>Nama Pembayaran</th>
-                                        <th>Total</th>
+                                        <th>Nama Kelas</th>
+                                        <th>Jumlah Pembayaran</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -37,8 +37,8 @@
                                     ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td><?= $k['nama_kelas']; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
+                                            <td><?= $k['nama_kelas']; ?></td>
                                             <td><?= $k['jumlah_pembayaran']; ?></td>
 
 
