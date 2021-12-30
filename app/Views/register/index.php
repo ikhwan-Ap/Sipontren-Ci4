@@ -73,12 +73,11 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="provinsi">Provinsi</label>
-                                    <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="provinsi">
+                                    <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="id_provinsi">
                                         <option value="">== Pilih Provinsi ==</option>
-                                        <option value="Sumatra Utara" <?= (old('provinsi') == 'Sumatra Utara') ? 'selected' : ''; ?>>Sumatra Utara</option>
-                                        <option value="Jawa Tengah" <?= (old('provinsi') == 'Jawa Tengah') ? 'selected' : ''; ?>>Jawa Tengah</option>
-                                        <option value="Kalimantan Timur" <?= (old('provinsi') == 'Kalimantan Timur') ? 'selected' : ''; ?>>Kalimantan Timur</option>
-                                        <option value="Sulawesi Tenggara" <?= (old('provinsi') == 'Sulawesi Tenggara') ? 'selected' : ''; ?>>Sulawesi Tenggara</option>
+                                        <!-- <?php foreach ($provinsi as $p) : ?>
+                                            <option value="<?= $p['prov_id']; ?>" <?= ($provinsi_selected == $p['prov_id'] || old('provinsi') == $p['prov_id']) ? 'selected' : ''; ?>><?= $p['prov_name']; ?></option>
+                                        <?php endforeach; ?> -->
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('provinsi'); ?>
@@ -86,11 +85,11 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="kabupaten">Kabupaten</label>
-                                    <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="kabupaten">
+                                    <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="id_kabupaten">
                                         <option value="">== Pilih Kabupaten ==</option>
-                                        <option value="Banyumas" <?= (old('kabupaten') == 'Banyumas') ? 'selected' : ''; ?>>Banyumas</option>
-                                        <option value="Purbalingga" <?= (old('kabupaten') == 'Purbalingga') ? 'selected' : ''; ?>>Purbalingga</option>
-                                        <option value="Banjarnegara" <?= (old('kabupaten') == 'Banjarnegara') ? 'selected' : ''; ?>>Banjarnegara</option>
+                                        <?php foreach ($kabupaten as $kab) : ?>
+                                            <!-- <option value="<?= $kab['city_id']; ?>" <?= ($kabupaten_selected == $kab['prov_id'] || old('kabupaten') == $kab['city_id']) ? 'selected' : ''; ?> class="<?= $kab['prov_id']; ?>"><?= $kab['city_name']; ?></option>
+                                        <?php endforeach; ?> -->
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kabupaten'); ?>
@@ -101,28 +100,26 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="kecamatan">Kecamatan</label>
-                                    <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="kecamatan">
+                                    <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="id_kecamatan">
                                         <option value="">== Pilih Kecamatan ==</option>
-                                        <option value="Kembaran" <?= (old('kecamatan') == 'Kembaran') ? 'selected' : ''; ?>>Kembaran</option>
-                                        <option value="Sokaraja" <?= (old('kecamatan') == 'Sokaraja') ? 'selected' : ''; ?>>Sokaraja</option>
-                                        <option value="Cilongok" <?= (old('kecamatan') == 'Cilongok') ? 'selected' : ''; ?>>Cilongok</option>
-                                        <option value="Baturaden" <?= (old('kecamatan') == 'Baturaden') ? 'selected' : ''; ?>>Baturaden</option>
+                                        <!-- <?php foreach ($kecamatan as $kec) : ?>
+                                            <option value="<?= $kec['dis_id']; ?>" <?= ($kecamatan_selected == $kec['city_id'] || old('kecamatan') == $kec['dis_id']) ? 'selected' : ''; ?> class="<?= $kec['city_id']; ?>"><?= $kec['dis_name']; ?></option>
+                                        <?php endforeach; ?> -->
                                     </select>
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('desa_kelurahan'); ?>
+                                        <?= $validation->getError('kecamatan'); ?>
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="desa_kelurahan">Desa/Kelurahan</label>
-                                    <select class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" id="desa_kelurahan">
+                                    <label for="desa">Desa/Kelurahan</label>
+                                    <select class="form-control <?= ($validation->hasError('desa')) ? 'is-invalid' : ''; ?>" name="desa" id="id_desa">
                                         <option value="">== Pilih Desa/Kelurahan ==</option>
-                                        <option value="Rancamaya" <?= (old('desa_kelurahan') == 'Rancamaya') ? 'selected' : ''; ?>>Rancamaya</option>
-                                        <option value="Pliken" <?= (old('desa_kelurahan') == 'Pliken') ? 'selected' : ''; ?>>Pliken</option>
-                                        <option value="Bantar Kawung" <?= (old('desa_kelurahan') == 'Bantar Kawung') ? 'selected' : ''; ?>>Bantar Kawung</option>
-                                        <option value="Watumas" <?= (old('desa_kelurahan') == 'Watumas') ? 'selected' : ''; ?>>Watumas</option>
+                                        <!-- <?php foreach ($desa as $d) : ?>
+                                            <option value="<?= $d['subdis_id']; ?>" <?= ($desa_selected == $d['dis_id'] || old('desa_kelurahan') == $d['subdis_id']) ? 'selected' : ''; ?> class="<?= $d['dis_id']; ?>"><?= $d['subdis_name']; ?></option>
+                                        <?php endforeach; ?> -->
                                     </select>
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('desa_kelurahan'); ?>
+                                        <?= $validation->getError('desa'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -301,14 +298,69 @@
     </div>
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-chained/1.0.1/jquery.chained.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
+    // $("#kabupaten").chained("#provinsi");
+    // $("#kecamatan").chained("#kabupaten");
+    // $("#desa_kelurahan").chained("#kecamatan");
+
+    fetch("https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json")
+        .then(Response => Response.json())
+        .then(Data => {
+            console.log(Data.length);
+            var i = 0;
+            for (i = 0; i => Data.length; i++) {
+                document.getElementById("id_provinsi").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+            };
+        });
+
+    var xEvent1 = document.getElementById("id_provinsi");
+    xEvent1.addEventListener("change", regency);
+
+    function regency() {
+        var province = xEvent1.value;
+        fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/" + province + ".json")
+            .then(Response => Response.json())
+            .then(Data => {
+                console.log(Data.length);
+                var i = 0;
+                for (i = 0; i => Data.length; i++) {
+                    document.getElementById("id_kabupaten").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+                };
+            });
+    };
+
+    var xEvent2 = document.getElementById("id_kabupaten");
+    xEvent2.addEventListener("change", district);
+
+    function district() {
+        var regency = xEvent2.value;
+        fetch("https://www.emsifa.com/api-wilayah-indonesia/api/districts/" + regency + ".json")
+            .then(Response => Response.json())
+            .then(Data => {
+                console.log(Data.length);
+                var i = 0;
+                for (i = 0; i => Data.length; i++) {
+                    document.getElementById("id_kecamatan").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+                };
+            });
+    };
+    var xEvent3 = document.getElementById("id_kecamatan");
+    xEvent3.addEventListener("change", kelurahan);
+
+    function kelurahan() {
+        var kelurahan = xEvent3.value;
+        fetch("https://www.emsifa.com/api-wilayah-indonesia/api/villages/" + kelurahan + ".json")
+            .then(Response => Response.json())
+            .then(Data => {
+                console.log(Data);
+                var i = 0;
+                for (i = 0; i => Data.length; i++) {
+                    document.getElementById("id_desa").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+                };
+            });
+    };
 </script>
 <?= $this->endSection(); ?>

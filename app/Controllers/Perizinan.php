@@ -30,6 +30,7 @@ class Perizinan extends BaseController
             'title' => 'Tambah Surat Izin Keluar',
             'validation' => \Config\Services::validation(),
             'santri' => $this->santri->findAll(),
+            'user_penginput' => session()->get('name'),
         ];
 
         return view('perizinan/add', $data);
@@ -62,10 +63,10 @@ class Perizinan extends BaseController
                     'required' => 'Tanggal Izin harus diisi!',
                 ]
             ],
-            'tanggal_kembali' => [
+            'tanggal_estimasi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Tanggal Kembali harus diisi!',
+                    'required' => 'Tanggal Estimasi Kembali harus diisi!',
                 ]
             ],
         ])) {
@@ -76,9 +77,8 @@ class Perizinan extends BaseController
             'id_santri' => $this->request->getVar('id_santri'),
             'keterangan' => $this->request->getVar('keterangan'),
             'tanggal_izin' => $this->request->getVar('tanggal_izin'),
-            'tanggal_kembali' => $this->request->getVar('tanggal_kembali'),
-            'tanggal_terima' => time(),
-            'status_izin' => 'Menunggu',
+            'tanggal_estimasi' => $this->request->getVar('tanggal_estimasi'),
+            'user_penginput' => $this->request->getVar('user_penginput'),
         ]);
 
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
@@ -93,50 +93,36 @@ class Perizinan extends BaseController
         return redirect()->to('/perizinan');
     }
 
-    public function persetujuan()
-    {
-        $data = [
-            'title' => 'Tambah Surat Izin Keluar',
-            'validation' => \Config\Services::validation(),
-            'izin' => $this->perizinan->getIzin(),
-        ];
-
-        return view('perizinan/persetujuan', $data);
-    }
-
-    public function terima($id_santri)
-    {
-        $this->perizinan->save([
-            'id_santri' => $id_santri,
-            'keterangan' => $this->request->getVar('keterangan'),
-            'tanggal_izin' => $this->request->getVar('tanggal_izin'),
-            'tanggal_kembali' => $this->request->getVar('tanggal_kembali'),
-            'tanggal_terima' => time(),
-            'status_izin' => 'Diterima',
-        ]);
-
-        return redirect()->to('/perizinan');
-    }
-    public function kembali($id_izin)
+    public function terima($id_izin)
     {
         $this->perizinan->save([
             'id_izin' => $id_izin,
-            'tanggal_terima' => time(),
-            'status_izin' => 'Kembali',
+            'tanggal_diterima' => date("Y-m-d h:m", time()),
         ]);
 
         return redirect()->to('/perizinan');
     }
+
+    public function pulang($id_izin)
+    {
+        $this->perizinan->save([
+            'id_izin' => $id_izin,
+            'tanggal_pulang' => date("Y-m-d h:m", time()),
+        ]);
+
+        return redirect()->to('/perizinan');
+    }
+
     public function ditolak($id_izin)
     {
         $this->perizinan->save([
             'id_izin' => $id_izin,
-            'tanggal_terima' => time(),
-            'status_izin' => 'Ditolak',
+            'tanggal_ditolak' => date("Y-m-d h:m", time()),
         ]);
 
         return redirect()->to('/perizinan');
     }
+
     public function delete($id)
     {
         $this->perizinan->delete($id);
@@ -145,13 +131,31 @@ class Perizinan extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Data Pembayaran berhasil dihapus!
+                        Data perizinan berhasil dihapus!
                       </div>
                     </div>');
         return redirect()->to('/perizinan');
     }
 
+    public function riwayat()
+    {
+        $data = [
+            'title' => 'Riwayat Perizinan',
+            'izin' => $this->perizinan->getIzin(),
+        ];
 
+        return view('perizinan/riwayat', $data);
+    }
+
+    public function detailRiwayatIzin($id_izin)
+    {
+        $data = [
+            'title' => 'Detail Riwayat Perizinan',
+            'izin' => $this->perizinan->getIzin($id_izin),
+        ];
+
+        return view('perizinan/detail_riwayat', $data);
+    }
 
     public function get_autofill()
     {

@@ -196,6 +196,11 @@ $routes->get('/perizinan/kembali/(:any)', 'Perizinan::kembali/$1');
 $routes->get('/perizinan/ditolak/(:any)', 'Perizinan::ditolak/$1');
 $routes->delete('/perizinan/(:num)', 'Perizinan::delete/$1');
 
+// kurikulum
+$routes->get('/kurikulum', 'Kurikulum::index');
+$routes->get('/kurikulum/add', 'Kurikulum::create');
+$routes->post('/kurikulum', 'Kurikulum::save');
+
 //Printpdf
 $routes->get('/laporan/print', 'Pembayaran::print');
 $routes->get('/laporan/print/(:any)', 'Pembayaran::print_filter');

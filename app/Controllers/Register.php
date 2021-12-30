@@ -19,6 +19,14 @@ class Register extends BaseController
         return view('register/index', [
             'title' => 'Pendaftaran',
             'validation' => \Config\Services::validation(),
+            'provinsi' => $this->santri->getProvinsi(),
+            'provinsi_selected' => '',
+            'kabupaten' => $this->santri->getKabupaten(),
+            'kabupaten_selected' => '',
+            'kecamatan' => $this->santri->getKecamatan(),
+            'kecamatan_selected' => '',
+            'desa' => $this->santri->getDesa(),
+            'desa_selected' => '',
         ]);
     }
 
