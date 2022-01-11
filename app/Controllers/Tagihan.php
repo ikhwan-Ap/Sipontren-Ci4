@@ -218,4 +218,139 @@ class Tagihan extends BaseController
                     </div>');
         return redirect()->to('/tagihan/tagihan');
     }
+    public function edit($nama)
+    {
+        $data = [
+            'title' => 'Ubah Data Tagihan',
+            'validation' => \Config\Services::validation(),
+            'tagihan' => $this->tagihan->where('nama_pembayaran', $nama)->first(),
+        ];
+
+        return view('tagihan/edit', $data);
+    }
+
+    public function update($id)
+    {
+        if (!$this->validate([
+            'nama_pembayaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Pembayaran harus diisi!',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/tagihan/edit/' . $this->request->getVar('nama_pembayaran'))->withInput();
+        }
+
+        $this->tagihan->save([
+            'id_tagihan' => $id,
+            'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Data tagihan berhasil diubah!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/tagihan');
+    }
+
+    public function edit_rutin($nama)
+    {
+        $data = [
+            'title' => 'Ubah Data Tagihan',
+            'validation' => \Config\Services::validation(),
+            'tagihan' => $this->tagihan->where('nama_pembayaran', $nama)->first(),
+        ];
+
+        return view('tagihan/edit_rutin', $data);
+    }
+
+    public function update_rutin($id)
+    {
+        if (!$this->validate([
+            'nama_pembayaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Pembayaran harus diisi!',
+                ]
+            ],
+            'jumlah_pembayaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Pembayaran harus diisi!',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/tagihan/edit_rutin/' . $this->request->getVar('nama_pembayaran'))->withInput();
+        }
+
+        $this->tagihan->save([
+            'id_tagihan' => $id,
+            'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
+            'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran'),
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Data tagihan berhasil diubah!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/tagihan');
+    }
+    public function edit_kelas($id)
+    {
+        $data = [
+            'title' => 'Ubah Data Tagihan Kelas',
+            'validation' => \Config\Services::validation(),
+            'tagihan' => $this->tagihan->where('id_tagihan', $id)->first(),
+        ];
+
+        return view('tagihan/edit_kelas', $data);
+    }
+
+    public function update_kelas($id)
+    {
+        if (!$this->validate([
+            'nama_pembayaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Pembayaran harus diisi!',
+                ]
+            ],
+            'jumlah_pembayaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Pembayaran harus diisi!',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/tagihan/edit_kelas/' . $this->request->getVar('nama_pembayaran'))->withInput();
+        }
+
+        $this->tagihan->save([
+            'id_tagihan' => $id,
+            'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
+            'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran'),
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Data tagihan Kelas berhasil diubah!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/tagihan_kelas');
+    }
 }

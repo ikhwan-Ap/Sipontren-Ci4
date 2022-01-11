@@ -18,10 +18,20 @@ class Perizinan extends BaseController
     {
         $data = [
             'title' => 'Perizinan',
-            'izin' => $this->perizinan->getIzin(),
+            'izin' => $this->perizinan->getKeamanan(),
         ];
 
         return view('perizinan/index', $data);
+    }
+
+    public function keamanan()
+    {
+        $data = [
+            'title' => 'Perizinan',
+            'izin' => $this->perizinan->getKeamanan(),
+        ];
+
+        return view('perizinan/keamanan', $data);
     }
 
     public function create()
@@ -111,6 +121,15 @@ class Perizinan extends BaseController
         ]);
 
         return redirect()->to('/perizinan');
+    }
+    public function pulang_keamanan($id_izin)
+    {
+        $this->perizinan->save([
+            'id_izin' => $id_izin,
+            'tanggal_pulang' => date("Y-m-d h:m", time()),
+        ]);
+
+        return redirect()->to('/perizinan/keamanan');
     }
 
     public function ditolak($id_izin)

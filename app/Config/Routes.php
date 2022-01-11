@@ -61,6 +61,15 @@ $routes->get('/admin/edit/(:any)', 'Admin::edit/$1');
 $routes->put('/admin/(:any)', 'Admin::update/$1');
 $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 
+//Keamanan
+$routes->get('/keamanan', 'Keamanan::index');
+$routes->get('/keamanan/add', 'Keamanan::create');
+$routes->post('/keamanan', 'Keamanan::save');
+$routes->delete('/keamanan/(:num)', 'Keamanan::delete/$1');
+$routes->get('/keamanan/edit/(:any)', 'Keamanan::edit/$1');
+$routes->put('/keamanan/(:any)', 'Keamanan::update/$1');
+$routes->get('/keamanan/detail/(:num)', 'Keamanan::detail/$1');
+
 // pendaftaran baru
 $routes->get('/pendaftaran', 'Pendaftaran::index');
 
@@ -191,6 +200,7 @@ $routes->delete('pengeluaran/(:num)', 'Pembayaran::delete_pengeluaran/$1');
 
 // perizinan
 $routes->get('/perizinan', 'Perizinan::index');
+$routes->get('/perizinan/keamanan', 'Perizinan::keamanan');
 $routes->get('/perizinan/add', 'Perizinan::create');
 $routes->post('/perizinan', 'Perizinan::save');
 $routes->post('/perizinan/terima/(:any)', 'Perizinan::terima/$1');
@@ -241,6 +251,12 @@ $routes->get('/tagihan', 'Tagihan::tagihan');
 $routes->get('/pembayaran/tagihan_add', 'Tagihan::tagihan_add');
 $routes->post('/tagihan', 'Tagihan::save_tagihan');
 $routes->delete('/pembayaran/tagihan(:num)', 'Tagihan::delete_tagihan/$1');
+$routes->get('/tagihan/edit/(:any)', 'Tagihan::edit/$1');
+$routes->put('/tagihan/(:any)', 'Tagihan::update/$1');
+$routes->get('/tagihan_rutin/edit/(:any)', 'Tagihan::edit_rutin/$1');
+$routes->put('/tagihan_rutin/(:any)', 'Tagihan::update_rutin/$1');
+$routes->get('/tagihan_kelas/edit/(:any)', 'Tagihan::edit_kelas/$1');
+$routes->put('/tagihan_kelas/(:any)', 'Tagihan::update_kelas/$1');
 
 //DAFTAR ULANG
 $routes->get('/daftar_ulang', 'Daftar_ulang::index');

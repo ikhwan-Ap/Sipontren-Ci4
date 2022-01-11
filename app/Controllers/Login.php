@@ -75,7 +75,7 @@ class Login extends BaseController
                 } elseif ($dataAdmin['role'] == 2) {
                     return redirect()->to('dashboard');
                 } elseif ($dataAdmin['role'] == 3) {
-                    return redirect()->to('dashboard');
+                    return redirect()->to('perizinan/keamanan');
                 }
             } else {
                 session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">

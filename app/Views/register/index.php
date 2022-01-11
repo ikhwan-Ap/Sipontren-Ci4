@@ -17,19 +17,19 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="/register">
+                        <form action="/register" method="POST">
                             <?= csrf_field(); ?>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="nik_ktp">NIK KTP</label>
-                                    <input id="nik_ktp" type="text" class="form-control <?= ($validation->hasError('nik_ktp')) ? 'is-invalid' : ''; ?>" name="nik_ktp" value="<?= old('nik_ktp'); ?>">
+                                    <input id="nik_ktp" type="number" class="form-control <?= ($validation->hasError('nik_ktp')) ? 'is-invalid' : ''; ?>" name="nik_ktp" value="<?= old('nik_ktp'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('nik_ktp'); ?>
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="no_kk">No KK</label>
-                                    <input id="no_kk" type="text" class="form-control <?= ($validation->hasError('no_kk')) ? 'is-invalid' : ''; ?>" name="no_kk" value="<?= old('no_kk'); ?>">
+                                    <input id="no_kk" type="number" class="form-control <?= ($validation->hasError('no_kk')) ? 'is-invalid' : ''; ?>" name="no_kk" value="<?= old('no_kk'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('no_kk'); ?>
                                     </div>
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                                    <label for="provinsi">Tanggal Lahir</label>
                                     <input id="tanggal_lahir" type="date" class="form-control <?= ($validation->hasError('tanggal_lahir')) ? 'is-invalid' : ''; ?>" name="tanggal_lahir" value="<?= old('tanggal_lahir'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('tanggal_lahir'); ?>
@@ -73,29 +73,14 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="provinsi">Provinsi</label>
-                                    <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="id_provinsi">
-                                        <option value="">== Pilih Provinsi ==</option>
-                                        <option value="Sumatra Barat" <?= (old('provinsi') == 'Sumatra Barat') ? 'selected' : ''; ?>>Sumatra Barat</option>
-                                        <option value="Jawa Tengah" <?= (old('provinsi') == 'Jawa Tengah') ? 'selected' : ''; ?>>Jawa Tengah</option>
-                                        <option value="Jawa Barat" <?= (old('provinsi') == 'Jawa Barat') ? 'selected' : ''; ?>>Jawa Barat</option>
-                                        <option value="Jawa Timur" <?= (old('provinsi') == 'Jawa Timur') ? 'selected' : ''; ?>>Jawa Timur</option>
-
-                                    </select>
+                                    <input id="provinsi" type="text" class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" value="<?= old('provinsi'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('provinsi'); ?>
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="kabupaten">Kabupaten</label>
-                                    <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="id_kabupaten">
-                                        <option value="">== Pilih Kabupaten ==</option>
-                                        <option value="Padang" <?= (old('kabupaten') == 'Padang') ? 'selected' : ''; ?>>Padang</option>
-                                        <option value="Banyumas" <?= (old('kabupaten') == 'Banyumas') ? 'selected' : ''; ?>>Banyumas</option>
-                                        <option value="Brebes" <?= (old('kabupaten') == 'Brebes') ? 'selected' : ''; ?>>Brebes</option>
-                                        <option value="Kebumen" <?= (old('kabupaten') == 'Kebumen') ? 'selected' : ''; ?>>Kebumen</option>
-                                        <option value="Cilacap" <?= (old('kabupaten') == 'Cilacap') ? 'selected' : ''; ?>>Cilacap</option>
-
-                                    </select>
+                                    <input id="kabupaten" type="text" class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" value="<?= old('kabupaten'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kabupaten'); ?>
                                     </div>
@@ -105,32 +90,16 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="kecamatan">Kecamatan</label>
-                                    <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="id_kecamatan">
-                                        <option value="">== Pilih Kecamatan ==</option>
-                                        <option value="Kembaran" <?= (old('kecamatan') == 'Kembaran') ? 'selected' : ''; ?>>Kembaran</option>
-                                        <option value="Sokaraja" <?= (old('kecamatan') == 'Sokaraja') ? 'selected' : ''; ?>>Sokaraja</option>
-                                        <option value="Purwokerto Selatan" <?= (old('kecamatan') == 'Purwokerto Selatan') ? 'selected' : ''; ?>>Purwokerto Selatan</option>
-
-                                    </select>
+                                    <input id="kecamatan" type="text" class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" value="<?= old('kecamatan'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kecamatan'); ?>
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="desa">Desa/Kelurahan</label>
-                                    <select class="form-control <?= ($validation->hasError('desa')) ? 'is-invalid' : ''; ?>" name="desa" id="id_desa">
-                                        <option value="">== Pilih Desa/Kelurahan ==</option>
-                                        <option value="Pliken" <?= (old('desa') == 'Pliken') ? 'selected' : ''; ?>>Pliken</option>
-                                        <option value="Larangan" <?= (old('desa') == 'Larangan') ? 'selected' : ''; ?>>Larangan</option>
-                                        <option value="Kembaran" <?= (old('desa') == 'Kembaran') ? 'selected' : ''; ?>>Kembaran</option>
-                                        <option value="Cilongok" <?= (old('desa') == 'Cilongok') ? 'selected' : ''; ?>>Cilongok</option>
-                                        <option value="Dukuwaluh" <?= (old('desa') == 'Dukuwaluh') ? 'selected' : ''; ?>>Dukuwaluh</option>
-                                        <option value="Ledug" <?= (old('desa') == 'Ledug') ? 'selected' : ''; ?>>Ledug</option>
-                                        <option value="Sokaraja" <?= (old('desa') == 'Sokaraja') ? 'selected' : ''; ?>>Sokaraja</option>
-
-                                    </select>
+                                    <label for="desa_kelurahan">Desa/kelurahan</label>
+                                    <input id="desa_kelurahan" type="text" class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" value="<?= old('desa_kelurahan'); ?>">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('desa'); ?>
+                                        <?= $validation->getError('desa_kelurahan'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +115,7 @@
                             <div class="row">
                                 <div class="form-group col-4">
                                     <label for="no_hp_santri">NO HP Santri</label>
-                                    <input id="no_hp_santri" type="text" class="form-control <?= ($validation->hasError('no_hp_santri')) ? 'is-invalid' : ''; ?>" name="no_hp_santri" value="<?= old('no_hp_santri'); ?>">
+                                    <input id="no_hp_santri" type="number" class="form-control <?= ($validation->hasError('no_hp_santri')) ? 'is-invalid' : ''; ?>" name="no_hp_santri" value="<?= old('no_hp_santri'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('no_hp_santri'); ?>
                                     </div>
@@ -225,7 +194,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="nisn_nim">NISN / NIM</label>
-                                    <input id="nisn_nim" type="text" class="form-control <?= ($validation->hasError('nisn_nim')) ? 'is-invalid' : ''; ?>" name="nisn_nim" value="<?= old('nisn_nim'); ?>">
+                                    <input id="nisn_nim" type="number" class="form-control <?= ($validation->hasError('nisn_nim')) ? 'is-invalid' : ''; ?>" name="nisn_nim" value="<?= old('nisn_nim'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('nisn_nim'); ?>
                                     </div>
@@ -279,7 +248,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="no_hp_wali">No HP Wali</label>
-                                    <input id="no_hp_wali" type="text" class="form-control <?= ($validation->hasError('no_hp_wali')) ? 'is-invalid' : ''; ?>" name="no_hp_wali" value="<?= old('no_hp_wali'); ?>">
+                                    <input id="no_hp_wali" type="number" class="form-control <?= ($validation->hasError('no_hp_wali')) ? 'is-invalid' : ''; ?>" name="no_hp_wali" value="<?= old('no_hp_wali'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('no_hp_wali'); ?>
                                     </div>

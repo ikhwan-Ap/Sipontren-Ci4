@@ -742,7 +742,7 @@ class Pembayaran extends BaseController
         $data = [
             'tagihan' => $this->tagihan->getLainnya(),
             'santri' => $this->santri->findAll(),
-            'title' => 'Tambah Data Lainnya',
+            'title' => 'Tambah Data Rutin',
             'validation' => \Config\Services::validation(),
         ];
         return view('pembayaran/lainnya_add', $data);

@@ -198,13 +198,12 @@ class Register extends BaseController
             return redirect()->to('/register')->withInput();
         }
 
-        $this->ortu->save([
+        $this->ortu->getID()->save([
             'nama_ayah' => $this->request->getVar('nama_ayah'),
             'nama_ibu' => $this->request->getVar('nama_ibu'),
             'no_hp_wali' => $this->request->getVar('no_hp_wali'),
             'pekerjaan_ortu' => $this->request->getVar('pekerjaan_ortu'),
         ]);
-
         $idOrtu = $this->ortu->getID();
 
         $this->santri->save([

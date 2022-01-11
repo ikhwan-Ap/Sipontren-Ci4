@@ -44,7 +44,7 @@
                                                 <h6 class="badge badge-success">Tepat Waktu</h6>
                                             <?php endif; ?>
                                         <?php elseif ($z['tanggal_pulang'] > $z['tanggal_estimasi'] && $z['tanggal_ditolak'] == null) : ?>
-                                            <h6 class="badge badge-warning">Terlambat</h6>
+                                            <h6 class="badge badge-dark">Terlambat</h6>
                                         <?php elseif ($z['tanggal_ditolak'] && $z['tanggal_diterima'] == null && $z['tanggal_pulang'] == null) : ?>
                                             <h6 class="badge badge-danger">Izin ditolak</h6>
                                         <?php endif; ?>

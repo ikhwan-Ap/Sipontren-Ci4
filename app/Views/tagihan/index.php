@@ -46,7 +46,7 @@
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_tagihan']; ?>">
                                                     Hapus
                                                 </button>
-                                                <a href="/pembayaran/edit/<?= $k['id_tagihan']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="/tagihan/edit_kelas/<?= $k['id_tagihan']; ?>" class="btn btn-warning">Edit</a>
                                             </td>
                                         </tr>
 

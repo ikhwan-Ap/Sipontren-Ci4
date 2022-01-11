@@ -42,7 +42,11 @@
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_tagihan']; ?>">
                                                     Hapus
                                                 </button>
-                                                <a href="/pembayaran/edit/<?= $k['id_tagihan']; ?>" class="btn btn-warning">Edit</a>
+                                                <?php if ($k['jumlah_pembayaran'] == null) : ?>
+                                                    <a href="/tagihan/edit/<?= $k['nama_pembayaran']; ?>" class="btn btn-warning">Edit</a>
+                                                <?php elseif ($k['jumlah_pembayaran'] != null) : ?>
+                                                    <a href="/tagihan/edit_rutin/<?= $k['nama_pembayaran']; ?>" class="btn btn-warning">Edit Rutin</a>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
 

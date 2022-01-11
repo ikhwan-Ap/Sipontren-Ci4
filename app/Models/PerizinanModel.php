@@ -18,6 +18,24 @@ class PerizinanModel extends Model
 
         return $this->db->table('perizinan')->select('*')->where('id_izin', $id)->join('santri', 'santri.id_santri = perizinan.id_santri')->get()->getRowArray();
     }
+    public function getKeamanan($id = false)
+    {
+        if ($id == false) {
+            return $this->db->table('perizinan')
+                ->select('*')
+                ->where('tanggal_ditolak', null)
+                ->where('tanggal_pulang', null)
+                ->join('santri', 'santri.id_santri = perizinan.id_santri')
+                ->get()->getResultArray();
+        }
+
+        return $this->db
+            ->table('perizinan')
+            ->select('*')
+            ->where('id_izin', $id)
+            ->join('santri', 'santri.id_santri = perizinan.id_santri')
+            ->get()->getRowArray();
+    }
 
     public function getSantri()
     {
