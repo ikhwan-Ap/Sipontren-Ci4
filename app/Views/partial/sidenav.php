@@ -55,10 +55,15 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown <?= ($title == "Perizinan") ? 'active' : ''; ?>">
+            <!-- <li class="nav-item <?= ($title == "Kurikulum") ? 'active' : ''; ?>">
+                <a href="/kurikulum" class="nav-link"><i class="fas fa-book-open"></i><span>Kurikulum</span></a>
+            </li> -->
+
+            <li class="nav-item dropdown <?= ($title == "Perizinan" || $title == "Riwayat Perizinan") ? 'active' : ''; ?>">
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-envelope"></i> <span>Perizinan</span></a>
                 <ul class="dropdown-menu">
                     <li class="<?= ($title == "Perizinan") ? 'active' : ''; ?>"><a class="nav-link" href="/perizinan">Surat Izin Keluar</a></li>
+                    <li class="<?= ($title == "Riwayat Perizinan") ? 'active' : ''; ?>"><a class="nav-link" href="/perizinan/riwayat">Riwayat</a></li>
                 </ul>
             </li>
 

@@ -37,6 +37,7 @@ class SantriModel extends Model
     {
         $builder = $this->db->table('santri');
         $builder->select('*');
+        $builder->where('status', 'Aktif');
         $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
         $query = $builder->get();
         return $query->getResultArray();
@@ -48,7 +49,16 @@ class SantriModel extends Model
 
     public function getSantriAlumni()
     {
-        return $this->db->table('santri')->select('*')->where('status', 'Alumni')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+        return $this->db->table('santri')->select('*')
+            ->where('status', 'Alumni')
+            ->get()->getResultArray();
+    }
+    public function getAlumni($id)
+    {
+        return $this->db->table('santri')->select('*')
+            ->where('status', 'Alumni')
+            ->where('santri.id_santri', $id)
+            ->get()->getRowArray();
     }
 
     public function getSantri($id = false)
@@ -56,7 +66,13 @@ class SantriModel extends Model
         if ($id == false) {
             return $this->db->table('santri')->select('*')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
         }
-        return $this->db->table('santri')->select('*')->where('id_santri', $id)->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getRowArray();
+        return $this->db->table('santri')->select('*')->where('id_santri', $id)
+            ->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')
+            ->join('kamar', 'kamar.id_kamar=santri.id_kamar')
+            ->join('diniyah', 'diniyah.id_diniyah=santri.id_diniyah')
+            ->join('program', 'program.id_program=santri.id_program')
+            ->join('kelas', 'kelas.id_kelas=santri.id_kelas')
+            ->get()->getRowArray();
     }
 
     public function search_santri($title)
@@ -66,6 +82,18 @@ class SantriModel extends Model
         $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
         $builder->like('nis', $title);
         $builder->orderBy('nis', 'ASC');
+        $builder->limit(10);
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    public function search_nama($title)
+    {
+        $builder = $this->db->table('santri');
+        $builder->select('*');
+        $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
+        $builder->like('nama_lengkap', $title);
+        $builder->where('nis', null);
+        $builder->orderBy('nama_lengkap', 'ASC');
         $builder->limit(10);
         $query = $builder->get();
         return $query->getResult();
@@ -183,5 +211,32 @@ class SantriModel extends Model
         $builder->join('keuangan', 'keuangan.id_tagihan = santri.id_tagihan');
         $query = $builder->get();
         return $query->getResultArray();
+    }
+
+    // Lokasi
+    public function getProvinsi()
+    {
+        return $this->db->table('provinces')->select('*')->get()->getResultArray();
+    }
+
+    public function getKabupaten()
+    {
+        return $this->db->table('cities')->select('*')
+            ->join('provinces', 'provinces.prov_id = cities.prov_id')
+            ->get()->getResultArray();
+    }
+
+    public function getKecamatan()
+    {
+        return $this->db->table('districts')->select('*')
+            ->join('cities', 'cities.city_id = districts.city_id')
+            ->get()->getResultArray();
+    }
+
+    public function getDesa()
+    {
+        return $this->db->table('subdistricts')->select('*')
+            ->join('districts', 'districts.dis_id = subdistricts.dis_id')
+            ->get()->getResultArray();
     }
 }

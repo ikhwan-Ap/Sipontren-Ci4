@@ -3,12 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\AsatidzModel;
+use App\Models\ProgramModel;
+use App\Models\KelasModel;
 
 class Asatidz extends BaseController
 {
     public function __construct()
     {
+        $this->programModel = new ProgramModel();
         $this->asatidzModel = new AsatidzModel();
+        $this->kelasModel = new KelasModel();
         if (session()->get('username')) {
             return redirect()->to('dashboard/asatidz');
         }
@@ -273,13 +277,9 @@ class Asatidz extends BaseController
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'alamat' => $this->request->getVar('alamat'),
             'no_hp' => $this->request->getVar('no_hp'),
-            'jadwal' => $this->request->getVar('jadwal'),
-            'kelas' => $this->request->getVar('kelas'),
-            'total_santri' => $this->request->getVar('total_santri'),
-            'pertemuan' => $this->request->getVar('pertemuan'),
-            'foto' => $this->request->getVar('foto'),
+            'id_kelas' => $this->request->getVar('id_kelas'),
             'pendidikan' => $this->request->getVar('pendidikan'),
-            'program' => $this->request->getVar('program'),
+            'id_program' => $this->request->getVar('id_program'),
         ]);
 
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
@@ -287,7 +287,7 @@ class Asatidz extends BaseController
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
                         </button>
-                        Pendaftaran berhasil ditambahkan!
+                        Data Asatidz berhasil ditambahkan!
                       </div>
                     </div>');
 
@@ -309,7 +309,9 @@ class Asatidz extends BaseController
         $data = [
             'title' => 'Edit Data Asatidz',
             'validation' => \Config\Services::validation(),
-            'asatidz' => $this->asatidzModel->where('id', $id)->first(),
+            'asatidz' => $this->asatidzModel->edit($id),
+            'program' => $this->programModel->findAll(),
+            'kelas' => $this->kelasModel->findAll(),
         ];
 
         return view('asatidz/edit', $data);
@@ -317,6 +319,7 @@ class Asatidz extends BaseController
 
     public function update($id)
     {
+        $id = $this->request->getVar('id');
         if (!$this->validate([
             'nik_ktp' => [
                 'rules' => 'required|numeric',
@@ -375,7 +378,7 @@ class Asatidz extends BaseController
                     'required' => 'Alamat harus diisi!',
                 ]
             ],
-            'program' => [
+            'id_program' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'program harus diisi!',
@@ -388,46 +391,22 @@ class Asatidz extends BaseController
                     'numeric' => 'No HP harus angka!',
                 ]
             ],
-            'jadwal' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jadawl harus diisi!',
-                ]
-            ],
             'pendidikan' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Pendidikan harus diisi!',
                 ]
             ],
-            'kelas' => [
+            'id_kelas' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Kelas  harus diisi!',
                 ]
             ],
-            'pertemuan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'pertemuan harus diisi!',
-                ]
-            ],
-            'total_santri' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Total santri harus diisi!',
-                ]
-            ],
-            'foto' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Foto harus diisi!',
-                ]
-            ],
-        ])) {
-            return redirect()->to('/asatidz/edit/' . $this->request->getVar('id'))->withInput();
-        }
 
+        ])) {
+            return redirect()->to('/asatidz/edit/' .  $id)->withInput();
+        }
         $this->asatidzModel->save([
             'id' => $id,
             'nik_ktp' => $this->request->getVar('nik_ktp'),
@@ -439,16 +418,11 @@ class Asatidz extends BaseController
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'alamat' => $this->request->getVar('alamat'),
-            'program' => $this->request->getVar('program'),
-            'jadwal' => $this->request->getVar('jadwal'),
-            'kelas' => $this->request->getVar('kelas'),
-            'total_santri' => $this->request->getVar('total_santri'),
+            'id_program' => $this->request->getVar('id_program'),
+            'id_kelas' => $this->request->getVar('id_kelas'),
             'no_hp' => $this->request->getVar('no_hp'),
-            'pertemuan' => $this->request->getVar('pertemuan'),
             'pendidikan' => $this->request->getVar('pendidikan'),
-            'foto' => $this->request->getVar('foto'),
         ]);
-
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                       <div class="alert-body">
                         <button class="close" data-dismiss="alert">

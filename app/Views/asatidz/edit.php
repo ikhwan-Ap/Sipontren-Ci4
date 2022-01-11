@@ -24,7 +24,7 @@
             <div class="card-body">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="PUT">
-
+                <input type="hidden" name="id" value="<?= $asatidz['id']; ?>">
                 <div class="row">
                     <div class="form-group col">
                         <label for="username">Username</label>
@@ -95,12 +95,24 @@
                     <div class="form-group col-4">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
                         <select class="form-control <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>" name="jenis_kelamin" id="jenis_kelamin">
-                            <option value="">== Pilih Jenis Kelamin ==</option>
-                            <option value="Laki-laki" <?= ($asatidz['jenis_kelamin']) ? 'selected' : old('jenis_kelamin'); ?>>Laki-laki</option>
-                            <option value="Perempuan" <?= ($asatidz['jenis_kelamin']) ? 'selected' : old('jenis_kelamin'); ?>>Perempuan</option>
+                            <option value="<?= $asatidz['jenis_kelamin']; ?>" hidden><?= $asatidz['jenis_kelamin']; ?></option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('jenis_kelamin'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="id_kelas">Kelas</label>
+                        <select class="form-control <?= ($validation->hasError('id_kelas')) ? 'is-invalid' : ''; ?>" name="id_kelas" id="id_kelas">
+                            <option value="<?= $asatidz['id_kelas']; ?>" hidden> <?= $asatidz['nama_kelas']; ?></option>
+                            <?php foreach ($kelas as $k) : ?>
+                                <option value="<?= $k['id_kelas']; ?>"><?= $k['nama_kelas']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('id_kelas'); ?>
                         </div>
                     </div>
                 </div>
@@ -110,21 +122,26 @@
                     <div class="form-group col-6">
                         <label for="pendidikan">Riwayat Pendidikan</label>
                         <select class="form-control <?= ($validation->hasError('pendidikan')) ? 'is-invalid' : ''; ?>" name="pendidikan" id="pendidikan">
-                            <option value="">== Pendidikan ==</option>
-                            <option value="SD" <?= ($asatidz['pendidikan']) ? 'selected' : old('pendidikan'); ?>>SD</option>
-                            <option value="SMP" <?= ($asatidz['pendidikan']) ? 'selected' : old('pendidikan'); ?>>SMP</option>
-                            <option value="SMA/SMK" <?= ($asatidz['pendidikan']) ? 'selected' : old('pendidikan'); ?>>SMA/SMK</option>
-                            <option value="S1" <?= ($asatidz['pendidikan']) ? 'selected' : old('pendidikan'); ?>>S1</option>
+                            <option value="<?= $asatidz['pendidikan']; ?>" hidden><?= $asatidz['pendidikan']; ?></option>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SMA/SMK">SMA/SMK</option>
+                            <option value="S1">S1</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('pendidikan'); ?>
                         </div>
                     </div>
                     <div class="form-group col-6">
-                        <label for="program">program</label>
-                        <input id="program" type="text" class="form-control <?= ($validation->hasError('program')) ? 'is-invalid' : ''; ?>" name="program" value="<?= (old('program')) ? old('program') : $asatidz['program']; ?>">
+                        <label for="id_program">program</label>
+                        <select class="form-control <?= ($validation->hasError('id_program')) ? 'is-invalid' : ''; ?>" name="id_program" id="id_program">
+                            <option value="<?= $asatidz['id_program']; ?>" hidden> <?= $asatidz['nama_program']; ?></option>
+                            <?php foreach ($program as $p) : ?>
+                                <option value="<?= $p['id_program']; ?>"><?= $p['nama_program']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                         <div class="invalid-feedback">
-                            <?= $validation->getError('program'); ?>
+                            <?= $validation->getError('id_program'); ?>
                         </div>
                     </div>
                 </div>
@@ -135,42 +152,6 @@
                         <input id="email" type="text" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" name="email" value="<?= (old('email')) ? old('email') : $asatidz['email']; ?>">
                         <div class="invalid-feedback">
                             <?= $validation->getError('email'); ?>
-                        </div>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="jadwal">Jadwal</label>
-                        <input id="jadwal" type="text" class="form-control <?= ($validation->hasError('jadwal')) ? 'is-invalid' : ''; ?>" name="jadwal" value="<?= (old('jadwal')) ? old('jadwal') : $asatidz['jadwal']; ?>">
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('jadwal'); ?>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="form-group col-6">
-                        <label for="pertemuan">Pertemuan</label>
-                        <input id="pertemuan" type="text" class="form-control <?= ($validation->hasError('pertemuan')) ? 'is-invalid' : ''; ?>" name="pertemuan" value="<?= (old('pertemuan')) ? old('pertemuan') : $asatidz['pertemuan']; ?>">
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('pertemuan'); ?>
-                        </div>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="total_santri">Total Santri</label>
-                        <input id="total_santri" type="number" class="form-control <?= ($validation->hasError('total_santri')) ? 'is-invalid' : ''; ?>" name="total_santri" value="<?= (old('total_santri')) ? old('total_santri') : $asatidz['total_santri']; ?>">
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('total_santri'); ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-6">
-                        <label for="foto">Foto</label>
-                        <input id="foto" type="text" class="form-control <?= ($validation->hasError('foto')) ? 'is-invalid' : ''; ?>" name="foto" value="<?= (old('foto')) ? old('foto') : $asatidz['foto']; ?>">
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('foto'); ?>
                         </div>
                     </div>
                 </div>

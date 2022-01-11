@@ -22,17 +22,10 @@
             </div>
             <div class="card-body">
                 <?= csrf_field(); ?>
-                <div class="form-group">
-                    <label for="nis">NIS</label>
-                    <input id="nis" type=" number" class="form-control <?= ($validation->hasError('nis')) ? 'is-invalid' : ''; ?>" name="nis" value="<?= old('nis'); ?>">
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('nis'); ?>
-                    </div>
-                </div>
                 <input id="id_santri" type="hidden" name="id_santri">
                 <div class="form-group">
                     <label>NAMA SANTRI</label>
-                    <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>" readonly>
+                    <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('id_santri'); ?>
                     </div>
@@ -81,11 +74,10 @@
 </section>
 <script>
     $(document).ready(function() {
-        $('#nis').autocomplete({
-            source: "<?php echo site_url('pembayaran/get_autofill/?')  ?>",
+        $('#nama_lengkap').autocomplete({
+            source: "<?php echo site_url('pendaftaran/get_autofill/?')  ?>",
             select: function(event, ui) {
-                $('[name="nis"]').val(ui.item.label);
-                $('[name="nama_lengkap"]').val(ui.item.nama_lengkap);
+                $('[name="nama_lengkap"]').val(ui.item.label);
                 $('[name="id_santri"]').val(ui.item.id_santri);
 
             }

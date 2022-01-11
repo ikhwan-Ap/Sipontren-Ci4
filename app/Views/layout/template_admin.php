@@ -12,8 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-
-
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="<?= base_url() ?>/js/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="<?= base_url() ?>/js/summernote/dist/summernote-bs4.css">
@@ -26,6 +24,20 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>/css/components.css">
+
+    <style>
+        .ui-autocomplete {
+            position: absolute;
+            color: white;
+            background-color: darkgreen;
+            cursor: default;
+            z-index: 1500 !important;
+        }
+
+        .ui-front {
+            z-index: 1500 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,6 +102,7 @@
     <!-- Page Specific JS File -->
     <script src="<?= base_url() ?>/js/bootstrap-modal.js"></script>
     <script src="<?= base_url() ?>/js/modules-datatables.js"></script>
+    <script src="<?= base_url(); ?>/js/forms-advanced-forms.js"></script>
 </body>
 
 </html>

@@ -19,10 +19,7 @@
                 <a href="/santri/profil" class="nav-link"><i class="fas fa-user"></i><span>Profil</span></a>
             </li>
             <li class="nav-item ">
-                <a href="/santri/kelas" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Jadwal</span></a>
-            </li>
-            <li class="nav-item ">
-                <a href="/santri/kelas" class="nav-link"><i class="fas fa-credit-card  "></i><span>Pembayaran</span></a>
+                <a href="/santri/pembayaran" class="nav-link"><i class="fas fa-credit-card  "></i><span>Pembayaran</span></a>
             </li>
             <li class="nav-item ">
                 <a href="/santri/biodata" class="nav-link"><i class="fas fa-clipboard"></i><span>Biodata</span></a>

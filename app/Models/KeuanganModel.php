@@ -286,11 +286,10 @@ class KeuanganModel extends Model
             ->select('*')
             ->select('tagihan.nama_pembayaran')
             ->selectSum('keuangan.jumlah_bayar')
-            ->where('status_pembayaran',  'Lunas')
             ->where('nama_pembayaran', $nama_pembayaran,)
             ->where("waktu BETWEEN '$tgl_mulai' AND '$tgl_selesai'")
             ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')
-            ->groupBy('keuangan.waktu')
+            ->orderBy('keuangan.waktu')
             ->get()->getResultArray();
     }
     public function Pemasukan_total($tanggal)
@@ -783,6 +782,15 @@ class KeuanganModel extends Model
             ->select('keuangan.jumlah_bayar', 'jumlah_bayar')
             ->select('keuangan.jumlah_tagihan', 'jumlah_tagihan')
             ->where('id_keuangan', $id_keuangan)
+            ->get()->getResultArray();
+    }
+    public function bayar_lainnya($id_keuangan)
+    {
+        return $this->db->table('keuangan')
+            ->select('keuangan.jumlah_bayar', 'jumlah_bayar')
+            ->select('tagihan.jumlah_pembayaran', 'jumlah_pembayaran')
+            ->where('id_keuangan', $id_keuangan)
+            ->join('tagihan', 'tagihan.id_tagihan= keuangan.id_tagihan')
             ->get()->getResultArray();
     }
 

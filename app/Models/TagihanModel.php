@@ -21,10 +21,9 @@ class TagihanModel extends Model
     }
     public function getTagihan()
     {
-        $tagihan = ['uang syahriyah', 'uang daftar ulang', 'uang pendaftaran'];
+
         return $this->table('tagihan')
             ->select('*')
-            ->whereNotIn('nama_pembayaran', $tagihan)
             ->groupBy('tagihan.nama_pembayaran')
             ->orderBy('id_tagihan', 'desc')
             ->get()->getResultArray();

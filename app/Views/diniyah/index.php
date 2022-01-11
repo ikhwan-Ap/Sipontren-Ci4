@@ -18,9 +18,10 @@
                     <div class="card-header">
                         <h4 class="text-dark">Data Diniyah</h4>
                     </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-striped" id="table-2">
                                 <thead>
                                     <tr>
                                         <th>#</th>

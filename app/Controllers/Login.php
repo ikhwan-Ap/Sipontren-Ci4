@@ -132,7 +132,7 @@ class Login extends BaseController
         if (!$this->validate(
             [
                 'username' => [
-                    'required',
+                    'rules' => 'required',
                     'errors' => [
                         'required' => 'username harus di isi'
 
@@ -140,7 +140,7 @@ class Login extends BaseController
                 ],
 
                 'password' => [
-                    'required',
+                    'rules' => 'required',
                     'errors' => [
                         'required' => 'password harus di isi'
                     ]
@@ -203,7 +203,7 @@ class Login extends BaseController
         if (!$this->validate(
             [
                 'nis' => [
-                    'required',
+                    'rules' => 'required',
                     'errors' => [
                         'required' => 'nis harus di isi'
 
@@ -211,14 +211,14 @@ class Login extends BaseController
                 ],
 
                 'password' => [
-                    'required',
+                    'rules' => 'required',
                     'errors' => [
                         'required' => 'password harus di isi'
                     ]
                 ]
             ]
         )) {
-            return redirect()->to('login/index')->withInput();
+            return redirect()->to('login')->withInput();
         }
         $santriModel = new SantriModel();
         $nis = $this->request->getVar('nis');

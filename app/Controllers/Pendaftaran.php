@@ -47,7 +47,7 @@ class Pendaftaran extends BaseController
   {
     $this->santri->save([
       'id_santri' => $id,
-      'status' => 'Aktif'
+      'status' => 'Non Aktif'
     ]);
 
     return redirect()->to('/pendaftaran');
@@ -352,13 +352,12 @@ class Pendaftaran extends BaseController
   public function get_autofill()
   {
     if (isset($_GET['term'])) {
-      $result = $this->santri->search_santri($_GET['term']);
+      $result = $this->santri->search_nama($_GET['term']);
 
       if (count($result) > 0) {
         foreach ($result as $row) {
           $arr_result[] =  array(
-            'label' => $row->nis,
-            'nama_lengkap' => $row->nama_lengkap,
+            'label' => $row->nama_lengkap,
             'id_santri' => $row->id_santri,
           );
         }

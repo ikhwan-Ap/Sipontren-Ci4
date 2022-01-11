@@ -38,16 +38,20 @@
                         <div class="form-group">
                             <label>Kamar</label>
                             <div class="input-group">
-                                <input type="text" class="form-control currency" value="<?= $santri['id_kamar']; ?>">
+                                <input type="text" class="form-control currency" value="<?= $santri['nama_kamar']; ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Diniyah</label>
-                            <input type="text" class="form-control purchase-code" value="<?= $santri['id_diniyah']; ?>">
+                            <input type="text" class="form-control purchase-code" value="<?= $santri['nama_diniyah']; ?>">
                         </div>
                         <div class="form-group">
                             <label>Program</label>
-                            <input type="text" class="form-control invoice-input" value="<?= $santri['id_program']; ?>">
+                            <input type="text" class="form-control invoice-input" value="<?= $santri['nama_program']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Kelas</label>
+                            <input type="text" class="form-control invoice-input" value="<?= $santri['nama_kelas']; ?>">
                         </div>
                         <div class="form-group">
                             <label>Tanggal Lahir</label>

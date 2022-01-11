@@ -1153,10 +1153,10 @@ class Pembayaran extends BaseController
         ])) {
             return redirect()->to('/pembayaran/bayar_lainnya/' . $id_keuangan)->withInput();
         }
-        $keuangan = $this->model->bayar_daftar_ulang($id_keuangan);
+        $keuangan = $this->model->bayar_lainnya($id_keuangan);
         foreach ($keuangan as $bayar) {
             $tagihan = $bayar['jumlah_bayar'];
-            $pembayaran = $bayar['jumlah_tagihan'];
+            $pembayaran = $bayar['jumlah_pembayaran'];
         }
         $jumlah_bayar = $this->request->getVar('jumlah_bayar');
         $total = $tagihan + $jumlah_bayar;

@@ -37,7 +37,7 @@ class Dashboard extends BaseController
     public function asatidz()
     {
         $data = [
-            'title' => 'Dashboard',
+            'title' => 'Dashboard Asatidz',
             'asatidz' => $this->asatidzModel->where('username', session()->get('username'))->findAll(),
             'totalSantri' => $this->asatidzModel->where('username', session()->get('username'))->countAllResults(),
             // 'totalAdmin' => $this->asatidzModel->where('id=id')->countAllResults(),
@@ -47,7 +47,7 @@ class Dashboard extends BaseController
     public function santri()
     {
         $data = [
-            'title' => 'Dashboard',
+            'title' => 'Dashboard Santri',
             // 'totalAdmin' => $this->asatidzModel->where('id=id')->countAllResults(),
             'santri' => $this->santriModel->where('nis', session()->get('nis'))->findAll(),
 

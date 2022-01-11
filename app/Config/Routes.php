@@ -89,6 +89,12 @@ $routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
 
 // alumni
 $routes->get('/alumni', 'Alumni::index');
+$routes->get('/alumni/add', 'Alumni::create');
+$routes->post('/alumni', 'Alumni::save');
+$routes->get('/alumni/detail/(:num)', 'Alumni::detail/$1');
+$routes->get('/alumni/edit/(:any)', 'Alumni::edit/$1');
+$routes->put('/alumni/(:num)', 'Alumni::update/$1');
+$routes->delete('/alumni/(:num)', 'Alumni::delete/$1');
 
 
 // diniyah
@@ -192,6 +198,11 @@ $routes->get('/perizinan/kembali/(:any)', 'Perizinan::kembali/$1');
 $routes->get('/perizinan/ditolak/(:any)', 'Perizinan::ditolak/$1');
 $routes->delete('/perizinan/(:num)', 'Perizinan::delete/$1');
 
+// kurikulum
+$routes->get('/kurikulum', 'Kurikulum::index');
+$routes->get('/kurikulum/add', 'Kurikulum::create');
+$routes->post('/kurikulum', 'Kurikulum::save');
+
 //Printpdf
 $routes->get('/laporan/print', 'Pembayaran::print');
 $routes->get('/laporan/print/(:any)', 'Pembayaran::print_filter');
@@ -239,6 +250,9 @@ $routes->post('/daftar_ulang', 'Daftar_ulang::filter_daftar_ulang');
 $routes->get('/daftar_ulang_add', 'Daftar_ulang::daftar_ulang_add');
 $routes->post('/daftar_ulang_add', 'Daftar_ulang::save_daftar_ulang');
 $routes->delete('/daftar_ulang(:num)', 'Daftar_ulang::delete_daftar/$1');
+
+//Jadwal
+$routes->get('/coba/kurikulum', 'Kurikulum::coba');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

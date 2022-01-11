@@ -24,6 +24,8 @@
             <div class="card-body">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="id_santri" value="<?= $santri['id_santri']; ?>">
+                <input type="hidden" name="id_orangtua" value="<?= $santri['id_orangtua']; ?>">
 
                 <div class="row">
                     <div class="form-group col-6">
@@ -36,10 +38,10 @@
                     <div class="form-group col-6">
                         <label for="status">Status</label>
                         <select class="form-control <?= ($validation->hasError('status')) ? 'is-invalid' : ''; ?>" name="status" id="status">
-                            <option value="">== Pilih Status</option>
-                            <option value="Aktif" <?= ($santri['status'] == "Aktif") ? 'selected' : old('status'); ?>>Aktif</option>
-                            <option value="Non Aktif" <?= ($santri['status'] == "Non Aktif") ? 'selected' : old('status'); ?>>Non Aktif</option>
-                            <option value="Alumni" <?= ($santri['status'] == "Alumni") ? 'selected' : old('status'); ?>>Alumni</option>
+                            <option value="<?= $santri['status']; ?>" hidden><?= $santri['status']; ?></option>
+                            <option value="Aktif">Aktif</option>
+                            <option value="Non Aktif">Non Aktif</option>
+                            <option value="Alumni">Alumni</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('status'); ?>
@@ -71,6 +73,13 @@
                         <?= $validation->getError('nama_lengkap'); ?>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" name="email" value="<?= (old('email')) ? old('email') : $santri['email']; ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('email'); ?>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="form-group col-6">
@@ -93,11 +102,11 @@
                     <div class="form-group col-6">
                         <label for="provinsi">Provinsi</label>
                         <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="provinsi">
-                            <option value="">Pilih Provinsi</option>
-                            <option value="Sumatera Utara" <?= ($santri['provinsi'] == "Sumatera Utara") ? 'selected' : old('provinsi'); ?>>Sumatera Utara</option>
-                            <option value="Jawa Tengah" <?= ($santri['provinsi'] == "Jawa Tengah") ? 'selected' : old('provinsi'); ?>>Jawa Tengah</option>
-                            <option value="Sulawesi Tenggara" <?= ($santri['provinsi'] == "Sulawesi Tenggara") ? 'selected' : old('provinsi'); ?>>Sulawesi Tenggara</option>
-                            <option value="Kalimantan Timur" <?= ($santri['provinsi'] == "Kalimantan Timur") ? 'selected' : old('provinsi'); ?>>Kalimantan Timur</option>
+                            <option value="<?= $santri['provinsi']; ?>" hidden><?= $santri['provinsi']; ?></option>
+                            <option value="Sumatera Utara">Sumatera Utara</option>
+                            <option value="Jawa Tengah">Jawa Tengah</option>
+                            <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                            <option value="Kalimantan Timur">Kalimantan Timur</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('provinsi'); ?>
@@ -106,10 +115,10 @@
                     <div class="form-group col-6">
                         <label for="kabupaten">Kabupaten</label>
                         <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="kabupaten">
-                            <option value="">== Pilih Kabupaten ==</option>
-                            <option value="Banyumas" <?= ($santri['kabupaten'] == "Banyumas") ? 'selected' : old('kabupaten'); ?>>Banyumas</option>
-                            <option value="Purbalingga" <?= ($santri['kabupaten'] == "Purbalingga") ? 'selected' : old('kabupaten'); ?>>Purbalingga</option>
-                            <option value="Banjarnegara" <?= ($santri['kabupaten'] == "Banjarnegara") ? 'selected' : old('kabupaten'); ?>>Banjarnegara</option>
+                            <option value="<?= $santri['kabupaten']; ?>" hidden><?= $santri['kabupaten']; ?></option>
+                            <option value="Banyumas">Banyumas</option>
+                            <option value="Purbalingga">Purbalingga</option>
+                            <option value="Banjarnegara">Banjarnegara</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('kabupaten'); ?>
@@ -121,11 +130,11 @@
                     <div class="form-group col-6">
                         <label for="kecamatan">Kecamatan</label>
                         <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="kecamatan">
-                            <option value="">== Pilih Kecamatan ==</option>
-                            <option value="Kembaran" <?= ($santri['kecamatan']) ? 'selected' : old('kecamatan'); ?>>Kembaran</option>
-                            <option value="Sokaraja" <?= ($santri['kecamatan']) ? 'selected' : old('kecamatan'); ?>>Sokaraja</option>
-                            <option value="Cilongok" <?= ($santri['kecamatan']) ? 'selected' : old('kecamatan'); ?>>Cilongok</option>
-                            <option value="Baturaden" <?= ($santri['kecamatan']) ? 'selected' : old('kecamatan'); ?>>Baturaden</option>
+                            <option value="<?= $santri['kecamatan']; ?>" hidden><?= $santri['kecamatan']; ?></option>
+                            <option value="Kembaran">Kembaran</option>
+                            <option value="Sokaraja">Sokaraja</option>
+                            <option value="Cilongok">Cilongok</option>
+                            <option value="Baturaden">Baturaden</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('kecamatan'); ?>
@@ -134,11 +143,11 @@
                     <div class="form-group col-6">
                         <label for="desa_kelurahan">Desa/Kelurahan</label>
                         <select class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" id="desa_kelurahan">
-                            <option value="">== Pilih Desa/Kelurahan ==</option>
-                            <option value="Rancamaya" <?= ($santri['desa_kelurahan']) ? 'selected' : old('desa_kelurahan'); ?>>Rancamaya</option>
-                            <option value="Pliken" <?= ($santri['desa_kelurahan']) ? 'selected' : old('desa_kelurahan'); ?>>Pliken</option>
-                            <option value="Bantar Kawung" <?= ($santri['desa_kelurahan']) ? 'selected' : old('desa_kelurahan'); ?>>Bantar Kawung</option>
-                            <option value="Watumas" <?= ($santri['desa_kelurahan']) ? 'selected' : old('desa_kelurahan'); ?>>Watumas</option>
+                            <option value="<?= $santri['desa_kelurahan']; ?>" hidden><?= $santri['desa_kelurahan']; ?></option>
+                            <option value="Rancamaya">Rancamaya</option>
+                            <option value="Pliken">Pliken</option>
+                            <option value="Bantar Kawung">Bantar Kawung</option>
+                            <option value="Watumas">Watumas</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('desa_kelurahan'); ?>
@@ -165,11 +174,11 @@
                     <div class="form-group col-4">
                         <label for="gol_darah">Golongan Darah Santri</label>
                         <select class="form-control <?= ($validation->hasError('gol_darah')) ? 'is-invalid' : ''; ?>" name="gol_darah" id="gol_darah">
-                            <option value="">== Pilih Gol Darah ==</option>
-                            <option value="A" <?= ($santri['gol_darah']) ? 'selected' : old('gol_darah'); ?>>A</option>
-                            <option value="B" <?= ($santri['gol_darah']) ? 'selected' : old('gol_darah'); ?>>B</option>
-                            <option value="AB" <?= ($santri['gol_darah']) ? 'selected' : old('gol_darah'); ?>>AB</option>
-                            <option value="O" <?= ($santri['gol_darah']) ? 'selected' : old('gol_darah'); ?>>O</option>
+                            <option value="<?= $santri['gol_darah']; ?>" hidden><?= $santri['gol_darah']; ?></option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('gol_darah'); ?>
@@ -178,9 +187,9 @@
                     <div class="form-group col-4">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
                         <select class="form-control <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>" name="jenis_kelamin" id="jenis_kelamin">
-                            <option value="">== Pilih Jenis Kelamin ==</option>
-                            <option value="Laki-laki" <?= ($santri['jenis_kelamin']) ? 'selected' : old('jenis_kelamin'); ?>>Laki-laki</option>
-                            <option value="Perempuan" <?= ($santri['jenis_kelamin']) ? 'selected' : old('jenis_kelamin'); ?>>Perempuan</option>
+                            <option value="<?= $santri['jenis_kelamin']; ?>" hidden><?= $santri['jenis_kelamin']; ?></option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('jenis_kelamin'); ?>
@@ -208,11 +217,13 @@
                     <div class="form-group col-6">
                         <label for="pendidikan_sekarang">Pendidikan Sekarang</label>
                         <select class="form-control <?= ($validation->hasError('pendidikan_sekarang')) ? 'is-invalid' : ''; ?>" name="pendidikan_sekarang" id="pendidikan_sekarang">
-                            <option value="">== Pendidikan Saat Ini ==</option>
-                            <option value="SD" <?= ($santri['pendidikan_sekarang']) ? 'selected' : old('pendidikan_sekarang'); ?>>SD</option>
-                            <option value="SMP" <?= ($santri['pendidikan_sekarang']) ? 'selected' : old('pendidikan_sekarang'); ?>>SMP</option>
-                            <option value="SMA/SMK" <?= ($santri['pendidikan_sekarang']) ? 'selected' : old('pendidikan_sekarang'); ?>>SMA/SMK</option>
-                            <option value="S1" <?= ($santri['pendidikan_sekarang']) ? 'selected' : old('pendidikan_sekarang'); ?>>S1</option>
+                            <option value="<?= $santri['pendidikan_sekarang']; ?>" hidden><?= $santri['pendidikan_sekarang']; ?></option>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SMA/SMK">SMA/SMK</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('pendidikan_sekarang'); ?>
@@ -221,14 +232,67 @@
                     <div class="form-group col-6">
                         <label for="pendidikan_terakhir">Pendidikan Terakhir</label>
                         <select class="form-control <?= ($validation->hasError('pendidikan_terakhir')) ? 'is-invalid' : ''; ?>" name="pendidikan_terakhir" id="pendidikan_terakhir">
-                            <option value="">== Pendidikan Terakhir ==</option>
-                            <option value="SD" <?= ($santri['pendidikan_terakhir']) ? 'selected' : old('pendidikan_terakhir'); ?>>SD</option>
-                            <option value="SMP" <?= ($santri['pendidikan_terakhir']) ? 'selected' : old('pendidikan_terakhir'); ?>>SMP</option>
-                            <option value="SMA/SMK" <?= ($santri['pendidikan_terakhir']) ? 'selected' : old('pendidikan_terakhir'); ?>>SMA/SMK</option>
-                            <option value="S1" <?= ($santri['pendidikan_terakhir']) ? 'selected' : old('pendidikan_terakhir'); ?>>S1</option>
+                            <option value="<?= $santri['pendidikan_terakhir']; ?>" hidden><?= $santri['pendidikan_terakhir']; ?></option>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SMA/SMK">SMA/SMK</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('pendidikan_terakhir'); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label for="id_kelas">kelas</label>
+                        <select class="form-control <?= ($validation->hasError('id_kelas')) ? 'is-invalid' : ''; ?>" name="id_kelas" id="id_kelas">
+                            <option value="<?= $santri['id_kelas']; ?>" hidden><?= $santri['nama_kelas']; ?></option>
+                            <?php foreach ($kelas as $d) :  ?>
+                                <option value="<?= $d['id_kelas']; ?>"><?= $d['nama_kelas']; ?></option>
+                            <?php endforeach;  ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('pendidikan_sekarang'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="id_diniyah">Diniyah</label>
+                        <select class="form-control <?= ($validation->hasError('id_diniyah')) ? 'is-invalid' : ''; ?>" name="id_diniyah" id="id_diniyah">
+                            <option value="<?= $santri['id_diniyah']; ?>" hidden><?= $santri['nama_diniyah']; ?></option>
+                            <?php foreach ($diniyah as $d) :  ?>
+                                <option value="<?= $d['id_diniyah']; ?>"><?= $d['nama_diniyah']; ?></option>
+                            <?php endforeach;  ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('id_diniyah'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="id_program">Program</label>
+                        <select class="form-control <?= ($validation->hasError('id_program')) ? 'is-invalid' : ''; ?>" name="id_program" id="id_program">
+                            <option value="<?= $santri['id_program']; ?>" hidden><?= $santri['nama_program']; ?></option>
+                            <?php foreach ($program as $d) :  ?>
+                                <option value="<?= $d['id_program']; ?>"><?= $d['nama_program']; ?></option>
+                            <?php endforeach;  ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('id_program'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="id_kamar">Kamar</label>
+                        <select class="form-control <?= ($validation->hasError('id_kamar')) ? 'is-invalid' : ''; ?>" name="id_kamar" id="id_kamar">
+                            <option value="<?= $santri['id_kamar']; ?>" hidden><?= $santri['nama_kamar']; ?></option>
+                            <?php foreach ($kamar as $d) :  ?>
+                                <option value="<?= $d['id_kamar']; ?>"><?= $d['nama_kamar']; ?></option>
+                            <?php endforeach;  ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('id_kamar'); ?>
                         </div>
                     </div>
                 </div>

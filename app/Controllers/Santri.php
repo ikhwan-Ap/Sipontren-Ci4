@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 use App\Models\OrangtuaModel;
 use App\Models\SantriModel;
+use App\Models\KelasModel;
+use App\Models\KamarModel;
+use App\Models\DiniyahModel;
+use App\Models\KeuanganModel;
+use App\Models\ProgramModel;
 
 class Santri extends BaseController
 {
@@ -12,6 +17,11 @@ class Santri extends BaseController
         $this->santriModel = new SantriModel();
         $this->santri = new SantriModel();
         $this->ortu = new OrangtuaModel();
+        $this->kelas = new KelasModel();
+        $this->diniyah = new DiniyahModel();
+        $this->kamar = new KamarModel();
+        $this->program = new ProgramModel();
+        $this->keuangan = new KeuanganModel();
     }
 
     // $fotosantri = $this->santriModel->where('username', session()->get('foto'))->first();
@@ -119,9 +129,27 @@ class Santri extends BaseController
         $data = [
             'title' => 'biodata santri',
             // 'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
-            'santri' => $this->db->table('santri')->select('*')->where('nis', session()->get('nis'))->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getRowArray(),
+            'santri' => $this->db->table('santri')->select('*')->where('nis', session()->get('nis'))
+                ->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')
+                ->join('kamar', 'kamar.id_kamar = santri.id_kamar')
+                ->join('diniyah', 'diniyah.id_diniyah = santri.id_diniyah')
+                ->join('kelas', 'kelas.id_kelas = santri.id_kelas')
+                ->join('program', 'program.id_program = santri.id_program')
+                ->get()->getRowArray(),
         ];
         return view('santri/biodata', $data);
+    }
+    public function pembayaran()
+    {
+        $data = [
+            'title' => 'biodata santri',
+            // 'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
+            'santri' => $this->db->table('keuangan')->select('*')->where('nis', session()->get('nis'))
+                ->join('santri', 'santri.id_santri = keuangan.id_santri', 'left')
+                ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan', 'left')
+                ->get()->getResultArray(),
+        ];
+        return view('santri/pembayaran', $data);
     }
 
     public function create()
@@ -379,7 +407,11 @@ class Santri extends BaseController
         $data = [
             'title' => 'Edit Data Santri',
             'validation' => \Config\Services::validation(),
-            'santri' => $this->santri->getSantri($id)
+            'santri' => $this->santri->getSantri($id),
+            'kelas' => $this->kelas->findAll(),
+            'diniyah' => $this->diniyah->findAll(),
+            'program' => $this->program->findAll(),
+            'kamar' => $this->kamar->findAll(),
         ];
 
         return view('santri/edit', $data);
@@ -387,6 +419,8 @@ class Santri extends BaseController
 
     public function update($id)
     {
+        $id =  $this->request->getVar('id_santri');
+        $id_orangtua =  $this->request->getVar('id_orangtua');
         if (!$this->validate([
             'nis' => [
                 'rules' => 'required|numeric',
@@ -562,12 +596,36 @@ class Santri extends BaseController
                     'required' => 'Status harus diisi!',
                 ]
             ],
+            'id_program' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Program harus diisi!',
+                ]
+            ],
+            'id_diniyah' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Diniyah harus diisi!',
+                ]
+            ],
+            'id_kelas' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kelas harus diisi!',
+                ]
+            ],
+            'id_kamar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kamar harus diisi!',
+                ]
+            ],
         ])) {
-            return redirect()->to('/santri/edit/' . $this->request->getVar('id_santri'))->withInput();
+            return redirect()->to('/santri/edit/' . $id)->withInput();
         }
 
         $this->ortu->save([
-            'id_ortu' => $id,
+            'id_orangtua' => $id_orangtua,
             'nama_ayah' => $this->request->getVar('nama_ayah'),
             'nama_ibu' => $this->request->getVar('nama_ibu'),
             'no_hp_wali' => $this->request->getVar('no_hp_wali'),
@@ -575,7 +633,6 @@ class Santri extends BaseController
         ]);
 
         $idOrtu = $this->ortu->getID();
-
         $this->santri->save([
             'id_santri' => $id,
             'nis' => $this->request->getVar('nis'),
@@ -602,7 +659,11 @@ class Santri extends BaseController
             'nama_almet' => $this->request->getVar('nama_almet'),
             'kelas_semester' => $this->request->getVar('kelas_semester'),
             'jurusan' => $this->request->getVar('jurusan'),
-            'id_orangtua' => $idOrtu,
+            'id_diniyah' => $this->request->getVar('id_diniyah'),
+            'id_program' => $this->request->getVar('id_program'),
+            'id_kelas' => $this->request->getVar('id_kelas'),
+            'id_kamar' => $this->request->getVar('id_kamar'),
+            'id_orangtua' => $id_orangtua,
             'status' => $this->request->getVar('status'),
         ]);
 
@@ -615,6 +676,20 @@ class Santri extends BaseController
                       </div>
                     </div>');
 
+        return redirect()->to('/santri');
+    }
+    public function delete($id)
+    {
+        $this->db->table('santri')->delete(['id_santri' => $id]);
+        $this->db->table('orangtua')->delete(['id_orangtua' => $id]);
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Data Santri berhasil dihapus!
+                      </div>
+                    </div>');
         return redirect()->to('/santri');
     }
 }

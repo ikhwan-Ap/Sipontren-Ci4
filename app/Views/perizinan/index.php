@@ -25,80 +25,103 @@
                                 <th>NIS</th>
                                 <th>Nama Santri</th>
                                 <th>Tanggal Izin</th>
-                                <th>Tanggal Kembali</th>
-                                <th>Keterangan</th>
+                                <th>Tanggal Estimasi</th>
                                 <th>Status</th>
+                                <?php if (session()->get('role') == 1) : ?>
+                                    <th>Keputusan</th>
+                                <?php endif; ?>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 1;
                             foreach ($izin as $z) : ?>
+                                <?php $j = $i++;  ?>
                                 <tr>
-                                    <td><?= $i++; ?></td>
+                                    <td><?= strrev($j); ?></td>
                                     <td><?= $z['nis']; ?></td>
                                     <td><?= $z['nama_lengkap']; ?></td>
-                                    <td><?= date('d-m-Y', strtotime($z['tanggal_izin'])); ?></td>
-                                    <td><?= date('d-m-Y', strtotime($z['tanggal_kembali'])); ?></td>
-                                    <td><?= $z['keterangan']; ?></td>
+                                    <td><?= date_format(date_create($z['tanggal_izin']), "Y-m-d h:m"); ?></td>
+                                    <td><?= date_format(date_create($z['tanggal_estimasi']), "Y-m-d h:m"); ?></td>
                                     <td>
-                                        <?php if ($z['status_izin'] == 'Menunggu') : ?>
-                                            <a href="" class="badge badge-warning"><?= $z['status_izin']; ?></a>
-                                        <?php elseif ($z['status_izin'] == 'Diterima') : ?>
-                                            <a href="" class="badge badge-success"><?= $z['status_izin']; ?></a>
-                                        <?php elseif ($z['status_izin'] == 'Kembali') : ?>
-                                            <a href="" class="badge badge-light"><?= $z['status_izin']; ?></a>
-                                        <?php elseif ($z['status_izin'] == 'Ditolak') : ?>
-                                            <a href="" class="badge badge-danger"><?= $z['status_izin']; ?></a>
+                                        <?php if ($z['tanggal_diterima'] == null && $z['tanggal_ditolak'] == null) : ?>
+                                            <p class="badge badge-warning">Menunggu</p>
+                                        <?php elseif ($z['tanggal_diterima'] && $z['tanggal_pulang'] == null) : ?>
+                                            <p class="badge badge-primary">Diterima</p>
+                                        <?php elseif ($z['tanggal_ditolak'] && $z['tanggal_pulang'] == null) : ?>
+                                            <p class="badge badge-danger">Ditolak</p>
+                                        <?php elseif ($z['tanggal_pulang']) : ?>
+                                            <p class="badge badge-success">Pulang</p>
                                         <?php endif; ?>
                                     </td>
+                                    <?php if (session()->get('role') == 1) : ?>
+                                        <td>
+                                            <?php if ($z['tanggal_diterima'] == null && $z['tanggal_pulang'] == null && $z['tanggal_ditolak'] == null) : ?>
+                                                <a href="/perizinan/terima/<?= $z['id_izin']; ?>" class="btn btn-info">Terima</a>
+                                                <a href="/perizinan/ditolak/<?= $z['id_izin']; ?>" class="btn btn-dark">Tolak</a>
+                                            <?php elseif ($z['tanggal_ditolak'] && $z['tanggal_diterima'] == null && $z['tanggal_pulang'] == null) : ?>
+                                                <p class="text-center">-</p>
+                                            <?php elseif ($z['tanggal_pulang'] == null) : ?>
+                                                <a href="/perizinan/pulang/<?= $z['id_izin']; ?>" class="btn btn-info">Pulang</a>
+                                            <?php else : ?>
+                                                <p class="text-center">-</p>
+                                            <?php endif; ?>
+                                        </td>
+                                    <?php endif; ?>
                                     <td>
-                                        <!-- <a href="/perizinan/persetujuan/<?= $z['id_izin']; ?>" class="btn btn-info">Pengajuan</a> -->
-                                        <!-- <a href="" class="btn btn-danger">Hapus</a> -->
-                                        <?php if (session()->get('role') == 1) : ?>
-                                            <?php if ($z['status_izin'] == 'Menunggu') : ?>
-                                                <a href="/perizinan/terima/<?= $z['id_santri']; ?>" class="btn btn-primary">Terima</a>
-                                                <a href="/perizinan/ditolak/<?= $z['id_izin']; ?>" class="btn btn-danger">Tolak</a>
-                                            <?php elseif ($z['status_izin'] == 'Diterima') : ?>
-                                                <a href="/perizinan/kembali/<?= $z['id_izin']; ?>" class="btn btn-primary">Kembali</a>
-                                            <?php elseif ($z['status_izin'] == 'Kembali') : ?>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
-                                                    Hapus
-                                                </button>
-                                            <?php elseif ($z['status_izin'] == 'Ditolak') : ?>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
-                                                    Hapus
-                                                </button>
-                                            <?php endif; ?>
-
-                                            <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $z['id_izin']; ?>">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Peringatan</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>Apakah data ini akan dihapus?</p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <form action="/perizinan/<?= $z['id_izin']; ?>" method="POST">
-                                                                <?= csrf_field(); ?>
-                                                                <input type="hidden" name="_method" value="DELETE">
-                                                                <button type="submit" class="btn btn-danger">Ya</button>
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- <a href="/perizinan/izin/<?= $z['id_izin']; ?>" class="btn btn-dark">Ditolak</a>
-                                                <a href="/perizinan/izin/<?= $z['id_izin']; ?>" class="btn btn-primary">Diterima</a>
-                                                <a href="/perizinan/izin/<?= $z['id_izin']; ?>" class="btn btn-info">Kembali</a> -->
-                                            <?php endif; ?>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal<?= $z['nis']; ?>">
+                                            Detail
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
+                                            Hapus
+                                        </button>
                                     </td>
                                 </tr>
+
+                                <!-- Modal delete -->
+                                <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $z['id_izin']; ?>">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Peringatan</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Apakah data ini akan dihapus?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form action="/perizinan/<?= $z['id_izin']; ?>" method="POST">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger">Ya</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal detail -->
+                                <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $z['nis']; ?>">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Keterangan Perizinan</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p><?= $z['keterangan']; ?></p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Kembali</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -106,5 +129,5 @@
             </div>
         </div>
     </div>
-</section>
+</section>`
 <?= $this->endSection(); ?>

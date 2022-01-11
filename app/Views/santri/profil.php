@@ -17,22 +17,6 @@
                             <div class="col-12 col-md-6 col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class=" form-group">
-                                            <label for="foto">Foto</label>
-                                            <div class=" col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-sm-3">
-                                                        <img src="/img/default" class="img-thumbnail img-preview">
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="foto" name="foto" onchange="previewImg()">
-                                                            <label class="custom-file-label" for="foto"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label>Nama</label>
                                             <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" value="<?= (old('nama_lengkap')) ? old('nama_lengkap') : $santri['nama_lengkap']; ?>">

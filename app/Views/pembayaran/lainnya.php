@@ -41,59 +41,61 @@
                                 <div class="form-group">
                                     <div class="col">
                                         <label for="">Pilih</label>
-                                        <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Kelas</button>
+                                        <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped" id="table-2">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>nis</th>
-                                        <th>nama santri</th>
-                                        <th>Pembayaran</th>
-                                        <th>Jumlah Pembayaran</th>
-                                        <th>Jumlah Tagihan</th>
-                                        <th>tggl bayar</th>
-                                        <th>status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 1;
-                                    $hariIni = new DateTime();
-                                    foreach ($hasil as $k) :
-                                    ?>
+                    <div class="col">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-2">
+                                    <thead>
                                         <tr>
-                                            <td><?= $i++; ?></td>
-                                            <td><?= $k['nis']; ?></td>
-                                            <td><?= $k['nama_lengkap']; ?></td>
-                                            <td><?= $k['nama_pembayaran']; ?></td>
-                                            <td><?= $k['jumlah_bayar']; ?></td>
-                                            <td><?= $k['jumlah_tagihan']; ?></td>
-                                            <td> <?= $k['waktu']; ?></td>
-                                            <?php if ($k['status'] == 'Lunas') {
-                                            ?> <td class="badge badge-success"><?= $k['status']; ?></td>
-                                            <?php  } else {
-                                            ?> <td class="badge badge-danger"><?= $k['status'];
-                                                                            } ?>
-
-
-                                                <td>
-                                                    <?php if ($k['status'] == 'Lunas') {
-                                                        echo '';
-                                                    } else { ?>
-                                                        <a href="/pembayaran/bayar_lainnya/<?= $k['id_keuangan']; ?>" class="btn btn-primary">Bayar</a>
-                                                    <?php } ?>
-                                                </td>
+                                            <th>#</th>
+                                            <th>nis</th>
+                                            <th>nama santri</th>
+                                            <th>Pembayaran</th>
+                                            <th>Jumlah Pembayaran</th>
+                                            <th>Jumlah Tagihan</th>
+                                            <th>tggl bayar</th>
+                                            <th>status</th>
+                                            <th>Action</th>
                                         </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1;
+                                        $hariIni = new DateTime();
+                                        foreach ($hasil as $k) :
+                                        ?>
+                                            <tr>
+                                                <td><?= $i++; ?></td>
+                                                <td><?= $k['nis']; ?></td>
+                                                <td><?= $k['nama_lengkap']; ?></td>
+                                                <td><?= $k['nama_pembayaran']; ?></td>
+                                                <td><?= $k['jumlah_bayar']; ?></td>
+                                                <td><?= $k['jumlah_tagihan']; ?></td>
+                                                <td> <?= $k['waktu']; ?></td>
+                                                <?php if ($k['status'] == 'Lunas') {
+                                                ?> <td class="badge badge-success"><?= $k['status']; ?></td>
+                                                <?php  } else {
+                                                ?> <td class="badge badge-danger"><?= $k['status'];
+                                                                                } ?>
+
+
+                                                    <td>
+                                                        <?php if ($k['status'] == 'Lunas') {
+                                                            echo '';
+                                                        } else { ?>
+                                                            <a href="/pembayaran/bayar_lainnya/<?= $k['id_keuangan']; ?>" class="btn btn-primary">Bayar</a>
+                                                        <?php } ?>
+                                                    </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
