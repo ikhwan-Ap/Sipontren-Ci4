@@ -121,29 +121,29 @@ class SantriModel extends Model
     }
 
     // Lokasi
-    public function getProvinsi()
-    {
-        return $this->db->table('provinces')->select('*')->get()->getResultArray();
-    }
+    // public function getProvinsi()
+    // {
+    //     return $this->db->table('provinces')->select('*')->get()->getResultArray();
+    // }
 
-    public function getKabupaten()
-    {
-        return $this->db->table('cities')->select('*')
-            ->join('provinces', 'provinces.prov_id = cities.prov_id')
-            ->get()->getResultArray();
-    }
+    // public function getKabupaten()
+    // {
+    //     return $this->db->table('cities')->select('*')
+    //         ->join('provinces', 'provinces.prov_id = cities.prov_id')
+    //         ->get()->getResultArray();
+    // }
 
-    public function getKecamatan()
-    {
-        return $this->db->table('districts')->select('*')
-            ->join('cities', 'cities.city_id = districts.city_id')
-            ->get()->getResultArray();
-    }
+    // public function getKecamatan()
+    // {
+    //     return $this->db->table('districts')->select('*')
+    //         ->join('cities', 'cities.city_id = districts.city_id')
+    //         ->get()->getResultArray();
+    // }
 
-    public function getDesa()
-    {
-        return $this->db->table('subdistricts')->select('*')
-            ->join('districts', 'districts.dis_id = subdistricts.dis_id')
-            ->get()->getResultArray();
-    }
+    // public function getDesa()
+    // {
+    //     return $this->db->table('subdistricts')->select('*')
+    //         ->join('districts', 'districts.dis_id = subdistricts.dis_id')
+    //         ->get()->getResultArray();
+    // }
 }

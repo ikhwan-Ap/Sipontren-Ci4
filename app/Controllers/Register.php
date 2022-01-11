@@ -19,14 +19,14 @@ class Register extends BaseController
         return view('register/index', [
             'title' => 'Pendaftaran',
             'validation' => \Config\Services::validation(),
-            'provinsi' => $this->santri->getProvinsi(),
-            'provinsi_selected' => '',
-            'kabupaten' => $this->santri->getKabupaten(),
-            'kabupaten_selected' => '',
-            'kecamatan' => $this->santri->getKecamatan(),
-            'kecamatan_selected' => '',
-            'desa' => $this->santri->getDesa(),
-            'desa_selected' => '',
+            // 'provinsi' => $this->santri->getProvinsi(),
+            // 'provinsi_selected' => '',
+            // 'kabupaten' => $this->santri->getKabupaten(),
+            // 'kabupaten_selected' => '',
+            // 'kecamatan' => $this->santri->getKecamatan(),
+            // 'kecamatan_selected' => '',
+            // 'desa' => $this->santri->getDesa(),
+            // 'desa_selected' => '',
         ]);
     }
 
@@ -84,7 +84,7 @@ class Register extends BaseController
                     'required' => 'Alamat harus diisi!',
                 ]
             ],
-            'desa_kelurahan' => [
+            'desa' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Desa / Kelurahan harus diisi!',
@@ -216,7 +216,7 @@ class Register extends BaseController
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'alamat' => $this->request->getVar('alamat'),
-            'desa_kelurahan' => $this->request->getVar('desa_kelurahan'),
+            'desa_kelurahan' => $this->request->getVar('desa'),
             'kecamatan' => $this->request->getVar('kecamatan'),
             'kabupaten' => $this->request->getVar('kabupaten'),
             'provinsi' => $this->request->getVar('provinsi'),
