@@ -75,9 +75,11 @@
                                     <label for="provinsi">Provinsi</label>
                                     <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="id_provinsi">
                                         <option value="">== Pilih Provinsi ==</option>
-                                        <!-- <?php foreach ($provinsi as $p) : ?>
-                                            <option value="<?= $p['prov_id']; ?>" <?= ($provinsi_selected == $p['prov_id'] || old('provinsi') == $p['prov_id']) ? 'selected' : ''; ?>><?= $p['prov_name']; ?></option>
-                                        <?php endforeach; ?> -->
+                                        <option value="Sumatra Barat" <?= (old('provinsi') == 'Sumatra Barat') ? 'selected' : ''; ?>>Sumatra Barat</option>
+                                        <option value="Jawa Tengah" <?= (old('provinsi') == 'Jawa Tengah') ? 'selected' : ''; ?>>Jawa Tengah</option>
+                                        <option value="Jawa Barat" <?= (old('provinsi') == 'Jawa Barat') ? 'selected' : ''; ?>>Jawa Barat</option>
+                                        <option value="Jawa Timur" <?= (old('provinsi') == 'Jawa Timur') ? 'selected' : ''; ?>>Jawa Timur</option>
+
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('provinsi'); ?>
@@ -87,9 +89,12 @@
                                     <label for="kabupaten">Kabupaten</label>
                                     <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="id_kabupaten">
                                         <option value="">== Pilih Kabupaten ==</option>
-                                        <?php foreach ($kabupaten as $kab) : ?>
-                                            <!-- <option value="<?= $kab['city_id']; ?>" <?= ($kabupaten_selected == $kab['prov_id'] || old('kabupaten') == $kab['city_id']) ? 'selected' : ''; ?> class="<?= $kab['prov_id']; ?>"><?= $kab['city_name']; ?></option>
-                                        <?php endforeach; ?> -->
+                                        <option value="Padang" <?= (old('kabupaten') == 'Padang') ? 'selected' : ''; ?>>Padang</option>
+                                        <option value="Banyumas" <?= (old('kabupaten') == 'Banyumas') ? 'selected' : ''; ?>>Banyumas</option>
+                                        <option value="Brebes" <?= (old('kabupaten') == 'Brebes') ? 'selected' : ''; ?>>Brebes</option>
+                                        <option value="Kebumen" <?= (old('kabupaten') == 'Kebumen') ? 'selected' : ''; ?>>Kebumen</option>
+                                        <option value="Cilacap" <?= (old('kabupaten') == 'Cilacap') ? 'selected' : ''; ?>>Cilacap</option>
+
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kabupaten'); ?>
@@ -102,9 +107,10 @@
                                     <label for="kecamatan">Kecamatan</label>
                                     <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="id_kecamatan">
                                         <option value="">== Pilih Kecamatan ==</option>
-                                        <!-- <?php foreach ($kecamatan as $kec) : ?>
-                                            <option value="<?= $kec['dis_id']; ?>" <?= ($kecamatan_selected == $kec['city_id'] || old('kecamatan') == $kec['dis_id']) ? 'selected' : ''; ?> class="<?= $kec['city_id']; ?>"><?= $kec['dis_name']; ?></option>
-                                        <?php endforeach; ?> -->
+                                        <option value="Kembaran" <?= (old('kecamatan') == 'Kembaran') ? 'selected' : ''; ?>>Kembaran</option>
+                                        <option value="Sokaraja" <?= (old('kecamatan') == 'Sokaraja') ? 'selected' : ''; ?>>Sokaraja</option>
+                                        <option value="Purwokerto Selatan" <?= (old('kecamatan') == 'Purwokerto Selatan') ? 'selected' : ''; ?>>Purwokerto Selatan</option>
+
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kecamatan'); ?>
@@ -114,9 +120,14 @@
                                     <label for="desa">Desa/Kelurahan</label>
                                     <select class="form-control <?= ($validation->hasError('desa')) ? 'is-invalid' : ''; ?>" name="desa" id="id_desa">
                                         <option value="">== Pilih Desa/Kelurahan ==</option>
-                                        <!-- <?php foreach ($desa as $d) : ?>
-                                            <option value="<?= $d['subdis_id']; ?>" <?= ($desa_selected == $d['dis_id'] || old('desa_kelurahan') == $d['subdis_id']) ? 'selected' : ''; ?> class="<?= $d['dis_id']; ?>"><?= $d['subdis_name']; ?></option>
-                                        <?php endforeach; ?> -->
+                                        <option value="Pliken" <?= (old('desa') == 'Pliken') ? 'selected' : ''; ?>>Pliken</option>
+                                        <option value="Larangan" <?= (old('desa') == 'Larangan') ? 'selected' : ''; ?>>Larangan</option>
+                                        <option value="Kembaran" <?= (old('desa') == 'Kembaran') ? 'selected' : ''; ?>>Kembaran</option>
+                                        <option value="Cilongok" <?= (old('desa') == 'Cilongok') ? 'selected' : ''; ?>>Cilongok</option>
+                                        <option value="Dukuwaluh" <?= (old('desa') == 'Dukuwaluh') ? 'selected' : ''; ?>>Dukuwaluh</option>
+                                        <option value="Ledug" <?= (old('desa') == 'Ledug') ? 'selected' : ''; ?>>Ledug</option>
+                                        <option value="Sokaraja" <?= (old('desa') == 'Sokaraja') ? 'selected' : ''; ?>>Sokaraja</option>
+
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('desa'); ?>
@@ -306,61 +317,61 @@
     // $("#kecamatan").chained("#kabupaten");
     // $("#desa_kelurahan").chained("#kecamatan");
 
-    fetch("https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json")
-        .then(Response => Response.json())
-        .then(Data => {
-            console.log(Data.length);
-            var i = 0;
-            for (i = 0; i => Data.length; i++) {
-                document.getElementById("id_provinsi").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-            };
-        });
+    // fetch("https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json")
+    //     .then(Response => Response.json())
+    //     .then(Data => {
+    //         console.log(Data.length);
+    //         var i = 0;
+    //         for (i = 0; i => Data.length; i++) {
+    //             document.getElementById("id_provinsi").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+    //         };
+    //     });
 
-    var xEvent1 = document.getElementById("id_provinsi");
-    xEvent1.addEventListener("change", regency);
+    // var xEvent1 = document.getElementById("id_provinsi");
+    // xEvent1.addEventListener("change", regency);
 
-    function regency() {
-        var province = xEvent1.value;
-        fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/" + province + ".json")
-            .then(Response => Response.json())
-            .then(Data => {
-                console.log(Data.length);
-                var i = 0;
-                for (i = 0; i => Data.length; i++) {
-                    document.getElementById("id_kabupaten").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-                };
-            });
-    };
+    // function regency() {
+    //     var province = xEvent1.value;
+    //     fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/" + province + ".json")
+    //         .then(Response => Response.json())
+    //         .then(Data => {
+    //             console.log(Data.length);
+    //             var i = 0;
+    //             for (i = 0; i => Data.length; i++) {
+    //                 document.getElementById("id_kabupaten").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+    //             };
+    //         });
+    // };
 
-    var xEvent2 = document.getElementById("id_kabupaten");
-    xEvent2.addEventListener("change", district);
+    // var xEvent2 = document.getElementById("id_kabupaten");
+    // xEvent2.addEventListener("change", district);
 
-    function district() {
-        var regency = xEvent2.value;
-        fetch("https://www.emsifa.com/api-wilayah-indonesia/api/districts/" + regency + ".json")
-            .then(Response => Response.json())
-            .then(Data => {
-                console.log(Data.length);
-                var i = 0;
-                for (i = 0; i => Data.length; i++) {
-                    document.getElementById("id_kecamatan").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-                };
-            });
-    };
-    var xEvent3 = document.getElementById("id_kecamatan");
-    xEvent3.addEventListener("change", kelurahan);
+    // function district() {
+    //     var regency = xEvent2.value;
+    //     fetch("https://www.emsifa.com/api-wilayah-indonesia/api/districts/" + regency + ".json")
+    //         .then(Response => Response.json())
+    //         .then(Data => {
+    //             console.log(Data.length);
+    //             var i = 0;
+    //             for (i = 0; i => Data.length; i++) {
+    //                 document.getElementById("id_kecamatan").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+    //             };
+    //         });
+    // };
+    // var xEvent3 = document.getElementById("id_kecamatan");
+    // xEvent3.addEventListener("change", kelurahan);
 
-    function kelurahan() {
-        var kelurahan = xEvent3.value;
-        fetch("https://www.emsifa.com/api-wilayah-indonesia/api/villages/" + kelurahan + ".json")
-            .then(Response => Response.json())
-            .then(Data => {
-                console.log(Data);
-                var i = 0;
-                for (i = 0; i => Data.length; i++) {
-                    document.getElementById("id_desa").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-                };
-            });
-    };
+    // function kelurahan() {
+    //     var kelurahan = xEvent3.value;
+    //     fetch("https://www.emsifa.com/api-wilayah-indonesia/api/villages/" + kelurahan + ".json")
+    //         .then(Response => Response.json())
+    //         .then(Data => {
+    //             console.log(Data);
+    //             var i = 0;
+    //             for (i = 0; i => Data.length; i++) {
+    //                 document.getElementById("id_desa").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+    //             };
+    //         });
+    // };
 </script>
 <?= $this->endSection(); ?>

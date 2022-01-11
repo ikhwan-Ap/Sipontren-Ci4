@@ -55,7 +55,7 @@
                         <h1 class="mb-2 display-4 font-weight-bold">Selamat Datang</h1>
                         <h3 class="font-weight-normal text-muted-transparent">Pondok Pesantren Darussalam Dukuhwaluh Purwokerto</h3>
                     </div>
-                    Dukuwaluh, Jawa Tengah, Indonesia. Photo by. @dimaschronicles
+                    Dukuwaluh, Jawa Tengah, Indonesia. Photo by. @ponpes
                 </div>
             </div>
         </div>
