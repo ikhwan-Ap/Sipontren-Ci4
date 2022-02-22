@@ -68,6 +68,60 @@ class PengeluaranModel extends Model
             ->table('pengeluaran')
             ->select('*')
             ->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar')
+            ->orderBy('pengeluaran.id_pengeluaran', 'Desc')
             ->get()->getResultArray();
+    }
+
+    public function totalKegA()
+    {
+        $builder = $this->db->table('pengeluaran');
+        $builder->selectSum('jumlah_pengeluaran');
+        $builder->where('data_pengeluaran.nama_pengeluaran', 'uang Kegiatan A');
+        $builder->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar');
+        $builder->orderBy('pengeluaran.id_keluar');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function totalKegB()
+    {
+        $builder = $this->db->table('pengeluaran');
+        $builder->selectSum('jumlah_pengeluaran');
+        $builder->where('data_pengeluaran.nama_pengeluaran', 'uang Kegiatan B');
+        $builder->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar');
+        $builder->orderBy('pengeluaran.id_keluar');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+
+    public function totalKegC()
+    {
+        $builder = $this->db->table('pengeluaran');
+        $builder->selectSum('jumlah_pengeluaran');
+        $builder->where('data_pengeluaran.nama_pengeluaran', 'uang Kegiatan C');
+        $builder->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar');
+        $builder->orderBy('pengeluaran.id_keluar');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function totalKegD()
+    {
+        $builder = $this->db->table('pengeluaran');
+        $builder->selectSum('jumlah_pengeluaran');
+        $builder->where('data_pengeluaran.nama_pengeluaran', 'uang Kegiatan D');
+        $builder->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar');
+        $builder->orderBy('pengeluaran.id_keluar');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function totalKegLain()
+    {
+        $lain = ['uang Kegiatan A', 'uang Kegiatan B', 'uang Kegiatan C', 'uang Kegiatan D'];
+        $builder = $this->db->table('pengeluaran');
+        $builder->selectSum('jumlah_pengeluaran');
+        $builder->whereNotIn('data_pengeluaran.nama_pengeluaran', $lain);
+        $builder->join('data_pengeluaran', 'data_pengeluaran.id_keluar = pengeluaran.id_keluar');
+        $builder->orderBy('pengeluaran.id_keluar');
+        $query = $builder->get();
+        return $query->getResultArray();
     }
 }

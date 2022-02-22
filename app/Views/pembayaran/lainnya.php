@@ -85,11 +85,37 @@
 
 
                                                     <td>
-                                                        <?php if ($k['status'] == 'Lunas') {
-                                                            echo '';
+
+                                                        <?php if ($k['jumlah_bayar'] != null) {
+                                                            if ($k['status'] == 'Lunas') {
+                                                                echo '';
+                                                            } elseif ($k['status'] == 'Belum Lunas') { ?>
+                                                                <form action="/pembayaran/bayar_lainnya/<?= $k['id_keuangan']; ?>" method="GET">
+                                                                    <?= csrf_field(); ?>
+                                                                    <input type="hidden" name="id_keuangan" value="<?= $k['id_keuangan']; ?>">
+                                                                    <button type="submit" class="btn btn-primary">Bayar Kekurangan</button>
+                                                                </form>
+                                                            <?php }
+                                                            ?>
+                                                        <?php
                                                         } else { ?>
-                                                            <a href="/pembayaran/bayar_lainnya/<?= $k['id_keuangan']; ?>" class="btn btn-primary">Bayar</a>
-                                                        <?php } ?>
+                                                            <?php if ($k['id_tagihan'] == '1') :  ?>
+                                                                <form action="/pembayaran/rutin/<?= $k['id_santri']; ?>" method="GET">
+                                                                    <?= csrf_field(); ?>
+                                                                    <input type="hidden" name="id_santri" value="<?= $k['id_santri']; ?>">
+                                                                    <input type="hidden" name="id_tagihan" value="<?= $k['id_tagihan']; ?>">
+                                                                    <button type="submit" class="btn btn-primary">Bayar</button>
+                                                                </form>
+                                                            <?php elseif ($k['id_tagihan'] == '2') :  ?>
+                                                                <form action="/pembayaran/laptop/<?= $k['id_santri']; ?>" method="GET">
+                                                                    <?= csrf_field(); ?>
+                                                                    <input type="hidden" name="id_santri" value="<?= $k['id_santri']; ?>">
+                                                                    <input type="hidden" name="id_tagihan" value="<?= $k['id_tagihan']; ?>">
+                                                                    <button type="submit" class="btn btn-primary">Bayar</button>
+                                                                </form>
+                                                            <?php endif; ?>
+
+                                                        <?php  } ?>
                                                     </td>
                                             </tr>
                                         <?php endforeach; ?>

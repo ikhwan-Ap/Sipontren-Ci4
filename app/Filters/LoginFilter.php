@@ -25,9 +25,9 @@ class LoginFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        // if (!session('username')) {
-        //     return redirect()->to('login/admin');
-        // }
+        if (!session('username')) {
+            return redirect()->to('login/admin');
+        }
     }
 
     /**

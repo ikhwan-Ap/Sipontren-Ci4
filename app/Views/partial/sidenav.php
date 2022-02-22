@@ -61,7 +61,7 @@
                         <li class="<?= ($title == "Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/pemasukan">Pemasukan</a></li>
                         <li class="<?= ($title == "Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pengeluaran">Pengeluaran</a></li>
                         <li class="<?= ($title == "Print Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/masuk">Print Pemasukan</a></li>
-                        <li class="<?= ($title == "Print Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/masuk">Print Pengeluaran</a></li>
+                        <li class="<?= ($title == "Print Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/keluar">Print Pengeluaran</a></li>
                     </ul>
                 </li>
 
@@ -114,7 +114,7 @@
                         <li class="<?= ($title == "Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/pemasukan">Pemasukan</a></li>
                         <li class="<?= ($title == "Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/pengeluaran">Pengeluaran</a></li>
                         <li class="<?= ($title == "Print Pemasukan") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/masuk">Print Pemasukan</a></li>
-                        <li class="<?= ($title == "Print Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/masuk">Print Pengeluaran</a></li>
+                        <li class="<?= ($title == "Print Pengeluaran") ? 'active' : ''; ?>"><a class="nav-link" href="/laporan/keluar">Print Pengeluaran</a></li>
                     </ul>
                 </li>
 

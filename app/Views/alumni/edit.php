@@ -150,7 +150,7 @@
             </div>
             <div class="card-footer text-right">
                 <button class="btn btn-primary">Ubah Data</button>
-                <a href="/asatidz" class="btn btn-light ml-2">Batal</a>
+                <a href="/alumni" class="btn btn-light ml-2">Batal</a>
             </div>
         </form>
     </div>

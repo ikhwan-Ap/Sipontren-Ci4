@@ -5,7 +5,7 @@
     <div class="d-flex flex-wrap align-items-stretch">
         <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
             <div class="p-4 m-3">
-                <img src="/img/logo-sipontren.jpeg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
+                <img src="/img/logo.png" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
                 <h4 class="text-dark font-weight-normal"><span class="font-weight-bold">Login</span></h4>
                 <p class="text-muted">Selamat datang diwebsite Pondok Pesantren Darussalam Dukuhwaluh Purwokerto.</p>
 
@@ -25,23 +25,29 @@
                             <div class="d-block">
                                 <label for="password" class="control-label">Password</label>
                             </div>
-                            <input id="password" type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" name="password" tabindex="1" autofocus>
+                            <input id="password" type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" name="password" tabindex="2">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('password'); ?>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass">
+                                <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass" onclick="myFunction()">
                                 <label class="custom-control-label" for="showpass">Show Password</label>
                             </div>
                         </div>
+
                         <div class="form-group text-right">
                             <button type="submit" class="btn btn-success btn-lg btn-icon icon-right" tabindex="4">
                                 Login
                             </button>
+                            <a href="/register" class="btn btn-success btn-lg btn-icon" tabindex="4">
+                                register
+                            </a>
                         </div>
                     </form>
+
                     <div class="text-center mt-5 text-small">
                         Copyright &copy; <?= date('Y'); ?> | SIPONTREN`
                     </div>

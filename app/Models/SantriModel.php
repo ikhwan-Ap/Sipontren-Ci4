@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use CodeIgniter\Session\Session;
 
 class SantriModel extends Model
 {
@@ -16,6 +17,7 @@ class SantriModel extends Model
         'pendidikan_terakhir', 'pengalaman_mondok', 'pendidikan_sekarang', 'gol_darah',
         'nama_almet', 'kelas_semester', 'nisn_nim', 'id_orangtua', 'status', 'created_at', 'updated_at', 'deleted_at'
     ];
+    protected $session;
     protected $useTimestamps = true;
     protected $useSoftDeletes = true;
 
@@ -74,6 +76,19 @@ class SantriModel extends Model
             ->join('kelas', 'kelas.id_kelas=santri.id_kelas')
             ->get()->getRowArray();
     }
+    public function getSantri_non($id)
+    {
+        return $this->db->table('santri')
+            ->select('*')
+            ->where('id_santri', $id)
+            ->where('status', 'Non Aktif')
+            ->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')
+            ->join('kamar', 'kamar.id_kamar=santri.id_kamar')
+            ->join('diniyah', 'diniyah.id_diniyah=santri.id_diniyah')
+            ->join('program', 'program.id_program=santri.id_program')
+            ->join('kelas', 'kelas.id_kelas=santri.id_kelas')
+            ->get()->getRowArray();
+    }
 
     public function search_santri($title)
     {
@@ -82,6 +97,18 @@ class SantriModel extends Model
         $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
         $builder->like('nis', $title);
         $builder->orderBy('nis', 'ASC');
+        $builder->limit(10);
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
+    public function search($title)
+    {
+        $builder = $this->db->table('santri');
+        $builder->select('*');
+        $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
+        $builder->like('nama_lengkap', $title);
+        $builder->orderBy('nama_lengkap', 'ASC');
         $builder->limit(10);
         $query = $builder->get();
         return $query->getResult();
@@ -105,6 +132,7 @@ class SantriModel extends Model
         $builder = $this->db->table('santri');
         $builder->select('santri.nama_lengkap', 'nama_lengkap');
         $builder->select('santri.nis', 'nis');
+        $builder->select('kelas.nama_kelas', 'nama_kelas');
         $builder->selectSum('tagihan.jumlah_pembayaran', 'tagihan');
         $builder->where('santri.id_santri', $id_santri);
         $builder->where('tagihan.nama_pembayaran', 'uang syahriyah');
@@ -119,6 +147,7 @@ class SantriModel extends Model
         $builder = $this->db->table('santri');
         $builder->select('santri.nama_lengkap', 'nama_lengkap');
         $builder->select('santri.nis', 'nis');
+        $builder->select('kelas.nama_kelas', 'nama_kelas');
         $builder->selectSum('tagihan.jumlah_pembayaran', 'tagihan');
         $builder->where('santri.id_santri', $id_santri);
         $builder->where('tagihan.nama_pembayaran', 'uang syahriyah');

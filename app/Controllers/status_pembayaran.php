@@ -16,7 +16,7 @@ use PhpParser\Node\Expr\List_;
 use function PHPUnit\Framework\returnSelf;
 use TCPDF;
 
-class status_pembayaran extends BaseController
+class Status_pembayaran extends BaseController
 {
     public function __construct()
     {
@@ -166,6 +166,7 @@ class status_pembayaran extends BaseController
                         'id_keuangan' => $id_keuangan,
                         'periode' => $periode,
                         'tagihan' => $tagihan['tagihan'],
+                        'nama_kelas' => $tagihan['nama_kelas'],
                         'pembayaran' => $jumlah_bayar,
                         'id_santri' => $id_santri,
                     ];
@@ -202,6 +203,7 @@ class status_pembayaran extends BaseController
                         'periode' => $periode,
                         'bulan' => $bulan . "-" . $tahun,
                         'tagihan' => $tagihan['tagihan'],
+                        'nama_kelas' => $tagihan['nama_kelas'],
                         'pembayaran' => $jumlah_bayar,
                         'id_santri' => $id_santri,
                     ];
@@ -243,7 +245,7 @@ class status_pembayaran extends BaseController
                 $tagihan = $this->santri->tagihanspp($id_santri);
                 $pembayaran = $this->model->filter_tanggalspp($id_santri, $bln);
 
-                if ($tagihan[0]['tagihan'] == $pembayaran[0]['jumlah_bayar']) {
+                if ($tagihan[0]['tagihan'] <= $pembayaran[0]['jumlah_bayar']) {
                     $status = 'Lunas';
                     $pembayaran[0]['jumlah_bayar'];
                 } else {
@@ -257,6 +259,7 @@ class status_pembayaran extends BaseController
                     'id_keuangan' => $pembayaran[0]['id_keuangan'],
                     'periode' => $pembayaran[0]['periode'],
                     'tagihan' => $tagihan[0]['tagihan'],
+                    'nama_kelas' => $tagihan[0]['nama_kelas'],
                     'pembayaran' => $pembayaran[0]['jumlah_bayar'],
                     'status' => $status,
                     'bulan' => $bln,
@@ -292,6 +295,7 @@ class status_pembayaran extends BaseController
 
         $waktu = $this->request->getVar('waktu');
         $id_tagihan = $this->request->getVar('id_tagihan');
+        $id_kelas = $this->request->getVar('id_kelas');
         if (!$this->validate([
             'jumlah_bayar' => [
                 'rules' => 'required',
@@ -308,7 +312,7 @@ class status_pembayaran extends BaseController
         ])) {
             return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
         }
-        $sql =    $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
         AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
 
         if ($sql  > 0) {
@@ -325,6 +329,7 @@ class status_pembayaran extends BaseController
             $this->model->save([
                 'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
                 'id_santri' => $id_santri,
+                'id_kelas' => $id_kelas,
                 'waktu' => $waktu,
                 'id_tagihan' => $id_tagihan,
                 'periode' => date("Y-m-d h:i"),
@@ -436,6 +441,24 @@ class status_pembayaran extends BaseController
             ];
 
             return view('/status_pembayaran', $data);
+        }
+    }
+
+    public function get_autofill()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->santri->search($_GET['term']);
+
+            if (count($result) > 0) {
+                foreach ($result as $row) {
+                    $arr_result[] =  array(
+                        'label' => $row->nama_lengkap,
+                        'nis' => $row->nis,
+                        'id_santri' => $row->id_santri,
+                    );
+                }
+                echo json_encode($arr_result);
+            }
         }
     }
 }

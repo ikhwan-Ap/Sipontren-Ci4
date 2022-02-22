@@ -3,11 +3,11 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\OrangtuaModel;
+
 use App\Models\SantriModel;
 use App\Models\KeuanganModel;
 use App\Models\TagihanModel;
-use CodeIgniter\Entity\Cast\TimestampCast;
+
 
 class Daftar_ulang extends BaseController
 {

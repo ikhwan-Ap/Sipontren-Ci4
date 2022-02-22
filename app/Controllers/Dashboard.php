@@ -6,6 +6,8 @@ use App\Models\AdminModel;
 use App\Models\AsatidzModel;
 use App\Models\ProgramModel;
 use App\Models\SantriModel;
+use App\Models\KeuanganModel;
+use App\Models\PengeluaranModel;
 
 class Dashboard extends BaseController
 {
@@ -16,10 +18,19 @@ class Dashboard extends BaseController
         $this->asatidzModel = new AsatidzModel();
         $this->santriModel = new SantriModel();
         $this->programModel = new ProgramModel();
+        $this->model = new KeuanganModel();
+        $this->keluar = new PengeluaranModel();
     }
 
     public function index()
     {
+
+        if (session('nis')) {
+            return redirect()->to('dashboard/santri');
+        }
+        if (session('role') == 3) {
+            return redirect()->to('perizinan/keamanan');
+        }
         $data = [
             'title' => 'Dashboard',
             'totalAdmin' => $this->adminModel->where('role', 2)->countAllResults(),
@@ -30,6 +41,16 @@ class Dashboard extends BaseController
             'totalSantriAktif' => $this->santriModel->where('status', 'Aktif')->countAllResults(),
             'totalSantriNonAktif' => $this->santriModel->where('status', 'Non Aktif')->countAllResults(),
             'totalSantriAlumni' => $this->santriModel->where('status', 'Alumni')->countAllResults(),
+            'totalPembayaranSPP' => $this->model->getSPP(),
+            'totalPendaftaran' => $this->model->getTotalPen(),
+            'totalDaftar' => $this->model->getTotalDaf(),
+            'totalRutin' => $this->model->getRutin(),
+            'lain' => $this->model->getTotalLain(),
+            'kegiatanA' => $this->keluar->totalKegA(),
+            'kegiatanB' => $this->keluar->totalKegB(),
+            'kegiatanC' => $this->keluar->totalKegC(),
+            'kegiatanD' => $this->keluar->totalKegD(),
+            'kegiatanLain' => $this->keluar->totalKegLain(),
         ];
 
         return view('dashboard/index', $data);

@@ -48,6 +48,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+
+                </div>
+                <div class="form-group">
+                    <label>Konfirmasi Password</label>
+                    <input type="password" class="form-control" id="password_conf" name="password_conf">
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass" onclick="myFunction()">
+                            <label class="custom-control-label" for="showpass">Show Password</label>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="form-group col-6">

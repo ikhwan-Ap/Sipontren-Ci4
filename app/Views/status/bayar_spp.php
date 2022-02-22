@@ -25,6 +25,7 @@
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="id_santri" value="<?= $santri['id_santri'] ?>" id="id_santri">
+                <input type="hidden" name="id_kelas" value="<?= $santri['id_kelas'] ?>" id="id_kelas">
                 <input type="hidden" name="id_tagihan" value="<?= $tagih['id_tagihan'] ?>" id="id_tagihan">
                 <div class="row">
                     <div class="form-group col-md">

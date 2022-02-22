@@ -2,8 +2,10 @@
 
 namespace Config;
 
+use App\Filters\KeamananFilter;
 use App\Filters\LoginFilter;
 use App\Filters\RegisterFilter;
+use App\Filters\SantriFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -23,6 +25,8 @@ class Filters extends BaseConfig
         'honeypot' => Honeypot::class,
         'isLoggedIn' => LoginFilter::class,
         'isRegister' => RegisterFilter::class,
+        'isSantri' => SantriFilter::class,
+        'isKeamananLogin' => KeamananFilter::class,
     ];
 
     /**
@@ -65,13 +69,33 @@ class Filters extends BaseConfig
     public $filters = [
         'isLoggedIn' => [
             'before' => [
+                'santri',
+                'santri/*',
                 'admin',
                 'admin/*',
                 'program',
                 'program/*',
                 'gedung',
+                'perizinan',
+                'perizinan/*',
                 'gedung/*',
-            ]
-        ]
+                '/dashboard'
+
+            ],
+        ],
+        'isSantri' => [
+            'before' => [
+                'dashboard/santri',
+                'santri/biodata',
+                'santri/profil',
+                'santri/pembayaran',
+            ],
+        ],
+        'isKeamananLogin' => [
+            'before' => [
+                'perizinan/keamanan',
+            ],
+
+        ],
     ];
 }

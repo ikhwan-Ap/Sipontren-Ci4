@@ -16,9 +16,6 @@
                 <a href="/dashboard/santri" class="nav-link"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item ">
-                <a href="/santri/profil" class="nav-link"><i class="fas fa-user"></i><span>Profil</span></a>
-            </li>
-            <li class="nav-item ">
                 <a href="/santri/pembayaran" class="nav-link"><i class="fas fa-credit-card  "></i><span>Pembayaran</span></a>
             </li>
             <li class="nav-item ">

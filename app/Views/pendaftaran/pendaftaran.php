@@ -82,25 +82,27 @@
                                             <td> <?= date('d-m-Y', strtotime($k['periode'])) ?></td>
                                             <td><?= $k['jumlah_bayar']; ?></td>
                                             <td><?= $k['jumlah_tagihan']; ?></td>
-                                            <?php if ($k['status'] == 'Lunas') {
-                                            ?> <td class="badge badge-success"><?= $k['status']; ?></td>
-                                            <?php  } else {
-                                            ?> <td class="badge badge-danger"><?= $k['status'];
-                                                                            } ?>
-                                                <td>
-                                                    <?php if ($k['status'] == 'Lunas') {
-                                                        echo '';
-                                                    } elseif ($k['status'] == 'Belum Lunas') { ?>
-                                                        <!-- <a href="/spp/bayar/<?= $k['id_keuangan']; ?>" class="btn btn-primary">Bayar</a> -->
-                                                        <form action="/pendaftaran/bayar_pendaftaran/<?= $k['id_keuangan']; ?>" method="GET">
-                                                            <?= csrf_field(); ?>
-                                                            <input type="hidden" name="id_keuangan" value="<?= $k['id_keuangan']; ?>">
-                                                            <button type="submit" class="btn btn-primary">Bayar</button>
-                                                        </form>
-                                                    <?php } else {
-                                                        echo '';
-                                                    } ?>
-                                                </td>
+                                            <?php if ($k['status'] == 'Lunas') : ?>
+                                                <td class="badge badge-success"><?= $k['status']; ?> </td>
+                                            <?php elseif (date('Y-m-d') > ($k['waktu'])) :  ?>
+                                                <td class="badge badge-dark">Terlambat</td>
+                                            <?php else :  ?>
+                                                <td class="badge badge-danger"><?= $k['status']; ?> </td>
+                                            <?php endif; ?>
+                                            <td>
+                                                <?php if ($k['status'] == 'Lunas') {
+                                                    echo '';
+                                                } elseif ($k['status'] == 'Belum Lunas') { ?>
+                                                    <!-- <a href="/spp/bayar/<?= $k['id_keuangan']; ?>" class="btn btn-primary">Bayar</a> -->
+                                                    <form action="/pendaftaran/bayar_pendaftaran/<?= $k['id_keuangan']; ?>" method="GET">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="id_keuangan" value="<?= $k['id_keuangan']; ?>">
+                                                        <button type="submit" class="btn btn-primary">Bayar</button>
+                                                    </form>
+                                                <?php } else {
+                                                    echo '';
+                                                } ?>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

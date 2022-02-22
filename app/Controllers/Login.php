@@ -10,6 +10,9 @@ class Login extends BaseController
 {
     public function index()
     {
+        if (session('nis')) {
+            return redirect()->to('dashboard/santri');
+        }
         return view('login/user', [
             'title' => 'Login Santri',
             'validation' => \Config\Services::validation(),
@@ -230,6 +233,7 @@ class Login extends BaseController
             if (password_verify($password, $dataSantri['password'])) {
                 session()->set([
                     'nis' => $dataSantri['nis'],
+                    'username' => $dataSantri['nis'],
                     'nama_lengkap' => $dataSantri['nama_lengkap'],
                 ]);
                 return redirect()->to('dashboard/santri');
@@ -258,8 +262,8 @@ class Login extends BaseController
     }
     public function logoutSantri()
     {
-        $array_items = ['name', 'username'];
-        session()->remove($array_items);
+        $array_items = ['nama_lengkap', 'nis'];
+        session()->destroy($array_items);
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                       <div class="alert-body">
                         <button class="close" data-dismiss="alert">

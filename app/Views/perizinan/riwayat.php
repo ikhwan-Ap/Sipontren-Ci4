@@ -23,6 +23,7 @@
                                 <th>Nama Santri</th>
                                 <th>Tanggal Izin</th>
                                 <th>Tanggal Estimasi</th>
+                                <th>Keterangan</th>
                                 <th>Catatan</th>
                                 <th>Action</th>
                             </tr>
@@ -36,6 +37,7 @@
                                     <td><?= $z['nama_lengkap']; ?></td>
                                     <td><?= $z['tanggal_izin']; ?></td>
                                     <td><?= $z['tanggal_estimasi']; ?></td>
+                                    <td><?= $z['keterangan']; ?></td>
                                     <td>
                                         <?php if ($z['tanggal_pulang'] < $z['tanggal_estimasi'] && $z['tanggal_ditolak'] == null) : ?>
                                             <?php if ($z['tanggal_pulang'] != $z['tanggal_estimasi'] && $z['tanggal_ditolak'] == null && $z['tanggal_diterima'] == null) : ?>
@@ -50,9 +52,66 @@
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="/perizinan/detailriwayatizin/<?= $z['id_izin']; ?>" class="btn btn-light" target="_blank">Detail</a>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
+                                            Detail
+                                        </button>
                                     </td>
                                 </tr>
+
+                                <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $z['id_izin']; ?>">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Keterangan Perizinan</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col">
+                                                    <h6 class="text-dark">Nama Santri :<?= $z['nama_lengkap']; ?></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-dark">Keterangan:<?= $z['keterangan']; ?></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-dark">Tanggal Perizinan :<?= date_format(date_create($z['tanggal_izin']), "Y-m-d h:i:s"); ?></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-dark">Tanggal Izin Diterima : <?= ($z['tanggal_diterima'] == null) ? '-' : date_format(date_create($z['tanggal_diterima']), "Y-m-d h:i:s");; ?></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-dark">Tanggal Estimasi : <?= date_format(date_create($z['tanggal_estimasi']), "Y-m-d h:i:s"); ?></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-dark">Tanggal Pulang : <?= date_format(date_create($z['tanggal_pulang']), "Y-m-d h:i:s"); ?></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <?php if ($z['tanggal_pulang'] > $z['tanggal_estimasi'] && $z['tanggal_ditolak'] == null) : ?>
+                                                        <h6 class="text-dark">Status:<h7 class="badge badge-dark">Terlambat</h7>
+                                                        </h6>
+
+                                                        <h6 class="text-dark">Keterangan Terlambat: <?= $z['ket_terlambat']; ?></h6>
+
+                                                    <?php elseif ($z['tanggal_ditolak'] && $z['tanggal_diterima'] == null && $z['tanggal_pulang'] == null) : ?>
+                                                        <h6 class="text-dark">Status:<h7 class="badge badge-danger">Izin Ditolak</h7>
+                                                        </h6>
+
+                                                    <?php else :  ?>
+                                                        <h6 class="text-dark">Status:<h7 class="badge badge-success">Tepat Waktu</h7>
+                                                        </h6>
+                                                    <?php endif;  ?>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-dark">Perizinan Melalui : <?= $z['user_penginput']; ?></h6>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Kembali</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
                         </tbody>
                     </table>

@@ -9,10 +9,8 @@ use App\Models\SantriModel;
 use App\Models\PengeluaranModel;
 use App\Models\Data_pengeluaran;
 use App\Models\KelasModel;
-use CodeIgniter\Database\MySQLi\Result;
-use DeepCopy\Filter\Filter;
-use function PHPUnit\Framework\returnSelf;
 use TCPDF;
+
 
 class Pembayaran extends BaseController
 {
@@ -76,6 +74,7 @@ class Pembayaran extends BaseController
                             'jumlah_tagihan' => $jumlah_tagihan,
                             'status' => $status
                         ];
+
                         $data = [
                             'title' => 'Pembayaran Lain',
                             'hasil' => $hasil,
@@ -181,9 +180,10 @@ class Pembayaran extends BaseController
                     $id_tagihan = $tagih['id_tagihan'];
                     $nis = $tagih['nis'];
                     $nama_lengkap = $tagih['nama_lengkap'];
+                    $jumlah_tagihan = $tagih['jumlah_pembayaran'];
                     $nama_pembayaran = $tagih['nama_pembayaran'];
                     $pembayaran = $this->model->filter_rutin($id_santri, $bulan, $id_tagihan);
-                    if ($tagihan[0]['tagihan'] == $pembayaran[0]['jumlah_bayar']) {
+                    if ($jumlah_tagihan == $pembayaran[0]['jumlah_bayar']) {
                         $status = 'Lunas';
                         $pembayaran[0]['jumlah_bayar'];
                     } else {
@@ -195,7 +195,8 @@ class Pembayaran extends BaseController
                         'nama_lengkap' => $nama_lengkap,
                         'nis' => $nis,
                         'id_keuangan' => $id_keuangan,
-                        'jumlah_tagihan' => $tagihan[0]['tagihan'],
+                        'jumlah_tagihan' => $jumlah_tagihan,
+                        'id_tagihan' => $id_tagihan,
                         'jumlah_bayar' => $pembayaran[0]['jumlah_bayar'],
                         'nama_pembayaran' => $nama_pembayaran,
                         'status' => $status,
@@ -232,7 +233,46 @@ class Pembayaran extends BaseController
         ];
         return view('laporan/pengeluaran_baru', $data);
     }
+    public function edit_pengeluaran($nama)
+    {
+        $data = [
+            'title' => 'Ubah Data Pengeluaran',
+            'validation' => \Config\Services::validation(),
+            'data' => $this->data->where('nama_pengeluaran', $nama)->first(),
+        ];
 
+        return view('laporan/edit', $data);
+    }
+
+    public function update_pengeluaran($id)
+    {
+        if (!$this->validate([
+            'nama_pengeluaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Pengeluaran harus diisi!',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/laporan/edit/' . $this->request->getVar('nama_pengeluaran'))->withInput();
+        }
+
+        $this->data->save([
+            'id_tagihan' => $id,
+            'nama_pengeluaran' => $this->request->getVar('nama_pengeluaran'),
+        ]);
+
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                      <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                          <span>×</span>
+                        </button>
+                        Data tagihan berhasil diubah!
+                      </div>
+                    </div>');
+
+        return redirect()->to('/laporan/pengeluaran_baru');
+    }
     public function pemasukan()
     {
 
@@ -297,11 +337,50 @@ class Pembayaran extends BaseController
 
         return view('laporan/laporanmasuk', $data);
         $html =  view('laporan/print', $data);
+        $pdf = new TCPDF('L', PDF_UNIT, 'A4', true, 'UTF-8', false);
+
+        // set document information
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Pondok Pesantren Darussalam');
+        $pdf->SetTitle('Sipontren');
+        $pdf->SetSubject('Skripsi');
+        $pdf->SetKeywords('Laporan, PDF, Skripsi');
+        $pdf->setFooterData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH);
+        // remove default header/footer
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        // ---------------------------------------------------------
+
+        // add a page
+        $pdf->AddPage();
+        // print a block of text using Write()
+        $pdf->writeHTML($html);
+        $this->response->setContentType('application/pdf');
+
+        // ---------------------------------------------------------
+
+        //Close and output PDF document
+        $pdf->Output('Data-Pemasukan-' . date('Ymd') . '.pdf', 'I');
+    }
+    public function laporan_keluar()
+    {
+
+        $data = [
+            'tanggal' => '',
+            'title' => 'Print Pengeluaran',
+            'keluar' => $this->data->getData(),
+            'data' => $this->pengeluaran->getPengeluaran_baru(),
+            'pengeluaran' => $this->pengeluaran->total_pengeluaran(),
+        ];
+
+        return view('laporan/laporankeluar', $data);
+        $html =  view('laporan/print_pengeluaran', $data);
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Nicola Asuni');
-        $pdf->SetTitle('Data Pemasukan');
+        $pdf->SetTitle('Data Pengeluaran');
         $pdf->SetSubject('TCPDF Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
@@ -343,7 +422,7 @@ class Pembayaran extends BaseController
         // ---------------------------------------------------------
 
         //Close and output PDF document
-        $pdf->Output('Data-Pemasukan.pdf', 'I');
+        $pdf->Output('Data-Pengeluaran.pdf', 'I');
     }
 
     public function filter_laporanmasuk()
@@ -432,7 +511,90 @@ class Pembayaran extends BaseController
         //Close and output PDF document
         $pdf->Output('Data-Pemasukan.pdf', 'I');
     }
+    public function filter_laporankeluar()
+    {
+        $filter = $this->request->getVar('filter');
+        $tgl_mulai = $this->request->getVar('tgl_mulai');
+        $tgl_selesai = $this->request->getVar('tgl_selesai');
+        $nama_pengeluaran = $this->request->getVar('nama_pengeluaran');
+        $tanggal = [
+            'tgl_mulai' => $tgl_mulai,
+            'tgl_selesai' => $tgl_selesai,
+            'nama_pengeluaran' => $nama_pengeluaran
+        ];
+        if ($tgl_mulai != null || $tgl_selesai != null || $nama_pengeluaran != null) {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'nama_pengeluaran' => $nama_pengeluaran
+            ];
+            $data = [
+                'title' => 'Print Pengeluaran',
+                'keluar' => $this->data->getData(),
+                'data' => $this->pengeluaran->getPengeluaran($tanggal),
+                'pengeluaran' => $this->pengeluaran->pengeluaran_total($tanggal),
+                'tanggal' => $tanggal,
+            ];
+        } else {
+            $data = [
+                'title' => 'Print Pengeluaran',
+                'data' => $this->pengeluaran->getPengeluaran_baru(),
+                'pengeluaran' => $this->pengeluaran->total_pengeluaran(),
+                'keluar' => $this->data->getData(),
+                'tanggal' => $tanggal
+            ];
+        }
+        return view('laporan/laporankeluar', $data);
+        $html =  view('laporan/print_pengeluaran', $data);
 
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetTitle('Data Pengeluaran');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+
+        // set default header data
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+
+        // set header and footer fonts
+        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        // set default monospaced font
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // set some language-dependent strings (optional)
+        if (@file_exists(dirname(__FILE__) . '/img/eng.php')) {
+            require_once(dirname(__FILE__) . '/lang/eng.php');
+            $pdf->setLanguageArray($l);
+        }
+
+        $pdf->SetFont('times', 12);
+
+        // add a page
+        $pdf->AddPage();
+
+        // set some text to print
+
+        $pdf->writeHTML($html);
+
+        // ---------------------------------------------------------
+
+        //Close and output PDF document
+        $pdf->Output('Data-Pengeluaran.pdf', 'I');
+    }
     public function print()
     {
 
@@ -573,10 +735,148 @@ class Pembayaran extends BaseController
         //Close and output PDF document
         $pdf->Output('Data-Pemasukan.pdf', 'I');
     }
+    public function print_pengeluaran()
+    {
+
+        $data = [
+            'title' => 'Print Pengeluaran',
+            'keluar' => $this->data->getData(),
+            'data' => $this->pengeluaran->getPengeluaran_baru(),
+            'pengeluaran' => $this->pengeluaran->total_pengeluaran(),
+        ];
+
+        $html =  view('laporan/print_pengeluaran', $data);
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetTitle('Data Pengeluaran');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+
+        // set default header data
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+
+        // set header and footer fonts
+        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        // set default monospaced font
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // set some language-dependent strings (optional)
+        if (@file_exists(dirname(__FILE__) . '/img/eng.php')) {
+            require_once(dirname(__FILE__) . '/lang/eng.php');
+            $pdf->setLanguageArray($l);
+        }
+
+        $pdf->SetFont('times', 12);
+
+        // add a page
+        $pdf->AddPage();
+
+        // set some text to print
+
+        $pdf->writeHTML($html);
+
+        // ---------------------------------------------------------
+
+        //Close and output PDF document
+        $pdf->Output('Data-Pengeluaran.pdf', 'I');
+    }
+    public function print_filterpengeluaran()
+    {
+
+        $uri = service('uri');
+        $param = $uri->getSegments();
+        $tgl_mulai = $param[2];
+        $tgl_selesai = $param[3];
+        $nama_pengeluaran = urldecode($param[4]);
+
+        if ($tgl_mulai != null || $tgl_selesai != null || $nama_pengeluaran != null) {
+            $tanggal = [
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_selesai' => $tgl_selesai,
+                'nama_pengeluaran' => $nama_pengeluaran
+            ];
+            $data = [
+                'title' => 'Print Pengeluaran',
+                'keluar' => $this->data->getData(),
+                'data' => $this->pengeluaran->getPengeluaran($tanggal),
+                'pengeluaran' => $this->pengeluaran->pengeluaran_total($tanggal),
+            ];
+        } else {
+            $data = [
+                'title' => 'Print Pengeluaran',
+                'data' => $this->pengeluaran->getPengeluaran_baru(),
+                'pengeluaran' => $this->pengeluaran->total_pengeluaran(),
+                'keluar' => $this->data->getData(),
+            ];
+        }
+        $html =  view('laporan/print_pengeluaran', $data);
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetTitle('Data Pengeluaran');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+
+        // set default header data
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+
+        // set header and footer fonts
+        $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        // set default monospaced font
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // set some language-dependent strings (optional)
+        if (@file_exists(dirname(__FILE__) . '/img/eng.php')) {
+            require_once(dirname(__FILE__) . '/lang/eng.php');
+            $pdf->setLanguageArray($l);
+        }
+
+        $pdf->SetFont('times', 12);
+
+        // add a page
+        $pdf->AddPage();
+
+        // set some text to print
+
+        $pdf->writeHTML($html);
+
+        // ---------------------------------------------------------
+
+        //Close and output PDF document
+        $pdf->Output('Data-Pengeluaran.pdf', 'I');
+    }
 
     public function pengeluaran()
     {
         $data = [
+            'tanggal' => '',
             'title' => 'Pengeluaran',
             'keluar' => $this->data->getData(),
             'data' => $this->pengeluaran->getPengeluaran_baru(),
@@ -590,6 +890,11 @@ class Pembayaran extends BaseController
         $tgl_mulai = $this->request->getVar('tgl_mulai');
         $tgl_selesai = $this->request->getVar('tgl_selesai');
         $nama_pengeluaran = $this->request->getVar('nama_pengeluaran');
+        $tanggal = [
+            'tgl_mulai' => $tgl_mulai,
+            'tgl_selesai' => $tgl_selesai,
+            'nama_pembayaran' => $nama_pengeluaran
+        ];
         if ($tgl_mulai != null || $tgl_selesai != null || $nama_pengeluaran != null) {
             $tanggal = [
                 'tgl_mulai' => $tgl_mulai,
@@ -601,7 +906,7 @@ class Pembayaran extends BaseController
                 'keluar' => $this->data->getData(),
                 'data' => $this->pengeluaran->getPengeluaran($tanggal),
                 'pengeluaran' => $this->pengeluaran->pengeluaran_total($tanggal),
-
+                'tanggal' => $tanggal,
             ];
         } else {
             $data = [
@@ -609,6 +914,7 @@ class Pembayaran extends BaseController
                 'data' => $this->pengeluaran->getPengeluaran_baru(),
                 'pengeluaran' => $this->pengeluaran->total_pengeluaran(),
                 'keluar' => $this->data->getData(),
+
             ];
         }
 
@@ -781,15 +1087,15 @@ class Pembayaran extends BaseController
         $waktu = $this->request->getVar('waktu');
         $id_santri = $this->request->getVar('id_santri');
         $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan 
-        WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'")->getRowArray();
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
         if ($sql > 0) {
             session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
             <div class="alert-body">
               <button class="close" data-dismiss="alert">
                 <span>×</span>
               </button>
-              Data Santri Telah Tersebut tersedia
+              Data Santri  Tersebut Telah Tersedia
             </div>
           </div>');
             return redirect()->to('/pembayaran/lainnya_add')->withInput();
@@ -869,8 +1175,8 @@ class Pembayaran extends BaseController
         $waktu = $this->request->getVar('waktu');
         $id_santri = $this->request->getVar('id_santri');
         $id_tagihan = $this->request->getVar('id_tagihan');
-        $sql = $this->db->query("SELECT id_tagihan,id_santri FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
-       ")->getRowArray();
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
         if ($sql > 0) {
             session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
           <div class="alert-body">
@@ -1102,16 +1408,21 @@ class Pembayaran extends BaseController
             $pembayaran = $bayar['jumlah_tagihan'];
         }
         $jumlah_bayar = $this->request->getVar('jumlah_bayar');
-        $total = $tagihan + $jumlah_bayar;
+        if ($tagihan == null) {
+            $total = 0 + $jumlah_bayar;
+        } else {
+            $total = $tagihan + $jumlah_bayar;
+        }
+
         if ($total > $pembayaran) {
             session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-      <div class="alert-body">
-        <button class="close" data-dismiss="alert">
-          <span>×</span>
-        </button>
-        Pembayaran Melebihi Jumlah Tagihan
-      </div>
-    </div>');
+              <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+            <span>×</span>
+            </button>
+              Pembayaran Melebihi Jumlah Tagihan
+            </div>
+            </div>');
             return redirect()->to('/pembayaran/bayar_lain/' . $id_keuangan)->withInput();
         } else {
             $this->model->save([
@@ -1159,7 +1470,12 @@ class Pembayaran extends BaseController
             $pembayaran = $bayar['jumlah_pembayaran'];
         }
         $jumlah_bayar = $this->request->getVar('jumlah_bayar');
-        $total = $tagihan + $jumlah_bayar;
+        if ($tagihan == null) {
+            $total = 0 + $jumlah_bayar;
+        } else {
+            $total = $tagihan + $jumlah_bayar;
+        }
+
         if ($total > $pembayaran) {
             session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
                 <div class="alert-body">
@@ -1185,6 +1501,178 @@ class Pembayaran extends BaseController
                   Pembayaran Berhasil!!
                 </div>
               </div>');
+
+        return redirect()->to('/lainnya');
+    }
+
+    //ada kemungkinan nambah 
+    //database di tagihan untuk santi yang akan
+    // menginput agar di panggil datanya bisa berulang saat looping
+    public function rutin($id_santri)
+    {
+        $data = [
+            'title' => 'Pembayaran Uang Makan',
+            'validation' => \Config\Services::validation(),
+            'santri' => $this->santri->where('id_santri', $id_santri)->first(),
+            'tagih' => $this->tagihan->select('*')->where('nama_pembayaran', 'uang makan')->first(),
+        ];
+        return view('pembayaran/rutin', $data);
+    }
+    public function bayar_rutin($id_santri)
+    {
+
+        $waktu = $this->request->getVar('waktu');
+        $id_tagihan = $this->request->getVar('id_tagihan');
+        $id_kelas = $this->request->getVar('id_kelas');
+        $id_santri = $this->request->getVar('id_santri');
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+        if (!$this->validate([
+            'jumlah_bayar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jumlah Pembayaran harus diisi!',
+                ]
+            ],
+            'waktu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Bayar harus diisi!',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/pembayaran/rutin/' . $this->request->getVar('id_santri'))->withInput();
+        }
+        $keuangan = $this->tagihan->getRutin($id_tagihan);
+        foreach ($keuangan as $bayar) {
+            $tagihan = $bayar['jumlah_pembayaran'];
+        }
+        $jumlah_bayar = $this->request->getVar('jumlah_bayar');
+
+        if ($jumlah_bayar > $tagihan) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+              <button class="close" data-dismiss="alert">
+                <span>×</span>
+              </button>
+              Jumlah Bayar Melebihi Tagihan !!
+            </div>
+          </div>');
+            return redirect()->to('/pembayaran/rutin/' . $this->request->getVar('id_santri'))->withInput();
+        } elseif ($sql  > 0) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                  <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                  </button>
+                  Data Dengan Bulan Tersebut tersedia
+                </div>
+              </div>');
+            return redirect()->to('/pembayaran/rutin/' . $this->request->getVar('id_santri'))->withInput();
+        } else {
+            $this->model->save([
+                'id_santri' => $id_santri,
+                'id_kelas' => $id_kelas,
+                'waktu' => $waktu,
+                'id_tagihan' => $id_tagihan,
+                'jumlah_bayar' => $jumlah_bayar,
+                'periode' => date("Y-m-d h:i"),
+
+            ]);
+        }
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                          <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                              <span>×</span>
+                            </button>
+                            Pembayaran Rutin Berhasil!!
+                          </div>
+                        </div>');
+
+        return redirect()->to('/lainnya');
+    }
+
+    public function laptop($id_santri)
+    {
+        $data = [
+            'title' => 'Pembayaran Uang Laptop',
+            'validation' => \Config\Services::validation(),
+            'santri' => $this->santri->where('id_santri', $id_santri)->first(),
+            'tagih' => $this->tagihan->select('*')->where('nama_pembayaran', 'uang laptop')->first(),
+        ];
+        return view('pembayaran/laptop', $data);
+    }
+
+    public function bayar_laptop($id_santri)
+    {
+
+        $waktu = $this->request->getVar('waktu');
+        $id_tagihan = $this->request->getVar('id_tagihan');
+        $id_kelas = $this->request->getVar('id_kelas');
+        $id_santri = $this->request->getVar('id_santri');
+        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
+        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
+        if (!$this->validate([
+            'jumlah_bayar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jumlah Pembayaran harus diisi!',
+                ]
+            ],
+            'waktu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Bayar harus diisi!',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/pembayaran/laptop/' . $this->request->getVar('id_santri'))->withInput();
+        }
+        $keuangan = $this->tagihan->getRutin($id_tagihan);
+        foreach ($keuangan as $bayar) {
+            $tagihan = $bayar['jumlah_pembayaran'];
+        }
+        $jumlah_bayar = $this->request->getVar('jumlah_bayar');
+
+        if ($jumlah_bayar > $tagihan) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+              <button class="close" data-dismiss="alert">
+                <span>×</span>
+              </button>
+              Jumlah Bayar Melebihi Tagihan !!
+            </div>
+          </div>');
+            return redirect()->to('/pembayaran/laptop/' . $this->request->getVar('id_santri'))->withInput();
+        } elseif ($sql  > 0) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                  <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                  </button>
+                  Data Dengan Bulan Tersebut tersedia
+                </div>
+              </div>');
+            return redirect()->to('/pembayaran/laptop/' . $this->request->getVar('id_santri'))->withInput();
+        } else {
+            $this->model->save([
+                'id_santri' => $id_santri,
+                'id_kelas' => $id_kelas,
+                'waktu' => $waktu,
+                'id_tagihan' => $id_tagihan,
+                'jumlah_bayar' => $jumlah_bayar,
+                'periode' => date("Y-m-d h:i"),
+
+            ]);
+        }
+        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+                          <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                              <span>×</span>
+                            </button>
+                            Pembayaran Laptop Berhasil!!
+                          </div>
+                        </div>');
 
         return redirect()->to('/lainnya');
     }

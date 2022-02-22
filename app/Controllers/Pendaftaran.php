@@ -73,6 +73,19 @@ class Pendaftaran extends BaseController
     return view('pendaftaran/pendaftaran', $data);
   }
 
+  public function pendf_add()
+  {
+    helper(['form', 'url']);
+    $data = array(
+      'book_isbn' => $this->request->getPost('book_isbn'),
+      'book_title' => $this->request->getPost('book_title'),
+      'book_author' => $this->request->getPost('book_author'),
+      'book_category' => $this->request->getPost('book_category'),
+    );
+    $insert = $this->keuangan->add_Pendaftaran($data);
+    echo json_encode(array("status" => TRUE));
+  }
+
   public function pendaftaran_add()
   {
     $data = [

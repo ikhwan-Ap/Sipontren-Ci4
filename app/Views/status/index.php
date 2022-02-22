@@ -12,8 +12,8 @@
                 <div class="row">
                     <div class="form-group">
                         <div class="col">
-                            <label for="nis">NIS</label>
-                            <input id="nis" type=" number" class="form-control" name="nis" value="<?= old('nis'); ?>">
+                            <label for="nama_lengkap">Nama Santri</label>
+                            <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>">
                         </div>
                     </div>
                     <input id="id_santri" type="hidden" name="id_santri">
@@ -76,7 +76,8 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Tagihan</th>
-                                        <th>nama</th>
+                                        <th>Kelas</th>
+                                        <th>Nama Santri</th>
                                         <th>Tanggal Pembayaran</th>
                                         <th>Pembayaran</th>
                                         <th>Periode Pembayaran</th>
@@ -92,6 +93,7 @@
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $p['tagihan']; ?></td>
+                                            <td><?= $p['nama_kelas']; ?></td>
                                             <td><?= $p['nama_lengkap']; ?></td>
                                             <td><?= $p['bulan']; ?></td>
                                             <td><?= $p['pembayaran']; ?></td>
@@ -137,11 +139,11 @@
 </section>
 <script>
     $(document).ready(function() {
-        $('#nis').autocomplete({
-            source: "<?php echo site_url('pembayaran/get_autofill/?')  ?>",
+        $('#nama_lengkap').autocomplete({
+            source: "<?php echo site_url('status_pembayaran/get_autofill/?')  ?>",
             select: function(event, ui) {
-                $('[name="nis"]').val(ui.item.label);
-                $('[name="nama_lengkap"]').val(ui.item.nama_lengkap);
+                $('[name="nama_lengkap"]').val(ui.item.label);
+                $('[name="nis"]').val(ui.item.nis);
                 $('[name="id_santri"]').val(ui.item.id_santri);
 
             }

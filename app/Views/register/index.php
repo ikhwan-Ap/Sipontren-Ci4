@@ -15,6 +15,13 @@
                     <div class="card-header">
                         <h4 class="text-success">Form Pendaftaran Santri Baru</h4>
                     </div>
+                    <div class="col">
+                        <div class="form-group text-left">
+                            <a href="/login" class="btn btn-success btn-lg btn-icon" tabindex="4">
+                                Kembali
+                            </a>
+                        </div>
+                    </div>
 
                     <div class="card-body">
                         <form action="/register" method="POST">
@@ -96,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="desa_kelurahan">Desa/kelurahan</label>
+                                    <label for="desa_kelurahan">Desa/Kelurahan</label>
                                     <input id="desa_kelurahan" type="text" class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" value="<?= old('desa_kelurahan'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('desa_kelurahan'); ?>

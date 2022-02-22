@@ -19,7 +19,7 @@
     <div class="card col-lg-8">
         <form action="/alumni" method="POST">
             <div class="card-header">
-                <h4 class="text-dark">Form Tambah Data Asatidz</h4>
+                <h4 class="text-dark">Form Tambah Data Alumni</h4>
             </div>
             <div class="card-body">
                 <?= csrf_field(); ?>

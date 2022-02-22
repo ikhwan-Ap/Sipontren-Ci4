@@ -29,7 +29,6 @@ class Register extends BaseController
             // 'desa_selected' => '',
         ]);
     }
-
     public function create()
     {
         if (!$this->validate([
@@ -84,7 +83,7 @@ class Register extends BaseController
                     'required' => 'Alamat harus diisi!',
                 ]
             ],
-            'desa' => [
+            'desa_kelurahan' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Desa / Kelurahan harus diisi!',
@@ -198,7 +197,7 @@ class Register extends BaseController
             return redirect()->to('/register')->withInput();
         }
 
-        $this->ortu->getID()->save([
+        $this->ortu->save([
             'nama_ayah' => $this->request->getVar('nama_ayah'),
             'nama_ibu' => $this->request->getVar('nama_ibu'),
             'no_hp_wali' => $this->request->getVar('no_hp_wali'),
@@ -215,7 +214,7 @@ class Register extends BaseController
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'alamat' => $this->request->getVar('alamat'),
-            'desa_kelurahan' => $this->request->getVar('desa'),
+            'desa_kelurahan' => $this->request->getVar('desa_kelurahan'),
             'kecamatan' => $this->request->getVar('kecamatan'),
             'kabupaten' => $this->request->getVar('kabupaten'),
             'provinsi' => $this->request->getVar('provinsi'),
@@ -242,6 +241,6 @@ class Register extends BaseController
                       </div>
                     </div>');
 
-        return redirect()->to('/register');
+        return redirect()->to('/login');
     }
 }

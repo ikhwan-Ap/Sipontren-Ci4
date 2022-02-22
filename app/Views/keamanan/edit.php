@@ -39,6 +39,26 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('password'); ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Konfirmasi Password</label>
+                    <input type="password" class="form-control <?= ($validation->hasError('password_conf')) ? 'is-invalid' : ''; ?>" id="password_conf" name="password_conf">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('password_conf'); ?>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass" onclick="myFunction()">
+                            <label class="custom-control-label" for="showpass">Show Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label>Email</label>
                     <input type="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" id="email" name="email" value="<?= (old('email')) ? old('email') : $admin['email']; ?>">
                     <div class="invalid-feedback">

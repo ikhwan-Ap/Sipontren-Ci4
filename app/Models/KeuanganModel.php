@@ -10,7 +10,7 @@ class KeuanganModel extends Model
     protected $primaryKey       = 'id_keuangan';
     protected $returnType       = 'array';
     protected $allowedFields    = [
-        'id_santri',  'id_tagihan', 'waktu', 'jumlah_bayar', 'bulan', 'jumlah_tagihan', 'id_kelas', 'periode'
+        'id_santri',  'id_tagihan', 'waktu', 'jumlah_bayar', 'bulan', 'jumlah_tagihan', 'id_kelas', 'periode', 'ket_bayar'
     ];
     public function getSudahLunas()
     {
@@ -107,7 +107,7 @@ class KeuanganModel extends Model
             ->groupBy('keuangan.jumlah_bayar')
             ->groupBy('tagihan.jumlah_pembayaran')
             ->groupBy('keuangan.id_santri')
-            ->orderBy('keuangan.waktu', 'desc')
+            ->groupBy('keuangan.waktu', 'desc')
             ->get()->getResultArray();
     }
     public function getPendaftaran()
@@ -311,12 +311,15 @@ class KeuanganModel extends Model
 
     public function pemasukan()
     {
+        $null = ['null', '0', ''];
         return $this->db
             ->table('keuangan')
             ->select('*')
             ->selectSum('keuangan.jumlah_bayar')
+            ->whereNotIn('keuangan.jumlah_bayar',  $null)
             ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')
             ->join('santri', 'santri.id_santri = keuangan.id_santri')
+            ->orderBy('keuangan.id_keuangan', 'Desc')
             ->groupBy('keuangan.id_tagihan')
             ->groupBy('keuangan.waktu')
             ->groupBy('keuangan.id_santri')
@@ -699,12 +702,14 @@ class KeuanganModel extends Model
             ->select('santri.nis', 'nis')
             ->select('keuangan.id_keuangan', 'id_keuangan')
             ->select('keuangan.periode', 'periode')
+            ->select('kelas.nama_kelas', 'nama_kelas')
             ->select("DATE_FORMAT(keuangan.waktu,'%d-%m-%Y')as bulan")
             ->select('(SELECT SUM(keuangan.jumlah_bayar)) AS pembayaran', false)
             ->select('(SELECT SUM(tagihan.jumlah_pembayaran)) AS tagihan', false)
             ->select("IF(SUM(keuangan.jumlah_bayar) >= SUM(tagihan.jumlah_pembayaran),'Lunas','Belum Lunas')as status")
             ->where('tagihan.nama_pembayaran', 'uang syahriyah')
             ->join('santri', 'santri.id_santri=keuangan.id_santri')
+            ->join('kelas', 'kelas.id_kelas=keuangan.id_kelas')
             ->join('tagihan', 'tagihan.id_tagihan=keuangan.id_tagihan')
             ->groupBy("DATE_FORMAT(keuangan.waktu,'%Y-%m')")
             ->groupBy('santri.id_santri')
@@ -802,5 +807,65 @@ class KeuanganModel extends Model
             ->where('id_keuangan', $id_keuangan)
             ->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')
             ->get()->getResultArray();
+    }
+
+    public function getSPP()
+    {
+        $builder = $this->db->table('keuangan');
+        $builder->selectSum('jumlah_bayar');
+        $builder->where('tagihan.nama_pembayaran', 'uang syahriyah');
+        $builder->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan');
+        $builder->orderBy('keuangan.id_tagihan');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getTotalPen()
+    {
+        $builder = $this->db->table('keuangan');
+        $builder->selectSum('jumlah_bayar');
+        $builder->where('tagihan.nama_pembayaran', 'uang pendaftaran');
+        $builder->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan');
+        $builder->orderBy('keuangan.id_tagihan');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getTotalDaf()
+    {
+        $builder = $this->db->table('keuangan');
+        $builder->selectSum('jumlah_bayar');
+        $builder->where('tagihan.nama_pembayaran', 'uang daftar ulang');
+        $builder->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan');
+        $builder->orderBy('keuangan.id_tagihan');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getRutin()
+    {
+        $rutin = ['uang makan', 'uang laptop'];
+        $builder = $this->db->table('keuangan');
+        $builder->selectSum('jumlah_bayar');
+        $builder->whereIn('tagihan.nama_pembayaran', $rutin);
+        $builder->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan');
+        $builder->orderBy('keuangan.id_tagihan');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getTotalLain()
+    {
+        $tagihan = ['uang syahriyah', 'uang daftar ulang', 'uang pendaftaran', 'uang laptop', 'uang makan'];
+        $builder = $this->db->table('keuangan');
+        $builder->selectSum('jumlah_bayar');
+        $builder->whereNotIn('tagihan.nama_pembayaran', $tagihan);
+        $builder->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan');
+        $builder->orderBy('keuangan.id_tagihan');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+
+    public function addPendaftaran($data)
+    {
+        $query = $this->db->table('keuangan')->insert($data);
+
+        return $this->db->insertID();
     }
 }

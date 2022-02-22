@@ -36,6 +36,7 @@ $routes->get('/', 'Login::index');
 $routes->get('/login/admin', 'Login::admin');
 $routes->get('/login/asatidz', 'Login::asatidz');
 $routes->get('/login/santri', 'Login::santri');
+$routes->get('/kelas/coba', 'Kelas::coba');
 
 
 // register
@@ -49,7 +50,7 @@ $routes->delete('/pendaftaran/(:num)', 'Pendaftaran::delete/$1');
 // dashboard admin / super admin
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'isLoggedIn']);
 $routes->get('/dashboard/asatidz', 'Dashboard::asatidz', ['filter' => 'isLoggedIn']);
-$routes->get('/dashboard/santri', 'Dashboard::santri', ['filter' => 'isLoggedIn']);
+$routes->get('/dashboard/santri', 'Dashboard::santri', ['filter' => 'isSantri']);
 $routes->get('/dashboard/coba', 'Santri::coba');
 
 // admin
@@ -92,8 +93,10 @@ $routes->get('/santri/add', 'Santri::create');
 $routes->post('/santri', 'Santri::save');
 $routes->get('/santri/edit/(:any)', 'Santri::edit/$1');
 $routes->put('/santri/(:num)', 'Santri::update/$1');
-$routes->get('/santri/profil/(:num)', 'Santri::profil/$1');
-$routes->get('/santri/biodata', 'Santri::biodata');
+$routes->get('/santri/editnonaktif/(:any)', 'Santri::editnonaktif/$1');
+$routes->put('/santri_non/(:num)', 'Santri::updatenonaktif/$1');
+$routes->get('/santri/profil/(:num)', 'Santri::profil/$1', ['filter' => 'isSantri']);
+$routes->get('/santri/biodata', 'Santri::biodata', ['filter' => 'isSantri']);
 $routes->get('/santri/detail/(:num)', 'Santri::detail/$1');
 
 // alumni
@@ -150,6 +153,8 @@ $routes->put('/gedung/(:any)', 'Gedung::update/$1');
 $routes->get('/pembayaran', 'Pembayaran::index');
 $routes->get('/lainnya', 'Pembayaran::lainnya');
 $routes->get('/pengeluaran_baru', 'Pembayaran::pengeluaran_baru');
+$routes->get('/pengeluaran_baru/edit/(:any)', 'Pembayaran::edit_pengeluaran/$1');
+$routes->put('/pengeluaran_baru/(:any)', 'Pembayaran::update_pengeluaran/$1');
 $routes->get('/pemasukan', 'Pembayaran::pemasukan');
 $routes->get('/pengeluaran', 'Pembayaran::pengeluaran');
 //
@@ -201,12 +206,17 @@ $routes->delete('pengeluaran/(:num)', 'Pembayaran::delete_pengeluaran/$1');
 // perizinan
 $routes->get('/perizinan', 'Perizinan::index');
 $routes->get('/perizinan/keamanan', 'Perizinan::keamanan');
+$routes->get('/perizinan/terlambat', 'Perizinan::index/$1');
+$routes->put('/perizinan', 'Perizinan::keamanan/$1');
 $routes->get('/perizinan/add', 'Perizinan::create');
 $routes->post('/perizinan', 'Perizinan::save');
 $routes->post('/perizinan/terima/(:any)', 'Perizinan::terima/$1');
 $routes->get('/perizinan/kembali/(:any)', 'Perizinan::kembali/$1');
 $routes->get('/perizinan/ditolak/(:any)', 'Perizinan::ditolak/$1');
 $routes->delete('/perizinan/(:num)', 'Perizinan::delete/$1');
+$routes->put('/terlambat/(:num)', 'Perizinan::terlambat/$1');
+// $routes->put('/terlambat/(:num)', 'Perizinan::ajax_terlambat/$1');
+
 
 // kurikulum
 $routes->get('/kurikulum', 'Kurikulum::index');
@@ -216,19 +226,25 @@ $routes->post('/kurikulum', 'Kurikulum::save');
 //Printpdf
 $routes->get('/laporan/print', 'Pembayaran::print');
 $routes->get('/laporan/print/(:any)', 'Pembayaran::print_filter');
+$routes->get('/laporan/print_pengeluaran', 'Pembayaran::print_pengeluaran');
+$routes->get('/laporan/print_pengeluaran/(:any)', 'Pembayaran::print_filterpengeluaran');
 
 
 
 //COBA_KELAS_TAGIHAN BEDA
-$routes->get('/status_pembayaran', 'status_pembayaran::index');
-$routes->get('/status_pembayaran/filter', 'status_pembayaran::filter');
-$routes->post('/status_pembayaran', 'status_pembayaran::hasil');
-$routes->get('/spp/bayar/(:any)', 'status_pembayaran::spp/$1');
-$routes->put('/spp(:any)', 'status_pembayaran::bayar_spp/$1');
-$routes->post('/status_pembayaran/filter', 'status_pembayaran::filter_spp');
-$routes->post('/status_pembayaran/filter_tanggalspp', 'status_pembayaran::filter_tanggalspp');
-$routes->get('/spp/bayar_kekurangan/(:any)', 'status_pembayaran::bayar_kekurangan/$1');
-$routes->put('/status_pembayaran/(:num)', 'status_pembayaran::update_kekurangan/$1');
+$routes->get('/status_pembayaran', 'Status_pembayaran::index');
+$routes->get('/status_pembayaran/filter', 'Status_pembayaran::filter');
+$routes->post('/status_pembayaran', 'Status_pembayaran::hasil');
+$routes->get('/spp/bayar/(:any)', 'Status_pembayaran::spp/$1');
+$routes->put('/spp(:any)', 'Status_pembayaran::bayar_spp/$1');
+$routes->get('/bayar/rutin/(:any)', 'Pembayaran::rutin/$1');
+$routes->put('/rutin(:any)', 'Pembayaran::bayar_rutin/$1');
+$routes->get('/bayar/laptop/(:any)', 'Pembayaran::laptop/$1');
+$routes->put('/laptop(:any)', 'Pembayaran::bayar_laptop/$1');
+$routes->post('/status_pembayaran/filter', 'Status_pembayaran::filter_spp');
+$routes->post('/status_pembayaran/filter_tanggalspp', 'Status_pembayaran::filter_tanggalspp');
+$routes->get('/spp/bayar_kekurangan/(:any)', 'Status_pembayaran::bayar_kekurangan/$1');
+$routes->put('/status_pembayaran/(:num)', 'Status_pembayaran::update_kekurangan/$1');
 // $routes->put('/spp/bayar/(:num)', 'status_pembayaran::spp/$1');
 // $routes->get('/perizinan/(:any)', 'Perizinan::persetujuan/$1');
 

@@ -1,5 +1,4 @@
 <?= $this->extend('layout/template_asatidz'); ?>
-
 <?= $this->section('content'); ?>
 <section class="section">
     <div class="section-header">

@@ -57,11 +57,21 @@ class TagihanModel extends Model
             ->select('santri.nis', 'nis')
             ->select('tagihan.nama_pembayaran', 'nama_pembayaran')
             ->select('keuangan.id_tagihan', 'id_tagihan')
+            ->select('tagihan.jumlah_pembayaran', 'jumlah_[embayaran')
             ->select("SUM(tagihan.jumlah_pembayaran) as tagihan", false)
             ->where('tagihan.id_tagihan', $id_tagihan)
             ->join('keuangan', 'keuangan.id_tagihan = tagihan.id_tagihan', 'left')
             ->join('santri', 'santri.id_santri = keuangan.id_santri')
             ->groupBy('santri.id_santri')
             ->get()->getResultArray();
+    }
+
+    public function getRutin($id_tagihan)
+    {
+        $builder = $this->table('tagihan');
+        $builder->select('*');
+        $builder->where('id_tagihan', $id_tagihan);
+        $query = $builder->get();
+        return $query->getResultArray();
     }
 }

@@ -23,6 +23,14 @@ class Kelas extends BaseController
 
         return view('kelas/index', $data);
     }
+    public function coba()
+    {
+        $data = [
+            'title' => 'Data Kelas',
+        ];
+
+        return view('alumni/a', $data);
+    }
 
     public function create()
     {

@@ -155,15 +155,28 @@ class Admin extends BaseController
         ])) {
             return redirect()->to('/admin/edit/' . $this->request->getVar('username'))->withInput();
         }
+        $password = $this->request->getVar('password');
+        $password_conf = $this->request->getVar('password_conf');
+        if ($password != $password_conf) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+              <button class="close" data-dismiss="alert">
+                <span>×</span>
+              </button>
+              Password Dan Konfirmasi Password Tidak Sama
+            </div>
+          </div>');
+            return redirect()->to('/admin/edit/' . $this->request->getVar('username'))->withInput();
+        } else {
+            $this->model->save([
+                'id' => $id,
+                'name' => $this->request->getVar('name'),
+                'username' => $this->request->getVar('username'),
+                'email' => $this->request->getVar('email'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            ]);
 
-        $this->model->save([
-            'id' => $id,
-            'name' => $this->request->getVar('name'),
-            'username' => $this->request->getVar('username'),
-            'email' => $this->request->getVar('email'),
-        ]);
-
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
+            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                       <div class="alert-body">
                         <button class="close" data-dismiss="alert">
                           <span>×</span>
@@ -171,7 +184,7 @@ class Admin extends BaseController
                         Data admin berhasil diubah!
                       </div>
                     </div>');
-
+        }
         return redirect()->to('/admin');
     }
 

@@ -25,7 +25,7 @@
                 <input type="hidden" name="user_penginput" value="<?= $user_penginput; ?>">
                 <div class="form-group">
                     <label for="nis">NIS</label>
-                    <input id="nis" type=" number" class="form-control <?= ($validation->hasError('nis')) ? 'is-invalid' : ''; ?>" name="nis" value="<?= old('nis'); ?>">
+                    <input id="nis" type=" number" class="form-control <?= ($validation->hasError('nis')) ? 'is-invalid' : ''; ?>" name="nis">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nis'); ?>
                     </div>
@@ -33,8 +33,8 @@
                 <input id="id_santri" type="hidden" name="id_santri">
                 <div class="form-group">
                     <label>NAMA SANTRI</label>
-                    <input id="nama_lengkap" type="text" class="form-control <?= ($validation->hasError('id_santri')) ? 'is-invalid' : ''; ?>" name="nama_lengkap" value="<?= old('id_santri'); ?>" readonly>
-                    <div class="invalid-feedback">
+                    <input id="nama_lengkap" type="text" class="form-control <?= ($validation->hasError('id_santri')) ? 'is-invalid' : ''; ?>" name="nama_lengkap" readonly>
+                    <div class=" invalid-feedback">
                         <?= $validation->getError('id_santri'); ?>
                     </div>
                 </div>
