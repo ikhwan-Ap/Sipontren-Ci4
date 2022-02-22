@@ -80,14 +80,18 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="provinsi">Provinsi</label>
-                                    <input id="provinsi" type="text" class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" value="<?= old('provinsi'); ?>">
+                                    <select id="id_provinsi" class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi">
+                                        <option value="">---Pilih Provinsi---</option>
+                                    </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('provinsi'); ?>
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="kabupaten">Kabupaten</label>
-                                    <input id="kabupaten" type="text" class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" value="<?= old('kabupaten'); ?>">
+                                    <select id="id_kabupaten" class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten">
+                                        <option value="">---Pilih Kabupaten/Kota---</option>
+                                    </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kabupaten'); ?>
                                     </div>
@@ -97,14 +101,18 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="kecamatan">Kecamatan</label>
-                                    <input id="kecamatan" type="text" class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" value="<?= old('kecamatan'); ?>">
+                                    <select id="id_kecamatan" class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan">
+                                        <option value="">---Pilih Kecamatan---</option>
+                                    </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kecamatan'); ?>
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="desa_kelurahan">Desa/Kelurahan</label>
-                                    <input id="desa_kelurahan" type="text" class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" value="<?= old('desa_kelurahan'); ?>">
+                                    <select id="id_desa" class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan">
+                                        <option value="">---Pilih Kelurahan---</option>
+                                    </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('desa_kelurahan'); ?>
                                     </div>
@@ -293,61 +301,61 @@
     // $("#kecamatan").chained("#kabupaten");
     // $("#desa_kelurahan").chained("#kecamatan");
 
-    // fetch("https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json")
-    //     .then(Response => Response.json())
-    //     .then(Data => {
-    //         console.log(Data.length);
-    //         var i = 0;
-    //         for (i = 0; i => Data.length; i++) {
-    //             document.getElementById("id_provinsi").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-    //         };
-    //     });
+    fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/provinces.json")
+        .then(Response => Response.json())
+        .then(Data => {
+            console.log(Data.length);
+            var i = 0;
+            for (i = 0; i => Data.length; i++) {
+                document.getElementById("id_provinsi").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+            };
+        });
 
-    // var xEvent1 = document.getElementById("id_provinsi");
-    // xEvent1.addEventListener("change", regency);
+    var xEvent1 = document.getElementById("id_provinsi");
+    xEvent1.addEventListener("change", regency);
 
-    // function regency() {
-    //     var province = xEvent1.value;
-    //     fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/" + province + ".json")
-    //         .then(Response => Response.json())
-    //         .then(Data => {
-    //             console.log(Data.length);
-    //             var i = 0;
-    //             for (i = 0; i => Data.length; i++) {
-    //                 document.getElementById("id_kabupaten").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-    //             };
-    //         });
-    // };
+    function regency() {
+        var province = xEvent1.value;
+        fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/regencies/" + province + ".json")
+            .then(Response => Response.json())
+            .then(Data => {
+                console.log(Data.length);
+                var i = 0;
+                for (i = 0; i => Data.length; i++) {
+                    document.getElementById("id_kabupaten").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+                };
+            });
+    };
 
-    // var xEvent2 = document.getElementById("id_kabupaten");
-    // xEvent2.addEventListener("change", district);
+    var xEvent2 = document.getElementById("id_kabupaten");
+    xEvent2.addEventListener("change", district);
 
-    // function district() {
-    //     var regency = xEvent2.value;
-    //     fetch("https://www.emsifa.com/api-wilayah-indonesia/api/districts/" + regency + ".json")
-    //         .then(Response => Response.json())
-    //         .then(Data => {
-    //             console.log(Data.length);
-    //             var i = 0;
-    //             for (i = 0; i => Data.length; i++) {
-    //                 document.getElementById("id_kecamatan").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-    //             };
-    //         });
-    // };
-    // var xEvent3 = document.getElementById("id_kecamatan");
-    // xEvent3.addEventListener("change", kelurahan);
+    function district() {
+        var regency = xEvent2.value;
+        fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/districts/" + regency + ".json")
+            .then(Response => Response.json())
+            .then(Data => {
+                console.log(Data.length);
+                var i = 0;
+                for (i = 0; i => Data.length; i++) {
+                    document.getElementById("id_kecamatan").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+                };
+            });
+    };
+    var xEvent3 = document.getElementById("id_kecamatan");
+    xEvent3.addEventListener("change", kelurahan);
 
-    // function kelurahan() {
-    //     var kelurahan = xEvent3.value;
-    //     fetch("https://www.emsifa.com/api-wilayah-indonesia/api/villages/" + kelurahan + ".json")
-    //         .then(Response => Response.json())
-    //         .then(Data => {
-    //             console.log(Data);
-    //             var i = 0;
-    //             for (i = 0; i => Data.length; i++) {
-    //                 document.getElementById("id_desa").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-    //             };
-    //         });
-    // };
+    function kelurahan() {
+        var kelurahan = xEvent3.value;
+        fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/villages/" + kelurahan + ".json")
+            .then(Response => Response.json())
+            .then(Data => {
+                console.log(Data);
+                var i = 0;
+                for (i = 0; i => Data.length; i++) {
+                    document.getElementById("id_desa").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
+                };
+            });
+    };
 </script>
 <?= $this->endSection(); ?>
