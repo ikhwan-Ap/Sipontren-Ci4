@@ -3,7 +3,6 @@
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
-use DateTime;
 
 class Pengeluaran extends Migration
 {
@@ -16,21 +15,20 @@ class Pengeluaran extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama_pengeluaran'       => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
+            'id_keluar' => [
+                'type'  => 'INT',
+                'constraint' => 11,
             ],
             'jumlah_pengeluaran'       => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '100',
             ],
             'waktu_pengeluaran' => [
-                'type' => 'DateTime',
+                'type' => 'DATE',
                 'null' => true,
             ]
-
-
         ]);
+
         $this->forge->addKey('id_pengeluaran', true);
         $this->forge->createTable('pengeluaran');
     }

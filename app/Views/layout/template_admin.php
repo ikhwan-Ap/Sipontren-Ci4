@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/js/datatables.net-select-bs4/css/select.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/css/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
 
-
+    <link rel="stylesheet" href="<?= base_url() ?>/ionicons201/css/ionicons.min.css">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/css/style.css">

@@ -40,12 +40,15 @@
                                             <td><?= $k['jumlah_pembayaran']; ?></td>
                                             <td>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_tagihan']; ?>">
-                                                    Hapus
+                                                    <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                                 </button>
                                                 <?php if ($k['jumlah_pembayaran'] == null) : ?>
-                                                    <a href="/tagihan/edit/<?= $k['nama_pembayaran']; ?>" class="btn btn-warning">Edit</a>
+                                                    <a href="/tagihan/edit/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
+                                                        <spanion class="ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                                    </a>
                                                 <?php elseif ($k['jumlah_pembayaran'] != null) : ?>
-                                                    <a href="/tagihan/edit_rutin/<?= $k['nama_pembayaran']; ?>" class="btn btn-warning">Edit Rutin</a>
+                                                    <a href="/tagihan/edit_rutin/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
+                                                        <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span></a>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+
 use App\Controllers\BaseController;
 use App\Models\KeuanganModel;
 use App\Models\TagihanModel;
@@ -9,6 +10,7 @@ use App\Models\SantriModel;
 use App\Models\PengeluaranModel;
 use App\Models\Data_pengeluaran;
 use App\Models\KelasModel;
+use CodeIgniter\Files\File;
 use CodeIgniter\Database\MySQLi\Result;
 use DeepCopy\Filter\Filter;
 use PhpParser\Node\Expr\List_;
@@ -141,6 +143,7 @@ class Status_pembayaran extends BaseController
                     $bulan_bayar[$bayar['bulan']] = $bayar['total_bayar'];
                     $id_keuangan = $bayar['id_keuangan'];
                     $periode = $bayar['periode'];
+                    $ket_bayar = $bayar['ket_bayar'];
                 }
                 $hasil = array();
                 for ($i = 1; $i <= 12; $i++) {
@@ -162,6 +165,7 @@ class Status_pembayaran extends BaseController
                         'status' => $status,
                         'nama_lengkap' => $tagihan['nama_lengkap'],
                         'tahun' => $tahun,
+                        'ket_bayar' => $ket_bayar,
                         'bulan' => $bulan . "-" . $tahun,
                         'id_keuangan' => $id_keuangan,
                         'periode' => $periode,
@@ -309,9 +313,25 @@ class Status_pembayaran extends BaseController
                     'required' => 'Tanggal Bayar harus diisi!',
                 ]
             ],
+            'ket_bayar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Keterangan Pembayaran harus diisi!',
+                ]
+            ],
+            'bukti' => [
+                'rules' => 'uploaded[sampul]|max_size[sampul,40]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Gambar Harus Di Pilih',
+                    'max_size' => 'Ukuran Gambar Terlalu besar',
+                    'is_image' => 'Yang Anda Pilih Bukan Gambar',
+                    'mime_in' => 'Yang Anda Pilih Bukan Gambar',
+                ]
+            ]
         ])) {
             return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
         }
+        dd('berhasil');
         $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
         AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
 
@@ -326,15 +346,24 @@ class Status_pembayaran extends BaseController
               </div>');
             return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
         } else {
-            $this->model->save([
+            $model = new KeuanganModel();
+            $bukti = $this->request->getFile('bukti');
+            $fileName = $bukti->getRandomName();
+            $model->insert([
                 'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
                 'id_santri' => $id_santri,
                 'id_kelas' => $id_kelas,
                 'waktu' => $waktu,
+                'ket_bayar' => $this->request->getVar('ket_bayar'),
+                'bukti' => $bukti,
                 'id_tagihan' => $id_tagihan,
                 'periode' => date("Y-m-d h:i"),
 
             ]);
+            $model->move('uploads/transfer/', $fileName);
+            session()->setFlashdata('success', 'Berkas Berhasil diupload');
+
+            return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
         }
         session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
                           <div class="alert-body">

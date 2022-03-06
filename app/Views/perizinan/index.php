@@ -5,7 +5,7 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <button type="button" class="btn btn-primary" onclick="add_perizinan()" data-toggle="modal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_tambah">
                 Tambah
             </button>
             <!-- <a href="" data-target="modal-tambah" class="btn btn-primary">Tambah</a> -->
@@ -76,10 +76,10 @@
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal1<?= $z['id_izin']; ?>">
-                                                Detail
+                                                <span class="ion ion-android-open" data-pack="android" data-tags="">
                                             </button>
                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
-                                                Hapus
+                                                <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                             </button>
                                         </td>
                                     <?php endif; ?>
@@ -160,7 +160,7 @@
                                             <div class="modal-body">
                                                 <div class="card-body">
                                                     <div class="card col">
-                                                        <form action="#" id="form">
+                                                        <form action="/perizinan" method="POST">
                                                             <?= csrf_field(); ?>
                                                             <div class="form-group">
                                                                 <input type="hidden" name="user_penginput" value="<?= $user_penginput; ?>">
@@ -203,8 +203,9 @@
                                                             </div>
 
                                                             <div class="modal-footer">
-                                                                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                                <input type="hidden" name="_method">
+                                                                <button type="submit" class="btn btn-primary">Tambah</button>
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Kembali</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -266,33 +267,5 @@
             }
         })
     });
-
-    function add_perizinan() {
-        save_method = 'add';
-        $('#form')[0].reset(); // reset form on modals
-        $('#modal_tambah').modal('show'); // show bootstrap modal
-        //$('.modal-title').text('Add Person');
-    };
-
-    function save() {
-        var url;
-        if (save_method = 'add') {
-            url = "<?php echo site_url('perizinan/perizinan_add') ?>";
-        }
-        $.ajax({
-            url: url,
-            type: "POST",
-            data: $('#form').serialize(),
-            dataType: "JSON",
-            success: function(data) {
-                //if success close modal and reload ajax table
-                $('#modal_tambah').modal('hide');
-                location.reload(); // for reload a page
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert('Error adding / update data');
-            }
-        });
-    }
 </script>
 <?= $this->endSection(); ?>

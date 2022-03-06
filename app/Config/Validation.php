@@ -37,6 +37,14 @@ class Validation
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
+    public $provinsi = [
+        'nama_provinsi' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Nama Provinsi Belum Terisi'
+            ]
+        ]
+    ];
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------

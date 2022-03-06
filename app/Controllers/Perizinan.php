@@ -83,7 +83,7 @@ class Perizinan extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/perizinan/add')->withInput();
+            return redirect()->to('/perizinan')->withInput();
         }
         $id_santri = $this->request->getVar('id_santri');
         $tanggal_izin = $this->request->getVar('tanggal_izin');
@@ -98,7 +98,7 @@ class Perizinan extends BaseController
               Tanggal Izin Dan Estimasi Tidak Sesuai / Tidak Relevan
             </div>
           </div>');
-            return redirect()->to('/perizinan/add')->withInput();
+            return redirect()->to('/perizinan')->withInput();
         } else {
             $this->perizinan->save([
                 'id_santri' => $id_santri,

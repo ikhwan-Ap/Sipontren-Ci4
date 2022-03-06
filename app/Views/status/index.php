@@ -106,27 +106,54 @@
                                             </td>
                                         <?php endif; ?>
                                         <td>
-                                            <?php if ($p['pembayaran'] != null) {
-                                                if ($p['status'] == 'Lunas') {
-                                                    echo '';
-                                                } elseif ($p['status'] == 'Belum Lunas') { ?>
+                                            <?php if ($p['status'] == 'Lunas') : ?>
+                                                <?php if ($p['status'] == 'Lunas') : ?>
+                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal1<?= $p['id_keuangan']; ?>"><span class="ion ion-android-open" data-pack="android" data-tags=""></button>
+                                                <?php elseif ($p['status'] == 'Belum Lunas') : ?>
                                                     <form action="/spp/bayar_kekurangan/<?= $p['id_keuangan']; ?>" method="GET">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="id_keuangan" value="<?= $p['id_keuangan']; ?>">
                                                         <button type="submit" class="btn btn-primary">Bayar Kekurangan</button>
                                                     </form>
-                                                <?php }
-                                                ?>
-                                            <?php
-                                            } else { ?>
+                                                <?php endif; ?>
+                                            <?php else : ?>
                                                 <form action="/spp/bayar/<?= $p['id_santri']; ?>" method="GET">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="id_santri" value="<?= $p['id_santri']; ?>">
                                                     <button type="submit" class="btn btn-primary">Bayar</button>
                                                 </form>
-                                            <?php  } ?>
+                                            <?php endif; ?>
                                         </td>
                                         </tr>
+
+                                        <!-- Modal Detail Pembayaran SPP -->
+                                        <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal1<?= $p['id_keuangan']; ?>">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Keterangan Pembayaran</h5>
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <label for="ket_bayar">ket_bayar</label>
+                                                                    <p class="form-control"><?= $p['ket_bayar']; ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Kembali</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>

@@ -52,8 +52,8 @@
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
-                                            Detail
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
+                                            <span class="ion ion-android-open" data-pack="android" data-tags="">
                                         </button>
                                     </td>
                                 </tr>

@@ -10,7 +10,7 @@ class KeuanganModel extends Model
     protected $primaryKey       = 'id_keuangan';
     protected $returnType       = 'array';
     protected $allowedFields    = [
-        'id_santri',  'id_tagihan', 'waktu', 'jumlah_bayar', 'bulan', 'jumlah_tagihan', 'id_kelas', 'periode', 'ket_bayar'
+        'id_santri',  'id_tagihan', 'waktu', 'jumlah_bayar', 'bulan', 'jumlah_tagihan', 'id_kelas', 'periode', 'ket_bayar', 'bukti'
     ];
     public function getSudahLunas()
     {
@@ -412,6 +412,7 @@ class KeuanganModel extends Model
             ->select('keuangan.periode', 'periode')
             ->select('id_keuangan')
             ->select('periode')
+            ->select('ket_bayar')
             ->select("SUM(keuangan.jumlah_bayar) as total_bayar", false)
             ->where("id_santri", $id_santri)
             ->where("YEAR(keuangan.waktu)", $tahun)
@@ -702,6 +703,7 @@ class KeuanganModel extends Model
             ->select('santri.nis', 'nis')
             ->select('keuangan.id_keuangan', 'id_keuangan')
             ->select('keuangan.periode', 'periode')
+            ->select('keuangan.ket_bayar', 'ket_bayar')
             ->select('kelas.nama_kelas', 'nama_kelas')
             ->select("DATE_FORMAT(keuangan.waktu,'%d-%m-%Y')as bulan")
             ->select('(SELECT SUM(keuangan.jumlah_bayar)) AS pembayaran', false)

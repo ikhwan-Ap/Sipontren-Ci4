@@ -44,9 +44,12 @@
 
                                             <td>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_tagihan']; ?>">
-                                                    Hapus
+                                                    <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                                 </button>
-                                                <a href="/tagihan/edit_kelas/<?= $k['id_tagihan']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="/tagihan/edit_kelas/<?= $k['id_tagihan']; ?>" class="btn btn-light">
+                                                    <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+
+                                                </a>
                                             </td>
                                         </tr>
 

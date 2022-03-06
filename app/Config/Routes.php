@@ -32,6 +32,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->resource('provinsi');
 $routes->get('/', 'Login::index');
 $routes->get('/login/admin', 'Login::admin');
 $routes->get('/login/asatidz', 'Login::asatidz');
