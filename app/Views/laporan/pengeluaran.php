@@ -5,7 +5,11 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/pengeluaran_add" class="btn btn-primary">Tambah Pengeluaran Baru</a>
+            <a href="/pengeluaran_add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 
@@ -53,6 +57,7 @@
                             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div class="card card-statistic-1">
                                     <div class="card-icon bg-danger">
+                                        <span class="ion ion-cash" data-pack="default" data-tags="credit, price, debit, money, shopping, dollars, $"></span>
                                     </div>
                                     <div class="card-header-primary">
                                         <h3>Total Pengeluaran
@@ -92,7 +97,7 @@
 
                                             <td>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_pengeluaran']; ?>">
-                                                    Hapus
+                                                    <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                                 </button>
                                             </td>
                                         </tr>

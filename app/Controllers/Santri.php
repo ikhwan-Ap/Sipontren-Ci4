@@ -9,6 +9,10 @@ use App\Models\KamarModel;
 use App\Models\DiniyahModel;
 use App\Models\KeuanganModel;
 use App\Models\ProgramModel;
+use App\Models\WilayahModel;
+use App\Models\RegenciesModel;
+use App\Models\DistrictsModel;
+use App\Models\VillagesModel;
 
 class Santri extends BaseController
 {
@@ -22,6 +26,10 @@ class Santri extends BaseController
         $this->kamar = new KamarModel();
         $this->program = new ProgramModel();
         $this->keuangan = new KeuanganModel();
+        $this->provinsi = new WilayahModel();
+        $this->kabupaten = new RegenciesModel();
+        $this->kecamatan = new DistrictsModel();
+        $this->desa = new VillagesModel();
     }
 
     // $fotosantri = $this->santriModel->where('username', session()->get('foto'))->first();
@@ -158,6 +166,12 @@ class Santri extends BaseController
         $data = [
             'title' => 'Data Santri',
             'validation' => \Config\Services::validation(),
+            'wilayah' => $this->provinsi->get_provinsi(),
+            'kelas' => $this->kelas->findAll(),
+            'diniyah' => $this->diniyah->findAll(),
+            'program' => $this->program->findAll(),
+            'kamar' => $this->kamar->findAll(),
+
         ];
 
         return view('santri/add', $data);
@@ -349,6 +363,42 @@ class Santri extends BaseController
                     'required' => 'Jurusan harus diisi!',
                 ]
             ],
+            'id_program' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Program harus diisi!',
+                ]
+            ],
+            'id_diniyah' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Diniyah harus diisi!',
+                ]
+            ],
+            'id_kelas' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kelas harus diisi!',
+                ]
+            ],
+            'id_kamar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kamar harus diisi!',
+                ]
+            ],
+            'jenis_kendaraan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jenis Kendaraan harus diisi!',
+                ]
+            ],
+            'plat_nomor' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Plat Nomor harus diisi!',
+                ]
+            ],
         ])) {
             return redirect()->to('/santri/add')->withInput();
         }
@@ -361,6 +411,7 @@ class Santri extends BaseController
         ]);
 
         $idOrtu = $this->ortu->getID();
+
 
         $this->santri->save([
             'nis' => $this->request->getVar('nis'),
@@ -388,6 +439,12 @@ class Santri extends BaseController
             'kelas_semester' => $this->request->getVar('kelas_semester'),
             'jurusan' => $this->request->getVar('jurusan'),
             'id_orangtua' => $idOrtu,
+            'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
+            'plat_nomor' => $this->request->getVar('plat_nomor'),
+            'id_diniyah' => $this->request->getVar('id_diniyah'),
+            'id_program' => $this->request->getVar('id_program'),
+            'id_kelas' => $this->request->getVar('id_kelas'),
+            'id_kamar' => $this->request->getVar('id_kamar'),
             'status' => 'Aktif',
         ]);
 
@@ -408,11 +465,17 @@ class Santri extends BaseController
         $data = [
             'title' => 'Edit Data Santri',
             'validation' => \Config\Services::validation(),
-            'santri' => $this->santri->getSantri($id),
+            'santri' => $this->santri->edit($id),
             'kelas' => $this->kelas->findAll(),
             'diniyah' => $this->diniyah->findAll(),
             'program' => $this->program->findAll(),
             'kamar' => $this->kamar->findAll(),
+            'santri_program' => $this->santri->Get_program($id),
+            'provinsi' => $this->santri->Get_provinsi($id),
+            'kabupaten' => $this->santri->Get_kabupaten($id),
+            'kecamatan' => $this->santri->Get_kecamatan($id),
+            'desa' => $this->santri->Get_desa($id),
+            'wilayah' => $this->provinsi->get_provinsi(),
         ];
 
         return view('santri/edit', $data);
@@ -621,6 +684,18 @@ class Santri extends BaseController
                     'required' => 'Kamar harus diisi!',
                 ]
             ],
+            'jenis_kendaraan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jenis Kendaraan harus diisi!',
+                ]
+            ],
+            'plat_nomor' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Plat Nomor harus diisi!',
+                ]
+            ],
         ])) {
             return redirect()->to('/santri/edit/' . $id)->withInput();
         }
@@ -681,6 +756,8 @@ class Santri extends BaseController
                 'id_kelas' => $id_kelas,
                 'id_kamar' => $id_kamar,
                 'id_orangtua' => $id_orangtua,
+                'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
+                'plat_nomor' => $this->request->getVar('plat_nomor'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'status' => $this->request->getVar('status'),
             ]);
@@ -702,12 +779,13 @@ class Santri extends BaseController
         $data = [
             'title' => 'Edit Data Santri Non Aktif',
             'validation' => \Config\Services::validation(),
-            'santri' => $this->santri
-                ->where('id_santri', $id)->join('orangtua', 'orangtua.id_orangtua=santri.id_orangtua')
-                ->first(),
-            'santri_program' => $this->santri->where('id_santri', $id)
-                ->join('program', 'program.id_program=santri.id_program')
-                ->first(),
+            'santri' => $this->santri->editNon($id),
+            'santri_program' => $this->santri->Get_program($id),
+            'provinsi' => $this->santri->Get_provinsi($id),
+            'kabupaten' => $this->santri->Get_kabupaten($id),
+            'kecamatan' => $this->santri->Get_kecamatan($id),
+            'desa' => $this->santri->Get_desa($id),
+            'wilayah' => $this->provinsi->get_provinsi(),
             'santri_diniyah' => $this->santri->where('id_santri', $id)
                 ->join('diniyah', 'diniyah.id_diniyah=santri.id_diniyah')
                 ->first(),
@@ -789,12 +867,6 @@ class Santri extends BaseController
                     'required' => 'Alamat harus diisi!',
                 ]
             ],
-            'desa_kelurahan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Desa / Kelurahan harus diisi!',
-                ]
-            ],
             'kecamatan' => [
                 'rules' => 'required',
                 'errors' => [
@@ -813,12 +885,19 @@ class Santri extends BaseController
                     'required' => 'Provinsi harus diisi!',
                 ]
             ],
+            'desa_kelurahan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Desa / Kelurahan harus diisi!',
+                ]
+            ],
             'nama_ayah' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Nama Ayah harus diisi!',
                 ]
             ],
+
             'nama_ibu' => [
                 'rules' => 'required',
                 'errors' => [
@@ -943,7 +1022,19 @@ class Santri extends BaseController
                     'required' => 'Konfirmasi Password harus diisi!',
                     'matches' => 'Konfirmasi Password tidak sama dengan Password!'
                 ]
-            ]
+            ],
+            'jenis_kendaraan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jenis Kendaraan harus diisi!',
+                ]
+            ],
+            'plat_nomor' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Plat Nomor harus diisi!',
+                ]
+            ],
         ])) {
             return redirect()->to('/santri/editnonaktif/' . $id)->withInput();
         }
@@ -954,6 +1045,7 @@ class Santri extends BaseController
             'nama_ibu' => $this->request->getVar('nama_ibu'),
             'no_hp_wali' => $this->request->getVar('no_hp_wali'),
             'pekerjaan_ortu' => $this->request->getVar('pekerjaan_ortu'),
+
         ]);
 
         $idOrtu = $this->ortu->getID();
@@ -969,10 +1061,10 @@ class Santri extends BaseController
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'alamat' => $this->request->getVar('alamat'),
-            'desa_kelurahan' => $this->request->getVar('desa_kelurahan'),
-            'kecamatan' => $this->request->getVar('kecamatan'),
-            'kabupaten' => $this->request->getVar('kabupaten'),
             'provinsi' => $this->request->getVar('provinsi'),
+            'kabupaten' => $this->request->getVar('kabupaten'),
+            'kecamatan' => $this->request->getVar('kecamatan'),
+            'desa_kelurahan' => $this->request->getVar('desa_kelurahan'),
             'no_hp_santri' => $this->request->getVar('no_hp_santri'),
             'catatan_medis' => $this->request->getVar('catatan_medis'),
             'pendidikan_terakhir' => $this->request->getVar('pendidikan_terakhir'),
@@ -983,6 +1075,8 @@ class Santri extends BaseController
             'nama_almet' => $this->request->getVar('nama_almet'),
             'kelas_semester' => $this->request->getVar('kelas_semester'),
             'jurusan' => $this->request->getVar('jurusan'),
+            'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
+            'plat_nomor' => $this->request->getVar('plat_nomor'),
             'id_diniyah' => $this->request->getVar('id_diniyah'),
             'id_program' => $this->request->getVar('id_program'),
             'id_kelas' => $this->request->getVar('id_kelas'),
@@ -1003,6 +1097,7 @@ class Santri extends BaseController
 
         return redirect()->to('/santri');
     }
+
     public function delete($id)
     {
         $this->db->table('santri')->delete(['id_santri' => $id]);
@@ -1016,5 +1111,34 @@ class Santri extends BaseController
                       </div>
                     </div>');
         return redirect()->to('/santri');
+    }
+
+    public  function Get_kabupaten($provinsi_id)
+    {
+
+        if ($provinsi_id != '') {
+            echo $this->kabupaten->get_kabupaten($provinsi_id);
+        }
+    }
+    //request data kecamatan berdasarkan id kabupaten yang dipilih
+    public  function Get_kecamatan($kabupaten_id)
+    {
+        if ($this->request->isAJAX()) {
+
+            if ($kabupaten_id != '') {
+                echo $this->kecamatan->get_kecamatan($kabupaten_id);
+            }
+        }
+    }
+
+    //request data desa berdasarkan id kecamatan yang dipilih
+    public function Get_desa($kecamatan_id)
+    {
+        if ($this->request->isAJAX()) {
+
+            if ($kecamatan_id != '') {
+                echo $this->desa->get_desa($kecamatan_id);
+            }
+        }
     }
 }

@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="provinsi">Tanggal Lahir</label>
+                                    <label for="tanggal_lahir">Tanggal Lahir</label>
                                     <input id="tanggal_lahir" type="date" class="form-control <?= ($validation->hasError('tanggal_lahir')) ? 'is-invalid' : ''; ?>" name="tanggal_lahir" value="<?= old('tanggal_lahir'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('tanggal_lahir'); ?>
@@ -80,8 +80,11 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="provinsi">Provinsi</label>
-                                    <select id="id_provinsi" class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi">
-                                        <option value="">---Pilih Provinsi---</option>
+                                    <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="provinsi">
+                                        <option value="" hidden></option>
+                                        <?php foreach ($wilayah as $provinsi) : ?>
+                                            <option value="<?= $provinsi['id']; ?>"><?= $provinsi['name']; ?></option>
+                                        <?php endforeach;  ?>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('provinsi'); ?>
@@ -89,8 +92,10 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="kabupaten">Kabupaten</label>
-                                    <select id="id_kabupaten" class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten">
-                                        <option value="">---Pilih Kabupaten/Kota---</option>
+                                    <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="kabupaten">
+                                        <?php
+
+                                        ?>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kabupaten'); ?>
@@ -101,8 +106,10 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="kecamatan">Kecamatan</label>
-                                    <select id="id_kecamatan" class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan">
-                                        <option value="">---Pilih Kecamatan---</option>
+                                    <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="kecamatan">
+                                        <?php
+
+                                        ?>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kecamatan'); ?>
@@ -110,14 +117,17 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="desa_kelurahan">Desa/Kelurahan</label>
-                                    <select id="id_desa" class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan">
-                                        <option value="">---Pilih Kelurahan---</option>
+                                    <select class="form-control  <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" id="desa_kelurahan">
+                                        <?php
+
+                                        ?>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('desa_kelurahan'); ?>
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
@@ -277,8 +287,24 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="jenis_kendaraan">Jenis Kendaraan</label>
+                                    <input id="jenis_kendaraan" type="text" class="form-control <?= ($validation->hasError('jenis_kendaraan')) ? 'is-invalid' : ''; ?>" name="jenis_kendaraan" value="<?= old('jenis_kendaraan'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('jenis_kendaraan'); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="plat_nomor">Plat Nomor</label>
+                                    <input id="plat_nomor" type="text" class="form-control <?= ($validation->hasError('plat_nomor')) ? 'is-invalid' : ''; ?>" name="plat_nomor" value="<?= old('plat_nomor'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('plat_nomor'); ?>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-lg btn-block">
+                                <button id="kirim" type="submit" class="btn btn-success btn-lg btn-block">
                                     Register
                                 </button>
                             </div>
@@ -293,69 +319,63 @@
     </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-chained/1.0.1/jquery.chained.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/07323268fb.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
 <script>
     // $("#kabupaten").chained("#provinsi");
     // $("#kecamatan").chained("#kabupaten");
     // $("#desa_kelurahan").chained("#kecamatan");
+    $(document).ready(function() {
 
-    fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/provinces.json")
-        .then(Response => Response.json())
-        .then(Data => {
-            console.log(Data.length);
-            var i = 0;
-            for (i = 0; i => Data.length; i++) {
-                document.getElementById("id_provinsi").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-            };
+        //request data kabupaten
+        $('#provinsi').change(function() {
+            var provinsi_id = $('#provinsi').val(); //ambil value id dari provinsi
+            if (provinsi_id != '') {
+                $.ajax({
+                    url: "<?php echo base_url('/register/Get_kabupaten/') ?>/" + provinsi_id,
+                    method: 'GET',
+
+                    success: function(provinsi_id) {
+                        $('#kabupaten').html(provinsi_id)
+                    }
+                });
+            }
+        });
+        //request data kecamatan
+        $('#kabupaten').change(function() {
+            var kabupaten_id = $('#kabupaten').val(); // ambil value id dari kabupaten
+            if (kabupaten_id != '') {
+                $.ajax({
+                    url: "<?php echo base_url('/register/Get_kecamatan/') ?>/" + kabupaten_id,
+                    method: 'GET',
+
+                    success: function(kabupaten_id) {
+                        $('#kecamatan').html(kabupaten_id)
+                    }
+                });
+            }
         });
 
-    var xEvent1 = document.getElementById("id_provinsi");
-    xEvent1.addEventListener("change", regency);
+        //request data desa
+        $('#kecamatan').change(function() {
+            var kecamatan_id = $('#kecamatan').val(); // ambil value id dari kecamatan
+            if (kecamatan_id != '') {
+                $.ajax({
+                    url: "<?php echo base_url('/register/Get_desa/') ?>/" + kecamatan_id,
+                    method: 'GET',
 
-    function regency() {
-        var province = xEvent1.value;
-        fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/regencies/" + province + ".json")
-            .then(Response => Response.json())
-            .then(Data => {
-                console.log(Data.length);
-                var i = 0;
-                for (i = 0; i => Data.length; i++) {
-                    document.getElementById("id_kabupaten").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-                };
-            });
-    };
+                    success: function(kecamatan_id) {
+                        $('#desa_kelurahan').html(kecamatan_id)
+                    }
+                });
+            }
+        });
 
-    var xEvent2 = document.getElementById("id_kabupaten");
-    xEvent2.addEventListener("change", district);
 
-    function district() {
-        var regency = xEvent2.value;
-        fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/districts/" + regency + ".json")
-            .then(Response => Response.json())
-            .then(Data => {
-                console.log(Data.length);
-                var i = 0;
-                for (i = 0; i => Data.length; i++) {
-                    document.getElementById("id_kecamatan").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-                };
-            });
-    };
-    var xEvent3 = document.getElementById("id_kecamatan");
-    xEvent3.addEventListener("change", kelurahan);
 
-    function kelurahan() {
-        var kelurahan = xEvent3.value;
-        fetch("https://dimaschronicles.github.io/api-wilayah-indonesia.github.io/api/villages/" + kelurahan + ".json")
-            .then(Response => Response.json())
-            .then(Data => {
-                console.log(Data);
-                var i = 0;
-                for (i = 0; i => Data.length; i++) {
-                    document.getElementById("id_desa").innerHTML += "<option value='" + Data[i].id + "'>" + Data[i].name + "</option>";
-                };
-            });
-    };
+
+    });
 </script>
 <?= $this->endSection(); ?>

@@ -5,7 +5,11 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/daftar_ulang_add" class="btn btn-primary">Tambah Data Daftar Ulang</a>
+            <a href="/daftar_ulang_add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 

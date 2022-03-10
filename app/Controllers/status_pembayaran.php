@@ -331,7 +331,7 @@ class Status_pembayaran extends BaseController
         ])) {
             return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
         }
-        dd('berhasil');
+
         $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
         AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
 

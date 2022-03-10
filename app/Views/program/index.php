@@ -5,7 +5,11 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/program/add" class="btn btn-primary">Tambah</a>
+            <a href="/program/add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 
@@ -36,9 +40,11 @@
                                             <td><?= $p['nama_program']; ?></td>
                                             <td>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $p['id_program']; ?>">
-                                                    Hapus
+                                                    <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                                 </button>
-                                                <a href="/program/edit/<?= $p['nama_program']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="/program/edit/<?= $p['nama_program']; ?>" class="btn btn-light">
+                                                    <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                                </a>
                                             </td>
                                         </tr>
 

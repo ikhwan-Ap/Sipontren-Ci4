@@ -5,7 +5,11 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/alumni/add" class="btn btn-primary">Tambah</a>
+            <a href="/alumni/add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 
@@ -46,10 +50,14 @@
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $a['id_santri']; ?>">
-                                            Hapus
+                                            <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                         </button>
-                                        <a href="/alumni/edit/<?= $a['id_santri']; ?>" class="btn btn-warning">Edit</a>
-                                        <a href="/alumni/detail/<?= $a['id_santri']; ?>" class="btn btn-info" target="_blank">Detail</a>
+                                        <a href="/alumni/edit/<?= $a['id_santri']; ?>" class="btn btn-light">
+                                            <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                        </a>
+                                        <a href="/alumni/detail/<?= $a['id_santri']; ?>" class="btn btn-light" target="_blank">
+                                            <span class="ion ion-android-open" data-pack="android" data-tags="">
+                                        </a>
                                     </td>
                                 </tr>
 

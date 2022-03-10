@@ -50,18 +50,22 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
-
+                    <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" value="<?= (old('password')) ? old('password') : $santri['password']; ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('password'); ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Konfirmasi Password</label>
-                    <input type="password" class="form-control" id="password_conf" name="password_conf">
-
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass" onclick="myFunction()">
-                            <label class="custom-control-label" for="showpass">Show Password</label>
-                        </div>
+                    <input type="password" class="form-control <?= ($validation->hasError('password_conf')) ? 'is-invalid' : ''; ?>" id="password_conf" name="password_conf" value="<?= (old('password')) ? old('password') : $santri['password']; ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('password_conf'); ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="showpass" class="custom-control-input" tabindex="3" id="showpass" onclick="myFunction()">
+                        <label class="custom-control-label" for="showpass">Show Password</label>
                     </div>
                 </div>
 
@@ -118,11 +122,10 @@
                     <div class="form-group col-6">
                         <label for="provinsi">Provinsi</label>
                         <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="provinsi">
-                            <option value="<?= $santri['provinsi']; ?>" hidden><?= $santri['provinsi']; ?></option>
-                            <option value="Sumatera Utara">Sumatera Utara</option>
-                            <option value="Jawa Tengah">Jawa Tengah</option>
-                            <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                            <option value="Kalimantan Timur">Kalimantan Timur</option>
+                            <option value="<?= $provinsi['id_provinsi']; ?>" hidden><?= $provinsi['nama_provinsi']; ?></option>
+                            <?php foreach ($wilayah as $provinsi) : ?>
+                                <option value="<?= $provinsi['id']; ?>"><?= $provinsi['name']; ?></option>
+                            <?php endforeach;  ?>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('provinsi'); ?>
@@ -131,10 +134,10 @@
                     <div class="form-group col-6">
                         <label for="kabupaten">Kabupaten</label>
                         <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="kabupaten">
-                            <option value="<?= $santri['kabupaten']; ?>" hidden><?= $santri['kabupaten']; ?></option>
-                            <option value="Banyumas">Banyumas</option>
-                            <option value="Purbalingga">Purbalingga</option>
-                            <option value="Banjarnegara">Banjarnegara</option>
+                            <option value="<?= $kabupaten['id_kabupaten']; ?>" hidden><?= $kabupaten['nama_kabupaten']; ?></option>
+                            <?php
+
+                            ?>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('kabupaten'); ?>
@@ -146,11 +149,10 @@
                     <div class="form-group col-6">
                         <label for="kecamatan">Kecamatan</label>
                         <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="kecamatan">
-                            <option value="<?= $santri['kecamatan']; ?>" hidden><?= $santri['kecamatan']; ?></option>
-                            <option value="Kembaran">Kembaran</option>
-                            <option value="Sokaraja">Sokaraja</option>
-                            <option value="Cilongok">Cilongok</option>
-                            <option value="Baturaden">Baturaden</option>
+                            <option value="<?= $kecamatan['id_kecamatan']; ?>" hidden><?= $kecamatan['nama_kecamatan']; ?></option>
+                            <?php
+
+                            ?>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('kecamatan'); ?>
@@ -158,12 +160,11 @@
                     </div>
                     <div class="form-group col-6">
                         <label for="desa_kelurahan">Desa/Kelurahan</label>
-                        <select class="form-control <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" id="desa_kelurahan">
-                            <option value="<?= $santri['desa_kelurahan']; ?>" hidden><?= $santri['desa_kelurahan']; ?></option>
-                            <option value="Rancamaya">Rancamaya</option>
-                            <option value="Pliken">Pliken</option>
-                            <option value="Bantar Kawung">Bantar Kawung</option>
-                            <option value="Watumas">Watumas</option>
+                        <select class="form-control  <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" id="desa_kelurahan">
+                            <option value="<?= $desa['id_desa']; ?>" hidden><?= $desa['nama_desa']; ?></option>
+                            <?php
+
+                            ?>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('desa_kelurahan'); ?>
@@ -383,6 +384,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="jenis_kendaraan">Jenis Kendaraan</label>
+                        <input id="jenis_kendaraan" type="text" class="form-control <?= ($validation->hasError('jenis_kendaraan')) ? 'is-invalid' : ''; ?>" name="jenis_kendaraan" value="<?= (old('jenis_kendaraan')) ? old('jenis_kendaraan') : $santri['jenis_kendaraan']; ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('jenis_kendaraan'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="plat_nomor">Plat Nomor</label>
+                        <input id="plat_nomor" type="text" class="form-control <?= ($validation->hasError('plat_nomor')) ? 'is-invalid' : ''; ?>" name="plat_nomor" value="<?= (old('plat_nomor')) ? old('plat_nomor') : $santri['plat_nomor']; ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('plat_nomor'); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-footer text-right">
                 <button class="btn btn-primary">Ubah Data</button>
@@ -393,16 +411,66 @@
 
 </section>
 <script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        var y = document.getElementById("password_conf");
-        if (x.type === "password" || y.type === "password") {
-            x.type = "text";
-            y.type = "text";
-        } else {
-            x.type = "password";
-            y.type = "password";
-        }
-    }
+    $(document).ready(function() {
+
+        //request data kabupaten
+        $('#provinsi').change(function() {
+            var provinsi_id = $('#provinsi').val(); //ambil value id dari provinsi
+            if (provinsi_id != '') {
+                $.ajax({
+                    url: "<?php echo base_url('/santri/Get_kabupaten/') ?>/" + provinsi_id,
+                    method: 'GET',
+
+                    success: function(provinsi_id) {
+                        $('#kabupaten').html(provinsi_id)
+                    }
+                });
+            }
+        });
+        //request data kecamatan
+        $('#kabupaten').change(function() {
+            var kabupaten_id = $('#kabupaten').val(); // ambil value id dari kabupaten
+            if (kabupaten_id != '') {
+                $.ajax({
+                    url: "<?php echo base_url('/santri/Get_kecamatan/') ?>/" + kabupaten_id,
+                    method: 'GET',
+
+                    success: function(kabupaten_id) {
+                        $('#kecamatan').html(kabupaten_id)
+                    }
+                });
+            }
+        });
+
+        //request data desa
+        $('#kecamatan').change(function() {
+            var kecamatan_id = $('#kecamatan').val(); // ambil value id dari kecamatan
+            if (kecamatan_id != '') {
+                $.ajax({
+                    url: "<?php echo base_url('/santri/Get_desa/') ?>/" + kecamatan_id,
+                    method: 'GET',
+
+                    success: function(kecamatan_id) {
+                        $('#desa_kelurahan').html(kecamatan_id)
+                    }
+                });
+            }
+        });
+
+        //jika tombol kirim di klik
+        $('#showpass').click(function() {
+            var x = document.getElementById("password");
+            var y = document.getElementById("password_conf");
+            if (x.type === "password" || y.type === "password") {
+                x.type = "text";
+                y.type = "text";
+            } else {
+                x.type = "password";
+                y.type = "password";
+            }
+        });
+
+    });
 </script>
+
 <?= $this->endSection(); ?>

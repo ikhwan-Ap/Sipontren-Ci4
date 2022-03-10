@@ -5,7 +5,11 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/pembayaran/lainnya_add" class="btn btn-primary">Tambah Data Pembayaran Rutin </a>
+            <a href="/pembayaran/lainnya_add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 

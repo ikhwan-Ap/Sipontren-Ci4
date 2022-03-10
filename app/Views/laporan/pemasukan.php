@@ -61,8 +61,12 @@
                                             Rp.<?= $sisa; ?>
                                         </h3>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
                                     <div class="card-icon bg-warning">
-                                        <i class="fas fa-user"></i>
+                                        <span class="ion ion-cash" data-pack="default" data-tags="credit, price, debit, money, shopping, dollars, $"></span>
                                     </div>
                                     <div class="card-header-primary">
                                         <?php foreach ($Lunas as $l) : ?>
@@ -74,7 +78,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </form>
 
                     <div class="card-body">

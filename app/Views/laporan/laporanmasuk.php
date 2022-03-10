@@ -54,9 +54,11 @@
                                     <label for="">Pilih</label>
                                     <?php
                                     if ($tanggal != null) {
-                                        echo '<a href="/laporan/print/' . $tanggal['tgl_mulai'] . '/' . $tanggal['tgl_selesai'] . '/' . $tanggal['nama_pembayaran'] . '"target="_blank" class="form-control btn btn-primary">Print</a>';
+                                        echo '<a href="/laporan/print/' . $tanggal['tgl_mulai'] . '/' . $tanggal['tgl_selesai'] . '/' . $tanggal['nama_pembayaran'] . '"target="_blank" class="form-control btn btn-primary">
+                                        <span class="ion ion-android-print" data-pack="android" data-tags="">Print</span>
+                                        </a>';
                                     } else {
-                                        echo '<a href="/laporan/print" target ="_blank" class="form-control btn btn-primary">Print</a>';
+                                        echo '<a href="/laporan/print" target ="_blank" class="form-control btn btn-primary"><span class="ion ion-android-print" data-pack="android" data-tags="">Print</span></a>';
                                     }
                                     ?>
                                 </div>
@@ -64,8 +66,8 @@
 
                             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div class="card card-statistic-1">
-                                    <div class="card-icon bg-warning">
-                                        <i class="fas fa-dolars"></i>
+                                    <div class="card-icon bg-primary">
+                                        <span class="ion ion-cash" data-pack="default" data-tags="credit, price, debit, money, shopping, dollars, $"></span>
                                     </div>
                                     <div class="card-header-primary">
                                         <?php foreach ($Lunas as $l) :  ?>

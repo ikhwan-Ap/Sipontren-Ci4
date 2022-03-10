@@ -38,6 +38,9 @@ $routes->get('/login/admin', 'Login::admin');
 $routes->get('/login/asatidz', 'Login::asatidz');
 $routes->get('/login/santri', 'Login::santri');
 $routes->get('/kelas/coba', 'Kelas::coba');
+$routes->get('/register/Get_kabupaten/:(any)', 'Register::Get_kabupaten/$1');
+$routes->get('/register/Get_kecamatan/:(any)', 'Register::Get_kecamatan/$1');
+$routes->get('/register/Get_desa/:(any)', 'Register::Get_desa/$1');
 
 
 // register
@@ -286,6 +289,12 @@ $routes->delete('/daftar_ulang(:num)', 'Daftar_ulang::delete_daftar/$1');
 
 //Jadwal
 $routes->get('/coba/kurikulum', 'Kurikulum::coba');
+
+//Wilayah
+$routes->resource('Wilayah');
+
+//SweetAlert
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

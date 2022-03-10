@@ -5,7 +5,11 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/asatidz/add" class="btn btn-primary">Tambah</a>
+            <a href="/asatidz/add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 
@@ -42,10 +46,14 @@
                                     <td><?= $a['no_hp']; ?></td>
                                     <td>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $a['id']; ?>">
-                                            Hapus
+                                            <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                         </button>
-                                        <a href="/asatidz/edit/<?= $a['id']; ?>" class="btn btn-warning">Edit</a>
-                                        <a href="/asatidz/detail/<?= $a['id']; ?>" class="btn btn-info" target="_blank">Detail</a>
+                                        <a href="/asatidz/edit/<?= $a['id']; ?>" class="btn btn-light">
+                                            <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                        </a>
+                                        <a href="/asatidz/detail/<?= $a['id']; ?>" class="btn btn-light" target="_blank">
+                                            <span class="ion ion-android-open" data-pack="android" data-tags="">
+                                        </a>
                                     </td>
                                 </tr>
 

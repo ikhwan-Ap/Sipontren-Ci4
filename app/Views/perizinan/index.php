@@ -6,7 +6,9 @@
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_tambah">
-                Tambah
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
             </button>
             <!-- <a href="" data-target="modal-tambah" class="btn btn-primary">Tambah</a> -->
         </div>
@@ -95,7 +97,7 @@
                                                 <?php echo ''; ?>
                                             <?php endif; ?>
                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal1<?= $z['id_izin']; ?>">
-                                                Detail
+                                                <span class="ion ion-android-open" data-pack="android" data-tags="">
                                             </button>
                                         </td>
                                     <?php endif; ?>
@@ -160,7 +162,7 @@
                                             <div class="modal-body">
                                                 <div class="card-body">
                                                     <div class="card col">
-                                                        <form action="/perizinan" method="POST">
+                                                        <form action="/perizinan" method="POST" enctype="multipart/form-data">
                                                             <?= csrf_field(); ?>
                                                             <div class="form-group">
                                                                 <input type="hidden" name="user_penginput" value="<?= $user_penginput; ?>">

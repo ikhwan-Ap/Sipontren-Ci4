@@ -12,7 +12,7 @@ class SantriModel extends Model
     protected $returnType       = 'array';
     protected $allowedFields    = [
         'nis', 'nik_ktp', 'no_kk', 'password', 'email', 'nama_lengkap', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir',
-        'alamat', 'desa_kelurahan', 'kecamatan', 'kabupaten', 'provinsi',
+        'alamat', 'desa_kelurahan', 'kecamatan', 'kabupaten', 'provinsi', 'jurusan', 'jenis_kendaraan', 'plat_nomor',
         'no_hp_santri', 'id_kamar', 'id_diniyah', 'id_program', 'id_kelas', 'id_tagihan', 'catatan_medis',
         'pendidikan_terakhir', 'pengalaman_mondok', 'pendidikan_sekarang', 'gol_darah',
         'nama_almet', 'kelas_semester', 'nisn_nim', 'id_orangtua', 'status', 'created_at', 'updated_at', 'deleted_at'
@@ -32,7 +32,10 @@ class SantriModel extends Model
 
     public function getSantriNonActive()
     {
-        return $this->db->table('santri')->select('*')->where('status', 'Non Aktif')->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->get()->getResultArray();
+        return $this->db->table('santri')->select('*')->where('status', 'Non Aktif')
+
+            ->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')
+            ->get()->getResultArray();
     }
 
     public function getSantriActive()
@@ -41,6 +44,7 @@ class SantriModel extends Model
         $builder->select('*');
         $builder->where('status', 'Aktif');
         $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
+
         $query = $builder->get();
         return $query->getResultArray();
     }
@@ -242,6 +246,86 @@ class SantriModel extends Model
         return $query->getResultArray();
     }
 
+    public function Get_provinsi($id)
+    {
+        $builder = $this->table('santri');
+        $builder->select('*');
+        $builder->select('provinces.id as id_provinsi');
+        $builder->select('provinces.name as nama_provinsi');
+        $builder->where('santri.id_santri', $id);
+        $builder->orderBy('name', 'ASC');
+        $builder->join('provinces', 'provinces.id = santri.provinsi', 'left');
+        $query =  $builder->get();
+        return $query->getRowArray();
+    }
+
+    public function Get_kabupaten($id)
+    {
+        $builder = $this->table('santri');
+        $builder->select('*');
+        $builder->select('regencies.id as id_kabupaten');
+        $builder->select('regencies.name as nama_kabupaten');
+        $builder->where('santri.id_santri', $id);
+        $builder->orderBy('name', 'ASC');
+        $builder->join('regencies', 'regencies.id = santri.kabupaten', 'left');
+        $query =  $builder->get();
+        return $query->getRowArray();
+    }
+
+    public function Get_kecamatan($id)
+    {
+        $builder = $this->table('santri');
+        $builder->select('districts.id as id_kecamatan');
+        $builder->select('districts.name as nama_kecamatan');
+        $builder->where('santri.id_santri', $id);
+        $builder->orderBy('name', 'ASC');
+        $builder->join('districts', 'districts.id = santri.kecamatan', 'left');
+        $query =  $builder->get();
+        return $query->getRowArray();
+    }
+
+    public function Get_desa($id)
+    {
+        $builder = $this->table('santri');
+        $builder->select('villages.id as id_desa');
+        $builder->select('villages.name as nama_desa');
+        $builder->where('santri.id_santri', $id);
+        $builder->orderBy('name', 'ASC');
+        $builder->join('villages', 'villages.id = santri.desa_kelurahan', 'left');
+        $query =  $builder->get();
+        return $query->getRowArray();
+    }
+
+    public function Get_program($id)
+    {
+        $builder = $this->table('santri');
+        $builder->where('id_santri', $id);
+        $builder->join('program', 'program.id_program = santri.id_program');
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
+    public function editNon($id)
+    {
+        $builder = $this->table('santri');
+        $builder->select('*');
+        $builder->where('id_santri', $id);
+        $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
+    public function edit($id)
+    {
+        $builder = $this->table('santri');
+        $builder->select('*');
+        $builder->where('id_santri', $id);
+        $builder->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua');
+        $builder->join('kelas', 'kelas.id_kelas = santri.id_kelas');
+        $builder->join('diniyah', 'diniyah.id_diniyah = santri.id_diniyah');
+        $builder->join('kamar', 'kamar.id_kamar = santri.id_kamar');
+        $builder->join('program', 'program.id_program = santri.id_program');
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
     // Lokasi
     // public function getProvinsi()
     // {

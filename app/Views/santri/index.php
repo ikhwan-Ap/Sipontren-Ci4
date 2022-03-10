@@ -5,7 +5,11 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
         <div class="section-header-button">
-            <a href="/santri/add" class="btn btn-primary">Tambah</a>
+            <a href="/santri/add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 
@@ -46,10 +50,14 @@
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $s['id_santri']; ?>">
-                                            Hapus
+                                            <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                         </button>
-                                        <a href="/santri/edit/<?= $s['id_santri']; ?>" class="btn btn-warning">Edit</a>
-                                        <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-info" target="_blank">Detail</a>
+                                        <a href="/santri/edit/<?= $s['id_santri']; ?>" class="btn btn-light">
+                                            <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                        </a>
+                                        <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-light" target="_blank">
+                                            <span class="ion ion-android-open" data-pack="android" data-tags="">
+                                        </a>
                                     </td>
                                 </tr>
                                 <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $s['id_santri']; ?>">
@@ -115,16 +123,21 @@
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $s['id_santri']; ?>">
-                                        Hapus
+                                        <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                     </button>
-                                    <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-info" target="_blank">Detail</a>
+                                    <a href="/santri/detail/<?= $s['id_santri']; ?>" class="btn btn-light" target="_blank">
+                                        <span class="ion ion-android-open" data-pack="android" data-tags="">
+                                    </a>
                                     <form action="/santri/editnonaktif/<?= $s['id_santri']; ?>" method="GET">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="id_santri" value="<?= $s['id_santri']; ?>">
-                                        <button type="submit" class="btn btn-warning">Edit</button>
+                                        <button type="submit" class="btn btn-light">
+                                            <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
+
                             <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $s['id_santri']; ?>">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -148,6 +161,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         <?php endforeach; ?>
                     </tbody>
                 </table>
