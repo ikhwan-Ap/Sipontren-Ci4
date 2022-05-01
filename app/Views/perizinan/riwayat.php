@@ -42,6 +42,8 @@
                                         <?php if ($z['tanggal_pulang'] < $z['tanggal_estimasi'] && $z['tanggal_ditolak'] == null) : ?>
                                             <?php if ($z['tanggal_pulang'] != $z['tanggal_estimasi'] && $z['tanggal_ditolak'] == null && $z['tanggal_diterima'] == null) : ?>
                                                 <h6 class="badge badge-warning">Menunggu</h6>
+                                            <?php elseif ($z['tanggal_diterima'] && $z['tanggal_pulang'] == null) : ?>
+                                                <h6 class="badge badge-primary">Diterima</h6>
                                             <?php else : ?>
                                                 <h6 class="badge badge-success">Tepat Waktu</h6>
                                             <?php endif; ?>
@@ -49,10 +51,11 @@
                                             <h6 class="badge badge-dark">Terlambat</h6>
                                         <?php elseif ($z['tanggal_ditolak'] && $z['tanggal_diterima'] == null && $z['tanggal_pulang'] == null) : ?>
                                             <h6 class="badge badge-danger">Izin ditolak</h6>
+
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
+                                        <button type="button" class="btn btn-light" onclick="topFunction()" title="DETAIL" data-toggle="modal" data-target="#exampleModal<?= $z['id_izin']; ?>">
                                             <span class="ion ion-android-open" data-pack="android" data-tags="">
                                         </button>
                                     </td>
@@ -84,26 +87,28 @@
                                                     <h6 class="text-dark">Tanggal Estimasi : <?= date_format(date_create($z['tanggal_estimasi']), "Y-m-d h:i:s"); ?></h6>
                                                 </div>
                                                 <div class="col">
-                                                    <h6 class="text-dark">Tanggal Pulang : <?= date_format(date_create($z['tanggal_pulang']), "Y-m-d h:i:s"); ?></h6>
+                                                    <h6 class="text-dark">Tanggal Pulang : <?= ($z['tanggal_pulang'] == null) ? '-' : date_format(date_create($z['tanggal_diterima']), "Y-m-d h:i:s");; ?></h6>
                                                 </div>
                                                 <div class="col">
                                                     <?php if ($z['tanggal_pulang'] > $z['tanggal_estimasi'] && $z['tanggal_ditolak'] == null) : ?>
                                                         <h6 class="text-dark">Status:<h7 class="badge badge-dark">Terlambat</h7>
                                                         </h6>
-
                                                         <h6 class="text-dark">Keterangan Terlambat: <?= $z['ket_terlambat']; ?></h6>
-
                                                     <?php elseif ($z['tanggal_ditolak'] && $z['tanggal_diterima'] == null && $z['tanggal_pulang'] == null) : ?>
                                                         <h6 class="text-dark">Status:<h7 class="badge badge-danger">Izin Ditolak</h7>
                                                         </h6>
-
-                                                    <?php else :  ?>
-                                                        <h6 class="text-dark">Status:<h7 class="badge badge-success">Tepat Waktu</h7>
-                                                        </h6>
-                                                    <?php endif;  ?>
+                                                    <?php elseif ($z['tanggal_diterima'] && $z['tanggal_pulang'] == null) : ?>
+                                                        <h6 class="text-dark">Status:<h7 class="badge badge-primary">Diterima</h7>
+                                                        <?php else :  ?>
+                                                            <h6 class="text-dark">Status:<h7 class="badge badge-success">Tepat Waktu</h7>
+                                                            </h6>
+                                                        <?php endif;  ?>
                                                 </div>
                                                 <div class="col">
                                                     <h6 class="text-dark">Perizinan Melalui : <?= $z['user_penginput']; ?></h6>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-dark">Konfirmasi Melalui : <?= $z['user_update'] == null ? '-' : $z['user_update']; ?></h6>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

@@ -8,12 +8,21 @@
         <h1><?= $title; ?></h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="/lain">Pembayaran Lain</a></div>
-            <div class="breadcrumb-item">Tambah Data Pembayaran Lain</div>
+            <div class="breadcrumb-item"><a href="/lain">Pembayaran Rutin</a></div>
+            <div class="breadcrumb-item">Tambah Pembayaran</div>
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="card col-lg-8">
         <form action="/pembayaran/lain" method="POST">

@@ -7,19 +7,6 @@
     </div>
     <div class="section-body">
         <div class="row mt-sm-4">
-            <div class="col-12 col-md-12 col-lg-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="section-title-"><?= session()->get('nama_lengkap'); ?></h4>
-                    </div>
-                    <div class="card profile-widget">
-                        <div class="profile-widget-header">
-                        </div>
-                    </div>
-                    <div class="profile-widget-description">
-                    </div>
-                </div>
-            </div>
             <div class="col-12 col-md-12 col-lg-7">
                 <div class="card">
                     <form method="post" class="needs-validation" novalidate="">

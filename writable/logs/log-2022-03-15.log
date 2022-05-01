@@ -1,0 +1,1174 @@
+ERROR - 2022-03-15 01:01:35 --> Illegal parameter data types varchar and row for operation '='
+CRITICAL - 2022-03-15 01:01:35 --> Illegal parameter data types varchar and row for operation '='
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(723): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Models\SantriModel.php(364): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1153): App\Models\SantriModel->not_import(Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 01:02:09 --> Illegal parameter data types varchar and row for operation '='
+CRITICAL - 2022-03-15 01:02:09 --> Illegal parameter data types varchar and row for operation '='
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(723): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Models\SantriModel.php(364): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1153): App\Models\SantriModel->not_import(Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 01:02:41 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:02:41 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1149): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 01:03:52 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:03:52 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1149): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 01:04:34 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:04:34 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1149): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 01:04:58 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:04:58 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1149): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 01:05:14 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:05:14 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1149): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 01:06:01 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:06:01 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1149): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 01:08:10 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:08:10 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1153): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+CRITICAL - 2022-03-15 01:10:12 --> Undefined array key ""
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1150): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1150)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+ERROR - 2022-03-15 01:10:46 --> Column 'nama_ayah' cannot be null
+CRITICAL - 2022-03-15 01:10:46 --> Column 'nama_ayah' cannot be null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `or...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `or...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `or...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `or...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(26): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1155): App\Models\OrangtuaModel->add(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 01:16:17 --> Illegal parameter data types varchar and row for operation '='
+CRITICAL - 2022-03-15 01:16:17 --> Illegal parameter data types varchar and row for operation '='
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(723): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Models\SantriModel.php(364): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1161): App\Models\SantriModel->not_import(Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 01:16:37 --> Illegal parameter data types varchar and row for operation '='
+CRITICAL - 2022-03-15 01:16:37 --> Illegal parameter data types varchar and row for operation '='
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(723): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Models\SantriModel.php(364): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1161): App\Models\SantriModel->not_import(Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+CRITICAL - 2022-03-15 01:17:53 --> Undefined array key "nis"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1165)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 01:18:42 --> Undefined array key "nis"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1165)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 01:19:12 --> Undefined array key "nis"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1192): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1192)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 01:19:38 --> Undefined array key "nis"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1192): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1192)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 01:20:52 --> Undefined array key "nis"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1192): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1192)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 01:21:11 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1192): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1192)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 01:21:57 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1166): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1166)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+ERROR - 2022-03-15 09:26:00 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2022-03-15 09:26:00 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Models\AdminModel.php(15): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Login.php(66): App\Models\AdminModel->getLogin('superadmin')
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginAdmin()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+ERROR - 2022-03-15 09:26:13 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2022-03-15 09:26:13 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Models\AdminModel.php(15): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Login.php(66): App\Models\AdminModel->getLogin('superadmin')
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginAdmin()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-03-15 09:28:06 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1165)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:29:37 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1165)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:30:10 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1165)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:31:07 --> Attempt to read property "insert_id" on bool
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(563): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read...', 'C:\\Users\\Lenovo...', 563)
+#1 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(31): CodeIgniter\Database\MySQLi\Connection->insertID(Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1155): App\Models\OrangtuaModel->get(Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-15 09:32:37 --> Too few arguments to function App\Models\OrangtuaModel::get(), 0 passed in C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php on line 38 and exactly 1 expected
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(38): App\Models\OrangtuaModel->get()
+#1 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1162): App\Models\OrangtuaModel->Get_id(Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#7 {main}
+CRITICAL - 2022-03-15 09:32:51 --> Too few arguments to function App\Models\OrangtuaModel::get(), 0 passed in C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php on line 38 and exactly 1 expected
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(38): App\Models\OrangtuaModel->get()
+#1 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1162): App\Models\OrangtuaModel->Get_id(Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#7 {main}
+CRITICAL - 2022-03-15 09:33:36 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1165)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:34:42 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1165)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:35:21 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1192): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1192)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:41:02 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1160)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:41:41 --> Undefined array key "nis"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1160)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:42:05 --> Undefined array key "nis"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1160)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:42:19 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1160)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:47:35 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1161)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:56:16 --> Call to undefined method App\Models\SantriModel::nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Model->__call('nis', Array)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:56:48 --> Call to undefined method App\Models\SantriModel::nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Model->__call('nis', Array)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 09:58:09 --> Call to undefined method App\Models\SantriModel::nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Model->__call('nis', Array)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+ERROR - 2022-03-15 10:00:04 --> Illegal parameter data types varchar and row for operation '='
+CRITICAL - 2022-03-15 10:00:04 --> Illegal parameter data types varchar and row for operation '='
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(723): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Models\SantriModel.php(384): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1242): App\Models\SantriModel->data(Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 10:00:27 --> Illegal parameter data types varchar and row for operation '='
+CRITICAL - 2022-03-15 10:00:27 --> Illegal parameter data types varchar and row for operation '='
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(723): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Models\SantriModel.php(384): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1242): App\Models\SantriModel->data(Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 10:01:17 --> Illegal parameter data types varchar and row for operation '='
+CRITICAL - 2022-03-15 10:01:17 --> Illegal parameter data types varchar and row for operation '='
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(723): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Models\SantriModel.php(384): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1242): App\Models\SantriModel->data(Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+CRITICAL - 2022-03-15 10:22:32 --> File not found: uploads/bukti/coba.xlsx
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Files\File.php(46): CodeIgniter\Files\Exceptions\FileNotFoundException::forFileNotFound('uploads/bukti/c...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\HTTP\DownloadResponse.php(107): CodeIgniter\Files\File->__construct('uploads/bukti/c...', true)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\HTTP\ResponseTrait.php(723): CodeIgniter\HTTP\DownloadResponse->setFilePath('uploads/bukti/c...')
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1289): CodeIgniter\HTTP\Response->download('coba.xlsx', NULL)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->download()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-03-15 10:22:57 --> File not found: /bukti/coba.xlsx
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Files\File.php(46): CodeIgniter\Files\Exceptions\FileNotFoundException::forFileNotFound('/bukti/coba.xls...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\HTTP\DownloadResponse.php(107): CodeIgniter\Files\File->__construct('/bukti/coba.xls...', true)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\HTTP\ResponseTrait.php(723): CodeIgniter\HTTP\DownloadResponse->setFilePath('/bukti/coba.xls...')
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1289): CodeIgniter\HTTP\Response->download('coba.xlsx', NULL)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->download()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-03-15 10:31:35 --> File not found: bukti/coba.xls
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Files\File.php(46): CodeIgniter\Files\Exceptions\FileNotFoundException::forFileNotFound('bukti/coba.xls')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\HTTP\DownloadResponse.php(107): CodeIgniter\Files\File->__construct('bukti/coba.xls', true)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\HTTP\ResponseTrait.php(723): CodeIgniter\HTTP\DownloadResponse->setFilePath('bukti/coba.xls')
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1293): CodeIgniter\HTTP\Response->download('coba.xls', NULL)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->download_xls()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-03-15 10:31:43 --> The filename D:\xampp\tmp\phpBEF5.tmp is not recognised as an OLE file
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(1374): PhpOffice\PhpSpreadsheet\Shared\OLERead->read('D:\\xampp\\tmp\\ph...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(631): PhpOffice\PhpSpreadsheet\Reader\Xls->loadOLE('D:\\xampp\\tmp\\ph...')
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1135): PhpOffice\PhpSpreadsheet\Reader\Xls->load('D:\\xampp\\tmp\\ph...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-15 10:33:21 --> The filename D:\xampp\tmp\php3B85.tmp is not recognised as an OLE file
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(1374): PhpOffice\PhpSpreadsheet\Shared\OLERead->read('D:\\xampp\\tmp\\ph...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(631): PhpOffice\PhpSpreadsheet\Reader\Xls->loadOLE('D:\\xampp\\tmp\\ph...')
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1135): PhpOffice\PhpSpreadsheet\Reader\Xls->load('D:\\xampp\\tmp\\ph...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-15 10:33:50 --> The filename D:\xampp\tmp\phpAF6E.tmp is not recognised as an OLE file
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(1374): PhpOffice\PhpSpreadsheet\Shared\OLERead->read('D:\\xampp\\tmp\\ph...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(631): PhpOffice\PhpSpreadsheet\Reader\Xls->loadOLE('D:\\xampp\\tmp\\ph...')
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1135): PhpOffice\PhpSpreadsheet\Reader\Xls->load('D:\\xampp\\tmp\\ph...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-15 13:16:57 --> Too few arguments to function App\Controllers\Perizinan::pulang(), 0 passed in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Perizinan->pulang()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Perizinan))
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#5 {main}
+CRITICAL - 2022-03-15 13:17:30 --> Too few arguments to function App\Controllers\Perizinan::pulang(), 0 passed in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Perizinan->pulang()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Perizinan))
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#5 {main}
+CRITICAL - 2022-03-15 14:48:27 --> Undefined variable $periode
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 79)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 14:48:52 --> Undefined variable $periode
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 80)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 14:49:10 --> Undefined variable $nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 80)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 14:49:30 --> Undefined variable $nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 80)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 14:49:31 --> Undefined variable $nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 80)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 14:49:35 --> Undefined variable $nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 80)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 14:50:51 --> Undefined variable $nis
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 79)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 14:55:24 --> Undefined array key "id_keuangan"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\status\index.php(130): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 130)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('status/index', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(232): view('status/index', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 14:58:30 --> Table 'sipontren.keuangan' doesn't exist
+CRITICAL - 2022-03-15 14:58:30 --> Table 'sipontren.keuangan' doesn't exist
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `santri`...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `santri`...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `santri`...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT `santri`...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Models\KeuanganModel.php(741): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(37): App\Models\KeuanganModel->keuangan_coba()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->index()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+ERROR - 2022-03-15 15:01:43 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`id_tagihan` = '3' AND `jumlah_bayar` = '0' AND `periode` > date('Y-m-d h:i')' at line 2
+CRITICAL - 2022-03-15 15:01:43 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`id_tagihan` = '3' AND `jumlah_bayar` = '0' AND `periode` > date('Y-m-d h:i')' at line 2
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `ke...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `ke...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `ke...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2213): CodeIgniter\Database\BaseConnection->query('DELETE FROM `ke...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(78): CodeIgniter\Database\BaseBuilder->delete('DELETE FROM keu...')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 15:05:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`id_tagihan` = '3' AND `jumlah_bayar` = '0' AND `periode` > date('Y-m-d h:i')' at line 2
+CRITICAL - 2022-03-15 15:05:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`id_tagihan` = '3' AND `jumlah_bayar` = '0' AND `periode` > date('Y-m-d h:i')' at line 2
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `ke...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `ke...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `ke...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2213): CodeIgniter\Database\BaseConnection->query('DELETE FROM `ke...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(78): CodeIgniter\Database\BaseBuilder->delete('DELETE FROM keu...')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 15:06:39 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DELETE FROM keuangan where 'id_tagihan' = '3' AND 'jumlah_bayar' = '0' AND 'p...' at line 2
+CRITICAL - 2022-03-15 15:06:39 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DELETE FROM keuangan where 'id_tagihan' = '3' AND 'jumlah_bayar' = '0' AND 'p...' at line 2
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `ke...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `ke...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `ke...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2213): CodeIgniter\Database\BaseConnection->query('DELETE FROM `ke...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(78): CodeIgniter\Database\BaseBuilder->delete('DELETE FROM keu...')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 15:06:40 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DELETE FROM keuangan where 'id_tagihan' = '3' AND 'jumlah_bayar' = '0' AND 'p...' at line 2
+CRITICAL - 2022-03-15 15:06:40 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DELETE FROM keuangan where 'id_tagihan' = '3' AND 'jumlah_bayar' = '0' AND 'p...' at line 2
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `ke...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `ke...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `ke...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2213): CodeIgniter\Database\BaseConnection->query('DELETE FROM `ke...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pendaftaran.php(78): CodeIgniter\Database\BaseBuilder->delete('DELETE FROM keu...')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pendaftaran->pendaftaran()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-03-15 16:25:08 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1164): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1164)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 17:31:57 --> Too few arguments to function App\Models\OrangtuaModel::get(), 0 passed in C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php on line 42 and exactly 1 expected
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(42): App\Models\OrangtuaModel->get()
+#1 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1159): App\Models\OrangtuaModel->Get_id(Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#7 {main}
+CRITICAL - 2022-03-15 17:32:21 --> Too few arguments to function App\Models\OrangtuaModel::get(), 0 passed in C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php on line 42 and exactly 1 expected
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(42): App\Models\OrangtuaModel->get()
+#1 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1159): App\Models\OrangtuaModel->Get_id(Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#7 {main}
+CRITICAL - 2022-03-15 17:52:30 --> Cannot use [] for reading
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#5 {main}
+CRITICAL - 2022-03-15 17:53:03 --> Undefined array key "id_orangtua"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1159): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1159)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 17:58:29 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1203)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:03:53 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1203)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:04:34 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1199): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1199)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:06:04 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1157)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:06:55 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1157)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:07:52 --> Undefined array key "nik_ktp"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1157)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:08:09 --> Undefined array key "nik_ktp"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1197): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 1197)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:14:58 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1161)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:15:14 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1161)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:25:36 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1157)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:27:25 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1157)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:27:55 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1157)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:29:28 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1157)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:30:17 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1155)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:30:53 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1155)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:31:39 --> There is no data to insert.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Models\OrangtuaModel.php(30): CodeIgniter\Model->insert(Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1152): App\Models\OrangtuaModel->add(Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-03-15 18:51:35 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1169)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:52:06 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1170)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 18:53:09 --> Trying to access array offset on value of type int
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1170)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+ERROR - 2022-03-15 19:29:02 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2022-03-15 19:29:02 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:29:06 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2022-03-15 19:29:06 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:29:23 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2022-03-15 19:29:23 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:29:29 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2022-03-15 19:29:29 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:31:41 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2022-03-15 19:31:41 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:39:29 --> Error connecting to the database: Unknown database 'sipontren'
+CRITICAL - 2022-03-15 19:39:29 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'sipontren'
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:39:33 --> Error connecting to the database: Unknown database 'sipontren'
+CRITICAL - 2022-03-15 19:39:33 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'sipontren'
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:39:33 --> Error connecting to the database: Unknown database 'sipontren'
+CRITICAL - 2022-03-15 19:39:33 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'sipontren'
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+ERROR - 2022-03-15 19:40:17 --> Table 'sipontren.admin' doesn't exist in engine
+CRITICAL - 2022-03-15 19:40:17 --> Table 'sipontren.admin' doesn't exist in engine
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 19:40:24 --> Table 'sipontren.admin' doesn't exist in engine
+CRITICAL - 2022-03-15 19:40:24 --> Table 'sipontren.admin' doesn't exist in engine
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 19:40:25 --> Table 'sipontren.admin' doesn't exist in engine
+CRITICAL - 2022-03-15 19:40:25 --> Table 'sipontren.admin' doesn't exist in engine
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 19:42:34 --> Table 'sipontren.admin' doesn't exist in engine
+CRITICAL - 2022-03-15 19:42:34 --> Table 'sipontren.admin' doesn't exist in engine
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+ERROR - 2022-03-15 19:42:35 --> Table 'sipontren.admin' doesn't exist in engine
+CRITICAL - 2022-03-15 19:42:35 --> Table 'sipontren.admin' doesn't exist in engine
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->index()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#12 {main}
+CRITICAL - 2022-03-15 19:44:49 --> The filename D:\xampp\tmp\php822.tmp is not recognised as an OLE file
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(1374): PhpOffice\PhpSpreadsheet\Shared\OLERead->read('D:\\xampp\\tmp\\ph...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(631): PhpOffice\PhpSpreadsheet\Reader\Xls->loadOLE('D:\\xampp\\tmp\\ph...')
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1135): PhpOffice\PhpSpreadsheet\Reader\Xls->load('D:\\xampp\\tmp\\ph...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-15 19:46:23 --> The filename D:\xampp\tmp\php7977.tmp is not recognised as an OLE file
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(1374): PhpOffice\PhpSpreadsheet\Shared\OLERead->read('D:\\xampp\\tmp\\ph...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(631): PhpOffice\PhpSpreadsheet\Reader\Xls->loadOLE('D:\\xampp\\tmp\\ph...')
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1135): PhpOffice\PhpSpreadsheet\Reader\Xls->load('D:\\xampp\\tmp\\ph...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-15 19:48:10 --> The filename D:\xampp\tmp\php1932.tmp is not recognised as an OLE file
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(1374): PhpOffice\PhpSpreadsheet\Shared\OLERead->read('D:\\xampp\\tmp\\ph...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php(631): PhpOffice\PhpSpreadsheet\Reader\Xls->loadOLE('D:\\xampp\\tmp\\ph...')
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1135): PhpOffice\PhpSpreadsheet\Reader\Xls->load('D:\\xampp\\tmp\\ph...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-15 19:48:14 --> Call to a member function getClientExtension() on null
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#5 {main}
+CRITICAL - 2022-03-15 20:00:04 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1200)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:00:43 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1200)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:01:16 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1200)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:01:55 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1200)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:01:56 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1200)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:02:42 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1224): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1224)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:03:33 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1224): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1224)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:03:51 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1224): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1224)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:06:47 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1225): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1225)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:07:16 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1225): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1225)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:07:59 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1225): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1225)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-15 20:08:41 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(1225): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 1225)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->import()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}

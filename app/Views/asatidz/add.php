@@ -14,7 +14,6 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
 
     <div class="card col-lg-8">
         <form action="/asatidz" method="POST">
@@ -64,7 +63,7 @@
                     </div>
                     <div class="form-group col-6">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="show_password" onclick="myFunction()">
+                            <input class="form-check-input" type="checkbox" id="showpass" onclick="myFunction()">
                             <label class="form-check-label" for="show_password">
                                 Show Password
                             </label>
@@ -115,14 +114,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-4">
+                    <div class="form-group col-6">
                         <label for="no_hp">No Hp</label>
                         <input id="no_hp" type="number" class="form-control <?= ($validation->hasError('no_hp')) ? 'is-invalid' : ''; ?>" name="no_hp" value="<?= old('no_hp'); ?>">
                         <div class="invalid-feedback">
                             <?= $validation->getError('no_hp'); ?>
                         </div>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-6">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
                         <select class="form-control <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>" name="jenis_kelamin" id="jenis_kelamin">
                             <option value="">== Pilih Jenis Kelamin ==</option>
@@ -135,71 +134,85 @@
                     </div>
                 </div>
 
-
-                <div class="form-group">
-                    <label for="program">Program</label>
-                    <input id="program" type="text" class="form-control <?= ($validation->hasError('program')) ? 'is-invalid' : ''; ?>" name="program" value="<?= old('program'); ?>">
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('program'); ?>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="jadwal">Jadwal</label>
-                    <input id="jadwal" type="text" class="form-control <?= ($validation->hasError('jadwal')) ? 'is-invalid' : ''; ?>" name="jadwal" value="<?= old('jadwal'); ?>">
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('jadwal'); ?>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="form-group col-6">
-                        <label for="pendidikan">Riwayat Pendidikan</label>
+                        <label for="id_program">Program</label>
+                        <select class="form-control <?= ($validation->hasError('id_program')) ? 'is-invalid' : ''; ?>" name="id_program" id="id_program">
+                            <option value="">== Program ==</option>
+                            <?php foreach ($program as $d) :  ?>
+                                <option value="<?= $d['id_program']; ?>"><?= $d['nama_program']; ?></option>
+                            <?php endforeach;  ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('id_program'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="pendidikan">Pendidikan Terakhir</label>
                         <select class="form-control <?= ($validation->hasError('pendidikan')) ? 'is-invalid' : ''; ?>" name="pendidikan" id="pendidikan">
-                            <option value="">== Pendidikan Saat Ini ==</option>
+                            <option value="">== Pendidikan Terakhir ==</option>
                             <option value="SD" <?= (old('pendidikan') == 'SD') ? 'selected' : ''; ?>>SD</option>
                             <option value="SMP" <?= (old('pendidikan') == 'SMP') ? 'selected' : ''; ?>>SMP</option>
                             <option value="SMA/SMK" <?= (old('pendidikan') == 'SMA/SMK') ? 'selected' : ''; ?>>SMA/SMK</option>
                             <option value="S1" <?= (old('pendidikan') == 'S1') ? 'selected' : ''; ?>>S1</option>
+                            <option value="S2" <?= (old('pendidikan') == 'S2') ? 'selected' : ''; ?>>S2</option>
+                            <option value="S3" <?= (old('pendidikan') == 'S3') ? 'selected' : ''; ?>>S3</option>
                         </select>
                         <div class="invalid-feedback">
                             <?= $validation->getError('pendidikan'); ?>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="provinsi">Provinsi</label>
+                        <select class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" name="provinsi" id="provinsi">
+                            <option value="" hidden></option>
+                            <?php foreach ($provinsi as $prov) : ?>
+                                <option value="<?= $prov['id']; ?>"><?= $prov['name']; ?></option>
+                            <?php endforeach;  ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('provinsi'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="kabupaten">Kabupaten</label>
+                        <select class="form-control <?= ($validation->hasError('kabupaten')) ? 'is-invalid' : ''; ?>" name="kabupaten" id="kabupaten">
+                            <?php
+
+                            ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('kabupaten'); ?>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="form-group col-6">
-                        <label for="total_santri">Total Santri</label>
-                        <input id="total_santri" type="number" class="form-control <?= ($validation->hasError('total_santri')) ? 'is-invalid' : ''; ?>" name="total_santri" value="<?= old('total_santri'); ?>">
+                        <label for="kecamatan">Kecamatan</label>
+                        <select class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" id="kecamatan">
+                            <?php
+
+                            ?>
+                        </select>
                         <div class="invalid-feedback">
-                            <?= $validation->getError('total_santri'); ?>
+                            <?= $validation->getError('kecamatan'); ?>
                         </div>
                     </div>
                     <div class="form-group col-6">
-                        <label for="kelas">Kelas</label>
-                        <input id="kelas" type="text" class="form-control <?= ($validation->hasError('kelas')) ? 'is-invalid' : ''; ?>" name="kelas" value="<?= old('kelas'); ?>">
+                        <label for="desa_kelurahan">Desa/Kelurahan</label>
+                        <select class="form-control  <?= ($validation->hasError('desa_kelurahan')) ? 'is-invalid' : ''; ?>" name="desa_kelurahan" id="desa_kelurahan">
+                            <?php
+
+                            ?>
+                        </select>
                         <div class="invalid-feedback">
-                            <?= $validation->getError('kelas'); ?>
+                            <?= $validation->getError('desa_kelurahan'); ?>
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="pertemuan">Pertemuan</label>
-                    <input id="pertemuan" type="text" class="form-control <?= ($validation->hasError('pertemuan')) ? 'is-invalid' : ''; ?>" name="pertemuan" value="<?= old('pertemuan'); ?>">
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('pertemuan'); ?>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <input id="foto" type="text" class="form-control <?= ($validation->hasError('foto')) ? 'is-invalid' : ''; ?>" name="foto" value="<?= old('foto'); ?>">
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('foto'); ?>
-                    </div>
-                </div>
-
                 <hr>
             </div>
             <div class="card-footer text-right">
@@ -211,16 +224,65 @@
 
 </section>
 <script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        var y = document.getElementById("password_conf");
-        if (x.type === "password" || y.type === "password") {
-            x.type = "text";
-            y.type = "text";
-        } else {
-            x.type = "password";
-            y.type = "password";
-        }
-    }
+    $(document).ready(function() {
+
+        //request data kabupaten
+        $('#provinsi').change(function() {
+            var provinsi_id = $('#provinsi').val(); //ambil value id dari provinsi
+            if (provinsi_id != '') {
+                $.ajax({
+                    url: "<?php echo site_url('daerah/Get_kabupaten/') ?>/" + provinsi_id,
+                    method: 'GET',
+
+                    success: function(provinsi_id) {
+                        $('#kabupaten').html(provinsi_id)
+                    }
+                });
+            }
+        });
+        //request data kecamatan
+        $('#kabupaten').change(function() {
+            var kabupaten_id = $('#kabupaten').val(); // ambil value id dari kabupaten
+            if (kabupaten_id != '') {
+                $.ajax({
+                    url: "<?php echo site_url('daerah/Get_kecamatan/') ?>/" + kabupaten_id,
+                    method: 'GET',
+
+                    success: function(kabupaten_id) {
+                        $('#kecamatan').html(kabupaten_id)
+                    }
+                });
+            }
+        });
+
+        //request data desa
+        $('#kecamatan').change(function() {
+            var kecamatan_id = $('#kecamatan').val(); // ambil value id dari kecamatan
+            if (kecamatan_id != '') {
+                $.ajax({
+                    url: "<?php echo site_url('daerah/Get_desa/') ?>/" + kecamatan_id,
+                    method: 'GET',
+
+                    success: function(kecamatan_id) {
+                        $('#desa_kelurahan').html(kecamatan_id)
+                    }
+                });
+            }
+        });
+
+        //jika tombol kirim di klik
+        $('#showpass').click(function() {
+            var x = document.getElementById("password");
+            var y = document.getElementById("password_conf");
+            if (x.type === "password" || y.type === "password") {
+                x.type = "text";
+                y.type = "text";
+            } else {
+                x.type = "password";
+                y.type = "password";
+            }
+        });
+
+    });
 </script>
 <?= $this->endSection(); ?>

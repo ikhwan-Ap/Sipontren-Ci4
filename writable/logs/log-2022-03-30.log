@@ -1,0 +1,118 @@
+CRITICAL - 2022-03-30 08:09:17 --> Undefined property: App\Controllers\Trash::$orangtua
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Trash.php(151): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 151)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Trash->delete_baru('146')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Trash))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-30 08:09:43 --> Unclosed '[' does not match ')'
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\Lenovo...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-03-30 08:09:51 --> Undefined property: App\Controllers\Trash::$orangtua
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Trash.php(152): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 152)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Trash->delete_baru('146')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Trash))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-30 14:35:11 --> Undefined variable $session
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\layout\template_admin.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 53)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Dashboard.php(57): view('dashboard/index', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->index()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+CRITICAL - 2022-03-30 14:35:23 --> Undefined property: CodeIgniter\View\View::$session
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\layout\template_admin.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 53)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/index', Array, true)
+#5 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Dashboard.php(57): view('dashboard/index', Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->index()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#11 {main}
+CRITICAL - 2022-03-30 14:37:50 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-30 15:08:15 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-30 15:35:48 --> Undefined variable $validation
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\alumni\index.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 64)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('alumni/index', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Alumni.php(25): view('alumni/index', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Alumni->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Alumni))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-03-30 15:45:58 --> Undefined variable $validation
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\alumni\index.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 143)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('alumni/index', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Alumni.php(25): view('alumni/index', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Alumni->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Alumni))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-03-30 18:13:27 --> Undefined variable $s
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\alumni\index.php(205): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 205)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('alumni/index', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Alumni.php(25): view('alumni/index', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Alumni->index()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Alumni))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-03-30 19:11:14 --> Undefined property: App\Controllers\Alumni::$input
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Alumni.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 91)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Alumni->add_alumni()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Alumni))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-30 19:14:24 --> Undefined property: App\Controllers\Alumni::$input
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Alumni.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 90)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Alumni->add_alumni()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Alumni))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-03-30 19:14:44 --> Undefined property: App\Controllers\Alumni::$input
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Alumni.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 90)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Alumni->add_alumni()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Alumni))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}

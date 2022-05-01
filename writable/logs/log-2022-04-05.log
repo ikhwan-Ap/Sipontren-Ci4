@@ -1,0 +1,124 @@
+CRITICAL - 2022-04-05 08:57:21 --> foreach() argument must be of type array|object, string given
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\status\index.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argum...', 'C:\\Users\\Lenovo...', 109)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('status/index', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(261): view('status/index', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-04-05 08:57:58 --> foreach() argument must be of type array|object, string given
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\status\index.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argum...', 'C:\\Users\\Lenovo...', 109)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('status/index', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(262): view('status/index', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-04-05 08:58:03 --> foreach() argument must be of type array|object, string given
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\status\index.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argum...', 'C:\\Users\\Lenovo...', 109)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('status/index', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(262): view('status/index', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-04-05 08:58:18 --> Undefined variable $data
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(263): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 263)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 08:58:26 --> Undefined variable $hasil
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(238): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 238)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 08:58:47 --> Undefined variable $data
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 262)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 08:59:09 --> Undefined variable $hasil
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(234): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 234)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 08:59:35 --> Undefined variable $data
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 262)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 08:59:49 --> Undefined variable $data
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(255): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 255)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 09:00:09 --> Undefined variable $data
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(256): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\Users\\Lenovo...', 256)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->hasil()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 09:49:22 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(652): count(NULL)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->get_spp()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 09:49:30 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(652): count(NULL)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->get_spp()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 09:50:03 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(652): count(NULL)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->get_spp()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-04-05 21:19:03 --> Call to undefined method App\Models\SantriModel::getKelas
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Status_pembayaran.php(650): CodeIgniter\Model->__call('getKelas', Array)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Status_pembayaran->get_spp()
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Status_pembayaran))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}

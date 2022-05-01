@@ -14,7 +14,16 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-Danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?php session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="card col-lg-8">
         <form action="/pendaftaran/pendaftaran/<?= $BelumLunas['id_keuangan']; ?>" method="POST">
@@ -82,17 +91,4 @@
 
 
 </section>
-<script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        var y = document.getElementById("password_conf");
-        if (x.type === "password" || y.type === "password") {
-            x.type = "text";
-            y.type = "text";
-        } else {
-            x.type = "password";
-            y.type = "password";
-        }
-    }
-</script>
 <?= $this->endSection(); ?>

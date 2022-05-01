@@ -14,7 +14,16 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="card col-lg-8">
         <form action="/santri_non/<?= $santri['id_santri']; ?>" method="POST">
@@ -291,7 +300,7 @@
                                 <option value="<?= $santri_diniyah['id_diniyah']; ?>" hidden><?= $santri_diniyah['nama_diniyah']; ?></option>
                             <?php endif;  ?>
                             <?php foreach ($diniyah as $d) :  ?>
-                                <option value="<?= $d['id_diniyah']; ?>"><?= $d['id_diniyah']; ?></option>
+                                <option value="<?= $d['id_diniyah']; ?>"><?= $d['nama_diniyah']; ?></option>
                             <?php endforeach;  ?>
                         </select>
                         <div class="invalid-feedback">

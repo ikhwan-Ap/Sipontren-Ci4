@@ -89,14 +89,7 @@ class Admin extends BaseController
             'role' => '2',
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data admin berhasil ditambahkan!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data admin berhasil ditambahkan!');
 
         return redirect()->to('/admin');
     }
@@ -104,14 +97,7 @@ class Admin extends BaseController
     public function delete($id)
     {
         $this->model->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data admin berhasil dihapus!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data admin berhasil dihapus!');
         return redirect()->to('/admin');
     }
 
@@ -158,14 +144,7 @@ class Admin extends BaseController
         $password = $this->request->getVar('password');
         $password_conf = $this->request->getVar('password_conf');
         if ($password != $password_conf) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Password Dan Konfirmasi Password Tidak Sama
-            </div>
-          </div>');
+            session()->setFlashdata('message', 'Password Dan Konfirmasi Password Tidak Sama');
             return redirect()->to('/admin/edit/' . $this->request->getVar('username'))->withInput();
         } else {
             $this->model->save([
@@ -176,14 +155,7 @@ class Admin extends BaseController
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             ]);
 
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data admin berhasil diubah!
-                      </div>
-                    </div>');
+            session()->setFlashdata('message', 'Data admin berhasil diubah!');
         }
         return redirect()->to('/admin');
     }

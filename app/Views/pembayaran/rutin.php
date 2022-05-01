@@ -3,62 +3,141 @@
 <?= $this->section('content'); ?>
 <section class="section">
     <div class="section-header">
-        <div class="section-header-button">
-            <a href="/lainnya" class="btn btn-light mr-3"><i class="fas fa-arrow-left"></i></a>
-        </div>
         <h1><?= $title; ?></h1>
-        <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="/lainnya">Pembayaran Uang Makan</a></div>
-            <div class="breadcrumb-item">Pembayaran Uang Makan</div>
+        <div class="section-header-button">
+            <a href="/pembayaran/rutin_add" class="btn btn-primary">
+                <span class="ion ion-android-add-circle" data-pack="android" data-tags="plus, include, invite">
+                    Tambah
+                </span>
+            </a>
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
-
-    <div class="card col-lg-8">
-        <form action="<?php base_url() ?>/rutin/<?= $santri['id_santri'] ?>" method="POST">
-            <div class="card-header">
-                <h4 class="text-dark">Pembayaran SPP</h4>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
             </div>
-            <div class="card-body">
-                <?= csrf_field(); ?>
-                <input type="hidden" name="_method" value="PUT">
-                <input type="hidden" name="id_santri" value="<?= $santri['id_santri'] ?>" id="id_santri">
-                <input type="hidden" name="id_kelas" value="<?= $santri['id_kelas'] ?>" id="id_kelas">
-                <input type="hidden" name="id_tagihan" value="<?= $tagih['id_tagihan'] ?>" id="id_tagihan">
-                <div class="row">
-                    <div class="form-group col-md">
-                        <label for="jumlah_bayar">Jumlah Bayar</label>
-                        <input id="jumlah_bayar" type="number" class="form-control <?= ($validation->hasError('jumlah_bayar')) ? 'is-invalid' : ''; ?>" name="jumlah_bayar">
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('jumlah_bayar'); ?>
-                        </div>
+        </div>
+    <?php endif; ?>
+
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Data Pembayaran Rutin</h4>
                     </div>
-                    <div class="form-group col-md">
-                        <label for="jumlah_pembayaran">Tagihan </label>
-                        <input id="jumlah_pembayaran" type="number" value="<?= $tagih['jumlah_pembayaran']; ?>" class="form-control <?= ($validation->hasError('jumlah_pembayaran')) ? 'is-invalid' : ''; ?>" name="jumlah_pembayaran" readonly>
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('jumlah_pembayaran'); ?>
+                    <div class="card-body">
+
+                        <form action="<?= base_url(); ?>/lainnya" method="POST" class="inline">
+                            <?= csrf_field(); ?>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="id_tagihan">Pilih Pembayaran</label>
+                                        <select name="id_tagihan" id="id_tagihan" class="form-control">
+                                            <option value="" hidden></option>
+                                            <option value="1">uang makan</option>
+                                            <option value="2">uang laptop</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="bulan">Pilih Bulan</label>
+                                        <input type="month" name="bulan" class="form-control" id="bulan">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="">Pilih</label>
+                                        <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-2">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>nis</th>
+                                        <th>nama santri</th>
+                                        <th>Pembayaran</th>
+                                        <th>Jumlah Pembayaran</th>
+                                        <th>Jumlah Tagihan</th>
+                                        <th>tggl bayar</th>
+                                        <th>status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1;
+                                    $hariIni = new DateTime();
+                                    foreach ($hasil as $k) :
+                                    ?>
+                                        <tr>
+                                            <td><?= $i++; ?></td>
+                                            <td><?= $k['nis']; ?></td>
+                                            <td><?= $k['nama_lengkap']; ?></td>
+                                            <td><?= $k['nama_pembayaran']; ?></td>
+                                            <td><?= "Rp " . number_format($k['jumlah_bayar'], 2, ',', '.'); ?></td>
+                                            <td><?= "Rp " . number_format($k['jumlah_tagihan'], 2, ',', '.'); ?></td>
+                                            <td> <?= $k['waktu']; ?></td>
+                                            <?php if ($k['status'] == 'Lunas') {
+                                            ?> <td class="badge badge-success"><?= $k['status']; ?></td>
+                                            <?php  } else {
+                                            ?> <td class="badge badge-danger"><?= $k['status'];
+                                                                            } ?>
+                                                <td>
+                                                    <?php if ($k['jumlah_bayar'] != null) {
+                                                        if ($k['status'] == 'Lunas') {
+                                                            echo '';
+                                                        } elseif ($k['status'] == 'Belum Lunas') { ?>
+                                                            <form action="/pembayaran/bayar_rutin/<?= $k['id_keuangan']; ?>" method="GET">
+                                                                <?= csrf_field(); ?>
+                                                                <input type="hidden" name="id_keuangan" value="<?= $k['id_keuangan']; ?>">
+                                                                <button type="submit" class="btn btn-primary">Bayar</button>
+                                                            </form>
+                                                        <?php }
+                                                        ?>
+                                                    <?php
+                                                    } else { ?>
+                                                        <?php if ($k['id_tagihan'] == '1') :  ?>
+                                                            <form action="/pembayaran/rutin/<?= $k['id_santri']; ?>" method="GET">
+                                                                <?= csrf_field(); ?>
+                                                                <input type="hidden" name="id_santri" value="<?= $k['id_santri']; ?>">
+                                                                <input type="hidden" name="id_tagihan" value="<?= $k['id_tagihan']; ?>">
+                                                                <button type="submit" class="btn btn-primary">Bayar</button>
+                                                            </form>
+                                                        <?php elseif ($k['id_tagihan'] == '2') :  ?>
+                                                            <form action="/pembayaran/laptop/<?= $k['id_santri']; ?>" method="GET">
+                                                                <?= csrf_field(); ?>
+                                                                <input type="hidden" name="id_santri" value="<?= $k['id_santri']; ?>">
+                                                                <input type="hidden" name="id_tagihan" value="<?= $k['id_tagihan']; ?>">
+                                                                <button type="submit" class="btn btn-primary">Bayar</button>
+                                                            </form>
+                                                        <?php endif; ?>
+
+                                                    <?php  } ?>
+                                                </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="form-group col-md">
-                        <label for="waktu">Tanggal Bayar</label>
-                        <input id="waktu" type="date" class="form-control <?= ($validation->hasError('waktu')) ? 'is-invalid' : ''; ?>" name="waktu" value="<?= old('waktu'); ?>">
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('waktu'); ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer text-right">
-                    <button class="btn btn-primary">Bayar</button>
-                    <a href="/lainnya" class="btn btn-light ml-2">Batal</a>
-                </div>
-        </form>
+            </div>
+        </div>
     </div>
-
-
 </section>
 <?= $this->endSection(); ?>

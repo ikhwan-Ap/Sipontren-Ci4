@@ -31,11 +31,13 @@ class Dashboard extends BaseController
         if (session('role') == 3) {
             return redirect()->to('perizinan/keamanan');
         }
+        $status = ['Aktif', 'Non Aktif'];
+
         $data = [
             'title' => 'Dashboard',
             'totalAdmin' => $this->adminModel->where('role', 2)->countAllResults(),
             'totalAsatidz' => $this->asatidzModel->countAllResults(),
-            'totalSantri' => $this->santriModel->countAllResults(),
+            'totalSantri' => $this->santriModel->whereIn('status', $status)->countAllResults(),
             'totalProgram' => $this->santriModel->countAllResults(),
             'totalSantriBaru' => $this->santriModel->where('status', 'Baru')->countAllResults(),
             'totalSantriAktif' => $this->santriModel->where('status', 'Aktif')->countAllResults(),
@@ -51,6 +53,10 @@ class Dashboard extends BaseController
             'kegiatanC' => $this->keluar->totalKegC(),
             'kegiatanD' => $this->keluar->totalKegD(),
             'kegiatanLain' => $this->keluar->totalKegLain(),
+            'jumlah_keluar' => $this->keluar->pengeluaran_tahunan(),
+            'jumlah_masuk' => $this->model->anggaran_tahunan(),
+            'total_pemasukan' => $this->model->pemasukan_tahunan(),
+            'total_pengeluaran' => $this->keluar->total_pengeluaranTahunan()
         ];
 
         return view('dashboard/index', $data);

@@ -50,14 +50,7 @@ class Diniyah extends BaseController
             'nama_diniyah' => $this->request->getVar('nama_diniyah'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data diniyah berhasil ditambahkan!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data diniyah berhasil ditambahkan!');
 
         return redirect()->to('/diniyah');
     }
@@ -65,14 +58,7 @@ class Diniyah extends BaseController
     public function delete($id)
     {
         $this->model->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data diniyah berhasil dihapus!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data diniyah berhasil dihapus!');
         return redirect()->to('/diniyah');
     }
 
@@ -105,14 +91,7 @@ class Diniyah extends BaseController
             'nama_diniyah' => $this->request->getVar('nama_diniyah'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data diniyah berhasil diubah!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data diniyah berhasil diubah!');
 
         return redirect()->to('/diniyah');
     }

@@ -19,15 +19,7 @@ class Login extends BaseController
         ]);
     }
 
-    public function login()
-    {
-        // do something
-    }
 
-    public function logoutUser()
-    {
-        // do something
-    }
 
     public function admin()
     {
@@ -77,29 +69,13 @@ class Login extends BaseController
                     return redirect()->to('dashboard');
                 } elseif ($dataAdmin['role'] == 2) {
                     return redirect()->to('dashboard');
-                } elseif ($dataAdmin['role'] == 3) {
-                    return redirect()->to('perizinan/keamanan');
                 }
             } else {
-                session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Cek username atau password!
-                      </div>
-                    </div>');
+                session()->setFlashdata('error', 'Cek Username Atau Password !!');
                 return redirect()->to('login/admin')->withInput();
             }
         } else {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Cek username atau password!
-                      </div>
-                    </div>');
+            session()->setFlashdata('error', 'Cek Username Atau Password');
             return redirect()->to('login/admin')->withInput();
         }
     }
@@ -108,14 +84,7 @@ class Login extends BaseController
     {
         $array_items = ['name', 'username', 'role'];
         session()->remove($array_items);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Berhasil logout!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Anda Berhasil Logout');
         return redirect()->to('login/admin')->withInput();
     }
 
@@ -166,25 +135,12 @@ class Login extends BaseController
                 ]);
                 return redirect()->to('dashboard/asatidz');
             } else {
-                session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Cek username atau password!
-                      </div>
-                    </div>');
+                session()->setFlashdata('error', 'Cek Username atau Password !!');
                 return redirect()->to('login/asatidz')->withInput();
             }
         } else {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Cek username atau password!
-                      </div>
-                    </div>');
+            session()->setFlashdata('error', 'Cek Username atau Password !!');
+
             return redirect()->to('login/asatidz')->withInput();
         }
     }
@@ -192,14 +148,8 @@ class Login extends BaseController
     {
         $array_items = ['name', 'username'];
         session()->remove($array_items);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Berhasil logout!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Anda Berhasil Logout');
+
         return redirect()->to('login/asatidz')->withInput();
     }
 
@@ -238,25 +188,13 @@ class Login extends BaseController
                 ]);
                 return redirect()->to('dashboard/santri');
             } else {
-                session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Cek nis atau password!
-                      </div>
-                    </div>');
+                session()->setFlashdata('error', 'Cek Username atau Password !!');
+
                 return redirect()->to('login/index')->withInput();
             }
         } else {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Cek nis atau password!
-                      </div>
-                    </div>');
+            session()->setFlashdata('error', 'Cek Username atau Password !!');
+
             return redirect()->to('login/index')->withInput();
         }
     }
@@ -264,14 +202,8 @@ class Login extends BaseController
     {
         $array_items = ['nama_lengkap', 'nis'];
         session()->destroy($array_items);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Berhasil logout!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Anda Berhasil Logout');
+
         return redirect()->to('login/index')->withInput();
     }
 }

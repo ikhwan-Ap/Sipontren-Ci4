@@ -14,8 +14,6 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
-
     <div class="card col-lg-6">
         <form action="/admin" method="POST">
             <div class="card-header">

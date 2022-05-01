@@ -9,10 +9,6 @@ use App\Models\SantriModel;
 use App\Models\PengeluaranModel;
 use App\Models\Data_pengeluaran;
 use App\Models\KelasModel;
-use CodeIgniter\Database\MySQLi\Result;
-use DeepCopy\Filter\Filter;
-use function PHPUnit\Framework\returnSelf;
-use TCPDF;
 
 class Tagihan extends BaseController
 {
@@ -25,86 +21,12 @@ class Tagihan extends BaseController
         $this->data = new Data_pengeluaran();
         $this->kelas = new KelasModel();
     }
-    public function index()
-    {
-        $data = [
-            'title' => 'Tagihan Kelas',
-            'tagihan' => $this->tagihan->Tagihan(),
-        ];
-        return view('tagihan/index', $data);
-    }
-    public function tagihan_spp()
-    {
-        $data = [
-            'title' => 'Tambah Data Tagihan Kelas',
-            'validation' => \Config\Services::validation(),
-            'kelas' => $this->kelas->findAll(),
-            'tagihan' => $this->tagihan->findAll(),
-            'kelas' => $this->kelas->findAll(),
-        ];
-        return view('tagihan/tagihankelas_add', $data);
-    }
-    public function save_spp()
-    {
-        // $getSantriBayar = $this->;
-        if (!$this->validate([
-            'jumlah_pembayaran' => [
-                'rules' => 'required|',
-                'errors' => [
-                    'required' => 'Jumlah Pembayaran Harus diisi!',
-                ]
-            ],
-            'id_kelas' => [
-                'rules' => 'required|',
-                'errors' => [
-                    'required' => 'Nama Kelas Harus diisi!',
-                ]
-            ],
-            'nama_pembayaran' => [
-                'rules' => 'required|',
-                'errors' => [
-                    'required' => 'Nama Pembayaran Harus diisi!',
-                ]
-            ],
 
-        ])) {
-            return redirect()->to('/tagihan/tagihan_spp')->withInput();
-        }
-        $nama_pembayaran = $this->request->getVar('nama_pembayaran');
-        $id_kelas = $this->request->getVar('id_kelas');
-        $sql = $this->db->query("SELECT id_kelas,nama_pembayaran FROM tagihan WHERE id_kelas='$id_kelas' AND nama_pembayaran='$nama_pembayaran'
-       ")->getRowArray();
-        if ($sql > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-          <div class="alert-body">
-            <button class="close" data-dismiss="alert">
-              <span>×</span>
-            </button>
-            Data Telah tersedia
-          </div>
-        </div>');
-            return redirect()->to('/tagihan/tagihan_spp')->withInput();
-        } else {
-            $this->tagihan->save([
-                'id_kelas' => $id_kelas,
-                'nama_pembayaran' => $nama_pembayaran,
-                'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran')
-            ]);
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                              <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                  <span>×</span>
-                                </button>
-                                Data Tagihan berhasil ditambahkan!
-                              </div>
-                            </div>');
-            return redirect()->to('/tagihan_kelas');
-        }
-    }
+
     public function tagihan()
     {
         $data = [
-            'title' => 'Tagihan Baru',
+            'title' => 'Tagihan',
             'tagihan' => $this->tagihan->getTagihan(),
         ];
         return view('tagihan/tagihan', $data);
@@ -121,7 +43,6 @@ class Tagihan extends BaseController
 
     public function save_tagihan()
     {
-        // $getSantriBayar = $this->;
         if (!$this->validate([
             'nama_pembayaran' => [
                 'rules' => 'required',
@@ -137,14 +58,7 @@ class Tagihan extends BaseController
         $this->tagihan->save([
             'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
         ]);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                              <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                  <span>×</span>
-                                </button>
-                                Data Tagihan berhasil ditambahkan!
-                              </div>
-                            </div>');
+        session()->setFlashdata('message', 'Data Tagihan Berhasil Di Tambahkan');
         return redirect()->to('/tagihan/tagihan');
     }
     public function tagihan_rutin()
@@ -158,7 +72,6 @@ class Tagihan extends BaseController
 
     public function save_rutin()
     {
-        // $getSantriBayar = $this->;
         if (!$this->validate([
             'jumlah_pembayaran' => [
                 'rules' => 'required',
@@ -180,42 +93,21 @@ class Tagihan extends BaseController
         $sql = $this->db->query("SELECT nama_pembayaran FROM tagihan WHERE nama_pembayaran='$nama_pembayaran'
        ")->getRowArray();
         if ($sql > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-          <div class="alert-body">
-            <button class="close" data-dismiss="alert">
-              <span>×</span>
-            </button>
-            Nama Pembayaran Tersebut Telah tersedia
-          </div>
-        </div>');
+            session()->setFlashdata('message', 'Nama Pembayaran Tersebut Telah Tersedia');
             return redirect()->to('/tagihan/tagihan_rutin')->withInput();
         } else {
             $this->tagihan->save([
                 'nama_pembayaran' => $nama_pembayaran,
                 'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran')
             ]);
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                              <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                  <span>×</span>
-                                </button>
-                                Data Tagihan berhasil ditambahkan!
-                              </div>
-                            </div>');
+            session()->setFlashdata('message', 'Data Tagihan berhasil ditambahkan!');
             return redirect()->to('/tagihan');
         }
     }
     public function delete_tagihan($id)
     {
         $this->tagihan->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data Tagihan berhasil dihapus!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Tagihan berhasil dihapus!');
         return redirect()->to('/tagihan/tagihan');
     }
     public function edit($nama)
@@ -247,14 +139,7 @@ class Tagihan extends BaseController
             'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data tagihan berhasil diubah!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Tagihan Berhasil Di Ubah');
 
         return redirect()->to('/tagihan');
     }
@@ -295,29 +180,23 @@ class Tagihan extends BaseController
             'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data tagihan berhasil diubah!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Tagihan Berhasil Di Ubah');
 
         return redirect()->to('/tagihan');
     }
-    public function edit_kelas($id)
+
+    public function edit_regis($nama)
     {
         $data = [
-            'title' => 'Ubah Data Tagihan Kelas',
+            'title' => 'Ubah Data Tagihan',
             'validation' => \Config\Services::validation(),
-            'tagihan' => $this->tagihan->where('id_tagihan', $id)->first(),
+            'tagihan' => $this->tagihan->where('nama_pembayaran', $nama)->first(),
         ];
 
-        return view('tagihan/edit_kelas', $data);
+        return view('tagihan/edit_regis', $data);
     }
 
-    public function update_kelas($id)
+    public function update_regis($id)
     {
         if (!$this->validate([
             'nama_pembayaran' => [
@@ -333,7 +212,7 @@ class Tagihan extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/tagihan/edit_kelas/' . $this->request->getVar('nama_pembayaran'))->withInput();
+            return redirect()->to('/tagihan/edit_regis/' . $this->request->getVar('nama_pembayaran'))->withInput();
         }
 
         $this->tagihan->save([
@@ -342,15 +221,8 @@ class Tagihan extends BaseController
             'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data tagihan Kelas berhasil diubah!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Tagihan Berhasil Di Ubah');
 
-        return redirect()->to('/tagihan_kelas');
+        return redirect()->to('/tagihan');
     }
 }

@@ -74,4 +74,13 @@ class TagihanModel extends Model
         $query = $builder->get();
         return $query->getResultArray();
     }
+
+    public function get_tagihan()
+    {
+        $builder = $this->db->table('tagihan');
+        $builder->selectSum('jumlah_pembayaran');
+        $builder->where('nama_pembayaran', 'uang daftar ulang');
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
 }

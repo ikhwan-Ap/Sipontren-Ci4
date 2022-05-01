@@ -14,7 +14,25 @@
                         <h4 class="text-success text-center">Login</h4>
                     </div>
 
-                    <?= session()->getFlashdata('message'); ?>
+                    <?php if (session()->getFlashdata('error') != null) : ?>
+                        <div class="alert alert-danger alert-dismissible show fade">
+                            <div class="alert-body">
+                                <button class="close" data-dismiss="alert">
+                                    <span>×</span>
+                                </button>
+                                <?= session()->getFlashdata('error'); ?>
+                            </div>
+                        </div>
+                    <?php elseif (session()->getFlashdata('message') != null) : ?>
+                        <div class="alert alert-success alert-dismissible show fade">
+                            <div class="alert-body">
+                                <button class="close" data-dismiss="alert">
+                                    <span>×</span>
+                                </button>
+                                <?= session()->getFlashdata('message'); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
 
                     <div class="card-body">
                         <form method="POST" action="/login/loginadmin">

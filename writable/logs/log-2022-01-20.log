@@ -1,0 +1,36 @@
+CRITICAL - 2022-01-20 07:26:35 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\santri\biodata.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 19)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('santri/biodata', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Santri.php(140): view('santri/biodata', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->biodata()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-01-20 18:57:59 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\pembayaran\bayar_lainnya.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 20)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('pembayaran/baya...', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pembayaran.php(1467): view('pembayaran/baya...', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pembayaran->bayar_lainnya('2')
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-01-20 19:05:04 --> Undefined array key "pembayaran"
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\pembayaran\lainnya.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\Users\\Lenovo...', 88)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('pembayaran/lain...', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Pembayaran.php(166): view('pembayaran/lain...', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Pembayaran->lainnya()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembayaran))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}

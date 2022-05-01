@@ -20,12 +20,38 @@ class PengeluaranModel extends Model
             ->orderBy('pengeluaran.jumlah_pengeluaran')
             ->get()->getResultArray();
     }
+
+    public function total_pengeluaranTahunan()
+    {
+        $tahun = date('Y');
+        return $this->db
+            ->table('pengeluaran')
+            ->select('*')
+            ->select('pengeluaran.id_pengeluaran')
+            ->selectSum('pengeluaran.jumlah_pengeluaran')
+            ->where("DATE_FORMAT(waktu_pengeluaran,'%Y')", $tahun)
+            ->orderBy('pengeluaran.jumlah_pengeluaran')
+            ->get()->getResultArray();
+    }
+
+
     public function pengeluaran()
     {
         $sql = "SELECT sum(jumlah_pengeluaran) as jumlah_pengeluaran FROM pengeluaran";
         $result = $this->db->query($sql);
         return $result->getRow()->jumlah_pengeluaran;
     }
+
+    public function pengeluaran_tahunan()
+    {
+        $tahun = date('Y');
+        $builder = $this->db->table('pengeluaran');
+        $builder->selectSum('jumlah_pengeluaran', 'jumlah_pengeluaran');
+        $builder->where("DATE_FORMAT(waktu_pengeluaran,'%Y')", $tahun);
+        $query = $builder->get();
+        return $query->getRow()->jumlah_pengeluaran;
+    }
+
     public function getPengeluaran($tanggal)
     {
         $tgl_mulai = $tanggal['tgl_mulai'];

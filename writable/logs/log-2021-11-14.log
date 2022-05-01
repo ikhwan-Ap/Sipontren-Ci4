@@ -1,0 +1,1057 @@
+ERROR - 2021-11-14 14:50:13 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2021-11-14 14:50:13 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 E:\Xampp\htdocs\sipontren\app\Models\AsatidzModel.php(20): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(149): App\Models\AsatidzModel->getLogin('ustadz')
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginasatidz()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#9 {main}
+ERROR - 2021-11-14 14:50:49 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+ERROR - 2021-11-14 14:51:23 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2021-11-14 14:51:23 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 E:\Xampp\htdocs\sipontren\app\Models\AsatidzModel.php(20): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(149): App\Models\AsatidzModel->getLogin('ustadz')
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginasatidz()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#9 {main}
+ERROR - 2021-11-14 14:52:08 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+ERROR - 2021-11-14 14:52:29 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2021-11-14 14:52:29 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Seeder.php(96): CodeIgniter\Database\Config::forge(NULL)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Database\Seed.php(69): CodeIgniter\Database\Seeder->__construct(Object(Config\Database))
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CLI\Commands.php(63): CodeIgniter\Commands\Database\Seed->run(Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CLI\CommandRunner.php(70): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CLI\CommandRunner.php(56): CodeIgniter\CLI\CommandRunner->index(Array)
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(822): CodeIgniter\CLI\CommandRunner->_remap('index', 'db:seed')
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\CLI\CommandRunner))
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CLI\Console.php(48): CodeIgniter\CodeIgniter->run()
+#11 E:\Xampp\htdocs\sipontren\spark(63): CodeIgniter\CLI\Console->run()
+#12 {main}
+ERROR - 2021-11-14 14:53:31 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 14:53:35 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 14:54:08 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 14:54:17 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 14:54:28 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 14:54:28 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 E:\Xampp\htdocs\sipontren\app\Models\AsatidzModel.php(20): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(149): App\Models\AsatidzModel->getLogin('ustadz')
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginasatidz()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#9 {main}
+ERROR - 2021-11-14 14:57:05 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 15:01:44 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 15:02:01 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 15:12:18 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:12:18 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:14:01 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:14:01 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:14:04 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:14:04 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:14:39 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:14:39 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:15:09 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 15:16:29 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:16:29 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:16:31 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:16:31 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:16:57 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:16:57 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:17:00 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:17:00 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:17:20 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:17:20 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:17:20 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:17:20 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:17:21 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:17:21 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:17:21 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:17:21 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:17:21 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:17:21 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:17:28 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2021-11-14 15:17:28 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Database.php(67): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\Config.php(105): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#2 E:\Xampp\htdocs\sipontren\app\Config\Routes.php(27): CodeIgniter\Database\Config::forge()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(780): CodeIgniter\CodeIgniter->Config\{closure}()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+ERROR - 2021-11-14 15:31:57 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2021-11-14 15:33:45 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2021-11-14 15:34:44 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2021-11-14 15:35:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2021-11-14 15:35:32 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2021-11-14 15:35:50 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2021-11-14 15:35:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2021-11-14 15:36:00 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+ERROR - 2021-11-14 15:36:20 --> Can't create database 'sipontren'; database exists
+ERROR - 2021-11-14 15:36:35 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+CRITICAL - 2021-11-14 15:52:58 --> Undefined variable $admin
+#0 E:\Xampp\htdocs\sipontren\app\Views\admin\index.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 33)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('admin/index', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('admin/index', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 15:52:59 --> Undefined variable $admin
+#0 E:\Xampp\htdocs\sipontren\app\Views\admin\index.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 33)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('admin/index', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('admin/index', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 15:53:01 --> Undefined variable $admin
+#0 E:\Xampp\htdocs\sipontren\app\Views\admin\index.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 33)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('admin/index', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('admin/index', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 15:53:27 --> Undefined variable $admin
+#0 E:\Xampp\htdocs\sipontren\app\Views\admin\index.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 33)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('admin/index', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('admin/index', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 15:53:30 --> Undefined variable $admin
+#0 E:\Xampp\htdocs\sipontren\app\Views\admin\index.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 33)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('admin/index', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('admin/index', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 15:53:38 --> Undefined variable $admin
+#0 E:\Xampp\htdocs\sipontren\app\Views\admin\index.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 33)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('admin/index', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('admin/index', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 15:53:54 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 15:53:55 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 15:54:54 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 15:54:55 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 15:55:01 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 15:55:19 --> Invalid file: asatids\index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids\\index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids\\index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids\\index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 16:00:38 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 16:05:25 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 16:47:46 --> Invalid file: asatids/index.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asatids/index.p...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatids/index', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(22): view('asatids/index', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 16:50:28 --> syntax error, unexpected token "return"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Router\Router.php(176): CodeIgniter\Router\Router->autoRoute('dashboard/asati...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(718): CodeIgniter\Router\Router->handle('dashboard/asati...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 16:50:29 --> syntax error, unexpected token "return"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Router\Router.php(176): CodeIgniter\Router\Router->autoRoute('dashboard/asati...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(718): CodeIgniter\Router\Router->handle('dashboard/asati...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 16:50:30 --> syntax error, unexpected token "return"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Router\Router.php(176): CodeIgniter\Router\Router->autoRoute('dashboard/asati...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(718): CodeIgniter\Router\Router->handle('dashboard/asati...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:11:33 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:16:11 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:16:16 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:24:59 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:26:41 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:27:07 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:27:28 --> Undefined variable $totalAdmin
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 21)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 18:27:29 --> Undefined variable $totalAdmin
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 21)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 18:27:58 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:27:59 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 18:28:06 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+ERROR - 2021-11-14 20:27:02 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2021-11-14 20:27:02 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 E:\Xampp\htdocs\sipontren\app\Models\AsatidzModel.php(20): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(149): App\Models\AsatidzModel->getLogin('ustadz')
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginasatidz()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#9 {main}
+ERROR - 2021-11-14 20:28:17 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2021-11-14 20:28:17 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 E:\Xampp\htdocs\sipontren\app\Models\AsatidzModel.php(20): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(149): App\Models\AsatidzModel->getLogin('ustadz')
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginasatidz()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2021-11-14 20:29:55 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 20:30:14 --> Undefined variable $totalAdmin
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 21)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:24:32 --> Undefined variable $totalAdmin
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 20)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:34:28 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:35:07 --> Undefined variable $asatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:35:08 --> Undefined variable $asatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:35:17 --> Undefined variable $a
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:35:18 --> Undefined variable $a
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:37:05 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:37:27 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:37:29 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:38:26 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:38:27 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:41:26 --> syntax error, unexpected token "endforeach", expecting end of file
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-14 21:42:08 --> Undefined variable $username
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 73)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:46:30 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:46:44 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:46:44 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:47:14 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:47:14 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:47:25 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:47:26 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:47:49 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:47:50 --> Undefined variable $astatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:05 --> Undefined variable $asatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:05 --> Undefined variable $asatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:06 --> Undefined variable $asatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:12 --> Undefined variable $asatid
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:13 --> Undefined variable $asatid
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:13 --> Undefined variable $asatid
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:13 --> Undefined variable $asatid
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 21:48:13 --> Undefined variable $asatid
+#0 E:\Xampp\htdocs\sipontren\app\Views\dashboard\asatidz.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 70)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('dashboard/asati...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(29): view('dashboard/asati...', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-14 22:52:32 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:52:49 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:52:50 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:53:15 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:53:16 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:53:20 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:53:21 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:53:22 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:53:24 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:53:25 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:55:16 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:55:17 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:57:32 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:57:32 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:57:51 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-14 22:58:07 --> Undefined property: App\Controllers\Dashboard::$asatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Dashboard.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 27)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Dashboard->asatidz()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}

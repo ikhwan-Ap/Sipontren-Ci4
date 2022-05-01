@@ -38,7 +38,7 @@ class Filters extends BaseConfig
     public $globals = [
         'before' => [
             // 'honeypot',
-            'csrf',
+            // 'csrf',
         ],
         'after' => [
             'toolbar',
@@ -79,6 +79,8 @@ class Filters extends BaseConfig
                 'perizinan',
                 'perizinan/*',
                 'gedung/*',
+                'alumni',
+                'alumni/*',
                 '/dashboard'
 
             ],

@@ -61,14 +61,7 @@ class Kelas extends BaseController
             'nama_kelas' => $this->request->getVar('nama_kelas'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data kelas berhasil ditambahkan!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Kelas Berhasil Di Tambahkan');
 
         return redirect()->to('/kelas');
     }
@@ -76,14 +69,7 @@ class Kelas extends BaseController
     public function delete($id)
     {
         $this->model->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data kelas berhasil dihapus!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Kelas Berhasil Di Hapus');
         return redirect()->to('/kelas');
     }
 
@@ -123,14 +109,7 @@ class Kelas extends BaseController
             'id_tagihan' => $this->request->getVar('id_tagihan')
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data kelas berhasil diubah!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Kelas Berhasil Di Ubah');
 
         return redirect()->to('/kelas');
     }

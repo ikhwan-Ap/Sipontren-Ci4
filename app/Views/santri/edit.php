@@ -14,7 +14,16 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="card col-lg-8">
         <form action="/santri/<?= $santri['id_santri']; ?>" method="POST">
@@ -50,14 +59,22 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" value="<?= (old('password')) ? old('password') : $santri['password']; ?>">
+                    <?php if ($santri['password'] != null) :  ?>
+                        <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" value="<?= (old('password')) ? old('password') : $santri['password']; ?>">
+                    <?php else : ?>
+                        <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password">
+                    <?php endif; ?>
                     <div class="invalid-feedback">
                         <?= $validation->getError('password'); ?>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Konfirmasi Password</label>
-                    <input type="password" class="form-control <?= ($validation->hasError('password_conf')) ? 'is-invalid' : ''; ?>" id="password_conf" name="password_conf" value="<?= (old('password')) ? old('password') : $santri['password']; ?>">
+                    <?php if ($santri['password'] != null) :  ?>
+                        <input type="password" class="form-control <?= ($validation->hasError('password_conf')) ? 'is-invalid' : ''; ?>" id="password_conf" name="password_conf" value="<?= (old('password')) ? old('password') : $santri['password']; ?>">
+                    <?php else : ?>
+                        <input type="password" class="form-control <?= ($validation->hasError('password_conf')) ? 'is-invalid' : ''; ?>" id="password_conf" name="password_conf">
+                    <?php endif; ?>
                     <div class="invalid-feedback">
                         <?= $validation->getError('password_conf'); ?>
                     </div>
@@ -267,7 +284,11 @@
                     <div class="form-group col-3">
                         <label for="id_kelas">kelas</label>
                         <select class="form-control <?= ($validation->hasError('id_kelas')) ? 'is-invalid' : ''; ?>" name="id_kelas" id="id_kelas">
-                            <option value="<?= $santri['id_kelas']; ?>" hidden><?= $santri['nama_kelas']; ?></option>
+                            <?php if ($santri['id_kelas'] == null) : ?>
+                                <option value="<?= $santri['id_kelas']; ?>" hidden></option>
+                            <?php else : ?>
+                                <option value="<?= $santri_kelas['id_kelas']; ?>" hidden><?= $santri_kelas['nama_kelas']; ?></option>
+                            <?php endif;  ?>
                             <?php foreach ($kelas as $d) :  ?>
                                 <option value="<?= $d['id_kelas']; ?>"><?= $d['nama_kelas']; ?></option>
                             <?php endforeach;  ?>
@@ -279,7 +300,11 @@
                     <div class="form-group col-3">
                         <label for="id_diniyah">Diniyah</label>
                         <select class="form-control <?= ($validation->hasError('id_diniyah')) ? 'is-invalid' : ''; ?>" name="id_diniyah" id="id_diniyah">
-                            <option value="<?= $santri['id_diniyah']; ?>" hidden><?= $santri['nama_diniyah']; ?></option>
+                            <?php if ($santri['id_diniyah'] == null) : ?>
+                                <option value="<?= $santri['id_diniyah']; ?>" hidden></option>
+                            <?php else : ?>
+                                <option value="<?= $santri_diniyah['id_diniyah']; ?>" hidden><?= $santri_diniyah['nama_diniyah']; ?></option>
+                            <?php endif;  ?>
                             <?php foreach ($diniyah as $d) :  ?>
                                 <option value="<?= $d['id_diniyah']; ?>"><?= $d['nama_diniyah']; ?></option>
                             <?php endforeach;  ?>
@@ -291,7 +316,11 @@
                     <div class="form-group col-3">
                         <label for="id_program">Program</label>
                         <select class="form-control <?= ($validation->hasError('id_program')) ? 'is-invalid' : ''; ?>" name="id_program" id="id_program">
-                            <option value="<?= $santri['id_program']; ?>" hidden><?= $santri['nama_program']; ?></option>
+                            <?php if ($santri['id_program'] == null) : ?>
+                                <option value="<?= $santri['id_program']; ?>" hidden></option>
+                            <?php else : ?>
+                                <option value="<?= $santri_program['id_program']; ?>" hidden><?= $santri_program['nama_program']; ?></option>
+                            <?php endif;  ?>
                             <?php foreach ($program as $d) :  ?>
                                 <option value="<?= $d['id_program']; ?>"><?= $d['nama_program']; ?></option>
                             <?php endforeach;  ?>
@@ -303,7 +332,12 @@
                     <div class="form-group col-3">
                         <label for="id_kamar">Kamar</label>
                         <select class="form-control <?= ($validation->hasError('id_kamar')) ? 'is-invalid' : ''; ?>" name="id_kamar" id="id_kamar">
-                            <option value="<?= $santri['id_kamar']; ?>" hidden><?= $santri['nama_kamar']; ?></option>
+                            <?php if ($santri['id_kamar'] == null) : ?>
+                                <option value="<?= $santri['id_kamar']; ?>" hidden></option>
+                            <?php else : ?>
+                                <option value="<?= $santri_kamar['id_kamar']; ?>" hidden><?= $santri_kamar['nama_kamar']; ?></option>
+                            <?php endif;  ?>
+
                             <?php foreach ($kamar as $d) :  ?>
                                 <option value="<?= $d['id_kamar']; ?>"><?= $d['nama_kamar']; ?></option>
                             <?php endforeach;  ?>

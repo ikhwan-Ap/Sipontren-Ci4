@@ -13,7 +13,16 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?php session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="section-body">
         <div class="card">
@@ -41,17 +50,16 @@
                                     <td><?= $a['username']; ?></td>
                                     <td><?= $a['email']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $a['id']; ?>">
+                                        <button type="button" title="DELETE" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $a['id']; ?>">
                                             <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                         </button>
-                                        <a href="/keamanan/edit/<?= $a['username']; ?>" class="btn btn-light">
+                                        <a href="/keamanan/edit/<?= $a['username']; ?>" title="EDIT" class="btn btn-light">
                                             <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
-                                        </a>
-                                        <a href="/keamanan/detail/<?= $a['id']; ?>" class="btn btn-light" target="_blank">
-                                            <span class="ion ion-android-open" data-pack="android" data-tags="">
                                         </a>
                                     </td>
                                 </tr>
+
+
 
                                 <div class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" id="exampleModal<?= $a['id']; ?>">
                                     <div class="modal-dialog" role="document">
@@ -76,6 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             <?php endforeach; ?>
                         </tbody>
                     </table>

@@ -5,7 +5,9 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
     </div>
-    <?= session()->getFlashdata('message'); ?>
+
+
+
     <div class="section-body">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-6">

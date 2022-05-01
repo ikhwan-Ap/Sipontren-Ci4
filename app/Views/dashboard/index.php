@@ -135,6 +135,63 @@
     </div>
 
     <div class="section-body">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-primary">
+                        <i class="fas fa-money-check"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Anggaran Tersedia Tahun <?= date('Y'); ?></h4>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                            $anggaran = $jumlah_masuk - $jumlah_keluar;
+                            echo "Rp " . number_format($anggaran, 2, ',', '.'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-warning">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Total Pemasukan Tahun <?= date('Y'); ?></h4>
+                        </div>
+                        <div class="card-body">
+                            <?php foreach ($total_pemasukan as $pemasukan) : ?>
+                                <?= "Rp " . number_format($pemasukan['jumlah_bayar'], 2, ',', '.');  ?>
+                            <?php endforeach;  ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Total Pengeluaran Tahun <?= date('Y'); ?></h4>
+                        </div>
+                        <div class="card-body">
+                            <?php foreach ($total_pengeluaran as $pengeluaran) : ?>
+                                <?= "Rp " . number_format($pengeluaran['jumlah_pengeluaran'], 2, ',', '.');  ?>
+                            <?php endforeach;  ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section-body">
         <div class="card card-statistic-1">
             <div class="row">
                 <div class="col-lg-6">

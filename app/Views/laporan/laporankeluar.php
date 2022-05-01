@@ -7,7 +7,30 @@
         <h1><?= $title; ?></h1>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <div class="section-body">
+        <div class="row">
+            <div class="col">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Total Pengeluaran</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <?php foreach ($pengeluaran as $p) :  ?>
+                                <?= "Rp " . number_format($p['jumlah_pengeluaran'], 2, ',', '.'); ?>
+                                </h3>
+                            <?php endforeach;  ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="section-body">
         <div class="row">
@@ -18,64 +41,52 @@
                     </div>
                     <form action="<?= base_url(); ?>/pembayaran/filter_laporankeluar" method="POST" class="inline">
                         <?= csrf_field(); ?>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="tgl_mulai">Tanggal Awal</label>
-                                    <input type="date" name="tgl_mulai" class="form-control">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="tgl_mulai">Tanggal Awal</label>
+                                        <input type="date" name="tgl_mulai" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="tgl_akhir">Tanggal Akhir</label>
-                                    <input type="date" name="tgl_selesai" class="form-control">
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="tgl_akhir">Tanggal Akhir</label>
+                                        <input type="date" name="tgl_selesai" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="tgl_akhir">Pilih Jenis Pengeluaran</label>
-                                    <select name="nama_pengeluaran" id="nama_pengeluaran" class="form-control">
-                                        <?php foreach ($keluar as $p) : ?>
-                                            <option value="" hidden></option>
-                                            <option value="<?= $p['nama_pengeluaran']; ?>"><?= $p['nama_pengeluaran']; ?></option>
-                                        <?php endforeach;  ?>
-                                    </select>
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="tgl_akhir">Pilih Jenis Pengeluaran</label>
+                                        <select name="nama_pengeluaran" id="nama_pengeluaran" class="form-control">
+                                            <?php foreach ($keluar as $p) : ?>
+                                                <option value="" hidden></option>
+                                                <option value="<?= $p['nama_pengeluaran']; ?>"><?= $p['nama_pengeluaran']; ?></option>
+                                            <?php endforeach;  ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="">Pilih</label>
-                                    <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="">Pilih</label>
+                                        <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="">Pilih</label>
-                                    <?php
-                                    if ($tanggal != null) {
-                                        echo '<a href="/laporan/print_pengeluaran/' . $tanggal['tgl_mulai'] . '/' . $tanggal['tgl_selesai'] . '/' . $tanggal['nama_pengeluaran'] . '"target="_blank" class="form-control btn btn-primary">
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="">Pilih</label>
+                                        <?php
+                                        if ($tanggal != null) {
+                                            echo '<a href="/laporan/print_pengeluaran/' . $tanggal['tgl_mulai'] . '/' . $tanggal['tgl_selesai'] . '/' . $tanggal['nama_pengeluaran'] . '"target="_blank" class="form-control btn btn-primary">
                                         <span class="ion ion-android-print" data-pack="android" data-tags="">Print</span>
                                         </a>';
-                                    } else {
-                                        echo '<a href="/laporan/print_pengeluaran" target ="_blank" class="form-control btn btn-primary">
+                                        } else {
+                                            echo '<a href="/laporan/print_pengeluaran" target ="_blank" class="form-control btn btn-primary">
                                         <span class="ion ion-android-print" data-pack="android" data-tags="">Print</span>
                                         </a>';
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="card card-statistic-1">
-                                    <div class="card-icon bg-danger">
-                                        <span class="ion ion-cash" data-pack="default" data-tags="credit, price, debit, money, shopping, dollars, $"></span>
+                                        }
+                                        ?>
                                     </div>
-                                    <div class="card-header-primary">
-                                        <h3>Total Pengeluaran
-                                            <?php foreach ($pengeluaran as $p) :  ?>
-                                                <?= $p['jumlah_pengeluaran']; ?>
-                                        </h3>
-                                    </div>
-                                <?php endforeach;  ?>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +112,7 @@
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $k['nama_pengeluaran']; ?></td>
-                                            <td><?= $k['jumlah_pengeluaran']; ?></td>
+                                            <td> <?= "Rp " . number_format($k['jumlah_pengeluaran'], 2, ',', '.'); ?></td>
                                             <td><?= date('d-M-Y', strtotime($k["waktu_pengeluaran"]));; ?></td>
                                         </tr>
                                     <?php endforeach; ?>

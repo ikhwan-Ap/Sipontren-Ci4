@@ -13,7 +13,16 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="section-body">
         <div class="row">
@@ -43,16 +52,30 @@
                                             <td><?= $k['nama_pembayaran']; ?></td>
                                             <td><?= $k['jumlah_pembayaran']; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_tagihan']; ?>">
-                                                    <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
-                                                </button>
-                                                <?php if ($k['jumlah_pembayaran'] == null) : ?>
-                                                    <a href="/tagihan/edit/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
+                                                <?php if ($k['nama_pembayaran'] == 'uang daftar ulang' || $k['nama_pembayaran'] == 'uang pendaftaran') : ?>
+                                                <?php elseif ($k['nama_pembayaran'] == 'uang laptop' || $k['nama_pembayaran'] == 'uang makan') : ?>
+                                                <?php else :  ?>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $k['id_tagihan']; ?>">
+                                                        <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
+                                                    </button>
+                                                <?php endif; ?>
+                                                <?php if ($k['nama_pembayaran'] == 'uang daftar ulang') : ?>
+                                                    <a href="/tagihan/edit_regis/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
                                                         <spanion class="ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
                                                     </a>
-                                                <?php elseif ($k['jumlah_pembayaran'] != null) : ?>
-                                                    <a href="/tagihan/edit_rutin/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
-                                                        <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span></a>
+                                                <?php elseif ($k['nama_pembayaran'] == 'uang pendaftaran') : ?>
+                                                    <a href="/tagihan/edit_regis/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
+                                                        <spanion class="ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                                    </a>
+                                                <?php else : ?>
+                                                    <?php if ($k['jumlah_pembayaran'] == null) : ?>
+                                                        <a href="/tagihan/edit/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
+                                                            <spanion class="ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                                        </a>
+                                                    <?php elseif ($k['jumlah_pembayaran'] != null) : ?>
+                                                        <a href="/tagihan/edit_rutin/<?= $k['nama_pembayaran']; ?>" class="btn btn-light">
+                                                            <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span></a>
+                                                    <?php endif; ?>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>

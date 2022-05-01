@@ -6,7 +6,58 @@
         <h1><?= $title; ?></h1>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+
+    <?php if (session()->getFlashdata('message') != null) :  ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <div class="section-body">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-10">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-primary">
+                        <i class="fas fa-money-check"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Anggaran Tersedia</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                            $sisa = $Total - $pengeluaran;
+
+                            ?>
+                            <?= "Rp " . number_format($sisa, 2, ',', '.'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-warning">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Total Pemasukan</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php foreach ($Lunas as $l) : ?>
+                                <?= "Rp " . number_format($l['jumlah_bayar'], 2, ',', '.');  ?>
+                            <?php endforeach;  ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="section-body">
         <div class="row">
@@ -18,66 +69,39 @@
 
                     <form action="<?= base_url(); ?>/pembayaran/filter_pemasukan" method="POST" class="inline">
                         <?= csrf_field(); ?>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="tgl_mulai">Tanggal Awal</label>
-                                    <input type="date" name="tgl_mulai" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="tgl_akhir">Tanggal Akhir</label>
-                                    <input type="date" name="tgl_selesai" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="tgl_akhir">Pilih Jenis Pembayaran</label>
-                                    <select name="nama_pembayaran" id="nama_pembayaran" class="form-control">
-                                        <?php foreach ($tagihan as $t) : ?>
-                                            <option value="" hidden></option>
-                                            <option value="<?= $t['nama_pembayaran']; ?>"><?= $t['nama_pembayaran']; ?></option>
-                                        <?php endforeach;  ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col">
-                                    <label for="">Pilih</label>
-                                    <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="card card-statistic-1">
-                                    <div class="card-icon bg-primary">
-                                        <i class="fas fa-money-check"></i>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="tgl_mulai">Tanggal Awal</label>
+                                        <input type="date" name="tgl_mulai" class="form-control">
                                     </div>
-                                    <div class="card-header-primary">
-                                        <h3>Anggaran Tersedia
-                                            <?php
-                                            $sisa = $Total - $pengeluaran;
-                                            ?>
-                                            Rp.<?= $sisa; ?>
-                                        </h3>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="tgl_akhir">Tanggal Akhir</label>
+                                        <input type="date" name="tgl_selesai" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="tgl_akhir">Pilih Jenis Pembayaran</label>
+                                        <select name="nama_pembayaran" id="nama_pembayaran" class="form-control">
+                                            <?php foreach ($tagihan as $t) : ?>
+                                                <option value="" hidden></option>
+                                                <option value="<?= $t['nama_pembayaran']; ?>"><?= $t['nama_pembayaran']; ?></option>
+                                            <?php endforeach;  ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col">
+                                        <label for="">Pilih</label>
+                                        <button type="submit" name="filter" value="Filter" class="form-control btn btn-info">Filter Data</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                                <div class="card card-statistic-1">
-                                    <div class="card-icon bg-warning">
-                                        <span class="ion ion-cash" data-pack="default" data-tags="credit, price, debit, money, shopping, dollars, $"></span>
-                                    </div>
-                                    <div class="card-header-primary">
-                                        <?php foreach ($Lunas as $l) : ?>
-                                            <h3>
-                                                Pemasukan
-                                                <?= $l['jumlah_bayar']; ?>
-                                            </h3>
-                                        <?php endforeach;  ?>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
                     </form>
 
                     <div class="card-body">
@@ -99,7 +123,7 @@
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
-                                            <td><?= $k['jumlah_bayar']; ?></td>
+                                            <td><?= "Rp " . number_format($k['jumlah_bayar'], 2, ',', '.'); ?></td>
                                             <td><?= date('d-M-Y', strtotime($k["waktu"]));; ?></td>
                                         </tr>
 

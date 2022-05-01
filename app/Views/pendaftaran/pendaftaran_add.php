@@ -8,12 +8,21 @@
         <h1><?= $title; ?></h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="/pembayaran/pendaftaran">Pembayaran Pendaftaran</a></div>
-            <div class="breadcrumb-item">Tambah Data Pendaftaran</div>
+            <div class="breadcrumb-item"><a href="/pendaftaran/pendaftaran">Pembayaran Pendaftaran</a></div>
+            <div class="breadcrumb-item">Tambah Pembayaran</div>
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) :  ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="card col-lg-8">
         <form action="/pendaftaran" method="POST">
@@ -25,9 +34,9 @@
                 <input id="id_santri" type="hidden" name="id_santri">
                 <div class="form-group">
                     <label>NAMA SANTRI</label>
-                    <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>">
+                    <input id="nama_lengkap" type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" name="nama_lengkap" value="<?= old('nama_lengkap'); ?>">
                     <div class="invalid-feedback">
-                        <?= $validation->getError('id_santri'); ?>
+                        <?= $validation->getError('nama_lengkap'); ?>
                     </div>
                 </div>
                 <div class="form-group">

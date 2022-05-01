@@ -13,7 +13,17 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) :  ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
 
     <div class="section-body">
         <div class="row">
@@ -40,10 +50,10 @@
                                                 <td><?= $i++; ?></td>
                                                 <td><?= $g['nama_gedung']; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $g['id_gedung']; ?>">
+                                                    <button type="button" onclick="topFunction()" title="DELETE" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $g['id_gedung']; ?>">
                                                         <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
                                                     </button>
-                                                    <a href="/gedung/edit/<?= $g['nama_gedung']; ?>" class="btn btn-light">
+                                                    <a href="/gedung/edit/<?= $g['nama_gedung']; ?>" onclick="topFunction()" title="EDIT" class="btn btn-light">
                                                         <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
                                                     </a>
                                                 </td>

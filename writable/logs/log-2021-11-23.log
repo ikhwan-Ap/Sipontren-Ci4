@@ -1,0 +1,158 @@
+CRITICAL - 2021-11-23 09:51:44 --> Undefined variable $asatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\asatidz\detail.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 31)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatidz/detail', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(304): view('asatidz/detail', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->detail('2')
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-23 09:52:50 --> Undefined variable $asatidz
+#0 E:\Xampp\htdocs\sipontren\app\Views\asatidz\detail.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 31)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatidz/detail', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(304): view('asatidz/detail', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->detail('2')
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-23 09:54:57 --> Trying to access array offset on value of type null
+#0 E:\Xampp\htdocs\sipontren\app\Views\santri\detail.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'E:\\Xampp\\htdocs...', 31)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('santri/detail', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Santri.php(114): view('santri/detail', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->detail('2')
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-23 09:55:11 --> Trying to access array offset on value of type null
+#0 E:\Xampp\htdocs\sipontren\app\Views\santri\detail.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'E:\\Xampp\\htdocs...', 31)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('santri/detail', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Santri.php(114): view('santri/detail', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->detail('2')
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-23 09:55:27 --> Trying to access array offset on value of type null
+#0 E:\Xampp\htdocs\sipontren\app\Views\santri\detail.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'E:\\Xampp\\htdocs...', 31)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('santri/detail', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Santri.php(114): view('santri/detail', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->detail('2')
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-23 16:30:48 --> Undefined array key "nik_ktp"
+#0 E:\Xampp\htdocs\sipontren\app\Views\santri\edit.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'E:\\Xampp\\htdocs...', 53)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('santri/edit', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Santri.php(384): view('santri/edit', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->edit('3')
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-23 16:36:42 --> Undefined array key "nik_ktp"
+#0 E:\Xampp\htdocs\sipontren\app\Views\santri\edit.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'E:\\Xampp\\htdocs...', 53)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('santri/edit', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Santri.php(384): view('santri/edit', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Santri->edit('3')
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Santri))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-23 16:54:08 --> Too few arguments to function App\Controllers\Asatidz::edit(), 0 passed in E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2021-11-23 16:54:28 --> Too few arguments to function App\Controllers\Asatidz::edit(), 0 passed in E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2021-11-23 16:54:32 --> Too few arguments to function App\Controllers\Asatidz::edit(), 0 passed in E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2021-11-23 16:56:25 --> Undefined property: App\Controllers\Asatidz::$AsatidzModel
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(311): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'E:\\Xampp\\htdocs...', 311)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-23 16:56:39 --> Too few arguments to function App\Controllers\Asatidz::edit(), 0 passed in E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2021-11-23 16:57:22 --> Too few arguments to function App\Controllers\Asatidz::edit(), 0 passed in E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#5 {main}
+ERROR - 2021-11-23 16:57:48 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= id
+ LIMIT 1' at line 3
+CRITICAL - 2021-11-23 16:57:48 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= id
+ LIMIT 1' at line 3
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(311): CodeIgniter\BaseModel->first()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2021-11-23 16:57:59 --> Too few arguments to function App\Controllers\Asatidz::edit(), 0 passed in E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2021-11-23 16:58:36 --> Too few arguments to function App\Controllers\Asatidz::edit(), 0 passed in E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->edit()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#5 {main}

@@ -50,14 +50,7 @@ class Gedung extends BaseController
             'nama_gedung' => $this->request->getVar('nama_gedung'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data gedung berhasil ditambahkan!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Gedung Berhasil Di Tambahkan');
 
         return redirect()->to('/gedung');
     }
@@ -65,14 +58,7 @@ class Gedung extends BaseController
     public function delete($id)
     {
         $this->model->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data gedung berhasil dihapus!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Gedung Berhasil Di Hapus');
         return redirect()->to('/gedung');
     }
 
@@ -105,14 +91,7 @@ class Gedung extends BaseController
             'nama_gedung' => $this->request->getVar('nama_gedung'),
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data gedung berhasil diubah!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Gedung Berhasil Di Ubah');
 
         return redirect()->to('/gedung');
     }

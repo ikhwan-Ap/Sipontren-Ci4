@@ -1,0 +1,434 @@
+CRITICAL - 2021-11-18 13:06:22 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(205): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:10:12 --> Cannot declare class App\Database\Migrations\Admin, because the name is already in use
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+ERROR - 2021-11-18 13:11:26 --> Table 'admin' already exists
+CRITICAL - 2021-11-18 13:27:16 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(206): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:29:28 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(206): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:30:09 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_login.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:30:09 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_login.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:30:14 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(206): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:30:19 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_login.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:30:39 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_login.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:30:40 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_login.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:32:02 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_login.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:33:16 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_asatidz.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:33:16 --> Undefined variable $title
+#0 E:\Xampp\htdocs\sipontren\app\Views\layout\template_asatidz.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 7)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(230): CodeIgniter\View\View->render('layout/template...', Array, true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/asatidz', Array, true)
+#5 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(124): view('login/asatidz', Array)
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->asatidz()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-11-18 13:35:48 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(207): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:37:36 --> Invalid file: .php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:37:47 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(208): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:37:47 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(208): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:37:49 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(208): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:38:12 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(208): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 13:38:12 --> Invalid file: login/santri.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login/santri.ph...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/santri', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(208): view('login/santri', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->santri()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 16:34:37 --> Call to undefined method App\Models\SantriModel::getLogin
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(238): CodeIgniter\Model->__call('getLogin', Array)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:36:16 --> Call to undefined method App\Models\SantriModel::getLogin
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(238): CodeIgniter\Model->__call('getLogin', Array)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:36:59 --> Call to undefined method App\Models\SantriModel::getLogin
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(238): CodeIgniter\Model->__call('getLogin', Array)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:38:37 --> Invalid file: .php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 16:38:40 --> Invalid file: .php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 16:39:01 --> Call to undefined method App\Models\SantriModel::getLogin
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(238): CodeIgniter\Model->__call('getLogin', Array)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:39:51 --> Call to undefined method App\Models\SantriModel::getLogin
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(238): CodeIgniter\Model->__call('getLogin', Array)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:43:05 --> Call to undefined method App\Models\SantriModel::getLogin
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(238): CodeIgniter\Model->__call('getLogin', Array)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:43:59 --> Call to undefined method App\Models\SantriModel::getLogin
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(238): CodeIgniter\Model->__call('getLogin', Array)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:44:26 --> Undefined array key "password"
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(240): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'E:\\Xampp\\htdocs...', 240)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:47:00 --> Undefined array key "password"
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(240): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'E:\\Xampp\\htdocs...', 240)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 16:48:42 --> syntax error, unexpected token "public"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('E:\\Xampp\\htdocs...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 16:48:49 --> syntax error, unexpected token "public"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('E:\\Xampp\\htdocs...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 16:49:07 --> syntax error, unexpected token "public"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('E:\\Xampp\\htdocs...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 16:49:08 --> syntax error, unexpected token "public"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('E:\\Xampp\\htdocs...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 16:49:09 --> syntax error, unexpected token "public"
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('E:\\Xampp\\htdocs...')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 17:27:41 --> Undefined array key "password"
+#0 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(240): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'E:\\Xampp\\htdocs...', 240)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginsantri()
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-18 17:29:36 --> Trying to access array offset on value of type null
+#0 E:\Xampp\htdocs\sipontren\app\Views\asatidz\profil.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'E:\\Xampp\\htdocs...', 14)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('asatidz/profil', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Asatidz.php(38): view('asatidz/profil', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->profil()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-18 17:40:45 --> Invalid file: .php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 17:42:15 --> Invalid file: .php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('.php')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 17:42:41 --> Invalid file: /.php
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/.php')
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('/', Array, true)
+#2 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('/', Array)
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-18 17:43:05 --> Undefined variable $validation
+#0 E:\Xampp\htdocs\sipontren\app\Views\login\user.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 19)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/user', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('login/user', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-18 17:43:50 --> Undefined variable $validation
+#0 E:\Xampp\htdocs\sipontren\app\Views\login\user.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'E:\\Xampp\\htdocs...', 19)
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('E:\\Xampp\\htdocs...')
+#2 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('login/user', Array, true)
+#4 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(14): view('login/user', Array)
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#10 {main}

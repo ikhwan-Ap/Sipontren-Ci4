@@ -14,7 +14,16 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="card col-lg-8">
         <form action="/lainnya/<?= $BelumLunas['id_keuangan']; ?>" method="POST">
@@ -44,7 +53,7 @@
                         <label for="nama_pembayaran">Keterangan</label>
                         <p class="form-control"><?= $BelumLunas['nama_pembayaran']; ?></p>
                         <div class="invalid-feedback">
-                            Please fill in the first name
+
                         </div>
                     </div>
                     <div class="form-group col-md-6 col-12">

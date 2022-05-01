@@ -1,0 +1,26 @@
+ERROR - 2021-12-01 09:55:27 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2021-12-01 09:55:27 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 E:\Xampp\htdocs\sipontren\app\Models\AdminModel.php(15): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(63): App\Models\AdminModel->getLogin('admin')
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginAdmin()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#9 {main}
+ERROR - 2021-12-01 09:55:43 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2021-12-01 09:55:43 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1576): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 E:\Xampp\htdocs\sipontren\app\Models\AdminModel.php(15): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#3 E:\Xampp\htdocs\sipontren\app\Controllers\Login.php(63): App\Models\AdminModel->getLogin('admin')
+#4 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Login->loginAdmin()
+#5 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\Xampp\htdocs\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 E:\Xampp\htdocs\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('E:\\Xampp\\htdocs...')
+#9 {main}

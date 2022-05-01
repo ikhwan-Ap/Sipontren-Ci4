@@ -12,14 +12,19 @@
             </a>
         </div>
     </div>
-
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="section-body">
         <div class="card">
-            <div class="card-header">
-                <h4 class="text-dark">Data Admin</h4>
-            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped" id="table-2">
@@ -41,15 +46,16 @@
                                     <td><?= $a['username']; ?></td>
                                     <td><?= $a['email']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?= $a['id']; ?>">
-                                            <span class="ion ion-ios-trash" data-pack="ios" data-tags="delete, remove, dispose, waste, basket, dump, kill">
+                                        <button type="button" class="btn btn-danger" onclick="topFunction()" title="DELETE" id="btnDEL" data-toggle="modal" data-target="#exampleModal<?= $a['id']; ?>">
+                                            <span class="ion ion-ios-trash" data-pack="default" data-tags="delete, remove, dispose, waste, basket, dump, kill">
+                                            </span>
                                         </button>
-                                        <a href="/admin/edit/<?= $a['username']; ?>" class="btn btn-light">
-                                            <span class="ion ion-gear-a" data-pack="default" data-tags="settings, options, cog"></span>
+                                        <a href="/admin/edit/<?= $a['username']; ?>" class="btn btn-light" onclick="topFunction()" title="EDIT">
+                                            <span class="ion ion-gear-a" onclick="getFunction()" title="EDIT" data-pack="default" data-tags="setting"></span>
                                         </a>
-                                        <a href="/admin/detail/<?= $a['id']; ?>" class="btn btn-light" target="_blank">
+                                        <!-- <a href="/admin/detail/<?= $a['id']; ?>" class="btn btn-light" onclick="topFunction()" title="DETAIL" target="_blank">
                                             <span class="ion ion-android-open" data-pack="android" data-tags="">
-                                        </a>
+                                        </a> -->
                                     </td>
                                 </tr>
 
@@ -84,4 +90,6 @@
         </div>
     </div>
 </section>
+
+
 <?= $this->endSection(); ?>

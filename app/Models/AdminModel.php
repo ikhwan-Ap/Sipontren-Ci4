@@ -14,4 +14,12 @@ class AdminModel extends Model
     {
         return $this->db->table($this->table)->getWhere(['username' => $username])->getRowArray();
     }
+
+    public function get_id($id)
+    {
+        $builder = $this->db->table('admin');
+        $builder->where('id', $id);
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
 }

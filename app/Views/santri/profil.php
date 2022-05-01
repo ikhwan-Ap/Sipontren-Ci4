@@ -5,7 +5,17 @@
     <div class="section-header">
         <h1><?= $title; ?></h1>
     </div>
-    <?= session()->getFlashdata('message'); ?>
+
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
     <div class="section-body">
         <div class="card">
             <div class="card-body">

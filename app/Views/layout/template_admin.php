@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="<?= base_url() ?>/js/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="<?= base_url() ?>/js/summernote/dist/summernote-bs4.css">
@@ -61,7 +62,7 @@
             <!-- Footer -->
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; <?= date('Y'); ?> <div class="bullet"></div> Developed By Magang PT. Satria Dirgantara</a>
+                    Copyright &copy; <?= date('Y'); ?> <div class="bullet"></div> Developed By Kejari Purwokerto</a>
                 </div>
                 <div class="footer-right">
                     1.0.1
@@ -106,6 +107,8 @@
     <script src="<?= base_url() ?>/js/bootstrap-modal.js"></script>
     <script src="<?= base_url() ?>/js/modules-datatables.js"></script>
     <script src="<?= base_url(); ?>/js/forms-advanced-forms.js"></script>
+    <script src="<?= base_url(); ?>/js/modules-sweetalert.js"></script>
+
 </body>
 
 </html>

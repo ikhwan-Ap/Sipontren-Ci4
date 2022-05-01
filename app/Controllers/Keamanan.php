@@ -89,14 +89,7 @@ class Keamanan extends BaseController
             'role' => '3',
         ]);
 
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data Keamanan berhasil ditambahkan!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Keamanan Berhasil Di tambahkan');
 
         return redirect()->to('/keamanan');
     }
@@ -104,14 +97,7 @@ class Keamanan extends BaseController
     public function delete($id)
     {
         $this->model->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data keamanan berhasil dihapus!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Keamanan Berhasil Di Hapus!!');
         return redirect()->to('/keamanan');
     }
 
@@ -158,14 +144,7 @@ class Keamanan extends BaseController
         $password = $this->request->getVar('password');
         $password_conf = $this->request->getVar('password_conf');
         if ($password != $password_conf) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Password Dan Konfirmasi Password Tidak Sama
-            </div>
-          </div>');
+            session()->setFlashdata('message', 'Password Dan Konfirmasi Password Tidak Sama');
             return redirect()->to('/keamanan/edit/' . $this->request->getVar('username'))->withInput();
         } else {
             $this->model->save([
@@ -177,14 +156,7 @@ class Keamanan extends BaseController
 
             ]);
 
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data Keamanan berhasil diubah!
-                      </div>
-                    </div>');
+            session()->setFlashdata('message', 'Data Keamanan berhasil diubah!');
         }
         return redirect()->to('/keamanan');
     }

@@ -5,18 +5,19 @@ namespace App\Controllers;
 use App\Models\AsatidzModel;
 use App\Models\ProgramModel;
 use App\Models\KelasModel;
+use App\Models\WilayahModel;
 
 class Asatidz extends BaseController
 {
     public function __construct()
     {
-        $this->programModel = new ProgramModel();
+        $this->program = new ProgramModel();
         $this->asatidzModel = new AsatidzModel();
         $this->kelasModel = new KelasModel();
+        $this->provinsi = new WilayahModel();
         if (session()->get('username')) {
             return redirect()->to('dashboard/asatidz');
         }
-        $fotoasatidz = $this->asatidzModel->where('username', session()->get('foto'))->first();
     }
 
     public function index()
@@ -84,17 +85,6 @@ class Asatidz extends BaseController
             return redirect()->to('/asatidz/profil/' . $this->request->getVar('username'))->withInput();
         }
 
-        // $fileFoto = $this->request->getFile('foto');
-        // if ($fileFoto->getError() == 0) {
-        //     $namaFoto = 'default.png';
-        // } else {
-        //     $namaFoto = $fileFoto->getRandomName();
-
-        //     $image = \Config\Services::image()
-        //         ->withFile($fileFoto)
-        //         ->resize(400, 200, true, 'height')
-        //         ->save(FCPATH . '/img/' . $namaFoto);
-        // }
         $this->asatidzModel->save(
 
             [
@@ -104,25 +94,17 @@ class Asatidz extends BaseController
                 'tempat_lahir' => $this->request->getVar('tempat_lahir'),
                 'alamat' => $this->request->getVar('alamat'),
                 'pendidikan' => $this->request->getVar('pendidikan'),
-                // 'foto' => $namaFoto,
             ]
         );
 
-        session()->setFlashdata('message', '<div class="alert alert-success">Data <strong>Profil</strong> berhasil diubah!</div>');
+        session()->setFlashdata('message', 'Data Berhasil Di Ubah');
 
         return redirect()->to('/asatidz/profil');
     }
     public function delete($id)
     {
         $this->asatidzModel->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data asatidz berhasil dihapus!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data asatidz berhasil dihapus!');
         return redirect()->to('/asatidz');
     }
 
@@ -131,6 +113,8 @@ class Asatidz extends BaseController
         $data = [
             'title' => 'Data Asatidz',
             'validation' => \Config\Services::validation(),
+            'provinsi' => $this->provinsi->get_provinsi(),
+            'program' => $this->program->findAll(),
         ];
 
         return view('asatidz/add', $data);
@@ -141,23 +125,28 @@ class Asatidz extends BaseController
         if (!$this->validate([
 
             'username' => [
-                'rules' => 'required',
+                'rules' => 'required|is_unique[asatidz.username]',
                 'errors' => [
                     'required' => 'Username harus diisi!',
+                    'username' => 'Terdapat username dengan data yang sama',
                 ]
             ],
             'nik_ktp' => [
-                'rules' => 'required|numeric',
+                'rules' => 'required|numeric|min_length[16]|max_length[16]',
                 'errors' => [
                     'required' => 'NIK KTP harus diisi!',
-                    'numeric' => 'NIK KTP harus angka!'
+                    'numeric' => 'NIK KTP harus angka!',
+                    'min_length' => 'NIK KTP kurang dari 16 Angka',
+                    'max_length' => 'NIK KTP lebih dari 16 Angka'
                 ]
             ],
             'no_kk' => [
-                'rules' => 'required|numeric',
+                'rules' => 'required|numeric|min_length[16]|max_length[16]',
                 'errors' => [
-                    'required' => 'No KK harus diisi!',
-                    'numeric' => 'No KK harus angka!'
+                    'required' => 'NO KK harus diisi!',
+                    'numeric' => 'NO KK harus angka!',
+                    'min_length' => 'NO KK kurang dari 16 Angka',
+                    'max_length' => 'NO KK lebih dari 16 Angka'
                 ]
             ],
             'password' => [
@@ -218,54 +207,49 @@ class Asatidz extends BaseController
                     'required' => 'Nomer Hp  harus diisi!',
                 ]
             ],
-            'jadwal' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'jadwal harus diisi!',
-                ]
-            ],
-            'kelas' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'kelas harus diisi!',
-                ]
-            ],
-            'total_santri' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'total santri harus diisi!',
-                ]
-            ],
-            'pertemuan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'pertemuan harus diisi!',
-                ]
-            ],
             'pendidikan' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'pendidikan harus diisi!',
                 ]
             ],
-            'program' => [
+            'id_program' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'program harus diisi!',
                 ]
             ],
-            'foto' => [
+            'provinsi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'foto harus diisi!',
+                    'required' => 'provinsi harus diisi!',
                 ]
             ],
+            'kabupaten' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'kabupaten harus diisi!',
+                ]
+            ],
+            'kecamatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'kecamatan harus diisi!',
+                ]
+            ],
+            'desa_kelurahan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'desa harus diisi!',
+                ]
+            ],
+
 
         ])) {
             return redirect()->to('/asatidz/add')->withInput();
         }
 
-        $this->asatidzModel->save([
+        $save =   $this->asatidzModel->save([
             'username' => $this->request->getVar('username'),
             'nik_ktp' => $this->request->getVar('nik_ktp'),
             'no_kk' => $this->request->getVar('no_kk'),
@@ -277,19 +261,14 @@ class Asatidz extends BaseController
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'alamat' => $this->request->getVar('alamat'),
             'no_hp' => $this->request->getVar('no_hp'),
-            'id_kelas' => $this->request->getVar('id_kelas'),
             'pendidikan' => $this->request->getVar('pendidikan'),
             'id_program' => $this->request->getVar('id_program'),
+            'provinsi' => $this->request->getVar('provinsi'),
+            'kabupaten' => $this->request->getVar('kabupaten'),
+            'kecamatan' => $this->request->getVar('kecamatan'),
+            'desa_kelurahan' => $this->request->getVar('desa_kelurahan'),
         ]);
-
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data Asatidz berhasil ditambahkan!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data Asatidz berhasil ditambahkan!');
 
         return redirect()->to('/asatidz');
     }
@@ -310,8 +289,12 @@ class Asatidz extends BaseController
             'title' => 'Edit Data Asatidz',
             'validation' => \Config\Services::validation(),
             'asatidz' => $this->asatidzModel->edit($id),
-            'program' => $this->programModel->findAll(),
-            'kelas' => $this->kelasModel->findAll(),
+            'program' => $this->program->findAll(),
+            'provinsi' => $this->asatidzModel->Get_provinsi($id),
+            'kabupaten' => $this->asatidzModel->Get_kabupaten($id),
+            'kecamatan' => $this->asatidzModel->Get_kecamatan($id),
+            'desa' => $this->asatidzModel->Get_desa($id),
+            'wilayah' => $this->provinsi->get_provinsi(),
         ];
 
         return view('asatidz/edit', $data);
@@ -321,30 +304,51 @@ class Asatidz extends BaseController
     {
         $id = $this->request->getVar('id');
         if (!$this->validate([
+
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Username harus diisi!',
+                    'username' => 'Terdapat username dengan data yang sama',
+                ]
+            ],
             'nik_ktp' => [
-                'rules' => 'required|numeric',
+                'rules' => 'required|numeric|min_length[16]|max_length[16]',
                 'errors' => [
                     'required' => 'NIK KTP harus diisi!',
-                    'numeric' => 'NIK KTP harus angka!'
+                    'numeric' => 'NIK KTP harus angka!',
+                    'min_length' => 'NIK KTP kurang dari 16 Angka',
+                    'max_length' => 'NIK KTP lebih dari 16 Angka'
                 ]
             ],
             'no_kk' => [
-                'rules' => 'required|numeric',
+                'rules' => 'required|numeric|min_length[16]|max_length[16]',
                 'errors' => [
-                    'required' => 'No KK harus diisi!',
-                    'numeric' => 'No KK harus angka!'
+                    'required' => 'NO KK harus diisi!',
+                    'numeric' => 'NO KK harus angka!',
+                    'min_length' => 'NO KK kurang dari 16 Angka',
+                    'max_length' => 'NO KK lebih dari 16 Angka'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|matches[password_conf]|min_length[5]',
+                'errors' => [
+                    'required' => 'Password harus diisi!',
+                    'matches' => 'Password tidak sama dengan Konfirmasi Password!',
+                    'min_length' => 'Password kurang dari 5 karakter!',
+                ]
+            ],
+            'password_conf' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'Konfirmasi Password harus diisi!',
+                    'matches' => 'Konfirmasi Password tidak sama dengan Password!'
                 ]
             ],
             'nama_lengkap' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Nama Lengkap harus diisi!',
-                ]
-            ],
-            'username' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Username harus diisi!',
                 ]
             ],
             'email' => [
@@ -378,31 +382,49 @@ class Asatidz extends BaseController
                     'required' => 'Alamat harus diisi!',
                 ]
             ],
+            'no_hp' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nomer Hp  harus diisi!',
+                ]
+            ],
+            'pendidikan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'pendidikan harus diisi!',
+                ]
+            ],
             'id_program' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'program harus diisi!',
                 ]
             ],
-            'no_hp' => [
-                'rules' => 'required|numeric',
-                'errors' => [
-                    'required' => 'No HP harus diisi!',
-                    'numeric' => 'No HP harus angka!',
-                ]
-            ],
-            'pendidikan' => [
+            'provinsi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Pendidikan harus diisi!',
+                    'required' => 'provinsi harus diisi!',
                 ]
             ],
-            'id_kelas' => [
+            'kabupaten' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Kelas  harus diisi!',
+                    'required' => 'kabupaten harus diisi!',
                 ]
             ],
+            'kecamatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'kecamatan harus diisi!',
+                ]
+            ],
+            'desa_kelurahan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'desa harus diisi!',
+                ]
+            ],
+
 
         ])) {
             return redirect()->to('/asatidz/edit/' .  $id)->withInput();
@@ -419,19 +441,41 @@ class Asatidz extends BaseController
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'alamat' => $this->request->getVar('alamat'),
             'id_program' => $this->request->getVar('id_program'),
-            'id_kelas' => $this->request->getVar('id_kelas'),
             'no_hp' => $this->request->getVar('no_hp'),
             'pendidikan' => $this->request->getVar('pendidikan'),
+            'provinsi' => $this->request->getVar('provinsi'),
+            'kabupaten' => $this->request->getVar('kabupaten'),
+            'kecamatan' => $this->request->getVar('kecamatan'),
+            'desa_kelurahan' => $this->request->getVar('desa_kelurahan'),
         ]);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data asatidz berhasil diubah!
-                      </div>
-                    </div>');
+        session()->setFlashdata('message', 'Data asatidz berhasil diubah!');
 
         return redirect()->to('/asatidz');
+    }
+
+    public function detailAsatidz($id)
+    {
+        $data = $this->asatidzModel->get_detail($id);
+        echo json_encode($data);
+    }
+    public function softDel($id)
+    {
+        $data = $this->asatidzModel->get_softDel($id);
+        echo json_encode($data);
+    }
+    public function btn_softDel()
+    {
+        $id = $this->request->getVar('id');
+        if ($this->request->isAJAX()) {
+            $this->asatidzModel->save([
+                'id' => $id,
+                'deleted_at' => date("Y-m-d h:i"),
+            ]);
+            session()->setFlashdata('message', 'Data berhasil di hapus');
+            $data = [
+                'sukses' => 'Data berhasil di hapus',
+            ];
+        }
+        echo json_encode($data);
     }
 }

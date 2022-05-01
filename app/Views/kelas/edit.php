@@ -14,8 +14,6 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
-
     <div class="card col-lg-6">
         <form action="/kelas/<?= $kelas['id_kelas'] ?>" method="POST">
             <div class="card-header">

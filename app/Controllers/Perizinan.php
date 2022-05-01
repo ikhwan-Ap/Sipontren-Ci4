@@ -20,7 +20,6 @@ class Perizinan extends BaseController
             'title' => 'Perizinan',
             'izin' => $this->perizinan->getKeamanan(),
             'validation' => \Config\Services::validation(),
-            'user_penginput' => session()->get('name')
         ];
 
         return view('perizinan/index', $data);
@@ -37,86 +36,81 @@ class Perizinan extends BaseController
         return view('perizinan/keamanan', $data);
     }
 
-    public function create()
-    {
-        $data = [
-            'title' => 'Tambah Surat Izin Keluar',
-            'validation' => \Config\Services::validation(),
-            'santri' => $this->santri->findAll(),
-            'user_penginput' => session()->get('name'),
-        ];
 
-        return view('perizinan/add', $data);
-    }
 
     public function save()
     {
-        if (!$this->validate([
-            'nis' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'NIS harus diisi!'
-                ]
-            ],
-            'nama_lengkap' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Lengkap harus diisi!',
-                ]
-            ],
-            'keterangan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Keterangan harus diisi!',
-                ]
-            ],
-            'tanggal_izin' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tanggal Izin harus diisi!',
-                ]
-            ],
-            'tanggal_estimasi' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tanggal Estimasi Kembali harus diisi!',
-                ]
-            ],
-        ])) {
-            return redirect()->to('/perizinan')->withInput();
-        }
-        $id_santri = $this->request->getVar('id_santri');
-        $tanggal_izin = $this->request->getVar('tanggal_izin');
-        $tanggal_estimasi = $this->request->getVar('tanggal_estimasi');
+        $validation = \Config\Services::validation();
+        if ($this->request->isAJAX()) {
+            $id_santri = $this->request->getVar('id_santri');
+            $tanggal_izin = $this->request->getVar('tanggal_izin');
+            $tanggal_estimasi = $this->request->getVar('tanggal_estimasi');
+            $keterangan = $this->request->getVar('keterangan');
+            $user_penginput = $this->request->getVar('user_penginput');
 
-        if ($tanggal_estimasi < $tanggal_izin) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Tanggal Izin Dan Estimasi Tidak Sesuai / Tidak Relevan
-            </div>
-          </div>');
-            return redirect()->to('/perizinan')->withInput();
-        } else {
-            $this->perizinan->save([
-                'id_santri' => $id_santri,
-                'keterangan' => $this->request->getVar('keterangan'),
-                'tanggal_izin' => $tanggal_izin,
-                'tanggal_estimasi' => $tanggal_estimasi,
-                'user_penginput' => $this->request->getVar('user_penginput'),
+            $valid = $this->validate([
+                'nis' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'NIS harus diisi!'
+                    ]
+                ],
+                'nama_lengkap' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Nama Lengkap harus diisi!',
+                    ]
+                ],
+                'keterangan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Keterangan harus diisi!',
+                    ]
+                ],
+                'tanggal_izin' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal Izin harus diisi!',
+                    ]
+                ],
+                'tanggal_estimasi' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal Estimasi Kembali harus diisi!',
+                    ]
+                ],
             ]);
-            session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-            <div class="alert-body">
-              <button class="close" data-dismiss="alert">
-                <span>×</span>
-              </button>
-              Data perizinan berhasil ditambahkan!
-            </div>
-          </div>');
+            if (!$valid) {
+                $data = [
+                    'error' => [
+                        'errorNis' => $validation->getError('nis'),
+                        'errorNama' => $validation->getError('nama_lengkap'),
+                        'errorKeterangan' => $validation->getError('keterangan'),
+                        'errorIzin' => $validation->getError('tanggal_izin'),
+                        'errorEstimasi' => $validation->getError('tanggal_estimasi'),
+                    ]
+                ];
+            } else {
+                if ($tanggal_estimasi < $tanggal_izin) {
+                    $data = [
+                        'fail' => 'Tanggal Estimasi Dan Tanggal Izin Tidak Relevan'
+                    ];
+                } else {
+                    $this->perizinan->save([
+                        'id_santri' => $id_santri,
+                        'keterangan' => $keterangan,
+                        'tanggal_izin' => $tanggal_izin,
+                        'tanggal_estimasi' => $tanggal_estimasi,
+                        'user_penginput' => $user_penginput
+                    ]);
+                    $data = [
+                        'sukses' => 'Data Perizinan Berhasil Di Tambahkan'
+                    ];
+                    session()->setFlashdata('message', 'Data perizinan berhasil ditambahkan!');
+                }
+            }
         }
-        return redirect()->to('/perizinan');
+        echo json_encode($data);
     }
 
     public function terima($id_izin)
@@ -125,8 +119,11 @@ class Perizinan extends BaseController
             'id_izin' => $id_izin,
             'tanggal_diterima' => date("Y-m-d h:i:s", time()),
         ]);
-
-        return redirect()->to('/perizinan');
+        session()->setFlashdata('message', 'Data Perizinan Berhasil Di Terima');
+        $data = [
+            'sukses' => 'Perizinan Berhasil Di Terima'
+        ];
+        echo json_encode($data);
     }
 
     public function pulang($id_izin)
@@ -134,116 +131,83 @@ class Perizinan extends BaseController
         $this->perizinan->save([
             'id_izin' => $id_izin,
             'tanggal_pulang' => date("Y-m-d h:i:s", time()),
+            'user_update' => session()->get('name'),
         ]);
-
-        return redirect()->to('/perizinan');
+        session()->setFlashdata('message', 'Data Santri Pulang Berhasil Di Inputkan');
+        $data = [
+            'sukses' => 'Data Berhasil Di Inputkan'
+        ];
+        echo json_encode($data);
     }
     public function pulang_keamanan($id_izin)
     {
         $this->perizinan->save([
             'id_izin' => $id_izin,
             'tanggal_pulang' => date("Y-m-d h:i:s", time()),
+            'user_update' => session()->get('name')
         ]);
 
         return redirect()->to('/perizinan/keamanan');
     }
 
-    public function ditolak($id_izin)
+    public function tolak($id_izin)
     {
         $this->perizinan->save([
             'id_izin' => $id_izin,
             'tanggal_ditolak' => date("Y-m-d h:i:s", time()),
         ]);
-
-        return redirect()->to('/perizinan');
+        session()->setFlashdata('message', 'Perizinan  Berhasil Di Tolak');
+        $data = [
+            'sukses' => 'Data Berhasil Di Inputkan'
+        ];
+        echo json_encode($data);
     }
 
-    public function delete($id)
+    public function delete($id_izin)
     {
-        $this->perizinan->delete($id);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Data perizinan berhasil dihapus!
-                      </div>
-                    </div>');
-        return redirect()->to('/perizinan');
+        $this->perizinan->delete($id_izin);
+        session()->setFlashdata('message', 'Data Perizinan Berhasil Di Hapus');
+        $data = [
+            'sukses' => 'Data Berhasil Di Hapu'
+        ];
+        echo json_encode($data);
     }
-    public function ajax_terlambat($id_izin)
-    {
 
-        if ($this->request->getMethod() == "POST") {
-            $rules = [
-                'ket_terlambat' => 'required'
-            ];
-            if (!$this->validate($rules)) {
-                $response = [
-                    'success' => false,
-                    'msg' => 'Keterangan Terlambat Harus Terisi',
-                ];
-                return $this->response->setJSON($response);
-            } else {
+    public function terlambat()
+    {
+        $validation = \Config\Services::validation();
+        if ($this->request->isAJAX()) {
+            $id_izin = $this->request->getVar('id_terlambat');
+            $ket_terlambat = $this->request->getVar('ket_terlambat');
+            $user_update = $this->request->getVar('user_update');
+            $valid = $this->validate([
+                'ket_terlambat' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Keterangan Terlambat harus diisi!',
+                    ]
+                ],
+            ]);
+            if (!$valid) {
                 $data = [
+                    'error' => [
+                        'errorTerlambat' => $validation->getError('ket_terlambat')
+                    ]
+                ];
+            } else {
+                $this->perizinan->save([
                     'id_izin' => $id_izin,
                     'tanggal_pulang' => date("Y-m-d h:i:s", time()),
-                    'ket_terlambat' => $this->request->getVar('ket_terlambat')
+                    'ket_terlambat' => $ket_terlambat,
+                    'user_update' => $user_update,
+                ]);
+                session()->setFlashdata('message', 'Keterangan Berhasil Di Tambah');
+                $data = [
+                    'sukses' => 'Data berhasil Di Inputkan'
                 ];
             }
-            if ($this->perizinan->insert($data)) {
-                $response = [
-                    'success' => true,
-                    'msg' => 'Data Terlambat Berhasil Di Inputkan'
-                ];
-            } else {
-                $response = [
-                    'success' => true,
-                    'msg' => 'Gagal Menginput Data Terlambat'
-                ];
-            }
-            return $this->response->setJSON($response);
         }
-    }
-    public function terlambat($id_izin)
-    {
-        if (!$this->validate([
-            'ket_terlambat' => [
-                'rules' => 'required',
-                'errors' => [
-                    session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                    <div class="alert-body">
-                      <button class="close" data-dismiss="alert">
-                        <span></span>
-                      </button>
-                      Keterangan Terlambat Harus Di Isi !!
-                    </div>
-                  </div>')
-                ]
-            ],
-        ])) {
-            if (session()->get('role') != 1) {
-                return redirect()->to('/perizinan/keamanan');
-            }
-            return redirect()->to('/perizinan')->withInput();
-        }
-        $this->perizinan->save([
-            'id_izin' => $id_izin,
-            'tanggal_pulang' => date("Y-m-d h:i:s", time()),
-            'ket_terlambat' => $this->request->getVar('ket_terlambat'),
-        ]);
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                      <div class="alert-body">
-                        <button class="close" data-dismiss="alert">
-                          <span>×</span>
-                        </button>
-                        Keterangan berhasil ditambah!
-                      </div>
-                    </div>');
-        if (session()->get('role') != 1) {
-            return redirect()->to('/perizinan/keamanan');
-        }
-        return redirect()->to('/perizinan');
+        echo json_encode($data);
     }
 
     public function riwayat()
@@ -266,18 +230,12 @@ class Perizinan extends BaseController
         return view('perizinan/detail_riwayat', $data);
     }
 
-    public function perizinan_add()
+    public function get_id($id_izin)
     {
-        $data = [
-            'id_santri' => $this->request->getVar('id_santri'),
-            'tanggal_izin' => $this->request->getVar('tanggal_izin'),
-            'tanggal_estimasi' => $this->request->getVar('tanggal_estimasi'),
-            'keterangan' => $this->request->getVar('keterangan'),
-            'user_penginput' => $this->request->getVar('user_penginput'),
-        ];
-        $insert = $this->perizinan->perizinan_add();
-        echo json_encode(array("status" => true));
+        $data = $this->perizinan->get_id($id_izin);
+        echo json_encode($data);
     }
+
 
     public function get_autofill()
     {

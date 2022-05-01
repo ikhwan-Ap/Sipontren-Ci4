@@ -1,5 +1,6 @@
 "use strict";
 
+
 var cleavePN = new Cleave('.phone-number', {
   phone: true,
   phoneRegionCode: 'us'
@@ -14,7 +15,6 @@ var cleavePC = new Cleave('.purchase-code', {
   uppercase: true
 });
 var cleaveI = new Cleave('.invoice-input', {
-  prefix: 'INV',
   delimiter: '-',
   blocks: [10],
   uppercase: true

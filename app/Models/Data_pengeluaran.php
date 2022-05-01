@@ -18,4 +18,13 @@ class Data_pengeluaran extends Model
             ->select('*')
             ->get()->getResultArray();
     }
+
+    public function get_id_data($id_keluar)
+    {
+        return $this->db
+            ->table('data_pengeluaran')
+            ->select('*')
+            ->where('id_keluar', $id_keluar)
+            ->get()->getRowArray();
+    }
 }

@@ -12,7 +12,7 @@ class PerizinanModel extends Model
     protected $allowedFields    =
     [
         'id_santri', 'keterangan', 'tanggal_diterima', 'tanggal_ditolak', 'tanggal_izin', 'tanggal_estimasi',
-        'tanggal_pulang', 'ket_terlambat', 'user_penginput'
+        'tanggal_pulang', 'ket_terlambat', 'user_update', 'user_penginput'
     ];
 
     public function getIzin($id = false)
@@ -20,7 +20,8 @@ class PerizinanModel extends Model
         if ($id == false) {
             return $this->db->table('perizinan')->select('*')
                 ->join('santri', 'santri.id_santri = perizinan.id_santri')
-                ->orderBy('perizinan.id_izin', 'Desc')
+
+                ->orderBy('tanggal_pulang', 'desc')
                 ->get()->getResultArray();
         }
 
@@ -29,6 +30,11 @@ class PerizinanModel extends Model
 
             ->get()->getRowArray();
     }
+
+    public function get_perizinan()
+    {
+    }
+
     public function perizinan_add($data)
     {
 
@@ -44,14 +50,15 @@ class PerizinanModel extends Model
                 ->where('tanggal_ditolak', null)
                 ->where('tanggal_pulang', null)
                 ->join('santri', 'santri.id_santri = perizinan.id_santri')
+                ->orderBy('id_izin', 'desc')
                 ->get()->getResultArray();
         }
-
         return $this->db
             ->table('perizinan')
             ->select('*')
             ->where('id_izin', $id)
             ->join('santri', 'santri.id_santri = perizinan.id_santri')
+
             ->get()->getRowArray();
     }
 
@@ -63,7 +70,15 @@ class PerizinanModel extends Model
             ->select('*')
             ->where('id_santri', $id_santri)
             ->join('santri', 'santri.id_santri = perizinan.id_santri')
-
             ->get()->getResultArray();
+    }
+
+    public function get_id($id_izin)
+    {
+        $builder = $this->db->table('perizinan');
+        $builder->select('*');
+        $builder->where('id_izin', $id_izin);
+        $query = $builder->get();
+        return $query->getRowArray();
     }
 }

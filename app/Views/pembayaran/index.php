@@ -13,7 +13,16 @@
         </div>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
+    <?php if (session()->getFlashdata('message') != null) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('message'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="section-body">
         <div class="row">
@@ -22,7 +31,7 @@
                     <div class="card-header">
                         <h4>Pembayaran Lain</h4>
                     </div>
-                    <div class="col">
+                    <div class="card-body">
                         <form action="<?= base_url(); ?>/pembayaran/filter_lainnya" method="POST" class="inline">
                             <?= csrf_field(); ?>
                             <div class="row">
@@ -87,8 +96,8 @@
                                             <td><?= $k['nama_pembayaran']; ?></td>
                                             <td><?= $k['waktu']; ?></td>
                                             <td> <?= date('d-m-Y', strtotime($k['periode'])) ?></td>
-                                            <td><?= $k['jumlah_bayar']; ?></td>
-                                            <td><?= $k['jumlah_tagihan']; ?></td>
+                                            <td><?= "Rp " . number_format($k['jumlah_bayar'], 2, ',', '.'); ?></td>
+                                            <td><?= "Rp " . number_format($k['jumlah_tagihan'], 2, ',', '.'); ?></td>
                                             <?php if ($k['status'] == 'Lunas') : ?>
                                                 <td class="badge badge-success"><?= $k['status']; ?> </td>
                                             <?php elseif (date('Y-m-d') > ($k['waktu'])) :  ?>

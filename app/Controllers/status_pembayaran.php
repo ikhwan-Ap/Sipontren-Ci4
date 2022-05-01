@@ -10,18 +10,14 @@ use App\Models\SantriModel;
 use App\Models\PengeluaranModel;
 use App\Models\Data_pengeluaran;
 use App\Models\KelasModel;
-use CodeIgniter\Files\File;
-use CodeIgniter\Database\MySQLi\Result;
-use DeepCopy\Filter\Filter;
-use PhpParser\Node\Expr\List_;
 
-use function PHPUnit\Framework\returnSelf;
-use TCPDF;
 
 class Status_pembayaran extends BaseController
 {
+    protected $session;
     public function __construct()
     {
+        helper('array');
         $this->model = new KeuanganModel();
         $this->tagihan = new TagihanModel();
         $this->santri = new SantriModel();
@@ -34,18 +30,19 @@ class Status_pembayaran extends BaseController
     {
         $data = [
             'title' => 'Pembayaran SPP',
-            'hasil' => $this->model->keuangan_coba(),
+            'hasil' => $this->model->SALAH(),
             'santri' => $this->santri->findAll(),
             'filter' =>  $this->kelas->findAll()
 
         ];
         return view('status/index', $data);
     }
+
     public function filter()
     {
         $data = [
             'title' => 'Pembayaran SPP',
-            'hasil' => $this->model->keuangan_coba(),
+            'hasil' => $this->model->SALAH(),
             'santri' => $this->santri->findAll(),
             'filter' =>  $this->kelas->findAll()
 
@@ -53,18 +50,6 @@ class Status_pembayaran extends BaseController
         return view('status/index', $data);
     }
 
-    public function spp($id_santri)
-    {
-        $data = [
-            'title' => 'Pembayaran SPP',
-            'validation' => \Config\Services::validation(),
-            'santri' => $this->santri->where('id_santri', $id_santri)->first(),
-            'tagihan' => $this->santri->where('id_santri', $id_santri)->where('tagihan.nama_pembayaran', 'uang syahriyah')->join('kelas', 'kelas.id_kelas = santri.id_kelas')->join('tagihan', 'tagihan.id_kelas = santri.id_kelas')->first(),
-            'tagih' => $this->santri->select('tagihan.id_tagihan')->where('id_santri', $id_santri)->join('tagihan', 'tagihan.id_kelas = santri.id_kelas')->first(),
-        ];
-
-        return view('status/bayar_spp', $data);
-    }
 
     public function hasil()
     {
@@ -131,6 +116,7 @@ class Status_pembayaran extends BaseController
             ]
         ];
 
+
         $tahun = $this->request->getVar('tahun');
         $tahun = date('Y', strtotime($tahun));
         $id_santri = $this->request->getVar('id_santri');
@@ -138,12 +124,64 @@ class Status_pembayaran extends BaseController
         $pembayaran = $this->model->coba_spp($id_santri, $tahun);
         if ($id_santri != null && $tahun != null) {
             $bulan_bayar = array();
+            $periode = array();
+            $id_keuangan = array();
+            $ket_bayar = array();
             if ($pembayaran != null) {
                 foreach ($pembayaran as $bayar) {
                     $bulan_bayar[$bayar['bulan']] = $bayar['total_bayar'];
-                    $id_keuangan = $bayar['id_keuangan'];
+                    $id_keuangan[] = $bayar['id_keuangan'];
+                    $periode[] = $bayar['periode'];
+                    $ket_bayar[] = $bayar['ket_bayar'];
+                }
+                $hasil = array();
+                for ($i = 1; $i <= 12; $i++) {
+                    $bulan = sprintf("%'02d", $i);
+                    if ((isset($bulan_bayar[$tahun . "-" . $bulan])) && ($bulan_bayar[$tahun . "-" . $bulan] >= $tagihan['tagihan'])) {
+                        $status = 'Lunas';
+                        $jumlah_bayar = $bulan_bayar[$tahun . "-" . $bulan];
+                        $periode[] = $bayar['periode'];
+                        $id_keuangan[] = $bayar['id_keuangan'];
+                        $ket_bayar[] = $bayar['ket_bayar'];
+                    } else   if ((isset($bulan_bayar[$tahun . "-" . $bulan])) && ($bulan_bayar[$tahun . "-" . $bulan] <= $tagihan['tagihan'])) {
+                        $status = 'Belum Lunas';
+                        $jumlah_bayar = $bulan_bayar[$tahun . "-" . $bulan];
+                        $periode[] = '-';
+                        $ket_bayar[] = null;
+                        $id_keuangan[] = null;
+                    } else {
+                        $status = 'Belum Lunas';
+                        $jumlah_bayar = 0;
+                        $periode[] = '-';
+                        $id_keuangan[] = null;
+                        $ket_bayar[] = null;
+                    }
+                    $hasil[] = [
+                        'status' => $status,
+                        'nama_lengkap' => $tagihan['nama_lengkap'],
+                        'tahun' => $tahun,
+                        'ket_bayar' => $ket_bayar[$i],
+                        'bulan' => $bulan . "-" . $tahun,
+                        'id_keuangan' => $id_keuangan[$i],
+                        'periode' => $periode[$i],
+                        'tagihan' => $tagihan['tagihan'],
+                        'nama_kelas' => $tagihan['nama_kelas'],
+                        'pembayaran' => $jumlah_bayar,
+                        'id_santri' => $id_santri,
+                    ];
+                }
+
+                $data = [
+                    'title' => 'Pembayaran SPP',
+                    'hasil' => $hasil,
+                    'santri' => $this->santri->findAll(),
+                    'filter' =>  $this->kelas->findAll()
+
+                ];
+            } else {
+                foreach ($pembayaran as $bayar) {
+                    $bulan_bayar[$bayar['bulan']] = $bayar['total_bayar'];
                     $periode = $bayar['periode'];
-                    $ket_bayar = $bayar['ket_bayar'];
                 }
                 $hasil = array();
                 for ($i = 1; $i <= 12; $i++) {
@@ -165,45 +203,6 @@ class Status_pembayaran extends BaseController
                         'status' => $status,
                         'nama_lengkap' => $tagihan['nama_lengkap'],
                         'tahun' => $tahun,
-                        'ket_bayar' => $ket_bayar,
-                        'bulan' => $bulan . "-" . $tahun,
-                        'id_keuangan' => $id_keuangan,
-                        'periode' => $periode,
-                        'tagihan' => $tagihan['tagihan'],
-                        'nama_kelas' => $tagihan['nama_kelas'],
-                        'pembayaran' => $jumlah_bayar,
-                        'id_santri' => $id_santri,
-                    ];
-                }
-                $data = [
-                    'title' => 'Pembayaran SPP',
-                    'hasil' => $hasil,
-                    'santri' => $this->santri->findAll(),
-                    'filter' =>  $this->kelas->findAll()
-                ];
-            } else {
-                foreach ($pembayaran as $bayar) {
-                    $bulan_bayar[$bayar['bulan']] = $bayar['total_bayar'];
-                }
-                $hasil = array();
-                for ($i = 1; $i <= 12; $i++) {
-                    $bulan = sprintf("%'02d", $i);
-                    if ((isset($bulan_bayar[$tahun . "-" . $bulan])) && ($bulan_bayar[$tahun . "-" . $bulan] >= $tagihan['tagihan'])) {
-                        $status = 'Lunas';
-                        $jumlah_bayar = $bulan_bayar[$tahun . "-" . $bulan];
-                    } else   if ((isset($bulan_bayar[$tahun . "-" . $bulan])) && ($bulan_bayar[$tahun . "-" . $bulan] <= $tagihan['tagihan'])) {
-                        $status = 'Belum Lunas';
-                        $jumlah_bayar = $bulan_bayar[$tahun . "-" . $bulan];
-                        $periode = 0;
-                    } else {
-                        $status = 'Belum Lunas';
-                        $jumlah_bayar = 0;
-                        $periode = 0;
-                    }
-                    $hasil[] = [
-                        'status' => $status,
-                        'nama_lengkap' => $tagihan['nama_lengkap'],
-                        'tahun' => $tahun,
                         'periode' => $periode,
                         'bulan' => $bulan . "-" . $tahun,
                         'tagihan' => $tagihan['tagihan'],
@@ -212,17 +211,20 @@ class Status_pembayaran extends BaseController
                         'id_santri' => $id_santri,
                     ];
                 }
+
+
                 $data = [
                     'title' => 'Pembayaran SPP',
                     'hasil' => $hasil,
                     'santri' => $this->santri->findAll(),
                     'filter' =>  $this->kelas->findAll()
+
                 ];
             }
         } else {
             $data = [
                 'title' => 'Pembayaran SPP',
-                'hasil' => $this->model->keuangan_coba(),
+                'hasil' => $this->model->SALAH(),
                 'santri' => $this->santri->findAll(),
                 'filter' =>  $this->kelas->findAll()
             ];
@@ -233,12 +235,11 @@ class Status_pembayaran extends BaseController
     }
 
 
-
     public function filter_spp()
     {
         $id_kelas = $this->request->getVar('id_kelas');
         $bln = $this->request->getVar('bulan');
-        $tagihan = $this->santri->filter_tagihanspp($id_kelas);
+        $tagihan = $this->model->tagihanSpp($id_kelas);
         $hasil = array();
         if ($id_kelas != null && $bln != null) {
             foreach ($tagihan as $t) {
@@ -246,28 +247,53 @@ class Status_pembayaran extends BaseController
                 $nama = $t['nama_lengkap'];
                 $nis = $t['nis'];
                 $id_kelas = $t['id_kelas'];
+                $jumlah_tagihan = $t['jumlah_tagihan'];
                 $tagihan = $this->santri->tagihanspp($id_santri);
                 $pembayaran = $this->model->filter_tanggalspp($id_santri, $bln);
-
-                if ($tagihan[0]['tagihan'] <= $pembayaran[0]['jumlah_bayar']) {
-                    $status = 'Lunas';
-                    $pembayaran[0]['jumlah_bayar'];
+                if ($pembayaran != null) {
+                    if ($tagihan[0]['tagihan'] <= $pembayaran[0]['jumlah_bayar']) {
+                        $status = 'Lunas';
+                        $periode = $pembayaran[0]['periode'];
+                        $keterangan = $pembayaran[0]['ket_bayar'];
+                        $id_keuangan = $pembayaran[0]['id_keuangan'];
+                    } else {
+                        $status = 'Belum Lunas';
+                        $id_keuangan = '';
+                        $periode = '';
+                        $keterangan = '';
+                    }
+                    $hasil[] = [
+                        'id_santri' => $id_santri,
+                        'nama_lengkap' => $nama,
+                        'nis' => $nis,
+                        'ket_bayar' => $keterangan,
+                        'id_kelas' => $id_kelas,
+                        'id_keuangan' => $id_keuangan,
+                        'periode' => $periode,
+                        'tagihan' => $jumlah_tagihan,
+                        'nama_kelas' => $tagihan[0]['nama_kelas'],
+                        'pembayaran' => $pembayaran[0]['jumlah_bayar'],
+                        'status' => $status,
+                        'bulan' => $bln,
+                    ];
                 } else {
-                    $status = 'Belum Lunas';
+                    $hasil[] =
+                        [
+                            'id_santri' => $id_santri,
+                            'nama_lengkap' => $nama,
+                            'nis' => $nis,
+                            'id_kelas' => $id_kelas,
+                            'id_keuangan' => '',
+                            'periode' => '',
+                            'tagihan' => $jumlah_tagihan,
+                            'nama_kelas' => $tagihan[0]['nama_kelas'],
+                            'pembayaran' => '0',
+                            'status' => 'Belum Lunas',
+                            'ket_bayar' => '-',
+                            'bulan' => $bln,
+
+                        ];
                 }
-                $hasil[] = [
-                    'id_santri' => $id_santri,
-                    'nama_lengkap' => $nama,
-                    'nis' => $nis,
-                    'id_kelas' => $id_kelas,
-                    'id_keuangan' => $pembayaran[0]['id_keuangan'],
-                    'periode' => $pembayaran[0]['periode'],
-                    'tagihan' => $tagihan[0]['tagihan'],
-                    'nama_kelas' => $tagihan[0]['nama_kelas'],
-                    'pembayaran' => $pembayaran[0]['jumlah_bayar'],
-                    'status' => $status,
-                    'bulan' => $bln,
-                ];
             }
 
             $data = [
@@ -279,14 +305,14 @@ class Status_pembayaran extends BaseController
         } elseif ($id_kelas == null) {
             $data = [
                 'title' => 'Pembayaran SPP',
-                'hasil' => $this->model->keuangan_coba(),
+                'hasil' => $this->model->SALAH(),
                 'santri' => $this->santri->findAll(),
                 'filter' =>  $this->kelas->findAll()
             ];
         } else {
             $data = [
                 'title' => 'Pembayaran SPP',
-                'hasil' => $this->model->keuangan_coba(),
+                'hasil' => $this->model->SALAH(),
                 'santri' => $this->santri->findAll(),
                 'filter' =>  $this->kelas->findAll()
             ];
@@ -294,148 +320,8 @@ class Status_pembayaran extends BaseController
         return view('status/index', $data);
     }
 
-    public function bayar_spp($id_santri)
-    {
 
-        $waktu = $this->request->getVar('waktu');
-        $id_tagihan = $this->request->getVar('id_tagihan');
-        $id_kelas = $this->request->getVar('id_kelas');
-        if (!$this->validate([
-            'jumlah_bayar' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jumlah Pembayaran harus diisi!',
-                ]
-            ],
-            'waktu' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tanggal Bayar harus diisi!',
-                ]
-            ],
-            'ket_bayar' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Keterangan Pembayaran harus diisi!',
-                ]
-            ],
-            'bukti' => [
-                'rules' => 'uploaded[sampul]|max_size[sampul,40]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Gambar Harus Di Pilih',
-                    'max_size' => 'Ukuran Gambar Terlalu besar',
-                    'is_image' => 'Yang Anda Pilih Bukan Gambar',
-                    'mime_in' => 'Yang Anda Pilih Bukan Gambar',
-                ]
-            ]
-        ])) {
-            return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
-        }
 
-        $sql = $this->db->query("SELECT id_tagihan,id_santri,YEAR('$waktu'),MONTH('$waktu') FROM keuangan WHERE id_santri='$id_santri' AND id_tagihan='$id_tagihan'
-        AND YEAR(waktu) = YEAR('$waktu') AND MONTH(waktu) = MONTH('$waktu')")->getRowArray();
-
-        if ($sql  > 0) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-                <div class="alert-body">
-                  <button class="close" data-dismiss="alert">
-                    <span>×</span>
-                  </button>
-                  Data Dengan Bulan Tersebut tersedia
-                </div>
-              </div>');
-            return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
-        } else {
-            $model = new KeuanganModel();
-            $bukti = $this->request->getFile('bukti');
-            $fileName = $bukti->getRandomName();
-            $model->insert([
-                'jumlah_bayar' => $this->request->getVar('jumlah_bayar'),
-                'id_santri' => $id_santri,
-                'id_kelas' => $id_kelas,
-                'waktu' => $waktu,
-                'ket_bayar' => $this->request->getVar('ket_bayar'),
-                'bukti' => $bukti,
-                'id_tagihan' => $id_tagihan,
-                'periode' => date("Y-m-d h:i"),
-
-            ]);
-            $model->move('uploads/transfer/', $fileName);
-            session()->setFlashdata('success', 'Berkas Berhasil diupload');
-
-            return redirect()->to('/spp/bayar/' . $this->request->getVar('id_santri'))->withInput();
-        }
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                          <div class="alert-body">
-                            <button class="close" data-dismiss="alert">
-                              <span>×</span>
-                            </button>
-                            Pembayaran SPP Berhasil!!
-                          </div>
-                        </div>');
-
-        return redirect()->to('/status_pembayaran');
-    }
-
-    public function bayar_kekurangan($id)
-    {
-        $data = [
-            'title' => 'Pembayaran SPP',
-            'BelumLunas' => $this->model->getKeuangan($id),
-            'tagih' => $this->model->select('tagihan.jumlah_pembayaran')->where('id_keuangan', $id)->join('tagihan', 'tagihan.id_tagihan = keuangan.id_tagihan')->first(),
-            'validation' => \Config\Services::validation(),
-        ];
-        return view('status/bayar_kekurangan', $data);
-    }
-
-    public function update_kekurangan($id)
-    {
-        $id_keuangan = $this->request->getVar('id_keuangan');
-        if (!$this->validate([
-            'jumlah_bayar' => [
-                'rules' => 'required|',
-                'errors' => [
-                    'required' => 'Pembayaran anda harus sesuai!',
-                ]
-            ],
-        ])) {
-            return redirect()->to('/spp/bayar_kekurangan/' . $id_keuangan)->withInput();
-        }
-        $keuangan = $this->model->bayar_kekurangan($id_keuangan);
-        foreach ($keuangan as $bayar) {
-            $tagihan = $bayar['jumlah_bayar'];
-            $pembayaran = $bayar['jumlah_pembayaran'];
-        }
-        $jumlah_bayar = $this->request->getVar('jumlah_bayar');
-        $total = $tagihan + $jumlah_bayar;
-        if ($total > $pembayaran) {
-            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible show fade">
-          <div class="alert-body">
-            <button class="close" data-dismiss="alert">
-              <span>×</span>
-            </button>
-            Pembayaran Melebihi Jumlah Tagihan
-          </div>
-        </div>');
-            return redirect()->to('/spp/bayar_kekurangan/' . $id_keuangan)->withInput();
-        } else {
-            $this->model->save([
-                'id_keuangan' => $id_keuangan,
-                'jumlah_bayar' => $total,
-                'periode' => date("Y-m-d h:i"),
-            ]);
-        }
-        session()->setFlashdata('message', '<div class="alert alert-success alert-dismissible show fade">
-                        <div class="alert-body">
-                          <button class="close" data-dismiss="alert">
-                            <span>×</span>
-                          </button>
-                          Pembayaran SPP Berhasil!!
-                        </div>
-                      </div>');
-
-        return redirect()->to('/status_pembayaran');
-    }
     public function filter_tanggalspp()
     {
         $tgl_mulai = $this->request->getVar('tgl_mulai');
@@ -473,10 +359,226 @@ class Status_pembayaran extends BaseController
         }
     }
 
+    public function bayar()
+    {
+        if ($this->request->isAJAX()) {
+            $validation =  \Config\Services::validation();
+            $id_santri = $this->request->getVar('id_santri');
+            $id_kelas = $this->request->getVar('id_kelas');
+            $waktu = $this->request->getVar('waktu');
+            $id_tagihan = $this->request->getVar('id_tagihan');
+            $jumlah_bayar = $this->request->getVar('jumlah_bayar');
+            $ket_bayar = $this->request->getVar('ket_bayar');
+
+            $valid = $this->validate([
+                'waktu' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'data waktu harus diisi!',
+                    ]
+                ],
+                'ket_bayar' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'keterangan harus diisi!',
+                    ]
+                ],
+
+            ]);
+
+            $sql = array();
+            $hasil_santri = array();
+            $hasil_tagihan = array();
+            $hasil_waktu = array();
+            $array = array();
+            $jumlah_data = count($waktu);
+            foreach ($id_santri as $santri) {
+                $hasil_santri['id_santri'] = $santri;
+            }
+            foreach ($id_tagihan as $tagih) {
+                $hasil_tagihan['id_tagihan'] = $tagih;
+            }
+            foreach ($ket_bayar as $data_bayar) {
+                $keterangan['ket_bayar'] = $data_bayar;
+            }
+            foreach ($waktu as $tgl) {
+                $hasil_waktu['waktu'] = $tgl;
+
+                if ($hasil_waktu['waktu'] == null || $keterangan['ket_bayar'] == null) {
+                    if (!$valid) {
+                        $data = [
+                            'erorr' => [
+                                'errorWaktu' => $validation->getError('waktu'),
+                                'errorKet' => $validation->getError('ket_bayar'),
+                            ]
+                        ];
+                    }
+                } else {
+                    for ($i = 0; $i < $jumlah_data; $i++) {
+                        $hasil = [
+                            'jumlah_bayar' => $jumlah_bayar[$i],
+                            'jumlah_tagihan' => $jumlah_bayar[$i],
+                            'id_santri' => $id_santri[$i],
+                            'id_kelas' => $id_kelas[$i],
+                            'waktu' => $waktu[$i],
+                            'ket_bayar' => $ket_bayar[$i],
+                            'id_tagihan' => $id_tagihan[$i],
+                            'periode' => date("Y-m-d h:i"),
+                        ];
+
+                        $hari = date('d', strtotime($hasil_waktu['waktu']));
+                        $bulan = date('m', strtotime($hasil_waktu['waktu']));
+                        $tahun = date('Y', strtotime($hasil_waktu['waktu']));
+
+                        $array = [
+                            'id_santri' => $hasil_santri['id_santri'], 'id_tagihan' => $hasil_tagihan['id_tagihan'],
+                            "DATE_FORMAT(waktu, '%Y')" => $tahun, "DATE_FORMAT(waktu, '%m')" => $bulan
+                        ];
+                        $hapus_id = [
+                            'id_santri' => $hasil_santri['id_santri']
+                        ];
+                        $array_tgl = [
+                            'id_santri' => $hasil_santri['id_santri'], 'id_tagihan' => $hasil_tagihan['id_tagihan'],
+                            "DATE_FORMAT(waktu, '%Y')" => $tahun, "DATE_FORMAT(waktu, '%d')" => $hari
+                        ];
+
+                        $sql = $this->model->santri($array);
+                        $time = $this->model->getBulan($waktu[$i]);
+                        $hari_tgl = $this->model->hari_tgl($array_tgl);
+
+                        if ($sql > 0) {
+                            $data = [
+                                'session' => [
+                                    'session' => 'Data dengan bulan tersebut telah tersedia',
+                                ]
+                            ];
+                        } elseif ($hari_tgl > 0) {
+                            if ($time != null) {
+                                if ($waktu[$i] == $time['waktu']) {
+                                    continue;
+                                } else {
+                                    $save = $this->model->add_spp($hasil);
+                                    if ($save != null) {
+                                        $this->model->hapus_spp($hapus_id);
+                                        session()->setFlashdata('message', 'Data Berhasil Di inputkan');
+                                        $data = [
+                                            'sukses' => [
+                                                'sukses' => 'Data Pembayaran Berhasil Di inputkan',
+                                            ]
+                                        ];
+                                    }
+                                }
+                            } else {
+                                $save = $this->model->add_spp($hasil);
+                                if ($save != null) {
+                                    $this->model->hapus_spp($hapus_id);
+                                    session()->setFlashdata('message', 'Data Berhasil Di inputkan');
+                                    $data = [
+                                        'sukses' => [
+                                            'sukses' => 'Data Pembayaran Berhasil Di inputkan',
+                                        ]
+                                    ];
+                                }
+                            }
+                        } else {
+                            $save = $this->model->add_spp($hasil);
+                            if ($save != null) {
+                                $this->model->hapus_spp($hapus_id);
+                                session()->setFlashdata('message', 'Data Berhasil Di inputkan');
+                                $data = [
+                                    'sukses' => [
+                                        'sukses' => 'Data Pembayaran Berhasil Di inputkan',
+                                    ]
+                                ];
+                            }
+                        }
+                    }
+                }
+            }
+            echo json_encode($data);
+        }
+    }
+
+    public function getSpp($id_santri)
+    {
+        $data =
+            [
+                'santri' =>  $this->santri->get_by_id($id_santri),
+                'tagihan' => $this->santri->get_tagihan($id_santri),
+                'kelas' => $this->santri->get_tagihan_kelas($id_santri)
+            ];
+        echo json_encode($data);
+    }
+
+    public function addSpp()
+    {
+        $validation = \Config\Services::validation();
+
+        if ($this->request->isAJAX()) {
+            $id = $this->request->getVar('id_santri_spp');
+            $id_kelas = $this->request->getVar('id_kelas_spp');
+            $jumlah_tagihan = $this->request->getVar('jumlah_tagihan_spp');
+            $id_tagihan = $this->request->getVar('id_tagihan_spp');
+
+            $valid = $this->validate([
+                'nis' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'nis harus diisi!',
+                    ]
+                ],
+                'jumlah_tagihan_spp' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Jumlah Tagihan harus diisi!',
+                    ]
+                ],
+            ]);
+
+            $sql = $this->model->get_spp($id, $id_tagihan, $id_kelas);
+
+            if (!$valid) {
+                $data = [
+                    'error' => [
+                        'errorNis_spp' => $validation->getError('nis'),
+                        'errorTagihan_spp' => $validation->getError('jumlah_tagihan_spp'),
+                    ]
+                ];
+            } elseif ($sql > 0) {
+                $data = [
+                    'session' => [
+                        'session' => 'Data Telah tersedia'
+                    ]
+                ];
+            } else {
+                session()->setFlashdata('message', 'Data berhasil di input');
+                $save =   $this->model->save([
+                    'id_tagihan' => $id_tagihan,
+                    'id_santri' => $id,
+                    'id_kelas' => $id_kelas,
+                    'jumlah_bayar' => '0',
+                    'jumlah_tagihan' => $jumlah_tagihan,
+                ]);
+
+
+                $data = [
+                    'sukses' => [
+                        'sukses' => 'Data berhasil di inputkan'
+                    ]
+                ];
+            }
+        }
+        echo json_encode($data);
+    }
+    public function getKeterangan($id_keuangan)
+    {
+        $data = $this->model->getKet($id_keuangan);
+        echo json_encode($data);
+    }
     public function get_autofill()
     {
         if (isset($_GET['term'])) {
-            $result = $this->santri->search($_GET['term']);
+            $result = $this->model->searchSpp($_GET['term']);
 
             if (count($result) > 0) {
                 foreach ($result as $row) {
@@ -484,6 +586,26 @@ class Status_pembayaran extends BaseController
                         'label' => $row->nama_lengkap,
                         'nis' => $row->nis,
                         'id_santri' => $row->id_santri,
+                    );
+                }
+                echo json_encode($arr_result);
+            }
+        }
+    }
+
+    public function get_spp()
+    {
+        if (isset($_GET['term'])) {
+
+            $result = $this->santri->search_spp($_GET['term']);
+
+            if (count($result) > 0) {
+                foreach ($result as $row) {
+                    $arr_result[] =  array(
+                        'label' => $row->nis,
+                        'nama_lengkap' => $row->nama_lengkap,
+                        'id_santri' => $row->id_santri,
+                        'id_kelas' => $row->id_kelas,
                     );
                 }
                 echo json_encode($arr_result);

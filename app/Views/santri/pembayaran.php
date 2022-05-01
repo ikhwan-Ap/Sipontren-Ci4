@@ -6,7 +6,6 @@
         <h1><?= $title; ?></h1>
     </div>
 
-    <?= session()->getFlashdata('message'); ?>
 
     <div class="section-body">
         <div class="row">
@@ -37,7 +36,7 @@
                                             <td><?= $k['nis']; ?></td>
                                             <td><?= $k['nama_pembayaran']; ?></td>
                                             <td> <?= date('d-m-Y', strtotime($k['periode'])) ?></td>
-                                            <td><?= $k['jumlah_bayar']; ?></td>
+                                            <td><?= "Rp " . number_format($k['jumlah_bayar'], 2, ',', '.'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

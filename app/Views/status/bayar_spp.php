@@ -57,24 +57,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" id="ket_transfer">
-                    <div class="form-group col-6">
-                        <label for="bukti transfer">Upload Bukti Transfer</label>
-                        <input type="file" class="form-control-file <?= ($validation->hasError('bukti')) ? 'is-invalid' : ''; ?>" id="bukti" name="bukti">
-                    </div>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('bukti'); ?>
-                    </div>
-                </div>
-                <div class="row" id="ket_langsung">
-                    <div class="form-group col-6">
-                        <label for="bukti transfer">Upload Bukti Pembayaran Langsung</label>
-                        <input type="file" class="form-control-file <?= ($validation->hasError('bukti')) ? 'is-invalid' : ''; ?>" id="bukti" name="bukti">
-                    </div>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('bukti'); ?>
-                    </div>
-                </div>
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Bayar</button>
                     <a href="/status_pembayaran" class="btn btn-light ml-2">Batal</a>
@@ -84,19 +66,23 @@
 
 
 </section>
-<script>
-    $(document).ready(function() {
-        $("#ket_transfer").hide();
-        $("#ket_langsung").hide();
-        $("#ket_bayar").change(function() {
-            if ($(this).val() == "transfer") {
-                $("#ket_transfer").show();
-                $("#ket_langsung").hide('disabled');
-            } else {
-                $("#ket_langsung").show();
-                $("#ket_transfer").hide('disabled');
-            }
-        });
-    });
-</script>
+<!-- <div class="row" id="ket_transfer">
+                    <div class="form-group col-6">
+                        <label for="bukti transfer">Upload Bukti Transfer</label>
+                        <input type="file" class="form-control-file <?= ($validation->hasError('bukti')) ? 'is-invalid' : ''; ?>" id="bukti" name="bukti">
+                    </div>
+                    <div class="invalid-feedback">
+                     
+                    </div>
+                </div>
+                <div class="row" id="ket_langsung">
+                    <div class="form-group col-6">
+                        <label for="bukti transfer">Upload Bukti Pembayaran Langsung</label>
+                        <input type="file" class="form-control-file <?= ($validation->hasError('bukti')) ? 'is-invalid' : ''; ?>" id="bukti" name="bukti">
+                    </div>
+                    <div class="invalid-feedback">
+                     
+                    </div>
+                </div> -->
+
 <?= $this->endSection(); ?>

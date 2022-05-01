@@ -1,0 +1,456 @@
+CRITICAL - 2022-03-06 09:38:21 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'a5801f424a858c5...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'a5801f424a858c5...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 09:38:21 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 09:44:09 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'f9fb050f1d59ba4...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'f9fb050f1d59ba4...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 09:44:09 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 09:46:30 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'b1f30dc68517345...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'b1f30dc68517345...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 09:46:30 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 09:46:50 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'f1935f230a0accd...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'f1935f230a0accd...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 09:46:50 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 09:59:12 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '4af0f8db0632f66...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '4af0f8db0632f66...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 09:59:12 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 09:59:56 --> Namespace declaration statement has to be the very first statement or after any declare call in the script
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 09:59:58 --> Namespace declaration statement has to be the very first statement or after any declare call in the script
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:00:56 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'df4c1fd30be955a...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'df4c1fd30be955a...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:00:56 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:06:46 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'a59f3dcf3e993cc...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'a59f3dcf3e993cc...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:06:46 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:16:40 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '4095fca7e7f9a04...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '4095fca7e7f9a04...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:16:40 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:16:54 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '0e3a408ed32eb3e...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '0e3a408ed32eb3e...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:16:54 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:18:12 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '65ce263be5d7ed4...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '65ce263be5d7ed4...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:18:12 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:18:40 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '4840189008be66d...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '4840189008be66d...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:18:40 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:22:46 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '988489fac17c90d...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '988489fac17c90d...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:22:46 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:24:33 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '7ce9cda46e5dfaa...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '7ce9cda46e5dfaa...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:24:33 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:24:41 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'a55df98c9ddb5ec...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'a55df98c9ddb5ec...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:24:41 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 10:24:49 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'adb7d512a54559e...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'adb7d512a54559e...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 10:24:49 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 22:05:30 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '74c290c2a71e4a7...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '74c290c2a71e4a7...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('status_pembayar...', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 22:05:30 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 22:07:24 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', 'ae74610f5e00213...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', 'ae74610f5e00213...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('perizinan', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 22:07:24 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 22:08:06 --> Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 248)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(248): setcookie('csrf_cookie_nam...', '4f737c0574e8c5b...', Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Cookie\CookieStore.php(172): CodeIgniter\Cookie\CookieStore->setCookie('csrf_cookie_nam...', '4f737c0574e8c5b...', Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(521): CodeIgniter\Cookie\CookieStore->dispatch()
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(507): CodeIgniter\Security\Security->doSendCookie()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(493): CodeIgniter\Security\Security->sendCookie(Object(CodeIgniter\HTTP\IncomingRequest))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(467): CodeIgniter\Security\Security->saveHashInCookie()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Security\Security.php(302): CodeIgniter\Security\Security->generateHash()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\CSRF.php(53): CodeIgniter\Security\Security->verify(Object(CodeIgniter\HTTP\IncomingRequest))
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->run('perizinan', 'before')
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-03-06 22:08:06 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\Users\Lenovo\Desktop\sipontren\app\Config\Events.php:32) in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php:107
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\Users\\Lenovo...', 107)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Debug\Exceptions.php(107): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
