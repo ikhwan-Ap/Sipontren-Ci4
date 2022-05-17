@@ -36,8 +36,6 @@ class Perizinan extends BaseController
         return view('perizinan/keamanan', $data);
     }
 
-
-
     public function save()
     {
         $validation = \Config\Services::validation();
@@ -47,40 +45,7 @@ class Perizinan extends BaseController
             $tanggal_estimasi = $this->request->getVar('tanggal_estimasi');
             $keterangan = $this->request->getVar('keterangan');
             $user_penginput = $this->request->getVar('user_penginput');
-
-            $valid = $this->validate([
-                'nis' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'NIS harus diisi!'
-                    ]
-                ],
-                'nama_lengkap' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Nama Lengkap harus diisi!',
-                    ]
-                ],
-                'keterangan' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Keterangan harus diisi!',
-                    ]
-                ],
-                'tanggal_izin' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Tanggal Izin harus diisi!',
-                    ]
-                ],
-                'tanggal_estimasi' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Tanggal Estimasi Kembali harus diisi!',
-                    ]
-                ],
-            ]);
-            if (!$valid) {
+            if (!$this->validate('savePerizinan')) {
                 $data = [
                     'error' => [
                         'errorNis' => $validation->getError('nis'),
@@ -92,9 +57,7 @@ class Perizinan extends BaseController
                 ];
             } else {
                 if ($tanggal_estimasi < $tanggal_izin) {
-                    $data = [
-                        'fail' => 'Tanggal Estimasi Dan Tanggal Izin Tidak Relevan'
-                    ];
+                    $data = ['fail' => 'Tanggal Estimasi Dan Tanggal Izin Tidak Relevan'];
                 } else {
                     $this->perizinan->save([
                         'id_santri' => $id_santri,
@@ -103,9 +66,7 @@ class Perizinan extends BaseController
                         'tanggal_estimasi' => $tanggal_estimasi,
                         'user_penginput' => $user_penginput
                     ]);
-                    $data = [
-                        'sukses' => 'Data Perizinan Berhasil Di Tambahkan'
-                    ];
+                    $data = ['sukses' => 'Data Perizinan Berhasil Di Tambahkan'];
                     session()->setFlashdata('message', 'Data perizinan berhasil ditambahkan!');
                 }
             }
@@ -115,34 +76,25 @@ class Perizinan extends BaseController
 
     public function terima($id_izin)
     {
-        $this->perizinan->save([
-            'id_izin' => $id_izin,
-            'tanggal_diterima' => date("Y-m-d h:i:s", time()),
-        ]);
+        $this->perizinan->update(['id_izin' => $id_izin], ['tanggal_diterima' => date("Y-m-d h:i:s", time()),]);
         session()->setFlashdata('message', 'Data Perizinan Berhasil Di Terima');
-        $data = [
-            'sukses' => 'Perizinan Berhasil Di Terima'
-        ];
+        $data = ['sukses' => 'Perizinan Berhasil Di Terima'];
         echo json_encode($data);
     }
 
     public function pulang($id_izin)
     {
-        $this->perizinan->save([
-            'id_izin' => $id_izin,
+        $this->perizinan->update(['id_izin' => $id_izin], [
             'tanggal_pulang' => date("Y-m-d h:i:s", time()),
             'user_update' => session()->get('name'),
         ]);
         session()->setFlashdata('message', 'Data Santri Pulang Berhasil Di Inputkan');
-        $data = [
-            'sukses' => 'Data Berhasil Di Inputkan'
-        ];
+        $data = ['sukses' => 'Data Berhasil Di Inputkan'];
         echo json_encode($data);
     }
     public function pulang_keamanan($id_izin)
     {
-        $this->perizinan->save([
-            'id_izin' => $id_izin,
+        $this->perizinan->update(['id_izin' => $id_izin], [
             'tanggal_pulang' => date("Y-m-d h:i:s", time()),
             'user_update' => session()->get('name')
         ]);
@@ -152,14 +104,9 @@ class Perizinan extends BaseController
 
     public function tolak($id_izin)
     {
-        $this->perizinan->save([
-            'id_izin' => $id_izin,
-            'tanggal_ditolak' => date("Y-m-d h:i:s", time()),
-        ]);
+        $this->perizinan->update(['id_izin' => $id_izin], ['tanggal_ditolak' => date("Y-m-d h:i:s", time()),]);
         session()->setFlashdata('message', 'Perizinan  Berhasil Di Tolak');
-        $data = [
-            'sukses' => 'Data Berhasil Di Inputkan'
-        ];
+        $data = ['sukses' => 'Data Berhasil Di Inputkan'];
         echo json_encode($data);
     }
 
@@ -167,9 +114,7 @@ class Perizinan extends BaseController
     {
         $this->perizinan->delete($id_izin);
         session()->setFlashdata('message', 'Data Perizinan Berhasil Di Hapus');
-        $data = [
-            'sukses' => 'Data Berhasil Di Hapu'
-        ];
+        $data = ['sukses' => 'Data Berhasil Di Hapus'];
         echo json_encode($data);
     }
 
@@ -189,22 +134,15 @@ class Perizinan extends BaseController
                 ],
             ]);
             if (!$valid) {
-                $data = [
-                    'error' => [
-                        'errorTerlambat' => $validation->getError('ket_terlambat')
-                    ]
-                ];
+                $data = ['error' => ['errorTerlambat' => $validation->getError('ket_terlambat')]];
             } else {
-                $this->perizinan->save([
-                    'id_izin' => $id_izin,
+                $this->perizinan->update(['id_izin' => $id_izin], [
                     'tanggal_pulang' => date("Y-m-d h:i:s", time()),
                     'ket_terlambat' => $ket_terlambat,
                     'user_update' => $user_update,
                 ]);
                 session()->setFlashdata('message', 'Keterangan Berhasil Di Tambah');
-                $data = [
-                    'sukses' => 'Data berhasil Di Inputkan'
-                ];
+                $data = ['sukses' => 'Data berhasil Di Inputkan'];
             }
         }
         echo json_encode($data);

@@ -41,46 +41,15 @@ class Admin extends BaseController
 
     public function save()
     {
-        if (!$this->validate([
-            'name' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama harus diisi!'
-                ]
-            ],
-            'username' => [
-                'rules' => 'required|is_unique[admin.username]',
-                'errors' => [
-                    'required' => 'Username harus diisi!',
-                    'is_unique' => 'Username sudah terdaftar!',
-                ]
-            ],
-            'email' => [
-                'rules' => 'required|valid_email',
-                'errors' => [
-                    'required' => 'Email harus diisi!',
-                    'valid_email' => 'Email tidak valid!'
-                ]
-            ],
-            'password' => [
-                'rules' => 'required|matches[password_conf]|min_length[5]',
-                'errors' => [
-                    'required' => 'Password harus diisi!',
-                    'matches' => 'Password tidak sama dengan Konfirmasi Password!',
-                    'min_length' => 'Password kurang dari 5 karakter!',
-                ]
-            ],
-            'password_conf' => [
-                'rules' => 'required|matches[password]',
-                'errors' => [
-                    'required' => 'Konfirmasi Password harus diisi!',
-                    'matches' => 'Konfirmasi Password tidak sama dengan Password!'
-                ]
+        if (!$this->validate('havePasswordAdmin') || !$this->validate(['username' => [
+            'rules' => 'required|is_unique[admin.username]',
+            'errors' => [
+                'required' => 'Username harus diisi!',
+                'is_unique' => 'Username sudah terdaftar!',
             ]
-        ])) {
+        ],])) {
             return redirect()->to('/admin/add')->withInput();
         }
-
         $this->model->save([
             'name' => $this->request->getVar('name'),
             'username' => $this->request->getVar('username'),
@@ -118,46 +87,46 @@ class Admin extends BaseController
 
     public function update($id)
     {
-        if (!$this->validate([
-            'name' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama harus diisi!'
-                ]
-            ],
-            'username' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Username harus diisi!',
-                ]
-            ],
-            'email' => [
-                'rules' => 'required|valid_email',
-                'errors' => [
-                    'required' => 'Email harus diisi!',
-                    'valid_email' => 'Email tidak valid!'
-                ]
-            ],
-        ])) {
-            return redirect()->to('/admin/edit/' . $this->request->getVar('username'))->withInput();
-        }
-        $password = $this->request->getVar('password');
-        $password_conf = $this->request->getVar('password_conf');
-        if ($password != $password_conf) {
-            session()->setFlashdata('message', 'Password Dan Konfirmasi Password Tidak Sama');
-            return redirect()->to('/admin/edit/' . $this->request->getVar('username'))->withInput();
-        } else {
-            $this->model->save([
-                'id' => $id,
+        if ($this->request->getVar('password') == '') {
+            if (!$this->validate('noPasswordAdmin') || !$this->validate(
+                ['username' => [
+                    'rules' => "required|min_length[5]|max_length[16]|is_unique[admin.username,id,$id]",
+                ]]
+            )) {
+                return redirect()->to('/admin/edit/' . $this->request->getVar('username'))->withInput();
+            }
+            $data = [
                 'name' => $this->request->getVar('name'),
                 'username' => $this->request->getVar('username'),
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            ]);
+            ];
+            $this->model->update(['id' => $id], $data);
 
             session()->setFlashdata('message', 'Data admin berhasil diubah!');
+
+            return redirect()->to('/admin');
+        } else {
+            if (!$this->validate('havePasswordAdmin') || !$this->validate(
+                ['username' => [
+                    'rules' => "required|min_length[5]|max_length[16]|is_unique[admin.username,id,$id]",
+                ]]
+            )); {
+                session()->setFlashdata('message', 'Password Dan Konfirmasi Password Tidak Sama');
+                return redirect()->to('/admin/edit/' . $this->request->getVar('username'))->withInput();
+            }
+            $data = [
+                'name' => $this->request->getVar('name'),
+                'username' => $this->request->getVar('username'),
+                'email' => $this->request->getVar('email'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            ];
+            $this->model->update(['id' => $id], $data);
+
+            session()->setFlashdata('message', 'Data admin berhasil diubah!');
+
+            return redirect()->to('/admin');
         }
-        return redirect()->to('/admin');
     }
 
     public function detail($id)

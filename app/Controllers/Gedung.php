@@ -57,7 +57,7 @@ class Gedung extends BaseController
 
     public function delete($id)
     {
-        $this->model->delete($id);
+        $this->model->delete(['id_gedung' => $id]);
         session()->setFlashdata('message', 'Data Gedung Berhasil Di Hapus');
         return redirect()->to('/gedung');
     }
@@ -77,19 +77,16 @@ class Gedung extends BaseController
     {
         if (!$this->validate([
             'nama_gedung' => [
-                'rules' => 'required',
+                'rules' => "required|is_unique[gedung.nama_gedung,id_gedung,$id]",
                 'errors' => [
-                    'required' => 'Nama program harus diisi!',
+                    'required' => 'Nama gedung harus diisi!',
+                    'is_unique' => 'Nama gedung sudah terdaftar!'
                 ]
             ],
         ])) {
-            return redirect()->to('/program/edit/' . $this->request->getVar('nama_gedung'))->withInput();
+            return redirect()->to('/gedung/edit/' . $this->request->getVar('nama_gedung'))->withInput();
         }
-
-        $this->model->save([
-            'id_gedung' => $id,
-            'nama_gedung' => $this->request->getVar('nama_gedung'),
-        ]);
+        $this->model->update(['id_gedung' => $id], ['nama_gedung' => $this->request->getVar('nama_gedung')]);
 
         session()->setFlashdata('message', 'Data Gedung Berhasil Di Ubah');
 

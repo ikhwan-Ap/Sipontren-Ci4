@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" value="<?= (old('username')) ? old('username') : $admin['username']; ?>" readonly>
+                    <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" value="<?= (old('username')) ? old('username') : $admin['username']; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('username'); ?>
                     </div>

@@ -21,6 +21,15 @@
                 <?= session()->getFlashdata('message'); ?>
             </div>
         </div>
+    <?php elseif (session()->getFlashdata('error') != null) : ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>×</span>
+                </button>
+                <?= session()->getFlashdata('error'); ?>
+            </div>
+        </div>
     <?php endif; ?>
     <div class="section-body">
         <div class="card">

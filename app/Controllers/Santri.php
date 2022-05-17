@@ -135,7 +135,6 @@ class Santri extends BaseController
     {
         $data = [
             'title' => 'biodata santri',
-            // 'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
             'santri' => $this->db->table('santri')->select('*')->where('nis', session()->get('nis'))
                 ->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')
                 ->join('kamar', 'kamar.id_kamar = santri.id_kamar')
@@ -151,7 +150,6 @@ class Santri extends BaseController
         $not = ['0'];
         $data = [
             'title' => 'biodata santri',
-            // 'santri' => $this->santriModel->where('nis', session()->get('nis'))->first(),
             'santri' => $this->db->table('keuangan')->select('*')
                 ->where('nis', session()->get('nis'))
                 ->whereNotIn('jumlah_bayar', $not)
@@ -181,242 +179,16 @@ class Santri extends BaseController
 
     public function save()
     {
-        if (!$this->validate([
-            'nis' => [
-                'rules' => 'required|numeric',
-                'errors' => [
-                    'required' => 'NIS harus diisi!',
-                    'numeric' => 'NIS harus angka!'
-                ]
-            ],
-            'nik_ktp' => [
-                'rules' => 'required|numeric|min_length[16]|max_length[16]',
-                'errors' => [
-                    'required' => 'NIK KTP harus diisi!',
-                    'numeric' => 'NIK KTP harus angka!',
-                    'min_length' => 'NIK KTP kurang dari 16 Angka',
-                    'max_length' => 'NIK KTP lebih dari 16 Angka'
-                ]
-            ],
-            'no_kk' => [
-                'rules' => 'required|numeric',
-                'errors' => [
-                    'required' => 'No KK harus diisi!',
-                    'numeric' => 'No KK harus angka!'
-                ]
-            ],
-            'password' => [
-                'rules' => 'required|matches[password_conf]|min_length[5]',
-                'errors' => [
-                    'required' => 'Password harus diisi!',
-                    'matches' => 'Password tidak sama dengan Konfirmasi Password!',
-                    'min_length' => 'Password kurang dari 5 karakter!',
-                ]
-            ],
-            'password_conf' => [
-                'rules' => 'required|matches[password]',
-                'errors' => [
-                    'required' => 'Konfirmasi Password harus diisi!',
-                    'matches' => 'Konfirmasi Password tidak sama dengan Password!'
-                ]
-            ],
-            'nama_lengkap' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Lengkap harus diisi!',
-                ]
-            ],
-            'email' => [
-                'rules' => 'required|valid_email',
-                'errors' => [
-                    'required' => 'Email harus diisi!',
-                    'valid_email' => 'Email tidak valid!',
-                ]
-            ],
-            'jenis_kelamin' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jenis Kelamin harus diisi!',
-                ]
-            ],
-            'tempat_lahir' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tempat Lahir harus diisi!',
-                ]
-            ],
-            'tanggal_lahir' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tanggal Lahir harus diisi!',
-                ]
-            ],
-            'alamat' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Alamat harus diisi!',
-                ]
-            ],
-            'desa_kelurahan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Desa / Kelurahan harus diisi!',
-                ]
-            ],
-            'kecamatan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kecamatan harus diisi!',
-                ]
-            ],
-            'kabupaten' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kabupaten harus diisi!',
-                ]
-            ],
-            'provinsi' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Provinsi harus diisi!',
-                ]
-            ],
-            'nama_ayah' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Ayah harus diisi!',
-                ]
-            ],
-            'nama_ibu' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Ibu harus diisi!',
-                ]
-            ],
-            'no_hp_santri' => [
-                'rules' => 'required|numeric',
-                'errors' => [
-                    'required' => 'No HP harus diisi!',
-                    'numeric' => 'No HP harus angka!',
-                ]
-            ],
-            'no_hp_wali' => [
-                'rules' => 'required|numeric',
-                'errors' => [
-                    'required' => 'No HP harus diisi!',
-                    'numeric' => 'No HP harus angka!',
-                ]
-            ],
-            'catatan_medis' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Catatan Medis harus diisi!',
-                ]
-            ],
-            'pendidikan_terakhir' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Pendidikan Terakhir harus diisi!',
-                ]
-            ],
-            'pengalaman_mondok' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Pengalaman Mondok harus diisi!',
-                ]
-            ],
-            'pendidikan_sekarang' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Pendidikan Sekarang harus diisi!',
-                ]
-            ],
-            'pekerjaan_ortu' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Pekerjaan Ortu Sekarang harus diisi!',
-                ]
-            ],
-            'gol_darah' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Golongan Darah harus diisi!',
-                ]
-            ],
-            'nisn_nim' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'NISN / NIM harus diisi!',
-                ]
-            ],
-            'nama_almet' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Almamater harus diisi!',
-                ]
-            ],
-            'kelas_semester' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kelas / Semester harus diisi!',
-                ]
-            ],
-            'jurusan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jurusan harus diisi!',
-                ]
-            ],
-            'id_program' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Program harus diisi!',
-                ]
-            ],
-            'id_diniyah' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Diniyah harus diisi!',
-                ]
-            ],
-            'id_kelas' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kelas harus diisi!',
-                ]
-            ],
-            'id_kamar' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kamar harus diisi!',
-                ]
-            ],
-            'jenis_kendaraan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jenis Kendaraan harus diisi!',
-                ]
-            ],
-            'plat_nomor' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Plat Nomor harus diisi!',
-                ]
-            ],
-        ])) {
+        if (!$this->validate('saveSantri')) {
             return redirect()->to('/santri/add')->withInput();
         }
-
         $this->ortu->save([
             'nama_ayah' => $this->request->getVar('nama_ayah'),
             'nama_ibu' => $this->request->getVar('nama_ibu'),
             'no_hp_wali' => $this->request->getVar('no_hp_wali'),
             'pekerjaan_ortu' => $this->request->getVar('pekerjaan_ortu'),
         ]);
-
         $idOrtu = $this->ortu->getID();
-
-
         $this->santri->save([
             'nis' => $this->request->getVar('nis'),
             'nik_ktp' => $this->request->getVar('nik_ktp'),
@@ -486,7 +258,6 @@ class Santri extends BaseController
 
     public function update($id)
     {
-        $id =  $this->request->getVar('id_santri');
         $id_orangtua =  $this->request->getVar('id_orangtua');
         if (!$this->validate([
             'nis' => [
@@ -1463,9 +1234,7 @@ class Santri extends BaseController
                 'deleted_at' => date("Y-m-d h:i"),
             ]);
             session()->setFlashdata('message', 'Data Berhasil Di Hapus');
-            $data = [
-                'sukses' => 'Data berhasil di hapus'
-            ];
+            $data = ['sukses' => 'Data berhasil di hapus'];
         }
         echo json_encode($data);
     }

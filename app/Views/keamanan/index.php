@@ -19,7 +19,7 @@
                 <button class="close" data-dismiss="alert">
                     <span>×</span>
                 </button>
-                <?php session()->getFlashdata('message'); ?>
+                <?= session()->getFlashdata('message'); ?>
             </div>
         </div>
     <?php endif; ?>

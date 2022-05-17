@@ -21,7 +21,8 @@ class Pendaftaran extends BaseController
   {
     $data = [
       'title' => 'Pendaftaran Santri Baru',
-      'santri' => $this->santri->where('status', 'Baru')->where('updated_at', null)->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->findAll(),
+      'santri' => $this->santri->where('status', 'Baru')->where('updated_at', null)
+        ->join('orangtua', 'orangtua.id_orangtua = santri.id_orangtua')->findAll(),
     ];
     $query = $this->db->query("SELECT santri.id_santri FROM santri
     LEFT JOIN keuangan  ON keuangan.id_santri = santri.id_santri
@@ -64,10 +65,7 @@ class Pendaftaran extends BaseController
 
   public function accept($id)
   {
-    $this->santri->save([
-      'id_santri' => $id,
-      'status' => 'Non Aktif'
-    ]);
+    $this->santri->update(['id_santri' => $id], ['status' => 'Non Aktif']);
     session()->setFlashdata('message', 'santri berhasil Diterima');
     return redirect()->to('/pendaftaran');
   }
@@ -387,13 +385,13 @@ class Pendaftaran extends BaseController
         } else {
           $nama_image = $img->getRandomName();
           $img->move('uploads/transfer', $nama_image);
-          $save = $this->model->save([
-            'id_keuangan' => $id_keuangan,
+          $data = [
             'jumlah_bayar' => $tagihan,
             'ket_bayar' => $keterangan,
             'periode' => date("Y-m-d h:i"),
             'bukti' => $nama_image,
-          ]);
+          ];
+          $save = $this->model->update(['id_keuangan' => $id_keuangan], $data);
           if ($save != '') {
             $jumlah_tagihan = $this->tagihan->get_tagihan();
             $id_santri = $this->request->getVar('id_santri');
@@ -443,14 +441,9 @@ class Pendaftaran extends BaseController
   {
     $id_santri = $this->request->getVar('id_santri');
     if ($this->request->isAJAX()) {
-      $this->santri->save([
-        'id_santri' => $id_santri,
-        'status' => 'Baru'
-      ]);
+      $this->santri->update(['id_santri' => $id_santri], ['status' => 'Baru']);
       session()->setFlashdata('message', 'santri berhasil Diterima');
-      $data = [
-        'sukses' => 'Data Berhasil Di Terima'
-      ];
+      $data = ['sukses' => 'Data Berhasil Di Terima'];
     }
     echo json_encode($data);
   }

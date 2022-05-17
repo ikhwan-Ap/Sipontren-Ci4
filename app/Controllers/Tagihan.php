@@ -134,10 +134,7 @@ class Tagihan extends BaseController
             return redirect()->to('/tagihan/edit/' . $this->request->getVar('nama_pembayaran'))->withInput();
         }
 
-        $this->tagihan->save([
-            'id_tagihan' => $id,
-            'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
-        ]);
+        $this->tagihan->save(['id_tagihan' => $id], ['nama_pembayaran' => $this->request->getVar('nama_pembayaran')]);
 
         session()->setFlashdata('message', 'Data Tagihan Berhasil Di Ubah');
 
@@ -174,10 +171,9 @@ class Tagihan extends BaseController
             return redirect()->to('/tagihan/edit_rutin/' . $this->request->getVar('nama_pembayaran'))->withInput();
         }
 
-        $this->tagihan->save([
-            'id_tagihan' => $id,
+        $this->tagihan->update(['id_tagihan' => $id], [
             'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
-            'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran'),
+            'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran')
         ]);
 
         session()->setFlashdata('message', 'Data Tagihan Berhasil Di Ubah');
@@ -215,10 +211,9 @@ class Tagihan extends BaseController
             return redirect()->to('/tagihan/edit_regis/' . $this->request->getVar('nama_pembayaran'))->withInput();
         }
 
-        $this->tagihan->save([
-            'id_tagihan' => $id,
+        $this->tagihan->save(['id_tagihan' => $id], [
             'nama_pembayaran' => $this->request->getVar('nama_pembayaran'),
-            'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran'),
+            'jumlah_pembayaran' => $this->request->getVar('jumlah_pembayaran')
         ]);
 
         session()->setFlashdata('message', 'Data Tagihan Berhasil Di Ubah');

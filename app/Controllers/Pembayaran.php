@@ -998,14 +998,15 @@ class Pembayaran extends BaseController
         ])) {
             return redirect()->to('/pembayaran/edit' . $this->request->getVar('id_keuangan'))->withInput();
         }
-        $this->model->save([
+        $data = [
             'id_keuangan' => $id,
             'waktu' => $this->request->getVar('waktu'),
             'id_santri' => $this->request->getVar('id_santri'),
             'id_tagihan' => $this->request->getVar('id_tagihan'),
             'status_pembayaran' => 'Belum Lunas',
 
-        ]);
+        ];
+        $this->model->update(['id_keuangan' => $id], $data);
         session()->setFlashdata('message', 'Data Berhasil Di Tambahkan');
 
         return redirect()->to('/pembayaran');
@@ -1022,7 +1023,6 @@ class Pembayaran extends BaseController
     }
     public function update_lain($id)
     {
-        $id_keuangan = $this->request->getVar('id_keuangan');
         if (!$this->validate([
             'jumlah_bayar' => [
                 'rules' => 'required|',
@@ -1031,9 +1031,9 @@ class Pembayaran extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/pembayaran/bayar_lain/' . $id_keuangan)->withInput();
+            return redirect()->to('/pembayaran/bayar_lain/' . $id)->withInput();
         }
-        $keuangan = $this->model->bayar_daftar_ulang($id_keuangan);
+        $keuangan = $this->model->bayar_daftar_ulang($id);
         foreach ($keuangan as $bayar) {
             $tagihan = $bayar['jumlah_bayar'];
             $pembayaran = $bayar['jumlah_tagihan'];
@@ -1047,12 +1047,11 @@ class Pembayaran extends BaseController
 
         if ($total > $pembayaran) {
             session()->setFlashdata('message', 'Pembayaran Melebihi Jumlah Tagihan');
-            return redirect()->to('/pembayaran/bayar_lain/' . $id_keuangan)->withInput();
+            return redirect()->to('/pembayaran/bayar_lain/' . $id)->withInput();
         } else {
-            $this->model->save([
-                'id_keuangan' => $id_keuangan,
+            $this->model->update(['id_keuangan' => $id], [
                 'jumlah_bayar' => $total,
-                'periode' => date("Y-m-d h:i"),
+                'periode' => date("Y-m-d h:i")
             ]);
         }
         session()->setFlashdata('message', 'Pembayaran Berhasil');
@@ -1097,8 +1096,7 @@ class Pembayaran extends BaseController
             session()->setFlashdata('message', 'Pembayaran Melebihi Jumlah Tagihan');
             return redirect()->to('/pembayaran/bayar_lainnya/' . $id_keuangan)->withInput();
         } else {
-            $this->model->save([
-                'id_keuangan' => $id_keuangan,
+            $this->model->update(['id_keuangan' => $id_keuangan], [
                 'jumlah_bayar' => $total,
                 'periode' => date("Y-m-d h:i"),
             ]);
@@ -1107,8 +1105,6 @@ class Pembayaran extends BaseController
 
         return redirect()->to('/lainnya');
     }
-
-
 
 
     public function delete($id)

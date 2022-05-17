@@ -45,19 +45,14 @@ class Kamar extends BaseController
         ])) {
             return redirect()->to('/kamar/add')->withInput();
         }
-
-        $this->model->save([
-            'nama_kamar' => $this->request->getVar('nama_kamar'),
-        ]);
-
+        $this->model->save(['nama_kamar' => $this->request->getVar('nama_kamar'),]);
         session()->setFlashdata('message', 'Data Kamar Berhasil Di Tambahkan!!');
-
         return redirect()->to('/kamar');
     }
 
     public function delete($id)
     {
-        $this->model->delete($id);
+        $this->model->delete(['id_kamar' => $id]);
         session()->setFlashdata('message', 'Data Kamar Berhasil Di Hapus!!');
         return redirect()->to('/kamar');
     }
@@ -77,22 +72,17 @@ class Kamar extends BaseController
     {
         if (!$this->validate([
             'nama_kamar' => [
-                'rules' => 'required',
+                'rules' => "required|is_unique[kamar.nama_kamar,id_kamar,$id]",
                 'errors' => [
                     'required' => 'Nama kamar harus diisi!',
+                    'is_unique' => 'Nama kamar sudah terdaftar!'
                 ]
             ],
         ])) {
             return redirect()->to('/kamar/edit/' . $this->request->getVar('nama_kamar'))->withInput();
         }
-
-        $this->model->save([
-            'id_kamar' => $id,
-            'nama_kamar' => $this->request->getVar('nama_kamar'),
-        ]);
-
+        $this->model->update(['id_kamar' => $id], ['nama_kamar' => $this->request->getVar('nama_kamar')]);
         session()->setFlashdata('message', 'Data Kamar Berhasil Di Ubah!!');
-
         return redirect()->to('/kamar');
     }
 }

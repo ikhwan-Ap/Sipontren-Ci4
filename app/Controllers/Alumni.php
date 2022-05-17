@@ -84,106 +84,8 @@ class Alumni extends BaseController
     public function add_alumni()
     {
         $validation = \Config\Services::validation();
-
-
-
         if ($this->request->isAJAX()) {
-            $nis = $this->request->getVar('nis');
-            $no_kk = $this->request->getVar('no_kk');
-            $nik_ktp = $this->request->getVar('nik_ktp');
-            $nama_lengkap = $this->request->getVar('nama_lengkap');
-            $email = $this->request->getVar('email');
-            $tempat_lahir = $this->request->getVar('tempat_lahir');
-            $tanggal_lahir = $this->request->getVar('tanggal_lahir');
-            $alamat = $this->request->getVar('alamat');
-            $no_hp_santri = $this->request->getVar('no_hp_santri');
-            $jenis_kelamin = $this->request->getVar('jenis_kelamin');
-            $pendidikan_terakhir = $this->request->getVar('pendidikan_terakhir');
-            $pendidikan_sekarang = $this->request->getVar('pendidikan_sekarang');
-
-            $valid = $this->validate([
-                'nis' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'nis harus diisi!',
-                    ]
-                ],
-                'nik_ktp' => [
-                    'rules' => 'required|numeric|min_length[16]|max_length[16]|is_unique[santri.nik_ktp]',
-                    'errors' => [
-                        'required' => 'NIK KTP harus diisi!',
-                        'numeric' => 'NIK KTP harus angka!',
-                        'is_unique' => 'NIK KTP TELAH TERDAFTAR !!!',
-                        'min_length' => 'Nik KTP kurang dari 16'
-                    ]
-                ],
-                'no_kk' => [
-                    'rules' => 'required|numeric|min_length[16]|max_length[16]',
-                    'errors' => [
-                        'required' => 'No KK harus diisi!',
-                        'numeric' => 'No KK harus angka!',
-                        'min_length' => 'Nomor KK kurang dari 16 !!!'
-                    ]
-                ],
-                'nama_lengkap' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Nama Lengkap harus diisi!',
-                    ]
-                ],
-                'email' => [
-                    'rules' => 'required|valid_email',
-                    'errors' => [
-                        'required' => 'Email harus diisi!',
-                        'valid_email' => 'Email tidak valid!',
-                    ]
-                ],
-                'jenis_kelamin' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Jenis Kelamin harus diisi!',
-                    ]
-                ],
-                'tempat_lahir' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Tempat Lahir harus diisi!',
-                    ]
-                ],
-                'tanggal_lahir' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Tanggal Lahir harus diisi!',
-                    ]
-                ],
-                'alamat' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Alamat harus diisi!',
-                    ]
-                ],
-                'no_hp_santri' => [
-                    'rules' => 'required|numeric|min_length[11]|max_length[16]',
-                    'errors' => [
-                        'required' => 'No HP harus diisi!',
-                        'numeric' => 'No HP harus angka!',
-                    ]
-                ],
-                'pendidikan_terakhir' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'pendidikan terakhir harus diisi!',
-                    ]
-                ],
-                'pendidikan_sekarang' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'pendidikan harus diisi!',
-                    ]
-                ],
-            ]);
-
-
+            $valid = $this->validate('alumni');
             if (!$valid) {
                 $data = [
                     'error' => [
@@ -217,14 +119,9 @@ class Alumni extends BaseController
                     'pendidikan_terakhir' => $this->request->getVar('pendidikan_terakhir'),
                     'pendidikan_sekarang' => $this->request->getVar('pendidikan_sekarang'),
                 ]);
-
                 session()->setFlashdata('message', 'Data Alumni Berhasil Di Tambahkan');
-
-                $data = [
-                    'sukses' => 'Data berhasil di tambahkan',
-                ];
+                $data = ['sukses' => 'Data berhasil di tambahkan',];
             }
-
             echo json_encode($data);
         }
     }
@@ -243,11 +140,8 @@ class Alumni extends BaseController
 
     public function deleteAlumni()
     {
-        $id_santri = $this->request->getVar('id_santri');
-        $data =  $this->santri->delAlumni($id_santri);
-        $data = [
-            'sukses' => 'Data berhasil di hapus',
-        ];
+        $data =  $this->santri->delete(['id_santri' => $this->request->getVar('id_santri')]);
+        $data = ['sukses' => 'Data berhasil di hapus',];
         echo json_encode($data);
     }
 
@@ -258,107 +152,16 @@ class Alumni extends BaseController
             'id_santri' => $id_santri,
             'deleted_at' => date("Y-m-d h:i"),
         ]);
-        $data = [
-            'sukses' => 'Data berhasil di hapus',
-        ];
+        $data = ['sukses' => 'Data berhasil di hapus',];
         echo json_encode($data);
     }
 
     public function update_alumni()
     {
         $validation = \Config\Services::validation();
-
-
-
+        $id_santri = $this->request->getVar('id_santri');
         if ($this->request->isAJAX()) {
-
-            $id_santri = $this->request->getVar('id_santri');
-
-
-            $valid = $this->validate([
-                'nis' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'nis harus diisi!',
-                    ]
-                ],
-                'nik_ktp' => [
-                    'rules' => "required|numeric|min_length[16]|max_length[16]|is_unique[santri.nik_ktp,id_santri,$id_santri]",
-                    'errors' => [
-                        'required' => 'NIK KTP harus diisi!',
-                        'numeric' => 'NIK KTP harus angka!',
-                        'min_length' => 'Nik KTP kurang dari 16',
-                        'is_unique' => 'Nik KTP Telah tersedia'
-                    ]
-                ],
-                'no_kk' => [
-                    'rules' => 'required|numeric|min_length[16]|max_length[16]',
-                    'errors' => [
-                        'required' => 'No KK harus diisi!',
-                        'numeric' => 'No KK harus angka!',
-                        'min_length' => 'Nomor KK kurang dari 16 !!!'
-                    ]
-                ],
-                'nama_lengkap' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Nama Lengkap harus diisi!',
-                    ]
-                ],
-                'email' => [
-                    'rules' => 'required|valid_email',
-                    'errors' => [
-                        'required' => 'Email harus diisi!',
-                        'valid_email' => 'Email tidak valid!',
-                    ]
-                ],
-                'jenis_kelamin' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Jenis Kelamin harus diisi!',
-                    ]
-                ],
-                'tempat_lahir' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Tempat Lahir harus diisi!',
-                    ]
-                ],
-                'tanggal_lahir' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Tanggal Lahir harus diisi!',
-                    ]
-                ],
-                'alamat' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Alamat harus diisi!',
-                    ]
-                ],
-                'no_hp_santri' => [
-                    'rules' => 'required|numeric|min_length[11]|max_length[16]',
-                    'errors' => [
-                        'required' => 'No HP harus diisi!',
-                        'numeric' => 'No HP harus angka!',
-                    ]
-                ],
-                'pendidikan_terakhir' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'pendidikan terakhir harus diisi!',
-                    ]
-                ],
-                'pendidikan_sekarang' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'pendidikan harus diisi!',
-                    ]
-                ],
-            ]);
-
-
-            if (!$valid) {
+            if (!$this->validate('alumni')) {
                 $data = [
                     'error' => [
                         'errorNik' => $validation->getError('nik_ktp'),
@@ -391,11 +194,7 @@ class Alumni extends BaseController
                     'pendidikan_terakhir' => $this->request->getVar('pendidikan_terakhir'),
                     'pendidikan_sekarang' => $this->request->getVar('pendidikan_sekarang'),
                 ];
-
-                $this->santri->updateAlumni($id_santri, $data);
-
-
-
+                $this->santri->update(['id_santri' => $id_santri], $data);
                 $data = [
                     'sukses' => 'Data berhasil di Ubah',
                 ];

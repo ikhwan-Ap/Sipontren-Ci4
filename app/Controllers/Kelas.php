@@ -88,7 +88,7 @@ class Kelas extends BaseController
     {
         if (!$this->validate([
             'nama_kelas' => [
-                'rules' => 'required',
+                'rules' => "required|is_unique[kelas.nama_kelas,id_kelas,$id]",
                 'errors' => [
                     'required' => 'Nama kelas harus diisi!',
                 ]
@@ -102,12 +102,12 @@ class Kelas extends BaseController
         ])) {
             return redirect()->to('/kelas/edit/' . $this->request->getVar('nama_kelas'))->withInput();
         }
-
-        $this->model->save([
+        $data = [
             'id_kelas' => $id,
             'nama_kelas' => $this->request->getVar('nama_kelas'),
             'id_tagihan' => $this->request->getVar('id_tagihan')
-        ]);
+        ];
+        $this->model->update(['id_kelas' => $id], $data);
 
         session()->setFlashdata('message', 'Data Kelas Berhasil Di Ubah');
 

@@ -25,13 +25,8 @@ class Provinsi extends ResourceController
         $errors = $this->validation->getErrors();
 
 
-        if ($errors) {
-            return $this->fail($errors);
-        }
-        $this->model->save(
-            [
-                'nama_provinsi' => $this->request->getVar('nama_provinsi')
-            ]
-        );
+        if ($errors) return $this->fail($errors);
+
+        $this->model->save(['nama_provinsi' => $this->request->getVar('nama_provinsi')]);
     }
 }

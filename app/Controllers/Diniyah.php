@@ -36,7 +36,7 @@ class Diniyah extends BaseController
     {
         if (!$this->validate([
             'nama_diniyah' => [
-                'rules' => 'required|is_unique[diniyah.nama_diniyah]',
+                'rules' => 'required|is_unique[diniyah.nama_diniyah,id_diniyah,{id_diniyah}]',
                 'errors' => [
                     'required' => 'Nama diniyah harus diisi!',
                     'is_unique' => 'Nama diniyah sudah terdaftar!'
@@ -45,10 +45,7 @@ class Diniyah extends BaseController
         ])) {
             return redirect()->to('/diniyah/add')->withInput();
         }
-
-        $this->model->save([
-            'nama_diniyah' => $this->request->getVar('nama_diniyah'),
-        ]);
+        $this->model->save(['nama_diniyah' => $this->request->getVar('nama_diniyah')]);
 
         session()->setFlashdata('message', 'Data diniyah berhasil ditambahkan!');
 
@@ -57,7 +54,7 @@ class Diniyah extends BaseController
 
     public function delete($id)
     {
-        $this->model->delete($id);
+        $this->model->delete(['id_diniyah' => $id]);
         session()->setFlashdata('message', 'Data diniyah berhasil dihapus!');
         return redirect()->to('/diniyah');
     }
@@ -77,22 +74,17 @@ class Diniyah extends BaseController
     {
         if (!$this->validate([
             'nama_diniyah' => [
-                'rules' => 'required',
+                'rules' => "required|is_unique[diniyah.nama_diniyah,id_diniyah,$id]",
                 'errors' => [
                     'required' => 'Nama diniyah harus diisi!',
+                    'is_unique' => 'Nama diniyah sudah terdaftar!'
                 ]
             ],
         ])) {
             return redirect()->to('/diniyah/edit/' . $this->request->getVar('nama_diniyah'))->withInput();
         }
-
-        $this->model->save([
-            'id_diniyah' => $id,
-            'nama_diniyah' => $this->request->getVar('nama_diniyah'),
-        ]);
-
+        $this->model->update(['id_diniyah' => $id], ['nama_diniyah' => $this->request->getVar('nama_diniyah')]);
         session()->setFlashdata('message', 'Data diniyah berhasil diubah!');
-
         return redirect()->to('/diniyah');
     }
 }

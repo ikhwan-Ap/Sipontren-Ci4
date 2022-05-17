@@ -81,8 +81,7 @@ class Trash extends BaseController
         'deleted_at' => null
       ]);
     }
-    session()->setFlashdata('message', '
-      Data Asatidz Kembali Di restore');
+    session()->setFlashdata('message', ' Data Asatidz Kembali Di restore');
     return redirect()->to('/trash_baru');
   }
 
@@ -145,8 +144,7 @@ class Trash extends BaseController
     $id_orangtua = $this->request->getVar('id_orangtua');
     $this->db->table('santri')->where('id_santri', $id_santri)->delete();
     $this->db->table('orangtua')->delete($id_orangtua);
-    session()->setFlashdata('message', '
-          Data Santri Non Aktif Berhasil Di hapus');
+    session()->setFlashdata('message', 'Data Santri Non Aktif Berhasil Di hapus');
     return redirect()->to('/trash_nonAktif');
   }
 
@@ -154,8 +152,7 @@ class Trash extends BaseController
   {
     $id_asatidz = $this->request->getVar('id');
     $this->db->table('asatidz')->where('id_asatidz', $id_asatidz)->delete();
-    session()->setFlashdata('message', '
-          Data Asatidz Telah Berhasil Di hapus');
+    session()->setFlashdata('message', 'Data Asatidz Telah Berhasil Di hapus');
     return redirect()->to('/trash_asatidz');
   }
 

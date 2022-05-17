@@ -1,0 +1,203 @@
+CRITICAL - 2022-05-15 00:59:48 --> There is no data to update.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(846): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(Array, Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(156): CodeIgniter\Model->update(Array, Array)
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->update('2')
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-05-15 01:10:53 --> Undefined property: App\Controllers\Asatidz::$model
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Asatidz.php(328): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 328)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->update('2')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-05-15 01:11:41 --> Undefined property: App\Controllers\Asatidz::$model
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Asatidz.php(328): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 328)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->update('2')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-05-15 01:11:47 --> Undefined property: App\Controllers\Asatidz::$model
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Asatidz.php(328): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Lenovo...', 328)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->update('2')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#6 {main}
+CRITICAL - 2022-05-15 01:26:18 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 01:46:32 --> There is no data to update.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(1574): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray(NULL, 'update')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(Array, NULL)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Kamar.php(84): CodeIgniter\Model->update(Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Kamar->update('2')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kamar))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-05-15 01:47:27 --> There is no data to update.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(1574): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray(NULL, 'update')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(Array, NULL)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Kamar.php(85): CodeIgniter\Model->update(Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Kamar->update('2')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kamar))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-05-15 01:47:36 --> There is no data to update.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(1574): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray(NULL, 'update')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(Array, NULL)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Kamar.php(85): CodeIgniter\Model->update(Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Kamar->update('2')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kamar))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-05-15 01:48:07 --> There is no data to update.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(1574): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray(NULL, 'update')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(Array, NULL)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Kamar.php(86): CodeIgniter\Model->update(Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Kamar->update('2')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kamar))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-05-15 01:48:23 --> There is no data to update.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(1574): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray(NULL, 'update')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(Array, NULL)
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Kamar.php(86): CodeIgniter\Model->update(Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Kamar->update('3')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kamar))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-05-15 01:50:37 --> Trying to access array offset on value of type null
+#0 C:\Users\Lenovo\Desktop\sipontren\app\Views\program\edit.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Lenovo...', 19)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\Lenovo...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Common.php(1097): CodeIgniter\View\View->render('program/edit', Array, true)
+#4 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Program.php(73): view('program/edit', Array)
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Program->edit('Bahasa')
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Program))
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#10 {main}
+CRITICAL - 2022-05-15 01:51:06 --> CodeIgniter\BaseModel::transformDataToArray(): Return value must be of type array, string returned
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray('Aulaa', 'update')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(Array, 'Aulaa')
+#2 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Gedung.php(89): CodeIgniter\Model->update(Array, 'Aulaa')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Gedung->update('1')
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gedung))
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#8 {main}
+CRITICAL - 2022-05-15 05:46:56 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 05:47:35 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 05:48:16 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 05:48:24 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 05:49:05 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 05:49:23 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 06:58:25 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 06:59:56 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-15 07:06:13 --> havePasswordAsatidz is not a valid rule.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Validation.php(285): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('havePasswordAsa...')
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Validation.php(151): CodeIgniter\Validation\Validation->processRules('0', '0', NULL, Array, Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Asatidz.php(209): CodeIgniter\Controller->validate(Array, Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->update('2')
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+ERROR - 2022-05-15 07:08:53 --> Unknown column 'id_asatidz' in 'where clause'
+CRITICAL - 2022-05-15 07:08:53 --> Unknown column 'id_asatidz' in 'where clause'
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Rules.php(161): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Validation.php(277): CodeIgniter\Validation\Rules->is_unique('111122222233333...', 'nik_ktp', Array, NULL)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Validation.php(151): CodeIgniter\Validation\Validation->processRules('nik_ktp', 'nik_ktp', '111122222233333...', Array, Array)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Asatidz.php(208): CodeIgniter\Controller->validate(Array)
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Asatidz->update('5')
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asatidz))
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+ERROR - 2022-05-15 07:17:11 --> Duplicate entry 'cadutss' for key 'username'
+CRITICAL - 2022-05-15 07:17:11 --> Duplicate entry 'cadutss' for key 'username'
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Keamanan.php(53): CodeIgniter\BaseModel->save(Array)
+#9 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Keamanan->save()
+#10 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keamanan))
+#11 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#14 {main}
+CRITICAL - 2022-05-15 07:19:45 --> CodeIgniter\Validation\Rules::is_unique(): Argument #2 ($field) must be of type string, null given, called in C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Validation.php on line 277
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Validation.php(277): CodeIgniter\Validation\Rules->is_unique('cadutss', NULL)
+#1 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Validation\Validation.php(151): CodeIgniter\Validation\Validation->processRules('username', 'username', 'cadutss', Array, Array)
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Keamanan.php(44): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Keamanan->save()
+#5 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keamanan))
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#9 {main}
+CRITICAL - 2022-05-15 07:28:38 --> noPasswordAdmin is not a valid rule.
+#0 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Controller.php(148): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('noPasswordAdmin')
+#1 C:\Users\Lenovo\Desktop\sipontren\app\Controllers\Admin.php(122): CodeIgniter\Controller->validate('noPasswordAdmin')
+#2 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(824): App\Controllers\Admin->update('2')
+#3 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#4 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Lenovo\Desktop\sipontren\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Lenovo\Desktop\sipontren\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Lenovo...')
+#7 {main}

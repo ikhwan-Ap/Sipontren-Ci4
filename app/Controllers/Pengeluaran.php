@@ -67,25 +67,17 @@ class Pengeluaran extends BaseController
             $valid = $this->validate([
                 'nama_pengeluaran' => [
                     'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Nama Pengeluaran Harus diisi!',
-                    ]
+                    'errors' => ['required' => 'Nama Pengeluaran Harus diisi!',]
                 ],
             ]);
             if (!$valid) {
                 $data = [
-                    'error' => [
-                        'errorNama' => $validation->getError('nama_pengeluaran'),
-                    ]
+                    'error' => ['errorNama' => $validation->getError('nama_pengeluaran'),]
                 ];
             } else {
-                $this->data_pengeluaran->save([
-                    'nama_pengeluaran' => $nama_pengeluaran
-                ]);
+                $this->data_pengeluaran->save(['nama_pengeluaran' => $nama_pengeluaran]);
                 session()->setFlashdata('message', 'Data Berhasil Di Tambahkan');
-                $data = [
-                    'sukses' => 'Data Berhasil Di Tambahakan'
-                ];
+                $data = ['sukses' => 'Data Berhasil Di Tambahakan'];
             }
         }
         echo json_encode($data);
@@ -106,26 +98,17 @@ class Pengeluaran extends BaseController
             $valid = $this->validate([
                 'nama_pengeluaran' => [
                     'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Nama Pengeluaran Harus diisi!',
-                    ]
+                    'errors' => ['required' => 'Nama Pengeluaran Harus diisi!',]
                 ],
             ]);
             if (!$valid) {
                 $data = [
-                    'error' => [
-                        'errorNama' => $validation->getError('nama_pengeluaran'),
-                    ]
+                    'error' => ['errorNama' => $validation->getError('nama_pengeluaran'),]
                 ];
             } else {
-                $this->data_pengeluaran->save([
-                    'id_keluar' => $id_keluar,
-                    'nama_pengeluaran' => $nama_pengeluaran
-                ]);
+                $this->data_pengeluaran->update(['id_keluar' => $id_keluar], ['nama_pengeluaran' => $nama_pengeluaran]);
                 session()->setFlashdata('message', 'Data Berhasil Di Ubah');
-                $data = [
-                    'sukses' => 'Data Berhasil Di Ubah'
-                ];
+                $data = ['sukses' => 'Data Berhasil Di Ubah'];
             }
         }
         echo json_encode($data);
@@ -200,10 +183,7 @@ class Pengeluaran extends BaseController
             return redirect()->to('/pengeluaran/edit/' . $this->request->getVar('nama_pengeluaran'))->withInput();
         }
 
-        $this->data_pengeluaran->save([
-            'id_tagihan' => $id,
-            'nama_pengeluaran' => $this->request->getVar('nama_pengeluaran'),
-        ]);
+        $this->data_pengeluaran->update(['id_tagihan' => $id], ['nama_pengeluaran' => $this->request->getVar('nama_pengeluaran'),]);
 
         session()->setFlashdata('message', 'Data Tagihan Berhasil Di Ubah');
 
